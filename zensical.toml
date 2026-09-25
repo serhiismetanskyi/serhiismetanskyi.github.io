@@ -17,7 +17,6 @@ extra_css = [
   "css/docs.css",    # база знань
   "css/pages.css",   # About, Contact, Tags, Archive, 404
   "css/cv.css",      # резюме й друк у PDF
-  "css/home-preview.css",  # чернетка нової головної (/home-preview/)
 ]
 
 # Скрипти (docs/js/); feed.js — спільний помічник, тому перед latest-posts.js і archive.js
