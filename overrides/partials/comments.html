@@ -1,0 +1,5 @@
+{#- Точка підключення теми під контентом сторінки (тут тема показує коментарі).
+    У нас — кнопки «Share», лише в постах блогу (тільки в них є page.config.date) -#}
+{% if page.config is defined and page.config.date is defined %}
+  {% include "partials/share.html" %}
+{% endif %}

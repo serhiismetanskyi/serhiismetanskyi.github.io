@@ -1,0 +1,181 @@
+/* ==========================================================================
+   Головна сторінка
+   ========================================================================== */
+
+/* Вузька колонка по центру */
+.md-content__inner:has(.hero) {
+  max-width: 38rem;
+  margin: 0 auto 5rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+/* Автоматичний заголовок «Home» ховаємо (лишається у <title> вкладки) */
+.md-content__inner:has(.hero) > h1 {
+  display: none;
+}
+
+/* Абзац з аватаром */
+.hero > p {
+  color: var(--md-default-fg-color--light);
+  line-height: 1.7;
+  margin: 0.4em 0;
+}
+
+/* ---------- Аватар ---------- */
+.hero .avatar {
+  width: 11rem;
+  height: 11rem;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-top: 3rem;
+  box-shadow:
+    0 0 0 6px var(--md-default-bg-color),
+    0 0 0 8px var(--md-primary-fg-color);
+  transition: transform 300ms var(--lift-ease), box-shadow 300ms var(--lift-ease);
+}
+
+.hero .avatar:hover {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 0 6px var(--md-default-bg-color),
+    0 0 0 8px var(--md-primary-fg-color),
+    0 12px 40px -8px color-mix(in srgb, var(--md-primary-fg-color) 45%, transparent);
+}
+
+/* ---------- Привітання й підзаголовок ---------- */
+.hero .hero-title {
+  font-size: 2.1em;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+}
+
+.hero .hero-title p,
+.hero .hero-subtitle p {
+  margin: 0;
+}
+
+.hero .hero-subtitle {
+  font-size: 1.25em;
+  line-height: 1.4;
+  color: var(--md-default-fg-color--light);
+  margin: 0.8rem 0 2rem;
+}
+
+/* ---------- Круглі іконки соцмереж ---------- */
+.md-typeset .hero-social p {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1.4rem 0 0;
+}
+
+.md-typeset .hero-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 50%;
+  color: var(--md-default-fg-color--light);
+  text-decoration: none;
+  transition: transform 180ms var(--lift-ease), background-color 150ms, border-color 150ms, color 150ms;
+}
+
+.md-typeset .hero-social a .twemoji,
+.md-typeset .hero-social a svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.md-typeset .hero-social a:hover,
+.md-typeset .hero-social a:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--md-primary-fg-color);
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+/* ---------- Кнопки Blog / Docs / CV ---------- */
+.hero .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 2.5rem;
+}
+
+.hero .hero-actions p {
+  display: contents;
+}
+
+/* ---------- Останні пости (заповнює js/latest-posts.js) ---------- */
+.md-typeset .latest-posts {
+  margin-top: 3.5rem;
+  text-align: left;
+}
+
+.md-typeset .latest-posts h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .latest-posts ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .latest-posts li {
+  display: flex;
+  gap: 1.2rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .latest-posts li::before {
+  content: none;
+}
+
+.md-typeset .latest-posts time {
+  flex-shrink: 0;
+  width: 6.5rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset .latest-posts a {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.md-typeset .latest-posts a:hover {
+  color: var(--md-primary-fg-color);
+}
+
+/* ---------- Мобільні ---------- */
+@media screen and (max-width: 44.9375em) {
+  .hero .avatar {
+    width: 8.5rem;
+    height: 8.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero .hero-title {
+    font-size: 1.7em;
+  }
+}

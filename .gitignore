@@ -1,0 +1,7 @@
+# Зібраний сайт і кеш Zensical
+site/
+.cache/
+
+# Python
+.venv/
+__pycache__/

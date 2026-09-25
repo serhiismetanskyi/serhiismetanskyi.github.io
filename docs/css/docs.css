@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Docs: огляд бази знань і статті
+   ========================================================================== */
+
+/* ---------- Огляд /docs/: сітка тем ---------- */
+.kb-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 2rem 2.4rem;
+  margin-top: 1.2rem;
+}
+
+/* Групи тем (Architecture & Design, Security, …) */
+.md-content__inner:has(.kb-sections) > h2 {
+  margin-top: 2.4em;
+}
+
+.md-typeset .kb-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0 0 0.3em;
+}
+
+.md-typeset .kb-section h3 .twemoji {
+  flex-shrink: 0;
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .kb-section h3 a {
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.md-typeset .kb-section h3 a:hover {
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .kb-section > p {
+  margin: 0 0 0.6em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Список підрозділів теми з розділювачами; стрілка з'являється при наведенні */
+[dir] .md-typeset .kb-section ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[dir] .md-typeset .kb-section li {
+  margin: 0;
+  padding: 0.35em 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .kb-section li::before {
+  content: none;
+}
+
+.md-typeset .kb-section li a {
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.md-typeset .kb-section li a::after {
+  content: " →";
+  display: inline-block;
+  color: var(--md-primary-fg-color);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 150ms, transform 180ms var(--lift-ease);
+}
+
+.md-typeset .kb-section li a:hover {
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .kb-section li a:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* «All N sections» — акцентним кольором */
+.md-typeset .kb-section li a.kb-more {
+  color: var(--md-primary-fg-color);
+}
+
+/* ---------- Стаття: дата, оновлення й час читання над заголовком ---------- */
+/* (overrides/partials/content.html; іконки ті самі, що в постах блогу) */
+[dir] .md-typeset .page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.2rem;
+  margin: 0 0 0.8rem;
+  padding: 0;
+  list-style: none;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+[dir] .md-typeset .page-meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0;
+}
+
+.md-typeset .page-meta svg {
+  width: 1.1em;
+  height: 1.1em;
+}

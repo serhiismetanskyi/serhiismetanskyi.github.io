@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+
+{% block content %}
+  <div class="not-found">
+    <p class="not-found__code">404</p>
+    <h1>Page not found</h1>
+    <p>The page you are looking for doesn't exist or has been moved.</p>
+    <p class="not-found__actions">
+      <a class="md-button md-button--primary" href="{{ config.site_url | d('/', true) }}">Home</a>
+      <a class="md-button" href="{{ config.site_url | d('/', true) }}blog/">Blog</a>
+    </p>
+  </div>
+{% endblock %}

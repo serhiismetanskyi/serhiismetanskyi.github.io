@@ -1,0 +1,286 @@
+/* ==========================================================================
+   CV: шапка, таймлайн, навички, друк / «Save as PDF»
+   ========================================================================== */
+
+/* ---------- Шапка: фото, ім'я, посада, контакти ---------- */
+.cv-header {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  margin: 0.4rem 0 2rem;
+}
+
+.cv-header .cv-photo {
+  width: 6.5rem;
+  min-width: 6.5rem;
+  height: 6.5rem;
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--md-default-bg-color), 0 0 0 6px var(--md-primary-fg-color);
+}
+
+.cv-intro h1 {
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset .cv-role {
+  margin: 0.2em 0 0.8em;
+  color: var(--md-default-fg-color--light);
+}
+
+/* Контакти — звичайні .md-button (base.css) в один рядок */
+.cv-contacts p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+/* ---------- Таймлайн досвіду й освіти ---------- */
+.timeline {
+  position: relative;
+  margin-left: 0.4rem;
+  padding-left: 1.6rem;
+  border-left: 2px solid var(--md-default-fg-color--lightest);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 1rem;
+  padding-bottom: 1.2rem;
+}
+
+.timeline-item > * {
+  grid-column: 1 / -1;
+}
+
+/* Точка на лінії */
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 0.45rem;
+  left: calc(-1.6rem - 7px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--md-default-bg-color);
+  border: 2px solid var(--md-primary-fg-color);
+  transition: background-color 150ms, transform 180ms var(--lift-ease);
+}
+
+.timeline-item:hover::before {
+  background: var(--md-primary-fg-color);
+  transform: scale(1.2);
+}
+
+.md-typeset .timeline-item h3 {
+  grid-column: 1;
+  margin: 0;
+}
+
+/* Дати в одному рядку з посадою, праворуч */
+.md-typeset .timeline-date {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  margin: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.md-typeset .timeline-item > p:not(.timeline-date) {
+  margin: 0.3em 0 0;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .timeline-item ul {
+  margin-top: 0.5em;
+}
+
+/* ---------- Навички й мови: чіпи ---------- */
+.md-typeset .skills > p {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-typeset .skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.md-typeset .skills ul li {
+  margin: 0;
+  padding: 0.25em 0.8em;
+  border-radius: 999px;
+  background-color: var(--md-accent-fg-color--transparent);
+  color: var(--md-default-fg-color);
+  font-size: 0.75rem;
+  transition: background-color 150ms, color 150ms;
+}
+
+.md-typeset .skills ul li::before {
+  content: none;
+}
+
+.md-typeset .skills ul li:hover {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+/* Згруповані навички: назва групи ліворуч, чіпи праворуч — один рядок на групу */
+.md-typeset .skills:has(> p) {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.45rem 1rem;
+  align-items: baseline;
+}
+
+.md-typeset .skills:has(> p) > p {
+  margin: 0;
+  padding-top: 0.2em;
+  font-size: 0.65rem;
+  line-height: 1.4;
+}
+
+.md-typeset .skills:has(> p) ul {
+  gap: 0.3rem;
+}
+
+.md-typeset .skills:has(> p) ul li {
+  padding: 0.1em 0.65em;
+  font-size: 0.7rem;
+}
+
+/* ---------- Мобільні ---------- */
+@media screen and (max-width: 44.9375em) {
+  .cv-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-item {
+    display: block;
+  }
+
+  .md-typeset .timeline-date {
+    margin-top: 0.2em;
+  }
+
+  .md-typeset .skills:has(> p) {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .md-typeset .skills:has(> p) > p {
+    margin-top: 0.6rem;
+  }
+}
+
+/* ---------- Друк / «Save as PDF»: 3 сторінки A4 ---------- */
+@media print {
+  .cv-print {
+    display: none !important;
+  }
+
+  /* Компактніше на папері */
+  .md-content__inner:has(.cv-header) {
+    font-size: 0.68rem;
+    margin-bottom: 0 !important;
+  }
+
+  .md-content__inner:has(.cv-header) h2 {
+    margin: 1.2em 0 0.5em;
+  }
+
+  /* Кільце навколо фото — тінь за межами блоку; відступ, щоб край друку її не обрізав */
+  .cv-header {
+    padding: 8px 0 0 8px;
+  }
+
+  .cv-header,
+  .cv-header * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Контакти лишаються кнопками-посиланнями (у PDF клікабельні) */
+  .md-typeset .cv-contacts .md-button {
+    border-color: #ccc;
+    color: inherit;
+  }
+
+  /* Таймлайн */
+  .md-content__inner:has(.cv-header) .timeline-item {
+    padding-bottom: 0.6rem;
+  }
+
+  .md-content__inner:has(.cv-header) .timeline-item li {
+    margin-bottom: 0.2em;
+  }
+
+  /* Навички */
+  .md-typeset .skills ul {
+    gap: 0.25rem;
+  }
+
+  .md-typeset .skills ul li {
+    padding: 0.1em 0.6em;
+    border: 1px solid #ccc;
+    background: none;
+  }
+
+  .md-typeset .skills:has(> p) {
+    grid-template-columns: 8.5rem 1fr;
+    gap: 0.2rem 0.8rem;
+  }
+
+  .md-typeset .skills:has(> p) > p {
+    font-size: 0.55rem;
+  }
+
+  .md-typeset .skills:has(> p) ul li {
+    font-size: 0.6rem;
+  }
+
+  /* Розриви сторінок: посада, група навичок і заголовок розділу не рвуться */
+  .md-typeset .timeline-item li,
+  .md-typeset .skills ul {
+    break-inside: avoid;
+  }
+
+  .md-typeset .timeline-date,
+  .md-typeset h2,
+  .md-typeset h3,
+  .md-typeset .skills > p {
+    break-after: avoid;
+  }
+
+  .md-typeset h2 + .timeline,
+  .md-typeset h2 + .skills,
+  .md-typeset h2 + p {
+    break-before: avoid;
+  }
+
+  .md-typeset h2:has(+ .timeline),
+  .md-typeset h2:has(+ .skills) {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+
+  .timeline:has(> .timeline-item:only-child) {
+    break-inside: avoid;
+  }
+}

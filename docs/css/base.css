@@ -1,0 +1,203 @@
+/* ==========================================================================
+   Base: кольори, посилання, кнопки, навігація, спільні елементи.
+   Решта стилів — по розділах: home.css, blog.css, docs.css, pages.css, cv.css.
+   Мобільна межа всюди — 44.9375em (як у теми).
+   ========================================================================== */
+
+/* ---------- Кольори й змінні ---------- */
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        #0f766e;
+  --md-primary-fg-color--light: #14b8a6;
+  --md-primary-fg-color--dark:  #115e59;
+  --md-accent-fg-color:         #0d9488;
+  --md-accent-fg-color--transparent: #0d94881a;
+  --md-typeset-a-color:         #0f766e;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        #2dd4bf;
+  --md-primary-fg-color--light: #5eead4;
+  --md-primary-fg-color--dark:  #14b8a6;
+  --md-accent-fg-color:         #5eead4;
+  --md-accent-fg-color--transparent: #5eead41a;
+  --md-typeset-a-color:         #5eead4;
+  --md-primary-bg-color:        #042f2e;   /* текст на кольорових кнопках */
+}
+
+:root {
+  --lift-ease: cubic-bezier(0.2, 0.7, 0.3, 1);   /* плавність ефектів наведення */
+}
+
+/* ---------- Макет ---------- */
+/* Відступ перед футером на всіх сторінках */
+.md-content__inner {
+  margin-bottom: 5rem;
+}
+
+/* Репозиторій не підключений, а тема все одно резервує під нього місце в шапці —
+   ховаємо порожній блок, щоб пошук стояв біля правого краю */
+.md-header__source {
+  display: none;
+}
+
+/* ---------- Посилання: тонке підкреслення, яскравіше при наведенні ---------- */
+.md-typeset a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  transition: text-decoration-color 125ms, color 125ms;
+}
+
+.md-typeset a:hover {
+  text-decoration-color: currentColor;
+}
+
+.md-typeset a.md-button,
+.md-typeset a.md-tag,
+.md-typeset .md-post__action a {
+  text-decoration: none;
+}
+
+/* ---------- Кнопки: один стиль для всього сайту ---------- */
+.md-typeset .md-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  margin: 0;
+  padding: 0.3em 0.9em;
+  border: 1px solid var(--md-default-fg-color--lighter);   /* темніша рамка, ніж --lightest */
+  border-radius: 999px;
+  background: none;
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.6;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 180ms var(--lift-ease), border-color 150ms, color 150ms,
+              background-color 150ms;
+}
+
+.md-typeset .md-button:is(:hover, :focus) {
+  transform: translateY(-2px);
+  border-color: var(--md-primary-fg-color);
+  background-color: var(--md-accent-fg-color--transparent);
+  color: var(--md-primary-fg-color);
+  opacity: 1;   /* тема за замовчуванням робить основну кнопку напівпрозорою */
+}
+
+/* Основна кнопка — залита акцентним кольором */
+.md-typeset .md-button--primary {
+  border-color: var(--md-primary-fg-color);
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+.md-typeset .md-button--primary:is(:hover, :focus) {
+  border-color: var(--md-primary-fg-color--dark);
+  background-color: var(--md-primary-fg-color--dark);
+  color: var(--md-primary-bg-color);
+}
+
+.md-typeset .md-button:active {
+  transform: translateY(0);
+}
+
+.md-typeset .md-button .twemoji {
+  height: 1em;
+}
+
+/* ---------- Навігація: вкладки, бічне меню, «Назад / Вперед», соцмережі ---------- */
+.md-tabs__link,
+.md-nav__link {
+  transition: color 150ms;
+}
+
+.md-tabs__link:hover,
+.md-nav__link:is(:hover, :focus-visible) {
+  color: var(--md-accent-fg-color);
+}
+
+.md-footer__link .md-footer__button {
+  transition: transform 200ms var(--lift-ease);
+}
+
+.md-footer__link--next:hover .md-footer__button {
+  transform: translateX(4px);
+}
+
+.md-footer__link--prev:hover .md-footer__button {
+  transform: translateX(-4px);
+}
+
+.md-social__link {
+  transition: transform 180ms var(--lift-ease), color 150ms;
+}
+
+.md-social__link:hover {
+  transform: translateY(-2px);
+  color: var(--md-accent-fg-color);
+}
+
+/* ---------- Таблиці ---------- */
+.md-typeset table:not([class]) {
+  font-size: 0.75rem;
+}
+
+.md-typeset table:not([class]) tbody tr {
+  transition: background-color 150ms;
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background-color: var(--md-accent-fg-color--transparent);
+}
+
+/* ---------- Теги-«пігулки» під статтями ---------- */
+.md-typeset .md-tag {
+  border-radius: 999px;
+  transition: background-color 150ms, color 150ms;
+}
+
+/* ---------- Фокус для клавіатури ---------- */
+.md-typeset a:focus-visible,
+.md-typeset .md-button:focus-visible,
+.share__link:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Без анімацій для тих, хто їх вимкнув у системі ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ---------- Друк: лише контент, без інтерфейсу ---------- */
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+
+  .md-header,
+  .md-tabs,
+  .md-sidebar,
+  .md-footer,
+  .md-top,
+  .reading-progress,
+  .share {
+    display: none !important;
+  }
+
+  .md-main__inner,
+  .md-content,
+  .md-content__inner {
+    margin: 0 !important;
+    max-width: none !important;
+  }
+}

@@ -1,0 +1,887 @@
+# ==========================================================================
+#  Сайт Serhii Smetanskyi на Zensical — https://zensical.org
+#  Запуск: zensical serve · Збірка: zensical build (результат у site/)
+# ==========================================================================
+
+[project]
+site_name = "Serhii Smetanskyi"
+site_url = "https://example.com/"            # TODO: справжній домен (Share-кнопки, RSS, прев'ю в соцмережах)
+site_description = "Personal website of a software engineer"
+copyright = "&copy; 2026 Serhii Smetanskyi"
+
+# Стилі по розділах сайту (docs/css/); base.css — першим
+extra_css = [
+  "css/base.css",    # кольори, посилання, кнопки, навігація, друк
+  "css/home.css",    # головна
+  "css/blog.css",    # блог, пост, архів за роками
+  "css/docs.css",    # база знань
+  "css/pages.css",   # About, Contact, Tags, Archive, 404
+  "css/cv.css",      # резюме й друк у PDF
+]
+
+# Скрипти (docs/js/); feed.js — спільний помічник, тому перед latest-posts.js і archive.js
+extra_javascript = [
+  "js/reading-progress.js",   # смужка прогресу читання в постах
+  "js/feed.js",               # завантаження JSON-стрічки сайту
+  "js/latest-posts.js",       # останні пости на головній
+  "js/archive.js",            # сторінка /archive/
+]
+
+# Навігація: вкладки у шапці; Docs — теми бази знань з docs/docs/
+nav = [
+  { "Home" = "index.md" },
+  { "About" = "about.md" },
+  { "Services" = "services.md" },
+  { "CV" = "cv.md" },
+  { "Blog" = ["blog/index.md"] },
+  { "Docs" = [
+    "docs/index.md",
+    { "API Architectures" = [
+      "docs/api-architectures/index.md",
+      { "REST" = [
+        "docs/api-architectures/01-rest/index.md",
+        { "REST: Architecture and HTTP Layer" = "docs/api-architectures/01-rest/01-architecture-http.md" },
+        { "REST: Data Schema and Validation" = "docs/api-architectures/01-rest/02-data-schema.md" },
+        { "REST: Querying Layer" = "docs/api-architectures/01-rest/03-querying.md" },
+        { "REST: Caching, Concurrency and Idempotency" = "docs/api-architectures/01-rest/04-caching-concurrency.md" },
+        { "REST: Error Model, Security and Versioning" = "docs/api-architectures/01-rest/05-errors-security-versioning.md" },
+        { "REST: Testing Plan and Risks" = "docs/api-architectures/01-rest/06-testing-risks.md" },
+        { "REST API: Code Examples (Python + Pydantic + Playwright)" = "docs/api-architectures/01-rest/07-code-examples.md" },
+        { "REST: The HTTP QUERY Method (RFC 10008)" = "docs/api-architectures/01-rest/08-query-method.md" },
+      ] },
+      { "GraphQL" = [
+        "docs/api-architectures/02-graphql/index.md",
+        { "GraphQL: Schema, Architecture and Execution Model" = "docs/api-architectures/02-graphql/01-schema-execution.md" },
+        { "GraphQL: Queries, Performance and Caching" = "docs/api-architectures/02-graphql/02-queries-performance.md" },
+        { "GraphQL: Testing Plan and Risks" = "docs/api-architectures/02-graphql/03-testing-risks.md" },
+        { "GraphQL: Code Examples (Python + Pydantic + Playwright)" = "docs/api-architectures/02-graphql/04-code-examples.md" },
+        { "GraphQL: APQ and Safelisting Rollout" = "docs/api-architectures/02-graphql/05-apq-safelist-rollout.md" },
+      ] },
+      { "gRPC" = [
+        "docs/api-architectures/03-grpc/index.md",
+        { "gRPC: Contract Layer, Transport and Serialization" = "docs/api-architectures/03-grpc/01-contract-transport.md" },
+        { "gRPC: Communication Patterns, Code Generation and Error Model" = "docs/api-architectures/03-grpc/02-patterns-codegen-errors.md" },
+        { "gRPC: Testing Plan and Risks" = "docs/api-architectures/03-grpc/03-testing-risks.md" },
+        { "gRPC: Code Examples (Python + Pydantic + Playwright)" = "docs/api-architectures/03-grpc/04-code-examples.md" },
+        { "gRPC: Retry and Hedging Policy" = "docs/api-architectures/03-grpc/05-retry-hedging-policy.md" },
+      ] },
+      { "WebSocket" = [
+        "docs/api-architectures/04-websocket/index.md",
+        { "WebSocket: Protocol, Communication and Messages" = "docs/api-architectures/04-websocket/01-protocol-communication.md" },
+        { "WebSocket: State Management, Scaling and Backpressure" = "docs/api-architectures/04-websocket/02-state-scaling.md" },
+        { "WebSocket: Testing Plan and Risks" = "docs/api-architectures/04-websocket/03-testing-risks.md" },
+        { "WebSocket: Code Examples (Python + Pydantic + Playwright)" = "docs/api-architectures/04-websocket/04-code-examples.md" },
+        { "WebSocket: Reliability Pattern" = "docs/api-architectures/04-websocket/05-reliability-pattern.md" },
+      ] },
+      { "Cross Cutting" = [
+        "docs/api-architectures/05-cross-cutting/index.md",
+        { "Cross-Cutting: Security and Observability" = "docs/api-architectures/05-cross-cutting/01-security-observability.md" },
+        { "Cross-Cutting: Performance, Scalability and Reliability" = "docs/api-architectures/05-cross-cutting/02-performance-reliability.md" },
+        { "Cross-Cutting: SLO, Error Budget, Incident Playbook" = "docs/api-architectures/05-cross-cutting/03-slo-error-budget-incident-playbook.md" },
+      ] },
+      { "Decision Factors" = [
+        "docs/api-architectures/06-decision-factors/index.md",
+        { "API Architecture: Decision Factors and Comparison Guide" = "docs/api-architectures/06-decision-factors/01-comparison-guide.md" },
+      ] },
+    ] },
+    { "Client–Server Architecture" = [
+      "docs/client-server-architecture/index.md",
+      { "Core Model" = [
+        "docs/client-server-architecture/01-core-model/index.md",
+        { "Client-Server Architecture: Core Model" = "docs/client-server-architecture/01-core-model/01-responsibilities-communication.md" },
+        { "Client-Server: API Architectures Overview" = "docs/client-server-architecture/01-core-model/02-api-architectures-overview.md" },
+      ] },
+      { "Edge Layer" = [
+        "docs/client-server-architecture/02-edge-layer/index.md",
+        { "Edge Layer: CDN and Load Balancers" = "docs/client-server-architecture/02-edge-layer/01-cdn-load-balancer.md" },
+        { "Edge Layer: Reverse Proxy, Forward Proxy, API Gateway, WAF" = "docs/client-server-architecture/02-edge-layer/02-reverse-proxy-api-gateway.md" },
+      ] },
+      { "Traffic Service Mesh" = [
+        "docs/client-server-architecture/03-traffic-service-mesh/index.md",
+        { "Traffic Management" = "docs/client-server-architecture/03-traffic-service-mesh/01-traffic-management.md" },
+        { "Service Layer and Service Mesh" = "docs/client-server-architecture/03-traffic-service-mesh/02-service-layer-mesh.md" },
+      ] },
+      { "Connections Backpressure" = [
+        "docs/client-server-architecture/04-connections-backpressure/index.md",
+        { "Connection Management" = "docs/client-server-architecture/04-connections-backpressure/01-connection-management.md" },
+        { "Backpressure and Flow Control" = "docs/client-server-architecture/04-connections-backpressure/02-backpressure-flow-control.md" },
+      ] },
+      { "Client Scalability Performance" = [
+        "docs/client-server-architecture/05-client-scalability-performance/index.md",
+        { "Client Architecture" = "docs/client-server-architecture/05-client-scalability-performance/01-client-architecture.md" },
+        { "Scalability" = "docs/client-server-architecture/05-client-scalability-performance/02-scalability.md" },
+        { "Performance" = "docs/client-server-architecture/05-client-scalability-performance/03-performance.md" },
+      ] },
+      { "Reliability Security Observability" = [
+        "docs/client-server-architecture/06-reliability-security-observability/index.md",
+        { "Reliability" = "docs/client-server-architecture/06-reliability-security-observability/01-reliability.md" },
+        { "Security" = "docs/client-server-architecture/06-reliability-security-observability/02-security.md" },
+        { "Observability" = "docs/client-server-architecture/06-reliability-security-observability/03-observability.md" },
+      ] },
+      { "Testing Risks Patterns" = [
+        "docs/client-server-architecture/07-testing-risks-patterns/index.md",
+        { "Testing" = "docs/client-server-architecture/07-testing-risks-patterns/01-testing.md" },
+        { "Risks, Limitations, and Anti-Patterns" = "docs/client-server-architecture/07-testing-risks-patterns/02-risks-anti-patterns.md" },
+        { "Real-World Patterns and Decision Factors" = "docs/client-server-architecture/07-testing-risks-patterns/03-real-world-decision-factors.md" },
+      ] },
+    ] },
+    { "Software Design Patterns and Principles" = [
+      "docs/software-design-patterns/index.md",
+      { "Design Principles" = [
+        "docs/software-design-patterns/01-design-principles/index.md",
+        { "OOP — Fundamentals" = "docs/software-design-patterns/01-design-principles/00-oop-fundamentals.md" },
+        { "Design Principles: SOLID" = "docs/software-design-patterns/01-design-principles/01-solid-principles.md" },
+        { "Design Principles: Beyond SOLID" = "docs/software-design-patterns/01-design-principles/02-fundamental-principles.md" },
+        { "Clean Code" = "docs/software-design-patterns/01-design-principles/03-clean-code.md" },
+        { "Code Quality Tools" = "docs/software-design-patterns/01-design-principles/04-code-quality-tools.md" },
+      ] },
+      { "Creational Patterns" = [
+        "docs/software-design-patterns/02-creational-patterns/index.md",
+        { "Creational Patterns" = "docs/software-design-patterns/02-creational-patterns/01-patterns.md" },
+      ] },
+      { "Structural Patterns" = [
+        "docs/software-design-patterns/03-structural-patterns/index.md",
+        { "Structural Patterns: Adapter, Decorator, Facade" = "docs/software-design-patterns/03-structural-patterns/01-adapter-decorator-facade.md" },
+        { "Structural Patterns: Proxy, Composite, Bridge, Flyweight" = "docs/software-design-patterns/03-structural-patterns/02-proxy-composite-bridge-flyweight.md" },
+      ] },
+      { "Behavioral Patterns" = [
+        "docs/software-design-patterns/04-behavioral-patterns/index.md",
+        { "Behavioral Patterns: Strategy, Observer, Command" = "docs/software-design-patterns/04-behavioral-patterns/01-strategy-observer-command.md" },
+        { "Behavioral Patterns: Chain of Responsibility, State, Mediator" = "docs/software-design-patterns/04-behavioral-patterns/02-chain-state-mediator.md" },
+        { "Behavioral Patterns: Iterator, Template Method, Visitor" = "docs/software-design-patterns/04-behavioral-patterns/03-iterator-template-visitor.md" },
+      ] },
+      { "Composition Architectural" = [
+        "docs/software-design-patterns/05-composition-architectural/index.md",
+        { "Composition and Advanced Structuring Patterns" = "docs/software-design-patterns/05-composition-architectural/01-composition-advanced.md" },
+        { "Architectural Patterns: Layered, Clean, Hexagonal" = "docs/software-design-patterns/05-composition-architectural/02-architectural-patterns.md" },
+        { "Architectural Patterns: Microservices, Event-Driven, Isomorphic" = "docs/software-design-patterns/05-composition-architectural/03-event-driven-isomorphic.md" },
+        { "Queues vs Streams: Message Delivery, Ordering & Reliability" = "docs/software-design-patterns/05-composition-architectural/04-queues-streams-messaging.md" },
+      ] },
+      { "Frontend Cross Layer" = [
+        "docs/software-design-patterns/06-frontend-cross-layer/index.md",
+        { "View Layer Patterns" = "docs/software-design-patterns/06-frontend-cross-layer/01-frontend-patterns.md" },
+        { "Cross-Layer Design Patterns" = "docs/software-design-patterns/06-frontend-cross-layer/02-cross-layer-patterns.md" },
+      ] },
+      { "Decisions Testing Production" = [
+        "docs/software-design-patterns/07-decisions-testing-production/index.md",
+        { "Pattern Comparison and Testing Strategies" = "docs/software-design-patterns/07-decisions-testing-production/01-comparison-testing.md" },
+        { "Anti-Patterns, Real-World Usage, Heuristics, and Decision Factors" = "docs/software-design-patterns/07-decisions-testing-production/02-antipatterns-real-world.md" },
+        { "Microservice Production Readiness Checklist" = "docs/software-design-patterns/07-decisions-testing-production/03-production-readiness.md" },
+      ] },
+    ] },
+    { "Agentic AI Architecture" = [
+      "docs/agentic-ai-architecture/index.md",
+      { "Agentic AI — Fundamentals & Core Components" = "docs/agentic-ai-architecture/01-fundamentals-components.md" },
+      { "Multi-Agent Architecture Patterns" = "docs/agentic-ai-architecture/02-multi-agent-patterns.md" },
+      { "Memory & Retrieval-Augmented Generation (RAG)" = "docs/agentic-ai-architecture/03-memory-rag.md" },
+      { "Tool Integration & Prompt Engineering" = "docs/agentic-ai-architecture/04-tool-integration-prompting.md" },
+      { "LLM Configuration, Model Selection & Security" = "docs/agentic-ai-architecture/05-llm-config-security.md" },
+      { "Testing, Evaluation & Observability" = "docs/agentic-ai-architecture/06-testing-observability.md" },
+      { "Agentic Search & Context Engineering (2025+)" = "docs/agentic-ai-architecture/07-agentic-search-context-engineering.md" },
+      { "Vectorless RAG" = "docs/agentic-ai-architecture/08-vectorless-rag.md" },
+    ] },
+    { "AI Skills for Coding Agents" = [
+      "docs/ai-skills/index.md",
+      { "What Is a Skill" = "docs/ai-skills/01-what-is-a-skill.md" },
+      { "How Agents Load Skills" = "docs/ai-skills/02-how-agents-load-skills.md" },
+      { "Skill Packaging" = "docs/ai-skills/03-skill-packaging.md" },
+      { "Orchestration & Workflows" = "docs/ai-skills/04-orchestration-workflows.md" },
+      { "Evaluation & Security" = "docs/ai-skills/05-evaluation-security.md" },
+      { "Cross-Agent Compatibility" = "docs/ai-skills/06-cross-agent-compatibility.md" },
+      { "Claude Code Best Practices" = "docs/ai-skills/07-claude-code-best-practices.md" },
+      { "Claude Code Hooks & Agents" = "docs/ai-skills/08-claude-code-hooks-agents.md" },
+      { "Claude Code Workflow Patterns" = "docs/ai-skills/09-claude-code-workflow-patterns.md" },
+      { "Claude Code Advanced Config" = "docs/ai-skills/10-claude-code-advanced-config.md" },
+      { "Model Context Protocol (MCP)" = "docs/ai-skills/11-mcp-protocol.md" },
+      { "AGENTS.md Standard" = "docs/ai-skills/12-agents-md.md" },
+      { "SKILL.md Playground" = "docs/ai-skills/13-skill-playground.md" },
+      { "AGENTS.md Playground" = "docs/ai-skills/14-agents-md-playground.md" },
+      { "Claude Code Project Structure" = "docs/ai-skills/15-claude-code-project-structure.md" },
+      { "SKILL.md Universal Standard (2026)" = "docs/ai-skills/16-skill-md-universal-standard.md" },
+      { "Building Skills for Claude: Practical Playbook" = "docs/ai-skills/17-building-skills-for-claude-playbook.md" },
+      { "Skills Troubleshooting & Checklists" = "docs/ai-skills/18-skills-troubleshooting-checklists.md" },
+      { "Claude Code Commands Reference" = "docs/ai-skills/19-claude-code-commands-reference.md" },
+    ] },
+    { "AI Harness" = [
+      "docs/ai-harness/index.md",
+      { "Agent Harness — Concepts & Components" = "docs/ai-harness/01-agent-harness-concepts.md" },
+      { "Agent Harness — Patterns & Anti-Patterns" = "docs/ai-harness/02-agent-harness-patterns.md" },
+      { "Eval Harness — Concepts & Metrics" = "docs/ai-harness/03-eval-harness-concepts.md" },
+      { "Eval Harness — Tools, Testing & CI" = "docs/ai-harness/04-eval-harness-tools-ci.md" },
+      { "Building a Harness with Jev" = "docs/ai-harness/05-jev-system-one-harness.md" },
+    ] },
+    { "Spec-Driven Development" = [
+      "docs/spec-driven-development/index.md",
+      { "SDD — Concepts & Workflow" = "docs/spec-driven-development/01-concepts-workflow.md" },
+      { "SDD — Writing Good Specs" = "docs/spec-driven-development/02-writing-specs.md" },
+      { "SDD — Tools" = "docs/spec-driven-development/03-tools.md" },
+      { "SDD — QA, Testing & Best Practices" = "docs/spec-driven-development/04-qa-testing-best-practices.md" },
+    ] },
+    { "Code Security" = [
+      "docs/code-security/index.md",
+      { "Secrets & Leak Prevention" = "docs/code-security/01-secrets-leak-prevention.md" },
+      { "Dependency Security" = "docs/code-security/02-dependency-security.md" },
+      { "Code Analysis & Secure Review" = "docs/code-security/03-code-analysis-review.md" },
+      { "Auth, Config & Security Headers" = "docs/code-security/04-auth-config-headers.md" },
+      { "CI/CD & Monitoring" = "docs/code-security/05-cicd-monitoring.md" },
+      { "Security Audit Checklist" = "docs/code-security/06-security-audit-checklist.md" },
+    ] },
+    { "OWASP API Security" = [
+      "docs/owasp-api-security/index.md",
+      { "OWASP API Security: Recommendations and Best Practices" = "docs/owasp-api-security/01-owasp-api-recommendations.md" },
+      { "OWASP API Security Testing Checklist" = "docs/owasp-api-security/02-owasp-api-testing-checklist.md" },
+      { "OWASP API Advanced Controls" = "docs/owasp-api-security/03-owasp-api-advanced-controls.md" },
+    ] },
+    { "OWASP LLM Security" = [
+      "docs/owasp-llm-security/index.md",
+      { "OWASP LLM Security Guide (2026)" = "docs/owasp-llm-security/01-owasp-llm-security-guide.md" },
+      { "OWASP LLM Security Testing Checklist (2026)" = "docs/owasp-llm-security/02-owasp-llm-security-testing-checklist.md" },
+    ] },
+    { "QA & Testing Methodology" = [
+      "docs/qa-methodology/index.md",
+      { "QA & Testing Fundamentals, Levels & Types" = "docs/qa-methodology/01-fundamentals-levels-types.md" },
+      { "Test Design Techniques, Test Case Design & Test Planning" = "docs/qa-methodology/03-design-planning.md" },
+      { "Test Execution, Defect Management & Environments" = "docs/qa-methodology/04-execution-defects-envs.md" },
+      { "Test Automation, SDLC, Agile & Risk-Based Testing" = "docs/qa-methodology/05-automation-sdlc-agile.md" },
+      { "Metrics, Documentation, Best Practices & QA Roles" = "docs/qa-methodology/06-metrics-docs-practices-roles.md" },
+      { "TDD, BDD & ATDD" = "docs/qa-methodology/07-tdd-bdd-atdd.md" },
+      { "Release Quality Gates, Flaky Tests & Templates" = "docs/qa-methodology/08-release-quality-gates-checklists.md" },
+      { "Shift-Right Testing, SLO/Error Budget & AI-Assisted QA (2026)" = "docs/qa-methodology/09-shift-right-observability.md" },
+      { "Exploratory Testing & Session-Based Test Management" = "docs/qa-methodology/10-exploratory-session-based-testing.md" },
+      { "Requirements Quality & Testability" = "docs/qa-methodology/11-requirements-quality-testability.md" },
+      { "Defect Triage, Root Cause Analysis & CAPA" = "docs/qa-methodology/12-defect-triage-rca-capa.md" },
+      { "Coverage Strategy" = "docs/qa-methodology/13-coverage-strategy.md" },
+      { "Test Estimation & Effort Planning" = "docs/qa-methodology/14-estimation-effort-planning.md" },
+      { "Domain-Specific QA" = "docs/qa-methodology/15-domain-specific-qa.md" },
+      { "Shift-Left Testing" = "docs/qa-methodology/16-shift-left-testing.md" },
+    ] },
+    { "Test Design Techniques" = [
+      "docs/test-design-techniques/index.md",
+      { "Input Based" = [
+        "docs/test-design-techniques/01-input-based/index.md",
+        { "Equivalence Partitioning" = "docs/test-design-techniques/01-input-based/01-equivalence-partitioning.md" },
+        { "Boundary Value Analysis" = "docs/test-design-techniques/01-input-based/02-boundary-value-analysis.md" },
+        { "Pairwise Testing" = "docs/test-design-techniques/01-input-based/03-pairwise-testing.md" },
+      ] },
+      { "Logic State Based" = [
+        "docs/test-design-techniques/02-logic-state-based/index.md",
+        { "Decision Table Testing" = "docs/test-design-techniques/02-logic-state-based/01-decision-table.md" },
+        { "State Transition Testing" = "docs/test-design-techniques/02-logic-state-based/02-state-transition.md" },
+      ] },
+      { "Experience Based" = [
+        "docs/test-design-techniques/03-experience-based/index.md",
+        { "CRUD Testing" = "docs/test-design-techniques/03-experience-based/01-crud-testing.md" },
+        { "Metamorphic Testing" = "docs/test-design-techniques/03-experience-based/02-metamorphic-testing.md" },
+        { "Fuzz & Random Testing" = "docs/test-design-techniques/03-experience-based/03-fuzz-random-testing.md" },
+      ] },
+    ] },
+    { "Test Design Patterns in Test Automation" = [
+      "docs/test-design-patterns/index.md",
+      { "Fundamentals" = [
+        "docs/test-design-patterns/01-fundamentals/index.md",
+        { "Test Types and Levels" = "docs/test-design-patterns/01-fundamentals/01-test-types-levels.md" },
+        { "Test Pyramid, Trophy and Core Principles" = "docs/test-design-patterns/01-fundamentals/02-test-pyramid-principles.md" },
+        { "Test Architecture" = "docs/test-design-patterns/01-fundamentals/03-test-architecture.md" },
+      ] },
+      { "Core Patterns" = [
+        "docs/test-design-patterns/02-core-patterns/index.md",
+        { "Page Object Model (POM)" = "docs/test-design-patterns/02-core-patterns/01-page-object-model.md" },
+        { "Screenplay Pattern" = "docs/test-design-patterns/02-core-patterns/02-screenplay-pattern.md" },
+        { "Test Data Builder" = "docs/test-design-patterns/02-core-patterns/03-test-data-builder.md" },
+        { "Fixture Pattern and Factory Pattern" = "docs/test-design-patterns/02-core-patterns/04-fixture-factory.md" },
+      ] },
+      { "Advanced Patterns" = [
+        "docs/test-design-patterns/03-advanced-patterns/index.md",
+        { "Wrapper / Abstraction Layer and Fluent Interface Pattern" = "docs/test-design-patterns/03-advanced-patterns/01-wrapper-fluent-interface.md" },
+        { "Assertion Pattern, Test Template Pattern, Data-Driven Pattern" = "docs/test-design-patterns/03-advanced-patterns/02-assertion-template-data-driven.md" },
+      ] },
+      { "API Test Patterns" = [
+        "docs/test-design-patterns/04-api-test-patterns/index.md",
+        { "API Test Patterns: REST and GraphQL" = "docs/test-design-patterns/04-api-test-patterns/01-rest-graphql.md" },
+        { "API Test Patterns: gRPC and WebSocket" = "docs/test-design-patterns/04-api-test-patterns/02-grpc-websocket.md" },
+      ] },
+      { "Data Mocking Env" = [
+        "docs/test-design-patterns/05-data-mocking-env/index.md",
+        { "Test Data Management" = "docs/test-design-patterns/05-data-mocking-env/01-test-data-management.md" },
+        { "Mocking and Stubbing" = "docs/test-design-patterns/05-data-mocking-env/02-mocking-stubbing.md" },
+        { "Test Environment Design" = "docs/test-design-patterns/05-data-mocking-env/03-environment-design.md" },
+      ] },
+      { "Execution Reliability" = [
+        "docs/test-design-patterns/06-execution-reliability/index.md",
+        { "Test Execution Strategies" = "docs/test-design-patterns/06-execution-reliability/01-execution-strategies.md" },
+        { "Test Reliability and Flakiness" = "docs/test-design-patterns/06-execution-reliability/02-reliability-flakiness.md" },
+        { "Performance Testing and Observability in Tests" = "docs/test-design-patterns/06-execution-reliability/03-performance-observability.md" },
+      ] },
+      { "Decisions Production" = [
+        "docs/test-design-patterns/07-decisions-production/index.md",
+        { "CI/CD Integration and Security Testing" = "docs/test-design-patterns/07-decisions-production/01-ci-cd-security.md" },
+        { "Test Anti-Patterns and Risks" = "docs/test-design-patterns/07-decisions-production/02-antipatterns-risks.md" },
+        { "Real-World Test Architectures, Decision Factors, and Heuristics" = "docs/test-design-patterns/07-decisions-production/03-real-world-decisions-heuristics.md" },
+      ] },
+    ] },
+    { "Testing Pyramid" = [
+      "docs/testing-pyramid/index.md",
+      { "Unit Tests" = [
+        "docs/testing-pyramid/01-unit-tests/index.md",
+        { "Unit Tests — Concept & Examples" = "docs/testing-pyramid/01-unit-tests/01-concept-and-examples.md" },
+        { "Unit Tests — Common Mistakes" = "docs/testing-pyramid/01-unit-tests/02-common-mistakes.md" },
+      ] },
+      { "Integration Tests" = [
+        "docs/testing-pyramid/02-integration-tests/index.md",
+        { "Integration Tests — Concept & Examples" = "docs/testing-pyramid/02-integration-tests/01-concept-and-examples.md" },
+        { "Integration Tests — Common Mistakes" = "docs/testing-pyramid/02-integration-tests/02-common-mistakes.md" },
+      ] },
+      { "E2E Tests" = [
+        "docs/testing-pyramid/03-e2e-tests/index.md",
+        { "E2E Tests — Concept & Examples" = "docs/testing-pyramid/03-e2e-tests/01-concept-and-examples.md" },
+        { "E2E Tests — Common Mistakes" = "docs/testing-pyramid/03-e2e-tests/02-common-mistakes.md" },
+      ] },
+      { "Pyramid Strategy" = [
+        "docs/testing-pyramid/04-pyramid-strategy/index.md",
+        { "Pyramid Shape, Anti-Patterns & Alternatives" = "docs/testing-pyramid/04-pyramid-strategy/01-shape-antipatterns-alternatives.md" },
+      ] },
+    ] },
+    { "Test Automation Framework" = [
+      "docs/test-automation-framework/index.md",
+      { "Architecture" = [
+        "docs/test-automation-framework/01-architecture/index.md",
+        { "Framework Goals & Core Principles" = "docs/test-automation-framework/01-architecture/01-goals-principles.md" },
+        { "Framework Architecture — Layers & Responsibilities" = "docs/test-automation-framework/01-architecture/02-layers-responsibilities.md" },
+        { "Framework Directory Structure" = "docs/test-automation-framework/01-architecture/03-directory-structure.md" },
+      ] },
+      { "Design Patterns" = [
+        "docs/test-automation-framework/02-design-patterns/index.md",
+        { "UI Test Design Patterns" = "docs/test-automation-framework/02-design-patterns/01-ui-patterns.md" },
+        { "API & Data Test Design Patterns" = "docs/test-automation-framework/02-design-patterns/02-api-data-patterns.md" },
+        { "Advanced Framework Patterns" = "docs/test-automation-framework/02-design-patterns/03-advanced-patterns.md" },
+      ] },
+      { "Test Data" = [
+        "docs/test-automation-framework/03-test-data/index.md",
+        { "Test Data Strategies & Isolation" = "docs/test-automation-framework/03-test-data/01-strategies-isolation.md" },
+        { "Builders, Factories & DB Seeding" = "docs/test-automation-framework/03-test-data/02-builders-factories.md" },
+      ] },
+      { "API Testing" = [
+        "docs/test-automation-framework/04-api-testing/index.md",
+        { "API Testing — REST & GraphQL" = "docs/test-automation-framework/04-api-testing/01-rest-graphql.md" },
+        { "API Testing — gRPC & WebSocket" = "docs/test-automation-framework/04-api-testing/02-grpc-websocket.md" },
+      ] },
+      { "UI Testing" = [
+        "docs/test-automation-framework/05-ui-testing/index.md",
+        { "UI Testing — Tools & Patterns" = "docs/test-automation-framework/05-ui-testing/01-tools-patterns.md" },
+        { "UI Testing — Wait Strategies, Retry & Selector Abstraction" = "docs/test-automation-framework/05-ui-testing/02-wait-retry-selectors.md" },
+      ] },
+      { "Execution Reliability" = [
+        "docs/test-automation-framework/06-execution-reliability/index.md",
+        { "Test Execution — Parallel & Test Organisation" = "docs/test-automation-framework/06-execution-reliability/01-parallel-execution.md" },
+        { "Reliability & Flakiness" = "docs/test-automation-framework/06-execution-reliability/02-flakiness.md" },
+        { "Mocking & Test Isolation" = "docs/test-automation-framework/06-execution-reliability/03-mocking-isolation.md" },
+      ] },
+      { "Config CI/CD Decisions" = [
+        "docs/test-automation-framework/07-config-ci-decisions/index.md",
+        { "Configuration Management" = "docs/test-automation-framework/07-config-ci-decisions/01-config-management.md" },
+        { "Logging, Reporting & Observability" = "docs/test-automation-framework/07-config-ci-decisions/02-logging-reporting.md" },
+        { "CI/CD Integration" = "docs/test-automation-framework/07-config-ci-decisions/03-ci-cd-integration.md" },
+        { "Performance Testing Support & Security Testing" = "docs/test-automation-framework/07-config-ci-decisions/04-performance-security.md" },
+        { "Framework Extensibility & Anti-Patterns" = "docs/test-automation-framework/07-config-ci-decisions/05-extensibility-antipatterns.md" },
+        { "Risks, Real-World Patterns & Decision Heuristics" = "docs/test-automation-framework/07-config-ci-decisions/06-risks-decisions.md" },
+      ] },
+    ] },
+    { "Robot Framework" = [
+      "docs/robot-framework/index.md",
+      { "Fundamentals" = [
+        "docs/robot-framework/01-fundamentals/index.md",
+        { "Core Syntax & Test Structure" = "docs/robot-framework/01-fundamentals/01-core-syntax-structure.md" },
+        { "Keywords & Variables" = "docs/robot-framework/01-fundamentals/02-keywords-variables.md" },
+        { "Libraries & Extensibility" = "docs/robot-framework/01-fundamentals/03-libraries.md" },
+      ] },
+      { "Architecture" = [
+        "docs/robot-framework/02-architecture/index.md",
+        { "Layered Architecture" = "docs/robot-framework/02-architecture/01-layered-architecture.md" },
+        { "Keyword Design Principles" = "docs/robot-framework/02-architecture/02-keyword-design.md" },
+        { "Test Data Management" = "docs/robot-framework/02-architecture/03-test-data-management.md" },
+      ] },
+      { "API Testing" = [
+        "docs/robot-framework/03-api-testing/index.md",
+        { "API Testing Architecture & Patterns" = "docs/robot-framework/03-api-testing/01-api-architecture-patterns.md" },
+        { "Request Design & Validation Strategy" = "docs/robot-framework/03-api-testing/02-request-validation.md" },
+        { "API Testing — Step by Step" = "docs/robot-framework/03-api-testing/03-api-step-by-step.md" },
+        { "Practical — Full API Framework" = "docs/robot-framework/03-api-testing/04-practical-api-framework.md" },
+      ] },
+      { "UI Testing" = [
+        "docs/robot-framework/04-ui-testing/index.md",
+        { "Page Object Pattern & Locators" = "docs/robot-framework/04-ui-testing/01-page-objects-locators.md" },
+        { "Wait Strategies & Flakiness Control" = "docs/robot-framework/04-ui-testing/02-wait-strategy-flakiness.md" },
+        { "UI Testing — Step by Step" = "docs/robot-framework/04-ui-testing/03-ui-step-by-step.md" },
+        { "Practical — Full UI Framework" = "docs/robot-framework/04-ui-testing/04-practical-ui-framework.md" },
+      ] },
+      { "Execution & Reliability" = [
+        "docs/robot-framework/05-execution-reliability/index.md",
+        { "Parallel Execution with Pabot" = "docs/robot-framework/05-execution-reliability/01-parallel-execution.md" },
+        { "Error Handling & Retry Patterns" = "docs/robot-framework/05-execution-reliability/02-error-handling-retries.md" },
+        { "Setup, Teardown & Test Organization" = "docs/robot-framework/05-execution-reliability/03-setup-teardown.md" },
+      ] },
+      { "Infrastructure" = [
+        "docs/robot-framework/06-infrastructure/index.md",
+        { "Configuration & Secrets Management" = "docs/robot-framework/06-infrastructure/01-configuration-secrets.md" },
+        { "Logging, Debugging & Reporting" = "docs/robot-framework/06-infrastructure/02-logging-reporting.md" },
+        { "CI/CD Integration" = "docs/robot-framework/06-infrastructure/03-ci-cd-integration.md" },
+      ] },
+      { "Decisions & Production" = [
+        "docs/robot-framework/07-decisions-production/index.md",
+        { "Scalability & Maintainability" = "docs/robot-framework/07-decisions-production/01-scalability-maintainability.md" },
+        { "Anti-Patterns, Risks & Limitations" = "docs/robot-framework/07-decisions-production/02-antipatterns-risks.md" },
+        { "Maturity Model & Engineering Heuristics" = "docs/robot-framework/07-decisions-production/03-maturity-model-heuristics.md" },
+      ] },
+    ] },
+    { "DeepEval — LLM Testing Guide" = [
+      "docs/llm-evaluation/index.md",
+      { "DeepEval Testing Guide for QA Engineers" = "docs/llm-evaluation/01_introduction.md" },
+      { "Metrics" = [
+        "docs/llm-evaluation/01_metrics/index.md",
+        { "DeepEval Guide — Part 2: RAG Metrics" = "docs/llm-evaluation/01_metrics/02_rag_metrics.md" },
+        { "DeepEval Guide — Part 3: LLM Output Quality Metrics" = "docs/llm-evaluation/01_metrics/03_llm_quality_metrics.md" },
+        { "DeepEval Guide — Part 4: AI Agent Metrics" = "docs/llm-evaluation/01_metrics/04_agent_metrics.md" },
+        { "DeepEval Guide — Part 5: Chatbot Metrics" = "docs/llm-evaluation/01_metrics/05_chatbot_metrics.md" },
+        { "DeepEval Guide — Part 6: MCP (Model Context Protocol) Metrics" = "docs/llm-evaluation/01_metrics/06_mcp_metrics.md" },
+        { "DeepEval Guide — Part 7: Extra Metrics and Advanced Patterns" = "docs/llm-evaluation/01_metrics/07_extra_metrics.md" },
+        { "DeepEval Guide — Part 8: Multimodal (Image) Metrics" = "docs/llm-evaluation/01_metrics/08_multimodal_metrics.md" },
+      ] },
+      { "Testing" = [
+        "docs/llm-evaluation/02_testing/index.md",
+        { "DeepEval Guide — Part 9: Red Teaming LLM Applications" = "docs/llm-evaluation/02_testing/09_red_teaming.md" },
+        { "DeepEval Guide — Part 10: Custom LLMs and Embedding Models" = "docs/llm-evaluation/02_testing/10_custom_llms.md" },
+        { "DeepEval Guide — Part 11: Building Custom Metrics" = "docs/llm-evaluation/02_testing/11_custom_metrics.md" },
+        { "DeepEval Guide — Part 12: Testing Workflows" = "docs/llm-evaluation/02_testing/12_testing_workflows.md" },
+        { "DeepEval Guide — Part 13: LLM Benchmarks" = "docs/llm-evaluation/02_testing/13_benchmarks.md" },
+        { "DeepEval Guide — Part 14b: Conversational RAG Evaluation" = "docs/llm-evaluation/02_testing/14_conversational_rag_evaluation.md" },
+      ] },
+      { "Practical" = [
+        "docs/llm-evaluation/03_practical/index.md",
+        { "DeepEval Guide — Part 14: Practical RAG Testing" = "docs/llm-evaluation/03_practical/14_practical_rag_testing.md" },
+        { "DeepEval Guide — Part 15: RAG Diagnostic Testing" = "docs/llm-evaluation/03_practical/15_rag_diagnostic_testing.md" },
+        { "DeepEval Guide — Part 16: Datasets and Goldens" = "docs/llm-evaluation/03_practical/16_datasets.md" },
+        { "DeepEval Guide — Part 17: Prompts & Prompt Optimization" = "docs/llm-evaluation/03_practical/17_prompts_optimization.md" },
+        { "DeepEval Guide — Part 18: Evaluation Configs, Flags & Reference" = "docs/llm-evaluation/03_practical/18_configs_flags_reference.md" },
+        { "DeepEval Guide — Part 19: Reference Appendix" = "docs/llm-evaluation/03_practical/19_reference_appendix.md" },
+        { "DeepEval Guide — Part 20: End-to-End Complex Tests" = "docs/llm-evaluation/03_practical/20_e2e_complex_tests.md" },
+      ] },
+    ] },
+    { "Performance Testing" = [
+      "docs/performance-testing/index.md",
+      { "Fundamentals Metrics" = [
+        "docs/performance-testing/01-fundamentals-metrics/index.md",
+        { "Performance Testing — Goals & Types" = "docs/performance-testing/01-fundamentals-metrics/01-goals-and-types.md" },
+        { "Core Metrics" = "docs/performance-testing/01-fundamentals-metrics/02-core-metrics.md" },
+        { "Metric Relationships" = "docs/performance-testing/01-fundamentals-metrics/03-metric-relationships.md" },
+      ] },
+      { "Locust" = [
+        "docs/performance-testing/02-locust/index.md",
+        { "Locust — Architecture & Basics" = "docs/performance-testing/02-locust/01-architecture-basics.md" },
+        { "Load Modeling" = "docs/performance-testing/02-locust/02-load-modeling.md" },
+        { "Test Design in Locust" = "docs/performance-testing/02-locust/03-test-design.md" },
+        { "Metrics Analysis in Locust" = "docs/performance-testing/02-locust/04-metrics-analysis.md" },
+        { "Advanced Locust Usage" = "docs/performance-testing/02-locust/05-advanced-usage.md" },
+      ] },
+      { "Bottlenecks Monitoring" = [
+        "docs/performance-testing/03-bottlenecks-monitoring/index.md",
+        { "Performance Bottlenecks" = "docs/performance-testing/03-bottlenecks-monitoring/01-bottlenecks.md" },
+        { "Monitoring & Observability" = "docs/performance-testing/03-bottlenecks-monitoring/02-monitoring-observability.md" },
+      ] },
+      { "Execution Results" = [
+        "docs/performance-testing/04-execution-results/index.md",
+        { "SLA / SLO" = "docs/performance-testing/04-execution-results/01-sla-slo.md" },
+        { "Test Execution Strategy" = "docs/performance-testing/04-execution-results/02-execution-strategy.md" },
+        { "Interpreting Results" = "docs/performance-testing/04-execution-results/03-interpreting-results.md" },
+        { "Pitfalls, Real-World Scenarios & Heuristics" = "docs/performance-testing/04-execution-results/04-pitfalls-heuristics.md" },
+      ] },
+    ] },
+    { "Python Guide" = [
+      "docs/python-guide/index.md",
+      { "Setup & Fundamentals" = [
+        "docs/python-guide/01-setup-fundamentals/index.md",
+        { "Environment Setup" = "docs/python-guide/01-setup-fundamentals/01-environment-setup.md" },
+        { "Data Types & Variables" = "docs/python-guide/01-setup-fundamentals/02-data-types-variables.md" },
+        { "Control Flow & Loops" = "docs/python-guide/01-setup-fundamentals/03-control-flow-loops.md" },
+        { "Data Structures" = "docs/python-guide/01-setup-fundamentals/04-data-structures.md" },
+        { "Functions & Modules" = "docs/python-guide/01-setup-fundamentals/05-functions-modules.md" },
+      ] },
+      { "OOP & Error Handling" = [
+        "docs/python-guide/02-oop-error-handling/index.md",
+        { "Classes & Objects" = "docs/python-guide/02-oop-error-handling/01-classes-objects.md" },
+        { "Inheritance & Composition" = "docs/python-guide/02-oop-error-handling/02-inheritance-composition.md" },
+        { "Exceptions & Logging" = "docs/python-guide/02-oop-error-handling/03-exceptions-logging.md" },
+        { "Files & Data Formats" = "docs/python-guide/02-oop-error-handling/04-files-data-formats.md" },
+      ] },
+      { "Testing with pytest" = [
+        "docs/python-guide/03-testing-pytest/index.md",
+        { "Testing Fundamentals" = "docs/python-guide/03-testing-pytest/01-testing-fundamentals.md" },
+        { "pytest Basics" = "docs/python-guide/03-testing-pytest/02-pytest-basics.md" },
+        { "Fixtures & Parametrize" = "docs/python-guide/03-testing-pytest/03-fixtures-parametrize.md" },
+        { "Test Architecture" = "docs/python-guide/03-testing-pytest/04-test-architecture.md" },
+        { "Assertions & Mocking" = "docs/python-guide/03-testing-pytest/05-assertions-mocking.md" },
+      ] },
+      { "Automation" = [
+        "docs/python-guide/04-automation/index.md",
+        { "API Testing" = "docs/python-guide/04-automation/01-api-testing.md" },
+        { "UI Automation" = "docs/python-guide/04-automation/02-ui-automation.md" },
+        { "Test Design Patterns" = "docs/python-guide/04-automation/03-test-patterns.md" },
+      ] },
+      { "Code Quality & CI/CD" = [
+        "docs/python-guide/05-quality-cicd/index.md",
+        { "Code Quality Tools" = "docs/python-guide/05-quality-cicd/01-code-quality-tools.md" },
+        { "Dependency Management" = "docs/python-guide/05-quality-cicd/02-dependency-management.md" },
+        { "CI/CD Integration" = "docs/python-guide/05-quality-cicd/03-cicd-integration.md" },
+      ] },
+      { "Advanced Topics" = [
+        "docs/python-guide/06-advanced-topics/index.md",
+        { "Decorators & Generators" = "docs/python-guide/06-advanced-topics/01-decorators-generators.md" },
+        { "Context Managers & Async" = "docs/python-guide/06-advanced-topics/02-context-managers-async.md" },
+        { "Performance & Optimization" = "docs/python-guide/06-advanced-topics/03-performance.md" },
+      ] },
+      { "Best Practices" = [
+        "docs/python-guide/07-best-practices/index.md",
+        { "Security" = "docs/python-guide/07-best-practices/01-security.md" },
+        { "Common Pitfalls" = "docs/python-guide/07-best-practices/02-common-pitfalls.md" },
+        { "Interview Readiness" = "docs/python-guide/07-best-practices/03-interview-readiness.md" },
+        { "Recommended Stack" = "docs/python-guide/07-best-practices/04-recommended-stack.md" },
+        { "Further Learning" = "docs/python-guide/07-best-practices/05-further-learning.md" },
+      ] },
+    ] },
+    { "Jenkins Guide" = [
+      "docs/jenkins-guide/index.md",
+      { "Fundamentals" = [
+        "docs/jenkins-guide/01-fundamentals/index.md",
+        { "What Is a Jenkinsfile" = "docs/jenkins-guide/01-fundamentals/01-what-is-jenkinsfile.md" },
+        { "Declarative vs Scripted" = "docs/jenkins-guide/01-fundamentals/02-declarative-vs-scripted.md" },
+      ] },
+      { "Declarative Syntax" = [
+        "docs/jenkins-guide/02-declarative-syntax/index.md",
+        { "Pipeline, Agent & Options" = "docs/jenkins-guide/02-declarative-syntax/01-pipeline-agent-options.md" },
+        { "Stages & Steps" = "docs/jenkins-guide/02-declarative-syntax/02-stages-steps.md" },
+        { "Post, Triggers & Tools" = "docs/jenkins-guide/02-declarative-syntax/03-post-triggers-tools.md" },
+      ] },
+      { "Advanced Features" = [
+        "docs/jenkins-guide/03-advanced-features/index.md",
+        { "Parameters & Environment" = "docs/jenkins-guide/03-advanced-features/01-parameters-environment.md" },
+        { "When Conditions & Parallel" = "docs/jenkins-guide/03-advanced-features/02-when-parallel.md" },
+        { "Shared Libraries" = "docs/jenkins-guide/03-advanced-features/03-shared-libraries.md" },
+      ] },
+      { "Patterns & Best Practices" = [
+        "docs/jenkins-guide/04-patterns-best-practices/index.md",
+        { "Security & Performance" = "docs/jenkins-guide/04-patterns-best-practices/01-security-performance.md" },
+        { "Real-World Templates" = "docs/jenkins-guide/04-patterns-best-practices/02-real-world-templates.md" },
+      ] },
+    ] },
+    { "CI/CD" = [
+      "docs/ci-cd-approaches/index.md",
+      { "Fundamentals" = [
+        "docs/ci-cd-approaches/01-fundamentals/index.md",
+        { "CI/CD — Concepts & Goals" = "docs/ci-cd-approaches/01-fundamentals/01-concepts-goals.md" },
+        { "Pipeline Architecture" = "docs/ci-cd-approaches/01-fundamentals/02-pipeline-architecture.md" },
+      ] },
+      { "Build Artifacts" = [
+        "docs/ci-cd-approaches/02-build-artifacts/index.md",
+        { "Build Stage" = "docs/ci-cd-approaches/02-build-artifacts/01-build-stage.md" },
+        { "Artifact Management" = "docs/ci-cd-approaches/02-build-artifacts/02-artifact-management.md" },
+      ] },
+      { "Testing" = [
+        "docs/ci-cd-approaches/03-testing/index.md",
+        { "Testing in CI/CD — Layers & Strategy" = "docs/ci-cd-approaches/03-testing/01-test-layers-strategy.md" },
+        { "Quality Gates" = "docs/ci-cd-approaches/03-testing/02-quality-gates.md" },
+      ] },
+      { "Deployment" = [
+        "docs/ci-cd-approaches/04-deployment/index.md",
+        { "Deployment Strategies" = "docs/ci-cd-approaches/04-deployment/01-deployment-strategies.md" },
+        { "Infrastructure & Infrastructure as Code" = "docs/ci-cd-approaches/04-deployment/02-infrastructure-iac.md" },
+        { "Environment Management" = "docs/ci-cd-approaches/04-deployment/03-environment-management.md" },
+      ] },
+      { "Security Observability" = [
+        "docs/ci-cd-approaches/05-security-observability/index.md",
+        { "Security in CI/CD" = "docs/ci-cd-approaches/05-security-observability/01-security.md" },
+        { "Pipeline Observability" = "docs/ci-cd-approaches/05-security-observability/02-observability.md" },
+        { "Pipeline Performance & Optimisation" = "docs/ci-cd-approaches/05-security-observability/03-pipeline-performance.md" },
+      ] },
+      { "Release Production" = [
+        "docs/ci-cd-approaches/06-release-production/index.md",
+        { "Release Management" = "docs/ci-cd-approaches/06-release-production/01-release-management.md" },
+        { "Rollback Strategies" = "docs/ci-cd-approaches/06-release-production/02-rollback-strategies.md" },
+        { "Testing in Production" = "docs/ci-cd-approaches/06-release-production/03-testing-in-production.md" },
+      ] },
+      { "Patterns Decisions" = [
+        "docs/ci-cd-approaches/07-patterns-decisions/index.md",
+        { "Advanced CI/CD Patterns" = "docs/ci-cd-approaches/07-patterns-decisions/01-advanced-patterns.md" },
+        { "Failure Handling in CI/CD" = "docs/ci-cd-approaches/07-patterns-decisions/02-failure-handling.md" },
+        { "Anti-Patterns & Risks" = "docs/ci-cd-approaches/07-patterns-decisions/03-antipatterns-risks.md" },
+        { "Real-World Architectures, Heuristics & Decision Factors" = "docs/ci-cd-approaches/07-patterns-decisions/04-real-world-decisions.md" },
+      ] },
+    ] },
+    { "Databases" = [
+      "docs/databases/index.md",
+      { "PostgreSQL" = [
+        "docs/databases/postgresql/index.md",
+        { "PostgreSQL — Commands & psql" = "docs/databases/postgresql/01-commands-psql.md" },
+        { "PostgreSQL — Schema & Data Types" = "docs/databases/postgresql/02-schema-data-types.md" },
+        { "PostgreSQL — Queries & Performance" = "docs/databases/postgresql/03-queries-performance.md" },
+        { "PostgreSQL — Admin & Operations" = "docs/databases/postgresql/04-admin-operations.md" },
+        { "PostgreSQL — Basic Query Commands" = "docs/databases/postgresql/05-basic-query-commands.md" },
+      ] },
+    ] },
+    { "Tools" = [
+      "docs/tools/index.md",
+      { "Docker & Docker Compose" = [
+        "docs/tools/docker/index.md",
+        { "Docker — Commands & Fundamentals" = "docs/tools/docker/01-commands-fundamentals.md" },
+        { "Docker — Dockerfile Best Practices" = "docs/tools/docker/02-dockerfile-best-practices.md" },
+        { "Docker — Docker Compose" = "docs/tools/docker/03-docker-compose.md" },
+        { "Docker — Networking & Volumes" = "docs/tools/docker/04-networking-volumes.md" },
+        { "Docker — Security & Production" = "docs/tools/docker/05-security-production.md" },
+        { "Docker — Debugging & Troubleshooting" = "docs/tools/docker/06-debugging-troubleshooting.md" },
+      ] },
+      { "Git" = [
+        "docs/tools/git/index.md",
+        { "Git — Commands & Fundamentals" = "docs/tools/git/01-commands-fundamentals.md" },
+        { "Git — Branching Strategies" = "docs/tools/git/02-branching-strategies.md" },
+        { "Git — Commit Conventions & PR Practices" = "docs/tools/git/03-commit-conventions.md" },
+        { "Git — Advanced Workflows" = "docs/tools/git/04-advanced-workflows.md" },
+        { "Git — Hooks & Configuration" = "docs/tools/git/05-hooks-configuration.md" },
+        { "Git — Troubleshooting & Recovery" = "docs/tools/git/06-troubleshooting-recovery.md" },
+      ] },
+      { "Linux Terminal" = [
+        "docs/tools/linux-terminal/index.md",
+        { "Navigation, Files & Shell Basics" = "docs/tools/linux-terminal/01-navigation-files.md" },
+        { "Search, Pipes & Text Processing" = "docs/tools/linux-terminal/02-search-text-processing.md" },
+        { "Processes & System Monitoring" = "docs/tools/linux-terminal/03-processes-system-monitoring.md" },
+        { "Network Basics" = "docs/tools/linux-terminal/04-network-ssh-downloads.md" },
+        { "Administration & Scripting Basics" = "docs/tools/linux-terminal/05-admin-scripting.md" },
+      ] },
+      { "Kubernetes" = [
+        "docs/tools/kubernetes/index.md",
+        { "kubectl Fundamentals" = "docs/tools/kubernetes/01-kubectl-fundamentals.md" },
+        { "Workloads & Scheduling" = "docs/tools/kubernetes/02-workloads-scheduling.md" },
+        { "Services & Networking" = "docs/tools/kubernetes/03-services-networking.md" },
+        { "Configuration & Storage" = "docs/tools/kubernetes/04-config-storage.md" },
+        { "Helm & Deployment Strategies" = "docs/tools/kubernetes/05-helm-deployments.md" },
+        { "Security & Observability" = "docs/tools/kubernetes/06-security-observability.md" },
+      ] },
+    ] },
+    { "Python Libraries" = [
+      "docs/libs/index.md",
+      { "Code Quality" = [
+        "docs/libs/code-quality/index.md",
+        { "Ruff — Linting & Formatting" = "docs/libs/code-quality/01-ruff-linting-formatting.md" },
+        { "Static Analysis — mypy, Pyright, wemake-python-styleguide" = "docs/libs/code-quality/02-type-checkers.md" },
+        { "Pre-Commit Hooks" = "docs/libs/code-quality/03-pre-commit-hooks.md" },
+        { "Test Coverage — Measurement, Enforcement, Mutation Testing" = "docs/libs/code-quality/04-test-coverage.md" },
+        { "Config Template — pyproject.toml + Pre-Commit" = "docs/libs/code-quality/05-pyproject-template.md" },
+      ] },
+      { "FastAPI" = [
+        "docs/libs/fastapi/index.md",
+        { "FastAPI — App & Routing" = "docs/libs/fastapi/01-app-routing.md" },
+        { "FastAPI — Dependencies & Middleware" = "docs/libs/fastapi/02-dependencies-middleware.md" },
+        { "FastAPI — Database Integration" = "docs/libs/fastapi/03-database-integration.md" },
+        { "FastAPI — Auth & Security" = "docs/libs/fastapi/04-auth-security.md" },
+        { "FastAPI — Testing" = "docs/libs/fastapi/05-testing.md" },
+        { "FastAPI — Production Patterns" = "docs/libs/fastapi/06-production-patterns.md" },
+        { "FastAPI — ASGI, Uvicorn, Starlette" = "docs/libs/fastapi/07-asgi-uvicorn-starlette.md" },
+      ] },
+      { "HTTPX" = [
+        "docs/libs/httpx/index.md",
+        { "HTTPX — Fundamentals" = "docs/libs/httpx/01-fundamentals.md" },
+        { "HTTPX — Async Patterns" = "docs/libs/httpx/02-async-patterns.md" },
+        { "HTTPX — Advanced Configuration" = "docs/libs/httpx/03-advanced-config.md" },
+      ] },
+      { "LangChain" = [
+        "docs/libs/langchain/index.md",
+        { "LangChain — Models, Prompts & Parsers" = "docs/libs/langchain/01-models-prompts-parsers.md" },
+        { "LangChain — LCEL & Chains" = "docs/libs/langchain/02-lcel-chains.md" },
+        { "LangChain — RAG & Retrieval" = "docs/libs/langchain/03-rag-retrieval.md" },
+        { "LangChain — Agents & Tools" = "docs/libs/langchain/04-agents-tools.md" },
+        { "LangChain — Memory & State" = "docs/libs/langchain/05-memory-state.md" },
+        { "LangChain — LangGraph & Production" = "docs/libs/langchain/06-langgraph-production.md" },
+        { "LangChain — Security, Evaluation & Operations" = "docs/libs/langchain/07-security-evaluation-operations.md" },
+        { "LangChain — Practical Playbooks" = "docs/libs/langchain/08-practical-playbooks.md" },
+      ] },
+      { "Playwright" = [
+        "docs/libs/playwright/index.md",
+        { "Playwright — UI Testing" = "docs/libs/playwright/01-ui-testing.md" },
+        { "Playwright — API Testing" = "docs/libs/playwright/02-api-testing.md" },
+        { "Playwright — Page Object Model" = "docs/libs/playwright/03-page-objects.md" },
+        { "Playwright — Advanced Patterns" = "docs/libs/playwright/04-advanced-patterns.md" },
+        { "Playwright — UI Practical Playbook" = "docs/libs/playwright/05-ui-playbook.md" },
+        { "Playwright — API Practical Playbook" = "docs/libs/playwright/06-api-playbook.md" },
+      ] },
+      { "Pydantic" = [
+        "docs/libs/pydantic/index.md",
+        { "Pydantic — Models & Fields" = "docs/libs/pydantic/01-models-fields.md" },
+        { "Pydantic — Validators & Serialization" = "docs/libs/pydantic/02-validators-serialization.md" },
+        { "Pydantic — Advanced Patterns" = "docs/libs/pydantic/03-advanced-patterns.md" },
+        { "Pydantic — Config & Performance" = "docs/libs/pydantic/04-config-performance.md" },
+      ] },
+      { "Pytest" = [
+        "docs/libs/pytest/index.md",
+        { "Core Guides" = [
+          "docs/libs/pytest/01-core-guides/index.md",
+          { "Pytest — Fundamentals" = "docs/libs/pytest/01-core-guides/01-fundamentals.md" },
+          { "Pytest — Advanced Patterns & Best Practices" = "docs/libs/pytest/01-core-guides/02-advanced-patterns.md" },
+        ] },
+        { "Practical Playbooks" = [
+          "docs/libs/pytest/02-practical-playbooks/index.md",
+          { "Pytest Playbook — Real-World Recipes" = "docs/libs/pytest/02-practical-playbooks/01-real-world-recipes.md" },
+          { "Pytest Playbook — Test Data Factories" = "docs/libs/pytest/02-practical-playbooks/02-test-data-factories.md" },
+          { "Pytest Playbook — Flakiness Debugging" = "docs/libs/pytest/02-practical-playbooks/03-flakiness-debugging.md" },
+          { "Pytest Playbook — Config Template" = "docs/libs/pytest/02-practical-playbooks/04-pytest-config-template.md" },
+        ] },
+      ] },
+      { "Requests" = [
+        "docs/libs/requests-http/index.md",
+        { "Requests — Fundamentals & Methods" = "docs/libs/requests-http/01-fundamentals-methods.md" },
+        { "Requests — Advanced Patterns & Best Practices" = "docs/libs/requests-http/02-advanced-patterns.md" },
+      ] },
+      { "SQLAlchemy" = [
+        "docs/libs/sqlalchemy/index.md",
+        { "SQLAlchemy — Engine & Models" = "docs/libs/sqlalchemy/01-engine-models.md" },
+        { "SQLAlchemy — Relationships & Queries" = "docs/libs/sqlalchemy/02-relationships-queries.md" },
+        { "SQLAlchemy — Sessions & Transactions" = "docs/libs/sqlalchemy/03-sessions-transactions.md" },
+        { "SQLAlchemy — Async Patterns" = "docs/libs/sqlalchemy/04-async-patterns.md" },
+        { "SQLAlchemy — Alembic Migrations" = "docs/libs/sqlalchemy/05-alembic-migrations.md" },
+        { "SQLAlchemy — Advanced Recipes" = "docs/libs/sqlalchemy/06-advanced-recipes.md" },
+      ] },
+      { "uv" = [
+        "docs/libs/uv/index.md",
+        { "uv — Projects & Dependencies" = "docs/libs/uv/01-projects-dependencies.md" },
+        { "uv — Scripts & Tools" = "docs/libs/uv/02-scripts-tools.md" },
+        { "uv — Python & Environments" = "docs/libs/uv/03-python-environments.md" },
+        { "uv — Workspaces & Docker" = "docs/libs/uv/04-workspaces-docker.md" },
+        { "uv — Build & Publish" = "docs/libs/uv/05-build-publish.md" },
+      ] },
+    ] },
+  ] },
+  { "Files" = "files.md" },
+  { "Tags" = "tags.md" },
+  { "Archive" = "archive.md" },
+  { "Contact" = "contact.md" },
+]
+
+# --------------------------------------------------------------------------
+#  Тема
+# --------------------------------------------------------------------------
+[project.theme]
+variant = "modern"
+custom_dir = "overrides"      # власні шаблони: мета-теги, 404, блог, дати статей, кнопки Share
+favicon = "img/favicon.svg"
+logo = "img/favicon.svg"
+language = "en"
+features = [
+  "navigation.tabs",          # розділи сайту вкладками в шапці
+  "navigation.sections",      # теми Docs групами в лівому меню
+  "navigation.indexes",       # index.md теми — сторінка самої теми
+  "navigation.path",          # «хлібні крихти» над статтею
+  "navigation.footer",        # «Previous / Next» внизу сторінки
+  "navigation.instant",       # переходи без перезавантаження сторінки
+  "navigation.top",           # кнопка «вгору»
+  "toc.follow",               # зміст справа підсвічує поточний розділ
+  "search.highlight",
+  "content.code.copy",
+]
+
+# Кольори "custom" задаються в docs/css/base.css (--md-primary-fg-color тощо)
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+primary = "custom"
+accent = "custom"
+toggle.icon = "material/lightbulb-auto"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "custom"
+accent = "custom"
+toggle.icon = "material/lightbulb"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "custom"
+accent = "custom"
+toggle.icon = "material/lightbulb-outline"
+toggle.name = "Switch to system preference"
+
+# --------------------------------------------------------------------------
+#  Футер
+# --------------------------------------------------------------------------
+[project.extra]
+generator = false             # без «Made with Zensical»
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/serhiismetanskyi"
+name = "GitHub"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/linkedin"
+link = "https://www.linkedin.com/in/serhiismetanskyi"
+name = "LinkedIn"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/telegram"
+link = "https://t.me/serhiismetanskyi"
+name = "Telegram"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/medium"
+link = "https://serhiismetanskyi.medium.com/"
+name = "Medium"
+
+[[project.extra.social]]
+icon = "fontawesome/solid/envelope"
+link = "mailto:smetanskyi@proton.me"
+name = "Email"
+
+# --------------------------------------------------------------------------
+#  Плагіни
+# --------------------------------------------------------------------------
+# Блог: пости в docs/blog/posts/, автори в docs/blog/.authors.yml
+[project.plugins.blog]
+post_date_format = "long"
+post_url_format = "{date}/{slug}"
+post_readtime = true
+archive_name = "Archive"
+categories_name = "Categories"
+
+# RSS і JSON-стрічка (/feed_rss_created.xml, /feed_json_created.json):
+# пости блогу й статті Docs (підпапки docs/docs/; огляд docs/docs/index.md не потрапляє).
+# З JSON-стрічки будуються «Latest posts» на головній і сторінка /archive/
+[project.plugins.rss]
+match_path = "blog/posts/.*|docs/[^/]+/.*"
+length = 1000                 # усі записи — щоб архів був повним
+use_git = false
+date_from_meta.as_creation = "date"
+date_from_meta.as_update = "date"
+categories = ["categories", "tags"]
+
+# Теги в постах і статтях; список усіх тегів — docs/tags.md
+[project.plugins.tags]
+
+# --------------------------------------------------------------------------
+#  Markdown
+# --------------------------------------------------------------------------
+[project.markdown_extensions]
+# Python-Markdown
+attr_list = {}                # { .md-button } та { target=_blank }
+md_in_html = {}               # markdown всередині <div markdown>
+admonition = {}               # !!! note / tip / warning
+def_list = {}                 # списки визначень
+footnotes = {}                # виноски [^1]
+toc.permalink = true
+# PyMdown Extensions
+pymdownx.details = {}                     # згортувані блоки ???
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.highlight = {}
+pymdownx.inlinehilite = {}
+pymdownx.keys = {}                        # клавіші ++ctrl+k++
+pymdownx.superfences = {}
+pymdownx.tabbed.alternate_style = true    # вкладки === "..."
+pymdownx.tasklist.custom_checkbox = true  # чекбокси - [x]

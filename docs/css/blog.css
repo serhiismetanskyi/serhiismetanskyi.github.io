@@ -1,0 +1,256 @@
+/* ==========================================================================
+   Блог: список постів, сторінка поста, архів за роками
+   ========================================================================== */
+
+/* ---------- Список постів: мета ліворуч, прев'ю й анонс праворуч ---------- */
+.md-post--excerpt {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  column-gap: 2rem;
+  margin: 0;
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-post--excerpt:first-of-type {
+  border-top: 0;
+  padding-top: 0.4rem;
+}
+
+.md-post--excerpt .md-post__header {
+  display: block;
+  padding-top: 0.35rem;
+}
+
+.md-post--excerpt .md-post__authors {
+  display: none;
+}
+
+.md-post--excerpt .md-meta__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0;
+}
+
+.md-post--excerpt .md-meta__item:not(:last-child)::after {
+  content: none;
+}
+
+.md-post--excerpt .md-meta__item:first-child {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+}
+
+.md-post--excerpt .md-post__content h2 {
+  margin-bottom: 0.4em;
+  font-size: 1.35em;
+  letter-spacing: -0.01em;
+}
+
+.md-post--excerpt .md-post__content h2 a {
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.md-post--excerpt .md-post__content h2 a:hover {
+  color: var(--md-primary-fg-color);
+}
+
+.md-post--excerpt .md-post__content > p {
+  color: var(--md-default-fg-color--light);
+}
+
+/* «Continue reading →» — стрілка зсувається при наведенні */
+.md-typeset .md-post__action a::after {
+  content: " →";
+  display: inline-block;
+  transition: transform 180ms var(--lift-ease);
+}
+
+.md-typeset .md-post__action a:hover::after {
+  transform: translateX(4px);
+}
+
+/* ---------- Прев'ю-картинки (overrides/partials/post.html, content.html) ---------- */
+.md-typeset .md-post__cover {
+  display: block;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 0.6rem;
+  text-decoration: none;
+}
+
+.md-typeset .md-post__cover img,
+.md-typeset .post-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 630;
+  object-fit: cover;
+  border-radius: 0.6rem;
+}
+
+.md-typeset .md-post__cover img {
+  transition: transform 300ms var(--lift-ease);
+}
+
+.md-typeset .md-post__cover:hover img {
+  transform: scale(1.03);
+}
+
+.md-typeset .post-cover {
+  margin: 0 0 1.6rem;
+}
+
+/* ---------- Сторінка поста: типографіка для читання ---------- */
+.md-content--post .md-content__inner {
+  max-width: 38rem;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+
+.md-content--post .md-content__inner > h1 {
+  font-size: 2.1em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.2em;
+}
+
+.md-content--post .md-content__inner > h2 {
+  margin-top: 2em;
+  letter-spacing: -0.01em;
+}
+
+.md-content--post blockquote {
+  margin: 1.8em 0;
+  padding: 0.2em 0 0.2em 1.2em;
+  border-left: 3px solid var(--md-primary-fg-color);
+  color: var(--md-default-fg-color);
+  font-size: 1.1em;
+  font-style: italic;
+}
+
+.md-content--post .highlight,
+.md-content--post pre > code {
+  border-radius: 0.5rem;
+}
+
+/* Смужка прогресу читання (js/reading-progress.js) */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 3px;
+  background: var(--md-primary-fg-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* ---------- Кнопки «Share» під постом (overrides/partials/comments.html) ---------- */
+.share {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 2.5rem 0 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.share__label {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
+}
+
+.md-typeset .share__link {
+  display: inline-flex;
+  width: 1.2rem;
+  height: 1.2rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--md-default-fg-color--light);
+  cursor: pointer;
+  transition: transform 180ms var(--lift-ease), color 150ms;
+}
+
+.md-typeset .share__link:hover {
+  transform: translateY(-2px);
+  color: var(--md-accent-fg-color);
+}
+
+.share__link svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.share__copy[data-copied] {
+  color: var(--md-accent-fg-color);
+}
+
+/* ---------- Архів за роками (/blog/archive/<рік>/, overrides/blog.html) ---------- */
+[dir] .md-typeset.archive-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[dir] .md-typeset.archive-list li {
+  display: flex;
+  gap: 1.2rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0.35em 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset.archive-list time {
+  flex-shrink: 0;
+  width: 9rem;
+  color: var(--md-default-fg-color--light);
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset.archive-list a {
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.md-typeset.archive-list a:hover {
+  color: var(--md-primary-fg-color);
+}
+
+/* ---------- Мобільні ---------- */
+@media screen and (max-width: 44.9375em) {
+  .md-post--excerpt {
+    grid-template-columns: 1fr;
+    padding: 1.4rem 0;
+  }
+
+  .md-post--excerpt .md-meta__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0 0.8rem;
+  }
+
+  .md-post--excerpt .md-post__header {
+    padding-top: 0;
+    margin-bottom: 0.6rem;
+  }
+
+  [dir] .md-typeset.archive-list li {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .md-typeset.archive-list time {
+    width: auto;
+    font-size: 0.85em;
+  }
+}

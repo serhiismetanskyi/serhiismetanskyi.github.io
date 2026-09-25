@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{#- Прев'ю посилань у соцмережах (Open Graph / X). Картинка поста: `image:` у front matter -#}
+{% block extrahead %}
+  {% set meta = page.meta | d({}, true) if page else {} %}
+  {% set title = meta.title | d(page.title if page else "", true) | d(config.site_name, true) | striptags %}
+  {% set description = meta.description | d(config.site_description, true) %}
+  {% set is_post = page and page.config is defined and page.config.date is defined %}
+  {#- Пости без своєї картинки показують у прев'ю заглушку поста, решта сторінок — загальну -#}
+  {% set image = config.site_url ~ (meta.image | d("img/post-placeholder.png" if is_post else "img/og-default.png", true)) %}
+  <meta property="og:site_name" content="{{ config.site_name }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:url" content="{{ page.canonical_url | d(config.site_url, true) if page else config.site_url }}">
+  <meta property="og:image" content="{{ image }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="{{ 'article' if is_post else 'website' }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="{{ image }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ config.site_name }} — RSS" href="{{ config.site_url }}feed_rss_created.xml">
+{% endblock %}

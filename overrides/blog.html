@@ -1,0 +1,32 @@
+{% extends "main.html" %}
+
+{#- Список постів блогу. Сторінки архіву (/blog/archive/<рік>/) — компактний
+    список «дата — назва», як на сторінці тегів; решта — анонси, як у теми -#}
+{% block container %}
+  <div class="md-content" data-md-component="content">
+    <div class="md-content__inner">
+      <header class="md-typeset">
+        {{ page.content }}
+      </header>
+      {% if "archive/" in page.url %}
+        <ul class="archive-list md-typeset">
+          {% for post in posts %}
+            <li>
+              <time datetime="{{ post.config.date.created }}">{{ post.config.date.created | date }}</time>
+              <a href="{{ post.url | url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {% for post in posts %}
+          {% include "partials/post.html" %}
+        {% endfor %}
+      {% endif %}
+      {% if pagination %}
+        {% block pagination %}
+          {% include "partials/pagination.html" %}
+        {% endblock %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
