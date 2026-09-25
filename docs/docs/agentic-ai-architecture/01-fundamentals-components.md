@@ -25,15 +25,14 @@ tags:
 
 ## Sense → Plan → Act → Observe Loop
 
-```
-User Goal
-    │
-    ▼
-Observe/Perceive ──→ Plan/Reason ──→ Execute/Act
-        ▲                                   │
-        └──── Evaluate/Critique ◄───────────┘
-                      │
-               Memory Update
+```mermaid
+flowchart TD
+    G([User Goal]) --> O[Observe / Perceive]
+    O --> P[Plan / Reason]
+    P --> A[Execute / Act]
+    A --> C[Evaluate / Critique]
+    C -- next step --> O
+    C --> M[(Memory Update)]
 ```
 
 The loop stops when:

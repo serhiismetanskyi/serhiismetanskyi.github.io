@@ -63,20 +63,16 @@ Unlike a classic prompt→response app, an agentic system:
 
 ## Architecture Overview
 
-```
-User Input
-    │
-    ▼
-┌───────────────────────────────────────────────┐
-│                  Agent Core                   │
-│  Perception → Planner → Executor → Observer   │
-│         ↕ Short-Term Memory (Context)         │
-└───────────────┬───────────────────────────────┘
-                │
-       ┌────────┴────────┐
-       ▼                 ▼
-Long-Term Memory     External Tools
- (Vector DB + RAG)    (APIs / Code)
+```mermaid
+flowchart TD
+    U[User Input] --> CORE
+    subgraph CORE[Agent Core]
+        direction LR
+        P[Perception] --> PL[Planner] --> E[Executor] --> O[Observer]
+        STM[(Short-Term Memory<br/>context)]
+    end
+    CORE --> LTM[(Long-Term Memory<br/>Vector DB + RAG)]
+    CORE --> T[External Tools<br/>APIs / Code]
 ```
 
 ---

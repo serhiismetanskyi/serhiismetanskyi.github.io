@@ -29,25 +29,14 @@ and when to stop*.
 
 ## The Agent Loop
 
-```
-        User goal
-            │
-            ▼
-   ┌──────────────────┐
-   │  Gather context  │◄──────────────┐
-   └────────┬─────────┘               │
-            ▼                         │
-   ┌──────────────────┐               │
-   │  Take action     │  tool calls   │
-   │  (model + tools) │──────────────►│
-   └────────┬─────────┘               │
-            ▼                         │
-   ┌──────────────────┐   not done    │
-   │  Verify work     │───────────────┘
-   └────────┬─────────┘
-            │ done / limit reached
-            ▼
-       Final result
+```mermaid
+flowchart TD
+    G([User goal]) --> C[Gather context]
+    C --> A["Take action<br/>(model + tools)"]
+    A -- tool calls --> C
+    A --> V{Verify work}
+    V -- not done --> C
+    V -- "done / limit reached" --> R([Final result])
 ```
 
 This is the loop behind the Claude Agent SDK: **gather context → take action → verify work → repeat**.

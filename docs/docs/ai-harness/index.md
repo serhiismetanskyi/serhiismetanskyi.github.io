@@ -43,23 +43,18 @@ So when you test an AI system, you are mostly testing its harness.
 
 ## Architecture Overview
 
-```
-            ┌──────────────── Evaluation Harness ────────────────┐
-            │  tasks → trials → run agent → grade → aggregate    │
-            │                       │                            │
-            │   ┌───────────────────▼────────────────────────┐   │
-            │   │              Agent Harness                 │   │
-            │   │  system prompt · context · memory · hooks  │   │
-            │   │      ┌──────────────────────────────┐      │   │
-            │   │      │   Model (LLM)                │      │   │
-            │   │      └──────────────┬───────────────┘      │   │
-            │   │   gather context → act → verify → repeat   │   │
-            │   │                     │                      │   │
-            │   │        tools · sandbox · sub-agents        │   │
-            │   └────────────────────────────────────────────┘   │
-            │                       │                            │
-            │        transcript + final state → graders          │
-            └────────────────────────────────────────────────────┘
+```mermaid
+flowchart TD
+    subgraph EVAL[Evaluation Harness]
+        direction TB
+        T[Tasks × trials] --> AGENT
+        subgraph AGENT[Agent Harness]
+            direction LR
+            M[Model / LLM] <--> H[Loop · context · memory<br/>tools · sandbox · hooks]
+        end
+        AGENT --> O[Transcript + final state]
+        O --> G[Graders → aggregated scores]
+    end
 ```
 
 ## Quick Start: Checklist for QA Engineers

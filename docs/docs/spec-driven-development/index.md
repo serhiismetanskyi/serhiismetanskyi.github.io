@@ -29,14 +29,15 @@ acceptance criteria and tests that AI-assisted development has.
 
 ## The Workflow at a Glance
 
-```
- Principles        Specify         Clarify          Plan           Tasks         Implement        Verify
-(constitution) ──► what & why ──► open questions ──► how: stack, ──► small, ──► agent writes ──► code vs spec,
- project rules     user stories   resolved          architecture,   ordered,     code + tests    tests pass
-                   acceptance                       data model      traceable
-                   criteria                                                            │
-      ▲                                                                                │ gaps found
-      └──────────────────────── update the spec when you learn something ◄─────────────┘
+```mermaid
+flowchart TD
+    P["Principles — project rules"] --> S["Specify — what & why, acceptance criteria"]
+    S --> C["Clarify — open questions resolved"]
+    C --> PL["Plan — stack, architecture, data model"]
+    PL --> T["Tasks — small, ordered, traceable"]
+    T --> I["Implement — code + tests"]
+    I --> V{"Verify — code vs spec"}
+    V -- "gaps found: update the spec" --> S
 ```
 
 ## Vibe Coding vs Spec-Driven Development

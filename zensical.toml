@@ -883,6 +883,8 @@ pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
 pymdownx.highlight = {}
 pymdownx.inlinehilite = {}
 pymdownx.keys = {}                        # клавіші ++ctrl+k++
-pymdownx.superfences = {}
+pymdownx.superfences.custom_fences = [    # ```mermaid → схема Mermaid
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
 pymdownx.tabbed.alternate_style = true    # вкладки === "..."
 pymdownx.tasklist.custom_checkbox = true  # чекбокси - [x]
