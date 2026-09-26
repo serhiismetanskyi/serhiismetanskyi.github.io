@@ -130,13 +130,6 @@ of about 6 points on Terminal-Bench 2.0 from resource configuration only.
 - Cache results in CI where the tool supports it.
 
 ---
-## Sources
-- Anthropic — [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Jan 2026)
-- OpenAI — [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices)
-- EleutherAI — [Decontamination in lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness/blob/main/docs/decontamination.md)
-- Inspect AI — [Options: epochs and limits](https://inspect.aisi.org.uk/options.html)
-- Anthropic — [Quantifying infrastructure noise in agentic coding evals](https://x.com/AnthropicAI/status/2019501512200974686) (Feb 2026)
-
 ## See also
 - [AI Harness](index.md)
 - [Eval Harness — Tools, Testing & CI](04-eval-harness-tools-ci.md)

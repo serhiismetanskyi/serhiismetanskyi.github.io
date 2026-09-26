@@ -382,12 +382,3 @@ comprehensive failure report instead of having to re-run after each fix.
    `GoalAccuracyMetric` and `RoleAdherenceMetric`.
 5. **Always include a negative scenario** — test a broken bot (wrong tools,
    forgotten context, incomplete task) to confirm metrics detect real failures.
-
----
-
-## Sources
-
-- [DeepEval ConversationalTestCase](https://deepeval.com/docs/evaluation-test-cases#conversational-test-cases)
-- [Turn API reference](https://deepeval.com/docs/evaluation-test-cases#turn)
-- [Chatbot Metrics](https://deepeval.com/docs/metrics-conversation-completeness)
-- [Agent Metrics](https://deepeval.com/docs/metrics-tool-correctness)

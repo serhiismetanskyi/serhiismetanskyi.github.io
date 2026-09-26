@@ -179,7 +179,6 @@ CONTACTS = [
     {"id": 2, "name": "Ann Lee", "email": "lee@example.com", "status": "blocked"},
 ]
 
-
 @app.api_route("/contacts", methods=["QUERY"])
 async def query_contacts(request: Request) -> Response:
     content_type = request.headers.get("content-type", "").split(";")[0].strip()
@@ -198,7 +197,6 @@ async def query_contacts(request: Request) -> Response:
     rows = [c for c in CONTACTS if "status" not in query or c["status"] == query["status"]]
     return JSONResponse(rows[: query.get("limit", 100)], headers=ACCEPT_QUERY)
 
-
 @app.head("/contacts")
 async def contacts_capabilities() -> Response:
     """Lets clients discover QUERY support via Accept-Query."""
@@ -210,7 +208,6 @@ Class-based alternative with Starlette 1.7+:
 ```python
 from starlette.endpoints import HTTPEndpoint
 from starlette.responses import JSONResponse
-
 
 class ContactSearch(HTTPEndpoint):
     async def query(self, request):
@@ -264,10 +261,8 @@ from app import CONTACTS, app
 
 client = TestClient(app)
 
-
 def query(body=None, **kwargs):
     return client.request("QUERY", "/contacts", json=body, **kwargs)
-
 
 def test_query_returns_filtered_results():
     response = query({"status": "active"})
@@ -275,24 +270,20 @@ def test_query_returns_filtered_results():
     assert [c["id"] for c in response.json()] == [1]
     assert response.headers["accept-query"] == '"application/json"'
 
-
 def test_query_is_safe():
     before = [dict(c) for c in CONTACTS]
     for _ in range(3):
         query({"status": "blocked"})
     assert CONTACTS == before
 
-
 def test_different_bodies_give_different_results():
     active = query({"status": "active"}).json()
     blocked = query({"status": "blocked"}).json()
     assert active != blocked
 
-
 def test_missing_content_type_is_rejected():
     response = client.request("QUERY", "/contacts", content=b'{"status": "active"}')
     assert response.status_code == 400
-
 
 @pytest.mark.parametrize("content_type", ["application/sql", "text/plain"])
 def test_unsupported_media_type_lists_accepted_formats(content_type):
@@ -302,10 +293,8 @@ def test_unsupported_media_type_lists_accepted_formats(content_type):
     assert response.status_code == 415
     assert "application/json" in response.headers["accept-query"]
 
-
 def test_unprocessable_query_returns_422():
     assert query({"unknown_field": 1}).status_code == 422
-
 
 def test_get_is_not_allowed_on_query_resource():
     response = client.get("/contacts")
@@ -322,14 +311,6 @@ def test_get_is_not_allowed_on_query_resource():
   POST fallback while support is rolling out.
 
 ---
-## Sources
-- [RFC 10008 — The HTTP QUERY Method](https://www.rfc-editor.org/info/rfc10008) (June 2026)
-- [IETF Datatracker — draft history](https://datatracker.ietf.org/doc/draft-ietf-httpbis-safe-method-w-body/history/)
-- [IANA HTTP Method Registry](https://www.iana.org/assignments/http-methods/http-methods.xhtml)
-- [Starlette release notes (1.7.0)](https://github.com/encode/starlette/blob/master/docs/release-notes.md), [FastAPI discussion #15839](https://github.com/fastapi/fastapi/discussions/15839)
-- [Go proposal #80058](https://github.com/golang/go/issues/80058), [whatwg/fetch#1938](https://github.com/whatwg/fetch/issues/1938)
-- [OpenAPI 3.2 announcement](https://www.openapis.org/blog/2025/09/23/announcing-openapi-v3-2)
-
 ## See also
 - [REST: Architecture and HTTP Layer](01-architecture-http.md)
 - [REST: Querying Layer](03-querying.md)

@@ -226,22 +226,14 @@ class FakeClassifier:
     def invoke(self, request):
         return FakeResponse(nouls={"urgent": FakeNoul(noul=self.noul)})
 
-
 def test_ticket_escalated_when_urgent():
     assert route_ticket(text="Prod is down!", classifier=FakeClassifier(0.97)) == "on-call"
-
 
 def test_ticket_queued_when_not_urgent():
     assert route_ticket(text="Typo on pricing page", classifier=FakeClassifier(0.10)) == "backlog"
 ```
 
 ---
-## Sources
-- LangChain — [Building a Harness with Jev](https://www.langchain.com/blog/building-a-harness-with-jev) (Sydney Runkle, Hunter Lovell, Sep 17 2026)
-- TypeSafe AI — [Introducing System One models and Jev](https://typesafe.ai/blog/introducing-system-one-models-and-jev) (Sep 2026)
-- TypeSafe — [Quickstart](https://docs.typesafe.ai/introduction/quickstart), [Concepts: state](https://docs.typesafe.ai/concepts/state)
-- LangChain — [TypeSafe integration docs](https://docs.langchain.com/oss/python/integrations/providers/typesafe)
-
 ## See also
 - [AI Harness](index.md)
 - [Agent Harness — Concepts & Components](01-agent-harness-concepts.md)

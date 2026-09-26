@@ -165,16 +165,6 @@ When models improve, some harness parts become dead weight:
 | Undisclosed harness | Benchmark results can't be reproduced | Always record model + harness configuration |
 
 ---
-## Sources
-- LangChain — [Improving Deep Agents with harness engineering](https://www.langchain.com/blog/improving-deep-agents-with-harness-engineering) (Feb 2026)
-- OpenAI — [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/) (Feb 2026); [InfoQ summary](https://www.infoq.com/news/2026/02/openai-harness-engineering-codex/)
-- Anthropic — [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) (Nov 2025)
-- Anthropic — [Harness design for long-running application development](https://www.anthropic.com/engineering/harness-design-long-running-apps) (Mar 2026)
-- Anthropic — [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (Sep 2025)
-- Anthropic — [Writing effective tools for agents](https://www.anthropic.com/engineering/writing-tools-for-agents) (Sep 2025)
-- Claude Code — [Hooks reference](https://code.claude.com/docs/en/hooks)
-- OpenAI Agents SDK — [Guardrails](https://openai.github.io/openai-agents-python/guardrails/)
-
 ## See also
 - [AI Harness](index.md)
 - [Agent Harness — Concepts & Components](01-agent-harness-concepts.md)

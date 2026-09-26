@@ -127,7 +127,6 @@ Traces are what you read when something goes wrong, and the raw material for new
 ```python
 MAX_TURNS = 20
 
-
 def run_agent(goal: str, model, tools: dict, verify) -> str:
     messages = [system_prompt(), user(goal)]
 
@@ -156,15 +155,6 @@ def run_agent(goal: str, model, tools: dict, verify) -> str:
 Every line here is a place where the system can fail — and a place you can test.
 
 ---
-## Sources
-- Anthropic — [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Jan 2026)
-- Anthropic — [Building agents with the Claude Agent SDK](https://claude.com/blog/building-agents-with-the-claude-agent-sdk) (Sep 2025)
-- Anthropic — [Scaling Managed Agents: decoupling the brain from the hands](https://www.anthropic.com/engineering/managed-agents) (Apr 2026)
-- Claude Agent SDK — [Overview](https://code.claude.com/docs/en/agent-sdk/overview), [Hooks](https://code.claude.com/docs/en/hooks)
-- OpenAI — [Agents SDK](https://openai.github.io/openai-agents-python/), [Guardrails](https://openai.github.io/openai-agents-python/guardrails/)
-- LangChain — [How to build a custom agent harness](https://www.langchain.com/blog/how-to-build-a-custom-agent-harness) (Jun 2026), [Deep Agents](https://www.langchain.com/deep-agents)
-- Zhang et al. — [Stop Comparing LLM Agents Without Disclosing the Harness](https://arxiv.org/abs/2605.23950) (May 2026)
-
 ## See also
 - [AI Harness](index.md)
 - [Agent Harness — Patterns & Anti-Patterns](02-agent-harness-patterns.md)

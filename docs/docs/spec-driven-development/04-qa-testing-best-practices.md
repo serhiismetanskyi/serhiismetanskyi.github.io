@@ -33,7 +33,6 @@ Given/When/Then scenarios map almost directly to BDD scenarios or test names:
 ```python
 import pytest
 
-
 @pytest.mark.requirement("FR-002")
 def test_duplicate_album_name_is_rejected(api, album_factory):
     album_factory(name="Trip")
@@ -143,15 +142,6 @@ Spec Kit's `checklist` command produces requirements-quality checklists (`CHK001
 - When nobody will review the spec — the process adds cost without the benefit
 
 ---
-## Sources
-- Martin Fowler — Fragments [2026-01-08](https://martinfowler.com/fragments/2026-01-08.html), [2026-03-26](https://martinfowler.com/fragments/2026-03-26.html)
-- Birgitta Böckeler — [Understanding Spec-Driven Development](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html) (Oct 2025)
-- Kiro — [Correctness](https://kiro.dev/docs/specs/correctness/), [Best practices](https://kiro.dev/docs/specs/best-practices/)
-- GitHub Spec Kit — [templates](https://github.com/github/spec-kit/tree/main/templates), [commands](https://github.github.io/spec-kit/reference/agentic-sdd.html)
-- [OpenSpec](https://github.com/Fission-AI/OpenSpec)
-- Claude Code — [Best practices](https://code.claude.com/docs/en/best-practices)
-- Thoughtworks Technology Radar — [Spec-driven development](https://www.thoughtworks.com/en-us/radar/techniques/spec-driven-development)
-
 ## See also
 - [Spec-Driven Development](index.md)
 - [SDD — Writing Good Specs](02-writing-specs.md)

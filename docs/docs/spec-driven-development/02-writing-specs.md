@@ -167,13 +167,6 @@ Apply classic [test design techniques](../test-design-techniques/index.md) — e
 boundary values, decision tables, state transitions — to find missing acceptance criteria.
 
 ---
-## Sources
-- GitHub Spec Kit — [spec template](https://github.com/github/spec-kit/blob/main/templates/spec-template.md)
-- Kiro — [Feature specs](https://kiro.dev/docs/specs/feature-specs/)
-- Alistair Mavin — [EARS](https://alistairmavin.com/ears/)
-- [OpenSpec](https://github.com/Fission-AI/OpenSpec)
-- Claude Code — [Best practices](https://code.claude.com/docs/en/best-practices)
-
 ## See also
 - [Spec-Driven Development](index.md)
 - [SDD — Concepts & Workflow](01-concepts-workflow.md)

@@ -140,14 +140,6 @@ When a change is archived, its delta specs are merged into `openspec/specs/` —
 | Works across agents and tools (plain markdown) | Risk of relearning that hand-crafted rules don't scale (Thoughtworks) |
 
 ---
-## Sources
-- Thoughtworks Technology Radar — [Spec-driven development](https://www.thoughtworks.com/en-us/radar/techniques/spec-driven-development) (Nov 2025)
-- Birgitta Böckeler — [Understanding Spec-Driven Development: Kiro, spec-kit, and Tessl](https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html) (Oct 2025)
-- Martin Fowler — Fragments [2026-01-08](https://martinfowler.com/fragments/2026-01-08.html), [2026-03-26](https://martinfowler.com/fragments/2026-03-26.html)
-- GitHub Blog — [Spec-driven development with AI: get started with a new open source toolkit](https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/) (Sep 2025)
-- [GitHub Spec Kit](https://github.com/github/spec-kit), [Kiro docs — Specs](https://kiro.dev/docs/specs/), [OpenSpec](https://github.com/Fission-AI/OpenSpec)
-- Claude Code — [Best practices](https://code.claude.com/docs/en/best-practices)
-
 ## See also
 - [Spec-Driven Development](index.md)
 - [SDD — Writing Good Specs](02-writing-specs.md)

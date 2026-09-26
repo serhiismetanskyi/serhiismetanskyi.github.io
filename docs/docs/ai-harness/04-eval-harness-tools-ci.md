@@ -57,7 +57,6 @@ from inspect_ai.dataset import FieldSpec, hf_dataset
 from inspect_ai.scorer import model_graded_qa
 from inspect_ai.solver import generate
 
-
 @task
 def simpleqa():
     return Task(
@@ -83,7 +82,6 @@ inspect view                                                # browse logs and tr
 from deepeval import assert_test
 from deepeval.metrics import GEval
 from deepeval.test_case import LLMTestCase, SingleTurnParams
-
 
 def test_correctness():
     correctness = GEval(
@@ -154,7 +152,6 @@ def test_search_tool_truncates_large_results():
     result = search_tool.run(query="error", limit=5)
     assert len(result["items"]) <= 5
     assert "next_page" in result
-
 
 def test_policy_blocks_force_push():
     assert not is_allowed(ToolCall(name="Bash", args={"command": "git push --force"}))
@@ -265,20 +262,6 @@ jobs:
 - [ ] Failed production transcripts are turned into new tasks
 
 ---
-## Sources
-- [EleutherAI lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness)
-- [Inspect AI](https://inspect.aisi.org.uk/) — [options](https://inspect.aisi.org.uk/options.html)
-- [DeepEval — Getting started](https://deepeval.com/docs/getting-started)
-- [promptfoo — Getting started](https://www.promptfoo.dev/docs/getting-started/), [GitHub Action](https://www.promptfoo.dev/docs/integrations/github-action/)
-- [Ragas — Quickstart](https://docs.ragas.io/en/stable/getstarted/quickstart/)
-- [OpenAI Evals](https://github.com/openai/evals), [simple-evals](https://github.com/openai/simple-evals)
-- [LangSmith — Evaluation quickstart](https://docs.langchain.com/langsmith/evaluation-quickstart)
-- [Braintrust — Eval SDK](https://www.braintrust.dev/docs/start/eval-sdk)
-- [Harbor](https://github.com/harbor-framework/harbor)
-- LangChain — [Testing agents](https://docs.langchain.com/oss/python/langchain/test): [integration testing](https://docs.langchain.com/oss/python/langchain/test/integration-testing), [trajectory evals](https://docs.langchain.com/oss/python/langchain/test/evals)
-- Claude Agent SDK — [Overview](https://code.claude.com/docs/en/agent-sdk/overview)
-- Anthropic — [Demystifying evals for AI agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) (Jan 2026)
-
 ## See also
 - [AI Harness](index.md)
 - [Eval Harness — Concepts & Metrics](03-eval-harness-concepts.md)

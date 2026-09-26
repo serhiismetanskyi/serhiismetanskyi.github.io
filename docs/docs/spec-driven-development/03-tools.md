@@ -146,14 +146,6 @@ the listed edge cases have tests, and nothing outside the task's scope changed.
 - **Don't want another tool** → plan mode + `SPEC.md` + `AGENTS.md`
 
 ---
-## Sources
-- [GitHub Spec Kit](https://github.com/github/spec-kit) — [quickstart](https://github.github.io/spec-kit/quickstart.html), [commands](https://github.github.io/spec-kit/reference/agentic-sdd.html), [integrations](https://github.github.io/spec-kit/reference/integrations.html)
-- Kiro — [Specs](https://kiro.dev/docs/specs/), [Feature specs](https://kiro.dev/docs/specs/feature-specs/), [Correctness](https://kiro.dev/docs/specs/correctness/), [Steering](https://kiro.dev/docs/steering/), [Hooks](https://kiro.dev/docs/hooks/), [GA announcement](https://kiro.dev/blog/general-availability/)
-- [OpenSpec](https://github.com/Fission-AI/OpenSpec); Thoughtworks Radar — [OpenSpec](https://www.thoughtworks.com/en-us/radar/tools/openspec)
-- Tessl — [launch post](https://tessl.io/blog/tessl-launches-spec-driven-framework-and-registry), [docs](https://docs.tessl.io/use/spec-driven-development-with-tessl)
-- [BMAD Method](https://github.com/bmad-code-org/BMAD-METHOD)
-- Claude Code — [Best practices](https://code.claude.com/docs/en/best-practices); Cursor — [Plan mode](https://cursor.com/docs/agent/plan-mode); OpenAI Cookbook — [Using PLANS.md](https://developers.openai.com/cookbook/articles/codex_exec_plans); [AGENTS.md](https://agents.md/)
-
 ## See also
 - [Spec-Driven Development](index.md)
 - [SDD — Concepts & Workflow](01-concepts-workflow.md)
