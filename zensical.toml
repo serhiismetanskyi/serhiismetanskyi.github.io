@@ -756,7 +756,10 @@ nav = [
       ] },
     ] },
   ] },
-  { "Files" = "files.md" },
+  { "Files" = [
+    "files/index.md",
+    { "Skills" = "files/skills.md" },
+  ] },
   { "Tags" = "tags.md" },
   { "Archive" = "archive.md" },
   { "Contact" = "contact.md" },

@@ -1,10 +1,10 @@
-"""Пакує скіли з files-src/skills/<name>/ у docs/files/skills/<name>.zip для сторінки /files/."""
+"""Пакує скіли з files-src/skills/<name>/ у docs/downloads/skills/<name>.zip для сторінки /files/."""
 import pathlib
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SOURCE = ROOT / "files-src" / "skills"
-TARGET = ROOT / "docs" / "files" / "skills"
+TARGET = ROOT / "docs" / "downloads" / "skills"
 
 
 def build() -> None:
