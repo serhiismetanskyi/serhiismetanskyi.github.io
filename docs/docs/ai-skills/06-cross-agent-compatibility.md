@@ -200,13 +200,6 @@ The `core/` layer works everywhere. The `adapters/` layer handles platform diffe
 
 ---
 
-## References
-
-- [Anthropic — Agent Skills Overview](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview)
-- [Claude Code — Skills](https://code.claude.com/docs/en/skills)
-- [Agent Skills Specification](https://agentskills.io/specification)
-- [OpenAI Codex: AGENTS.md](https://developers.openai.com/codex/guides/agents-md/)
-
 ---
 
 ## See also

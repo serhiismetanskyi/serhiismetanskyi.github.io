@@ -183,14 +183,6 @@ Add to `settings.json` for IDE autocomplete:
 
 ---
 
-## References
-
-- [Claude Code Settings](https://code.claude.com/docs/en/settings)
-- [Configure Permissions](https://code.claude.com/docs/en/permissions)
-- [Sandboxing](https://code.claude.com/en/sandboxing)
-- [MCP Servers](https://code.claude.com/en/mcp)
-- [Plugins](https://code.claude.com/en/plugins)
-
 ---
 
 ## See also

@@ -182,11 +182,6 @@ Parallel agents run with independent context and dependencies (exact concurrency
 
 ---
 
-## References
-
-- [Best Practices for Claude Code](https://code.claude.com/docs/en/best-practices)
-- [Common Workflows](https://code.claude.com/en/common-workflows)
-
 ---
 
 ## See also

@@ -184,12 +184,6 @@ Modular instructions: `code-style.md`, `testing.md`, `api-conventions.md`, `secu
 
 ---
 
-## References
-
-- [Claude Code Best Practices](https://code.claude.com/docs/en/best-practices)
-- [Configure Permissions](https://code.claude.com/docs/en/permissions)
-- [CLAUDE.md Guide](https://www.claudedirectory.org/blog/claude-md-guide)
-
 ---
 
 ## See also

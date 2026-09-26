@@ -154,14 +154,6 @@ Do not migrate by hype. Decide via:
 
 ---
 
-## References
-
-- [ASGI specification](https://asgi.readthedocs.io/en/latest/specs/main.html)
-- [FastAPI docs](https://fastapi.tiangolo.com/)
-- [Starlette docs](https://www.starlette.io/)
-- [Uvicorn docs](https://www.uvicorn.org/)
-- [Litestar docs](https://docs.litestar.dev/)
-
 ---
 
 ## See also

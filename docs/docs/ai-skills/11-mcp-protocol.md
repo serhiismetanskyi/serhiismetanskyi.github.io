@@ -182,13 +182,6 @@ A skill can **reference MCP tools** in its workflow — e.g. a "deploy" skill in
 
 ---
 
-## References
-
-- [MCP Specification](https://modelcontextprotocol.io/specification/latest)
-- [Official MCP Servers](https://github.com/modelcontextprotocol/servers)
-- [Claude Code MCP Docs](https://code.claude.com/en/mcp)
-- [Cursor MCP Setup](https://mcpplaygroundonline.com/blog/cursor-mcp-setup-guide)
-
 ---
 
 ## See also

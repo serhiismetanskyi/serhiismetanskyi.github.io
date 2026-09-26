@@ -169,12 +169,6 @@ kubectl diff -f deploy.yaml
 
 ---
 
-## References
-
-- [kubectl Quick Reference](https://kubernetes.io/docs/reference/kubectl/quick-reference/)
-- [kubectl Cheat Sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
-- [Managing Resources](https://kubernetes.io/docs/concepts/cluster-administration/manage-deployment/)
-
 ---
 
 ## See also

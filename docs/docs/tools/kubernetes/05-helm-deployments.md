@@ -185,13 +185,6 @@ kubectl argo rollouts promote my-app           # full rollout
 
 ---
 
-## References
-
-- [Helm Documentation](https://helm.sh/docs/)
-- [Kustomize Documentation](https://kustomize.io/)
-- [Argo Rollouts](https://argoproj.github.io/rollouts/)
-- [Kubernetes Deployment Strategies](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy)
-
 ---
 
 ## See also

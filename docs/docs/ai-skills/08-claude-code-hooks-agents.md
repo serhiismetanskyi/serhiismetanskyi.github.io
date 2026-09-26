@@ -187,12 +187,6 @@ Use hooks for anything that **must** happen every time. Use CLAUDE.md for guidan
 
 ---
 
-## References
-
-- [Claude Code Hooks Reference](https://code.claude.com/docs/en/hooks)
-- [How to Configure Hooks](https://claude.com/blog/how-to-configure-hooks)
-- [Hooks, Subagents & Power Features Guide](https://dev.to/vibehackers/claude-code-hooks-subagents-power-features-the-complete-guide-2026-c71)
-
 ---
 
 ## See also

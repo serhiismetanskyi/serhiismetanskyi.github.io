@@ -177,14 +177,6 @@ Mandatory controls for agentic retrieval:
 3. Add context dedupe, ranking, compression, provenance, and citations.
 4. Test adversarial scenarios and monitor precision/recall/latency/tool cost.
 
-## References
-
-- [Workshop: Agentic Search (slides + code)](https://github.com/iamleonie/workshop-agentic-search)
-- [Context Engineering for Agents — LangChain](https://blog.langchain.dev/context-engineering-for-agents/)
-- [Context Engineering for Agents — Lance Martin](https://rlancemartin.github.io/2025/06/23/context_engineering/)
-- [State of Context Engineering 2026](https://pub.towardsai.net/state-of-context-engineering-in-2026-cf92d010eab1)
-- [Context Compression Strategies — AgentPatterns](https://agentpatterns.ai/context-engineering/context-compression-strategies/)
-
 ---
 
 ## See also

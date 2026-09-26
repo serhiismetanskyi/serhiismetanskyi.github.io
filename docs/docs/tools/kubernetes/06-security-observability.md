@@ -192,13 +192,6 @@ kubectl get events -A --sort-by='.lastTimestamp' | tail -20
 
 ---
 
-## References
-
-- [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
-- [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
-- [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack)
-- [Debugging Pods](https://kubernetes.io/docs/tasks/debug/debug-application/)
-
 ---
 
 ## See also

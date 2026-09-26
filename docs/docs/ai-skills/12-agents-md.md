@@ -191,12 +191,6 @@ If the agent can't reproduce your build commands verbatim — the file is too ve
 
 ---
 
-## References
-
-- [AGENTS.md Official Specification](https://agents.md/) | [ASDLC Research-Backed Guide](https://asdlc.io/practices/agents-md-spec)
-- [Patterns: What Changes Agent Behavior](https://blakecrosley.com/blog/agents-md-patterns) | [Codex Custom Instructions](https://developers.openai.com/codex/guides/agents-md/)
-- [Gloaguen et al. (2026)](https://arxiv.org/abs/2602.11988) | [GitHub: Lessons from 2,500 Repos](https://github.blog/ai-and-ml/github-copilot/how-to-write-a-great-agents-md-lessons-from-over-2500-repositories/)
-
 ---
 
 ## See also
