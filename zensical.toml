@@ -813,6 +813,7 @@ toggle.name = "Switch to system preference"
 # --------------------------------------------------------------------------
 [project.extra]
 generator = false             # без «Made with Zensical»
+subtitle = "Software Test & Automation Engineer"   # під назвою сайту в шапці на головній
 
 [[project.extra.social]]
 icon = "fontawesome/brands/github"

@@ -41,6 +41,28 @@
   display: none;
 }
 
+/* Підзаголовок праворуч від назви сайту, на головній (overrides/partials/header.html) */
+.md-header__topic:has(.md-header__subtitle) {
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.md-header__subtitle {
+  padding-left: 0.7rem;
+  border-left: 1px solid var(--md-default-fg-color--lighter);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* На вузьких екранах місця немає — лише назва */
+@media screen and (max-width: 44.9375em) {
+  .md-header__subtitle {
+    display: none;
+  }
+}
+
 /* ---------- Посилання: тонке підкреслення, яскравіше при наведенні ---------- */
 .md-typeset a {
   text-decoration: underline;
