@@ -201,6 +201,24 @@
   max-width: 44rem;
 }
 
+/* Навігація по розділах сторінки — ліворуч, як меню в Docs (зміст теми переносимо вліво) */
+.md-main__inner:has(.files-section) .md-sidebar--secondary {
+  order: -1;
+}
+
+.md-main__inner:has(.files-section) .md-sidebar--secondary .md-nav__title {
+  display: none;
+}
+
+.md-main__inner:has(.files-section) .md-sidebar--secondary .md-nav__link {
+  color: var(--md-default-fg-color--light);
+}
+
+.md-main__inner:has(.files-section) .md-sidebar--secondary .md-nav__link--active {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+}
+
 /* Заглушка порожнього розділу */
 .md-typeset .files-empty {
   margin: 1rem 0 2rem;

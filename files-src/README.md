@@ -7,4 +7,4 @@
 
     python3 scripts/build_files.py
 
-Потім додайте рядок з файлом у docs/files/skills.md і назву — на огляд docs/files/index.md.
+Потім додайте рядок з файлом у docs/files.md.
