@@ -283,6 +283,7 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 
 - TestRail
 - Qase
+- ReportPortal
 
 **Copilots & Automation**
 
