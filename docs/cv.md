@@ -12,8 +12,8 @@ hide:
   "name": "Serhii Smetanskyi",
   "jobTitle": "Software Test Engineer",
   "email": "mailto:smetanskyi@proton.me",
-  "url": "https://serhiismetanskyi.github.io/",
-  "image": "https://serhiismetanskyi.github.io/img/serhii-smetanskyi.jpg",
+  "url": "https://serhiismetanskyi.com/",
+  "image": "https://serhiismetanskyi.com/img/serhii-smetanskyi.jpg",
   "sameAs": [
     "https://www.linkedin.com/in/serhiismetanskyi",
     "https://github.com/serhiismetanskyi",

@@ -1,6 +1,6 @@
 [project]
 site_name = "Serhii Smetanskyi"
-site_url = "https://serhiismetanskyi.github.io/"   # Share buttons, RSS, social previews, JSON-LD; also in docs/robots.txt
+site_url = "https://serhiismetanskyi.com/"   # Share buttons, RSS, social previews, JSON-LD; also in docs/robots.txt
 site_description = "Serhii Smetanskyi, Software Test & Automation Engineer: a blog and knowledge base on QA, test automation, API testing and testing LLMs and AI agents."
 site_author = "Serhii Smetanskyi"
 copyright = "&copy; 2026 Serhii Smetanskyi"

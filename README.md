@@ -3,16 +3,16 @@
 Personal site of **Serhii Smetanskyi**, Software Test & Automation Engineer: a blog, a knowledge base on QA,
 test automation and testing AI systems, open-source projects and a CV.
 
-**→ [serhiismetanskyi.github.io](https://serhiismetanskyi.github.io/)**
+**→ [serhiismetanskyi.com](https://serhiismetanskyi.com/)**
 
 ## What's inside
 
 | Section | |
 |---|---|
-| [Blog](https://serhiismetanskyi.github.io/blog/) | Posts on LLM evaluation, voice AI agents, test design, automation |
-| [Docs](https://serhiismetanskyi.github.io/docs/) | Guides: test automation, API and performance testing, LLM security, Python libraries, observability tools |
-| [Projects](https://serhiismetanskyi.github.io/projects/) | Test suites on GitHub: AI, UI, API, load and database testing |
-| [CV](https://serhiismetanskyi.github.io/cv/) | Experience and skills, printable to PDF |
+| [Blog](https://serhiismetanskyi.com/blog/) | Posts on LLM evaluation, voice AI agents, test design, automation |
+| [Docs](https://serhiismetanskyi.com/docs/) | Guides: test automation, API and performance testing, LLM security, Python libraries, observability tools |
+| [Projects](https://serhiismetanskyi.com/projects/) | Test suites on GitHub: AI, UI, API, load and database testing |
+| [CV](https://serhiismetanskyi.com/cv/) | Experience and skills, printable to PDF |
 
 ## Stack
 
