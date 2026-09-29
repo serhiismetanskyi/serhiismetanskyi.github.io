@@ -29,9 +29,9 @@ Track evidence for each check (CI run URL, scan artifact, policy result, config 
 
 | # | Check | Severity | How to Verify |
 |---|-------|----------|--------------|
-| 1 | No hardcoded secrets in source code | Critical | `rg -n "sk_live_\|sk-proj-\|password\s*=" -t code` |
+| 1 | No hardcoded secrets in source code | Critical | <code>rg -n "sk&#95;live&#95;&#124;sk-proj-&#124;password&#92;s&#42;=" -t code</code> |
 | 2 | `.env` files in `.gitignore` | Critical | Check `.gitignore`, run `git log --all -- .env*` |
-| 3 | No secrets in client-side env vars | Critical | `rg "VITE_.*SECRET\|NEXT_PUBLIC_.*KEY" .env*` |
+| 3 | No secrets in client-side env vars | Critical | <code>rg "VITE&#95;.&#42;SECRET&#124;NEXT&#95;PUBLIC&#95;.&#42;KEY" .env&#42;</code> |
 | 4 | Pre-commit secret scanning enabled | High | Check `.pre-commit-config.yaml` for Gitleaks/TruffleHog |
 | 5 | Production secrets in a secrets manager | High | Verify Vault/AWS SM/Doppler config |
 | 6 | No secrets in Docker image layers | High | `docker history <image>` — check for embedded secrets |
@@ -56,7 +56,7 @@ Track evidence for each check (CI run URL, scan artifact, policy result, config 
 | # | Check | Severity | How to Verify |
 |---|-------|----------|--------------|
 | 13 | SAST runs on every pull request | Critical | Check CI for Semgrep/SonarQube/Bandit |
-| 14 | No SQL string interpolation | Critical | `rg "f\".*SELECT\|f\".*INSERT\|f\".*UPDATE" -t py` |
+| 14 | No SQL string interpolation | Critical | <code>rg "f&#92;".&#42;SELECT&#124;f&#92;".&#42;INSERT&#124;f&#92;".&#42;UPDATE" -t py</code> |
 | 15 | No `shell=True` with user input | Critical | `rg "shell=True" -t py` — review each usage |
 | 16 | All user input validated server-side | High | Review API endpoints for Pydantic/Zod schemas |
 | 17 | No `dangerouslySetInnerHTML` with user data | High | `rg "dangerouslySetInnerHTML" -t tsx -t jsx` |
@@ -82,7 +82,7 @@ Track evidence for each check (CI run URL, scan artifact, policy result, config 
 
 | # | Check | Severity | How to Verify |
 |---|-------|----------|--------------|
-| 26 | CORS restricted to frontend domain | Critical | `rg 'origin.*"\*"\|origin.*\*' -t py -t js` |
+| 26 | CORS restricted to frontend domain | Critical | <code>rg 'origin.&#42;"&#92;&#42;"&#124;origin.&#42;&#92;&#42;' -t py -t js</code> |
 | 27 | HTTPS enforced everywhere (TLS 1.2+) | Critical | Check for HSTS header, mixed content |
 | 28 | Security headers set (CSP, X-Frame, etc.) | High | Test at [securityheaders.com](https://securityheaders.com) |
 | 29 | Error responses don't leak internals | High | Trigger errors, check for stack traces |
@@ -96,7 +96,7 @@ Track evidence for each check (CI run URL, scan artifact, policy result, config 
 | # | Check | Severity | How to Verify |
 |---|-------|----------|--------------|
 | 32 | Pipelines run with least-privilege | High | Review CI/CD service account permissions |
-| 33 | Third-party actions pinned to SHA | High | `rg "@v[0-9]\|@latest" .github/workflows/` |
+| 33 | Third-party actions pinned to SHA | High | <code>rg "@v[0-9]&#124;@latest" .github/workflows/</code> |
 | 34 | Pipeline config changes are code-reviewed | High | Check branch protection rules |
 | 35 | Secrets not exposed in CI logs | High | Search recent build logs for secret patterns |
 | 36 | Container images scanned before deploy | High | Check CI for Trivy/Grype image scan step |

@@ -49,4 +49,3 @@ Every keyword above has its own rules. The following pages explain each one in d
 - [Docker & Docker Compose — Overview](../../tools/docker/index.md)
 - [Git — Overview](../../tools/git/index.md)
 - [Jenkins Pipeline Guide](../index.md)
-

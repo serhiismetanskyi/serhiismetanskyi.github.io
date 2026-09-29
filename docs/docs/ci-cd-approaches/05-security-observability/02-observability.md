@@ -191,4 +191,3 @@ Not every event needs a notification. Noise kills attention.
   env:
     SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
 ```
-

@@ -1,6 +1,7 @@
 ---
 date: 2026-03-23
 slug: n8n-for-qa-automate-the-boring-stuff-you-keep-doing-manually
+description: "Practical n8n workflows for QA engineers: notifications, test data, smoke checks after deploys, reports and Jira hygiene, automated instead of done by hand."
 authors:
   - username
 categories:

@@ -93,4 +93,3 @@ Complete technical reference for designing, building, and operating a production
 - [Test Design Patterns in Test Automation](../test-design-patterns/index.md)
 - [Testing Pyramid](../testing-pyramid/index.md)
 - [CI/CD](../ci-cd-approaches/index.md)
-

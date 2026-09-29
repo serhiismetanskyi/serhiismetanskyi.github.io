@@ -38,4 +38,3 @@ This section covers security, common mistakes, interview tips, and the recommend
 - [Test Design Patterns in Test Automation](../../test-design-patterns/index.md)
 - [Pytest — Python Testing Framework](../../libs/pytest/index.md)
 - [Playwright — Python Browser & API Testing](../../libs/playwright/index.md)
-

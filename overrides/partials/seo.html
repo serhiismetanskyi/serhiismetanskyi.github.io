@@ -1,0 +1,24 @@
+{#- SEO helpers for main.html: page description, absolute URLs and the author, shared by the meta tags and JSON-LD -#}
+
+{#- `description:` from front matter; otherwise the page's first paragraph, cut to ~160 characters at a word boundary;
+    otherwise the site description -#}
+{% macro description(page, config) -%}
+  {%- if page and page.meta and page.meta.description -%}
+    {{- page.meta.description -}}
+  {%- else -%}
+    {%- set parts = ((page.content | string) | split("<p>") | list) if page and page.content else [] -%}
+    {%- set text = ((parts[1] | split("</p>") | first | striptags | trim) if parts | length > 1 else "") -%}
+    {%- if text | length > 160 -%}
+      {{- (text[:157] | split(" ") | list)[:-1] | join(" ") -}}…
+    {%- elif text | length > 40 -%}
+      {{- text -}}
+    {%- else -%}
+      {{- config.site_description -}}
+    {%- endif -%}
+  {%- endif -%}
+{%- endmacro %}
+
+{#- Site-relative path (img/…) or full URL → full URL -#}
+{% macro absolute(path, config) -%}
+  {{- path if "://" in path else config.site_url ~ path -}}
+{%- endmacro %}

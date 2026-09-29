@@ -21,4 +21,3 @@ Pyramid Strategy covers test-level strategy across unit, integration, and end-to
 - [Test Automation Framework](../../test-automation-framework/index.md)
 - [Testing with pytest](../../python-guide/03-testing-pytest/index.md)
 - [Testing Pyramid](../index.md)
-

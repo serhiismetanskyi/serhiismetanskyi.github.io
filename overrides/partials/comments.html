@@ -1,5 +1,15 @@
-{#- Точка підключення теми під контентом сторінки (тут тема показує коментарі).
-    У нас — кнопки «Share», лише в постах блогу (тільки в них є page.config.date) -#}
-{% if page.config is defined and page.config.date is defined %}
+{#- The theme's hook below page content (this is where the theme shows comments).
+    Here it holds «Share» buttons: on blog posts (page.config.date) and on Docs
+    articles (`date:` in front matter) and project pages (`template: project.html`), and «Related reading» on blog posts -#}
+{% set is_post = page.config is defined and page.config.date is defined %}
+{% set is_project = page.meta and page.meta.template == "project.html" %}
+{% if is_post or is_project or (page.meta and page.meta.date) %}
   {% include "partials/share.html" %}
+{% endif %}
+{#- «Related reading» under blog posts: other posts with the most shared tags, filled by js/related.js from the feed -#}
+{% if is_post %}
+  <section class="related" aria-labelledby="related-reading" hidden>
+    <h2 id="related-reading">Related reading</h2>
+    <ul class="related__list md-typeset"></ul>
+  </section>
 {% endif %}

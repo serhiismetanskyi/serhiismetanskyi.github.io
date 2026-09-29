@@ -1,6 +1,7 @@
 ---
 date: 2026-07-31
 slug: deepeval-phoenix-tracking-how-agent-metrics-change-between-runs
+description: "How to send DeepEval scores to Arize Phoenix so LLM agent metrics get history: run comparisons, traces and annotations to tell a regression from noise."
 authors:
   - username
 categories:
@@ -183,7 +184,7 @@ def record_score(score):
     #    a single judgement shows no verdict in it.
     if judge_span_id:
         annotations.record(judge_span_id, trace_id, score, session_and_trace=False)
-    
+
     # 4. A record in the experiment - one row in the run comparison table.
     if test := context.current_test():
         experiments.record(test.nodeid, score)
@@ -225,9 +226,9 @@ def pytest_runtest_call(item: pytest.Item):
     """Wrap the test call in a CHAIN span so agent spans nest under it."""
     if _settings is None or not phoenix.is_enabled():
         return (yield)                    # plugin asleep — just run the test
-    
+
     markers = sorted(marker.name for marker in item.iter_markers())
-    
+
     with phoenix.span(
         item.name,
         kind="CHAIN",

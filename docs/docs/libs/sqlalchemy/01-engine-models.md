@@ -96,7 +96,7 @@ class User(Base):
 |-------------|----------|-------------------|
 | `Mapped[int]` | NOT NULL | `Integer` |
 | `Mapped[str]` | NOT NULL | `String` (unbounded) |
-| `Mapped[str \| None]` | NULL | `String` (unbounded) |
+| <code>Mapped[str &#124; None]</code> | NULL | `String` (unbounded) |
 | `Mapped[bool]` | NOT NULL | `Boolean` |
 | `Mapped[float]` | NOT NULL | `Float` |
 
@@ -130,7 +130,7 @@ class Product(Base):
 | `primary_key` | Mark as primary key |
 | `unique` | Add unique constraint |
 | `index` | Create single-column index |
-| `nullable` | Allow NULL (inferred from `Mapped[T \| None]`) |
+| `nullable` | Allow NULL (inferred from <code>Mapped[T &#124; None]</code>) |
 | `default` | Python-side default value or callable |
 | `server_default` | SQL DEFAULT clause (string or `func.now()`) |
 | `onupdate` | Value set on each UPDATE |

@@ -50,4 +50,3 @@ Covers both conceptual knowledge (principles, levels, techniques) and practical 
 - [Testing Pyramid](../testing-pyramid/index.md)
 - [Test Automation Framework](../test-automation-framework/index.md)
 - [Python Guide for Automation QA](../python-guide/index.md)
-

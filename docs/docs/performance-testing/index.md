@@ -74,4 +74,3 @@ This section covers the full spectrum — from theory to Locust tooling.
 - [CI/CD](../ci-cd-approaches/index.md)
 - [Linux Terminal — Essential Commands](../tools/linux-terminal/index.md)
 - [Advanced Topics](../python-guide/06-advanced-topics/index.md)
-

@@ -204,4 +204,3 @@ Use Python snake_case APIs from `playwright.sync_api`:
 - [CI/CD](../../ci-cd-approaches/index.md)
 - [Tools — Practical Reference Guides](../../tools/index.md)
 - [Python Libraries](../index.md)
-

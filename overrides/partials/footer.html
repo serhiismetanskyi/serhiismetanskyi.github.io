@@ -1,0 +1,115 @@
+{#- Same as the theme («Previous / Next», copyright and social icons), plus a site section between them:
+    logo, name and subtitle on the left, the same pages as the header tabs (built from the nav) on the right -#}
+
+{#- URL of a nav item; for a section, its index page (or first child), like the header tabs -#}
+{% macro nav_href(item) -%}
+  {%- if item.children -%}
+    {%- set ns = namespace(index = none) -%}
+    {%- for child in item.children -%}
+      {%- if child.is_index and ns.index is none -%}{%- set ns.index = child -%}{%- endif -%}
+    {%- endfor -%}
+    {{- nav_href(ns.index or item.children | first) -}}
+  {%- else -%}
+    {{- item.url | url -}}
+  {%- endif -%}
+{%- endmacro %}
+
+{#- «Previous / Next»: from the nav, and on project pages (not in the nav, like blog posts) from `extra.projects`,
+    in date order like the blog: previous = older, next = newer (the list is newest first) -#}
+{% set prev_page = page.previous_page if page else none %}
+{% set next_page = page.next_page if page else none %}
+{% set pager = namespace(prev=prev_page, next=next_page) %}
+{% if page and page.url is startingwith("projects/") and config.extra.projects %}
+  {% for project in config.extra.projects %}
+    {% if ("projects/" ~ project.slug ~ "/") == page.url %}
+      {% set older = config.extra.projects[loop.index] if loop.index < loop.length else none %}
+      {% set newer = config.extra.projects[loop.index0 - 1] if loop.index0 > 0 else none %}
+      {% set pager.prev = {"url": "projects/" ~ older.slug ~ "/", "title": older.title} if older else none %}
+      {% set pager.next = {"url": "projects/" ~ newer.slug ~ "/", "title": newer.title} if newer else none %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<footer class="md-footer">
+  {% if "navigation.footer" in features %}
+    {% if pager.prev or pager.next %}
+      {% if page.meta and page.meta.hide %}
+        {% set hidden = "hidden" if "footer" in page.meta.hide %}
+      {% endif %}
+      <nav class="md-footer__inner md-grid" aria-label="{{ lang.t('footer') }}" {{ hidden }}>
+        {% if pager.prev %}
+          {% set direction = lang.t("footer.previous") %}
+          <a href="{{ pager.prev.url | url }}" class="md-footer__link md-footer__link--prev" aria-label="{{ direction }}: {{ pager.prev.title | e }}">
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.previous or "material/arrow-left" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                {{ direction }}
+              </span>
+              <div class="md-ellipsis">
+                {{ pager.prev.title }}
+              </div>
+            </div>
+          </a>
+        {% endif %}
+        {% if pager.next %}
+          {% set direction = lang.t("footer.next") %}
+          <a href="{{ pager.next.url | url }}" class="md-footer__link md-footer__link--next" aria-label="{{ direction }}: {{ pager.next.title | e }}">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                {{ direction }}
+              </span>
+              <div class="md-ellipsis">
+                {{ pager.next.title }}
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              {% set icon = config.theme.icon.next or "material/arrow-right" %}
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </div>
+          </a>
+        {% endif %}
+      </nav>
+    {% endif %}
+  {% endif %}
+  <div class="site-footer md-typeset">
+    <div class="site-footer__inner md-grid">
+      <a class="site-footer__brand" href="{{ nav_href(nav.homepage) if nav.homepage else '.' | url }}">
+        {% if config.theme.logo %}
+          <img class="site-footer__logo" src="{{ config.theme.logo | url }}" alt="" width="40" height="40">
+        {% endif %}
+        <span class="site-footer__text">
+          <span class="site-footer__name">{{ config.site_name }}</span>
+          {% if config.extra.subtitle %}
+            <span class="site-footer__subtitle">{{ config.extra.subtitle }}</span>
+          {% endif %}
+        </span>
+      </a>
+      {#- Mobile: the pages collapse behind a hamburger button (js/footer-menu.js shows it; without JS the links stay visible) -#}
+      <button class="site-footer__menu-button md-icon" type="button" aria-expanded="false" aria-controls="site-footer-nav" aria-label="Menu" hidden>
+        <span class="site-footer__menu-icon site-footer__menu-icon--open">
+          {% set icon = config.theme.icon.menu or "material/menu" %}
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </span>
+        <span class="site-footer__menu-icon site-footer__menu-icon--close">
+          {% include ".icons/material/close.svg" %}
+        </span>
+      </button>
+      <nav class="site-footer__nav" id="site-footer-nav" aria-label="Pages">
+        {% for item in nav.items %}
+          <a href="{{ nav_href(item) }}"{% if item.active %} class="site-footer__link--active" aria-current="page"{% endif %}>{{ item.title }}</a>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      {% include "partials/copyright.html" %}
+      {% if config.extra.social %}
+        {% include "partials/social.html" %}
+      {% endif %}
+    </div>
+  </div>
+</footer>

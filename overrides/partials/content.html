@@ -1,8 +1,11 @@
-{#- Як у теми, плюс: дата над заголовком для сторінок з `date:` у front matter
-    (статті Docs; у постів блогу дата вже є в бічній панелі) і прев'ю-картинка
-    поста блогу (`image:` у front matter, інакше заглушка) -#}
-{% include "partials/actions.html" %}
+{#- Same as the theme, plus: breadcrumbs on blog posts (partials/blog-path.html), a date above the heading for pages with `date:` in front matter
+    (Docs articles; blog posts already show the date in the sidebar), the preview image
+    of a blog post (`image:` in front matter, otherwise a placeholder) and project cards -#}
 {% set is_post = page.config is defined and page.config.date is defined %}
+{% if is_post %}
+  {% include "partials/blog-path.html" %}
+{% endif %}
+{% include "partials/actions.html" %}
 {% if page.meta and page.meta.date and not is_post %}
   {% set icons = config.theme.icon.blog %}
   {% set words = page.content | striptags | split | list | length %}
@@ -28,9 +31,27 @@
   <img class="post-cover" src="{{ page.meta.image | d('img/post-placeholder.png', true) | url }}" alt="" width="1200" height="630">
 {% endif %}
 {% if "<h1" not in page.content %}
-  <h1 id="__skip">{{ page.title | d(config.site_name, true)}}</h1>
+  <h1 id="__skip">{{ page.title | d(config.site_name, true) }}</h1>
 {% endif %}
-{{ page.content }}
+{#- <!-- projects:all --> / <!-- projects:3 --> in a page's Markdown become project cards, <!-- projects:list --> a compact list,
+    <!-- projects:kind:… --> / <!-- projects:year:… --> category cards and a yearly archive (partials/project-cards.html) -#}
+{% set ns = namespace(content=page.content | string) %}
+{% if "<!-- projects:" in ns.content %}
+  {% import "partials/project-cards.html" as projects %}
+  {% set ns.content = ns.content | replace("<!-- projects:all -->", projects.cards(config) | string) | replace("<!-- projects:3 -->", projects.cards(config, 3) | string) | replace("<!-- projects:list -->", projects.list(config) | string) %}
+  {#- Category and archive pages: <!-- projects:kind:API Testing -->, <!-- projects:year:2026 --> -#}
+  {% for project in config.extra.projects %}
+    {% set kind_marker = "<!-- projects:kind:" ~ project.kind ~ " -->" %}
+    {% set year_marker = "<!-- projects:year:" ~ project.date[:4] ~ " -->" %}
+    {% if kind_marker in ns.content %}
+      {% set ns.content = ns.content | replace(kind_marker, projects.cards(config, kind=project.kind) | string) %}
+    {% endif %}
+    {% if year_marker in ns.content %}
+      {% set ns.content = ns.content | replace(year_marker, projects.archive(config, project.date[:4]) | string) %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{{ ns.content | safe }}
 {% include "partials/tags.html" %}
 {% include "partials/source-file.html" %}
 {% include "partials/feedback.html" %}

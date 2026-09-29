@@ -88,7 +88,7 @@ class Account(BaseModel):
 | `list[T]`, `set[T]` | Sequences | Inner type validated |
 | `dict[K, V]` | Mappings | Keys and values validated |
 | `tuple[int, str]` / `tuple[int, ...]` | Fixed / variable-length | Positional or homogeneous |
-| `T \| None` | Nullable | Required unless `= None` |
+| <code>T &#124; None</code> | Nullable | Required unless `= None` |
 | `UUID`, `datetime`, `date` | String or native | Auto-parses |
 | `Decimal` | String, int, float | Preserves precision |
 | `Enum` | Value or member | Validates membership |

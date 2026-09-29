@@ -23,4 +23,3 @@ Bottlenecks Monitoring covers workload modeling, performance metrics, bottleneck
 - [Linux Terminal — Essential Commands](../../tools/linux-terminal/index.md)
 - [Advanced Topics](../../python-guide/06-advanced-topics/index.md)
 - [Performance Testing](../index.md)
-

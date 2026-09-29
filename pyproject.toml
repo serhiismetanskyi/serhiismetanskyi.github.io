@@ -1,0 +1,25 @@
+[project]
+name = "site"
+version = "0.0.0"
+requires-python = ">=3.13"
+dependencies = [
+  "zensical==0.0.65",
+]
+
+[dependency-groups]
+# Linters for make lint and the git hooks: djLint for templates, Node from nodejs-wheel runs Biome (JS and CSS), pre-commit
+dev = [
+  "djlint==1.36.4",
+  "nodejs-wheel==24.19.0",
+  "pre-commit==4.6.2",
+]
+
+[tool.uv]
+package = false
+
+[tool.djlint]
+profile = "jinja"
+extension = "html"
+# H006 img width/height, H013 img alt: theme-style templates set them where they matter;
+# H021 inline styles and H030/H031 meta description/keywords come from the theme base template
+ignore = "H006,H013,H021,H030,H031"

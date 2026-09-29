@@ -157,6 +157,8 @@ good = template.render(content=Markup(nh3.clean(user_content)))
 best = template.render(content=user_content)
 ```
 
+See also: [Jinja — Filters, Escaping & Security](../libs/jinja/03-customization-security.md) (autoescape, `Markup`, SSTI, sandbox).
+
 ### URL Validation
 
 ```python

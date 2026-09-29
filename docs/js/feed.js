@@ -1,23 +1,29 @@
-// Спільне для блоків, що будуються з JSON-стрічки сайту (плагін rss):
-// останні пости на головній (latest-posts.js) і сторінка /archive/ (archive.js)
+// Shared code for blocks built from the site's JSON feed (rss plugin):
+// latest posts and docs on the home page (latest.js) and the /archive/ page (archive.js)
 window.siteFeed = (() => {
   let cache = null
 
-  // Корінь сайту: логотип у шапці завжди веде на головну
+  // Site root: the header logo always links to the home page
   const root = () => new URL(document.querySelector(".md-header .md-logo")?.href ?? "/", location.href)
 
-  // Завантажує стрічку один раз; при помилці наступний виклик спробує знову
+  // Feed titles may contain HTML entities (&amp;): turn them into plain text
+  const decode = text => new DOMParser().parseFromString(text ?? "", "text/html").documentElement.textContent
+
+  // Loads the feed once; after an error the next call tries again
   const load = (path = "feed_json_created.json") => {
     cache ??= fetch(new URL(path, root()))
       .then(res => {
         if (!res.ok) throw new Error(`Feed: HTTP ${res.status}`)
         return res.json()
       })
-      .then(feed => (feed.items ?? []).map(item => ({
-        ...item,
-        date: new Date(item.date_published),
-        path: new URL(item.url).pathname,
-      })))
+      .then(feed =>
+        (feed.items ?? []).map(item => ({
+          ...item,
+          title: decode(item.title),
+          date: new Date(item.date_published),
+          path: new URL(item.url).pathname,
+        })),
+      )
       .catch(error => {
         cache = null
         throw error
@@ -25,7 +31,7 @@ window.siteFeed = (() => {
     return cache
   }
 
-  // Елемент з класом і текстом: el("time", "archive-date", "Sep 25")
+  // Element with a class and text: el("time", "archive-date", "Sep 25")
   const el = (tag, className = "", text = "") => {
     const node = document.createElement(tag)
     if (className) node.className = className
@@ -33,7 +39,7 @@ window.siteFeed = (() => {
     return node
   }
 
-  // Посилання на запис стрічки (відносний шлях — працює і локально, і на домені)
+  // Link to a feed entry (relative path, works both locally and on the domain)
   const link = item => {
     const a = el("a", "", item.title)
     a.href = item.path
@@ -46,7 +52,7 @@ window.siteFeed = (() => {
     return node
   }
 
-  // Запускає fn на кожній сторінці, зокрема при переходах navigation.instant
+  // Runs fn on every page, including navigation.instant transitions
   const onPage = fn => (window.document$ ? document$.subscribe(fn) : fn())
 
   return {

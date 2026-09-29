@@ -28,4 +28,3 @@ Start with **configuration** so every environment reads the same tests but diffe
 - [QA & Testing Methodology](../../qa-methodology/index.md)
 - [Automation](../../python-guide/04-automation/index.md)
 - [Robot Framework — Complete Guide](../index.md)
-

@@ -23,4 +23,3 @@ API Testing covers automation framework architecture, reliability, and CI integr
 - [Testing Pyramid](../../testing-pyramid/index.md)
 - [CI/CD](../../ci-cd-approaches/index.md)
 - [Test Automation Framework](../index.md)
-

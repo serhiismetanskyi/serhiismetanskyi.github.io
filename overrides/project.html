@@ -1,0 +1,126 @@
+{% extends "main.html" %}
+
+{#- A project page (docs/projects/<slug>.md, `template: project.html`), laid out like a blog post:
+    a left sidebar with a link back to Projects, the author and the metadata (date the repository was created, category, GitHub),
+    breadcrumbs Home › Projects › <category>. The data comes from `extra.projects` in zensical.toml -#}
+{% block container %}
+  {% set ns = namespace(project=none) %}
+  {% for item in config.extra.projects %}
+    {% if ("projects/" ~ item.slug ~ "/") == page.url %}
+      {% set ns.project = item %}
+    {% endif %}
+  {% endfor %}
+  {% set project = ns.project %}
+  {% set icons = config.theme.icon.blog %}
+  <div class="md-content md-content--post" data-md-component="content">
+    <div class="md-sidebar md-sidebar--post" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner md-post">
+          <nav class="md-nav md-nav--primary">
+            <div class="md-post__back">
+              <div class="md-nav__title md-nav__container">
+                <a href="{{ 'projects/' | url }}" class="md-nav__link">
+                  {% include ".icons/" ~ icons.back ~ ".svg" %}
+                  <span class="md-ellipsis">Projects</span>
+                </a>
+              </div>
+            </div>
+            <div class="md-post__authors md-typeset">
+              <div class="md-profile md-post__profile">
+                <span class="md-author md-author--long">
+                  <img src="{{ 'img/serhii-smetanskyi.jpg' | url }}" alt="{{ config.site_author }}">
+                </span>
+                <span class="md-profile__description">
+                  <strong>{{ config.site_author }}</strong>
+                  <br>
+                  {{ config.extra.subtitle }}
+                </span>
+              </div>
+            </div>
+            {% if project %}
+              <ul class="md-post__meta md-nav__list">
+                <li class="md-nav__item md-nav__item--section">
+                  <div class="md-post__title">
+                    <span class="md-ellipsis">{{ lang.t("blog.meta") }}</span>
+                  </div>
+                  <nav class="md-nav">
+                    <ul class="md-nav__list">
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          {% include ".icons/" ~ icons.date ~ ".svg" %}
+                          <time datetime="{{ project.date }}" class="md-ellipsis">{{ project.date | date }}</time>
+                        </div>
+                      </li>
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          {% include ".icons/" ~ icons.categories ~ ".svg" %}
+                          <span class="md-ellipsis">
+                            {{ lang.t("blog.categories.in") }}
+                            <a href="{{ ('projects/category/' ~ project.kind | lower | replace(' ', '-') ~ '/') | url }}">{{ project.kind }}</a>
+                          </span>
+                        </div>
+                      </li>
+                      <li class="md-nav__item">
+                        <div class="md-nav__link">
+                          {% include ".icons/fontawesome/brands/github.svg" %}
+                          <span class="md-ellipsis">
+                            <a href="https://github.com/serhiismetanskyi/{{ project.slug }}" target="_blank" rel="noopener">GitHub repository</a>
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                  </nav>
+                </li>
+              </ul>
+            {% endif %}
+          </nav>
+        </div>
+      </div>
+    </div>
+    <article class="md-content__inner md-typeset">
+      {#- Breadcrumbs, same markup as partials/blog-path.html -#}
+      <nav class="md-path" aria-label="{{ lang.t('nav') }}">
+        <ol class="md-path__list">
+          <li class="md-path__item">
+            <a href="{{ (nav.homepage.url if nav.homepage else '') | url }}" class="md-path__link"><span class="md-ellipsis">Home</span></a>
+          </li>
+          <li class="md-path__item">
+            <a href="{{ 'projects/' | url }}" class="md-path__link"><span class="md-ellipsis">Projects</span></a>
+          </li>
+          {% if project %}
+            <li class="md-path__item">
+              <a href="{{ ('projects/category/' ~ project.kind | lower | replace(' ', '-') ~ '/') | url }}" class="md-path__link"><span class="md-ellipsis">{{ project.kind }}</span></a>
+            </li>
+          {% endif %}
+        </ol>
+      </nav>
+      {% block content %}
+        {% include "partials/content.html" %}
+      {% endblock content %}
+      {#- «Related projects», like «Related reading» under blog posts: up to three other projects that share the most
+          tags, the same category counting as two more; newest first on a tie (the list is newest first, the sort is stable) -#}
+      {% if project %}
+        {% set rel = namespace(items=[]) %}
+        {% for other in config.extra.projects if other.slug != project.slug %}
+          {% set shared = other.tags | select("in", project.tags) | list | length + (2 if other.kind == project.kind else 0) %}
+          {% if shared %}
+            {% set rel.items = rel.items + [{"project": other, "shared": shared}] %}
+          {% endif %}
+        {% endfor %}
+        {% if rel.items %}
+          <section class="related" aria-labelledby="related-projects">
+            <h2 id="related-projects">Related projects</h2>
+            <ul class="related__list md-typeset">
+              {% for item in (rel.items | sort(attribute="shared", reverse=true))[:3] %}
+                <li>
+                  <time datetime="{{ item.project.date }}">{{ item.project.date | date }}</time>
+                  <a href="{{ ('projects/' ~ item.project.slug ~ '/') | url }}">{{ item.project.title }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </section>
+        {% endif %}
+      {% endif %}
+    </article>
+  </div>
+{% endblock container %}

@@ -165,4 +165,3 @@ User request
 - [FastAPI — Modern Async Web Framework](../libs/fastapi/index.md)
 - [OOP & Error Handling](../python-guide/02-oop-error-handling/index.md)
 - [Test Data](../test-automation-framework/03-test-data/index.md)
-

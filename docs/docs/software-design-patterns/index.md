@@ -77,4 +77,3 @@ tags:
 - [Design Patterns](../test-automation-framework/02-design-patterns/index.md)
 - [OOP & Error Handling](../python-guide/02-oop-error-handling/index.md)
 - [Client–Server Architecture](../client-server-architecture/index.md)
-

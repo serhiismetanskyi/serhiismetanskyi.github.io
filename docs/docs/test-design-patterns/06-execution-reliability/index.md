@@ -23,4 +23,3 @@ Execution Reliability covers test architecture patterns, data strategy, and exec
 - [Automation](../../python-guide/04-automation/index.md)
 - [Pytest — Python Testing Framework](../../libs/pytest/index.md)
 - [Test Design Patterns in Test Automation](../index.md)
-

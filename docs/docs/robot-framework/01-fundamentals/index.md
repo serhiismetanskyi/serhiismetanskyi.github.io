@@ -25,4 +25,3 @@ Fundamentals cover Robot Framework’s **data format**, **keywords & variables**
 - [QA & Testing Methodology](../../qa-methodology/index.md)
 - [Automation](../../python-guide/04-automation/index.md)
 - [Robot Framework — Complete Guide](../index.md)
-

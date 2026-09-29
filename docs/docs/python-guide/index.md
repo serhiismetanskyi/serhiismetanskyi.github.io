@@ -55,4 +55,3 @@ This guide covers Python from environment setup to advanced topics. Every sectio
 - [Test Design Patterns in Test Automation](../test-design-patterns/index.md)
 - [Pytest — Python Testing Framework](../libs/pytest/index.md)
 - [Playwright — Python Browser & API Testing](../libs/playwright/index.md)
-

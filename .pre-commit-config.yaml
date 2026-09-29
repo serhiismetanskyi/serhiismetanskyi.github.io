@@ -1,0 +1,53 @@
+# Keep the Biome version in sync with BIOME in the Makefile
+default_install_hook_types: [pre-commit]
+exclude: ^(site|\.cache)/
+
+repos:
+  # Formatting and sanity checks for any file
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]   # two trailing spaces are a line break in Markdown
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-added-large-files
+        args: [--maxkb=2048]                  # post images are up to ~700 KB
+      - id: detect-private-key
+
+  - repo: local
+    hooks:
+      # JS and CSS: Biome formats and applies safe fixes, then fails on what's left (settings: biome.jsonc)
+      - id: biome
+        name: biome (format + lint JS/CSS)
+        entry: uv run --locked npx --yes @biomejs/biome@2.5.14 check --write --no-errors-on-unmatched --files-ignore-unknown=true
+        language: system
+        files: ^docs/(js|css)/.*\.(js|css)$
+
+      # Jinja templates (settings: [tool.djlint] in pyproject.toml)
+      - id: djlint
+        name: djlint (lint templates)
+        entry: uv run --locked djlint --lint
+        language: system
+        files: ^overrides/.*\.html$
+
+      # uv.lock must match pyproject.toml
+      - id: uv-lock
+        name: uv lock --check
+        entry: uv lock --check
+        language: system
+        files: ^(pyproject\.toml|uv\.lock)$
+        pass_filenames: false
+
+      # Junk never gets into a commit; `make clean` removes it from the working tree
+      - id: no-junk-files
+        name: no junk files (OS, editor, build output)
+        entry: "Junk file staged for commit, unstage it (git rm --cached) or run make clean:"
+        language: fail
+        files: (^|/)(\.DS_Store|Thumbs\.db|__pycache__/.*|.*\.swp|.*~|.*\.orig|.*\.rej)$

@@ -27,4 +27,3 @@ For official project layout notes, see the [Robot Framework project structure](h
 - [QA & Testing Methodology](../../qa-methodology/index.md)
 - [Automation](../../python-guide/04-automation/index.md)
 - [Robot Framework — Complete Guide](../index.md)
-

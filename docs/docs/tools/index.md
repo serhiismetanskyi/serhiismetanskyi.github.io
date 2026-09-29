@@ -55,6 +55,45 @@ Hands-on command references, configuration patterns, and best practices for the 
 | [Helm & Deployment Strategies](./kubernetes/05-helm-deployments.md) | Helm charts, Kustomize, rolling update, canary, blue-green |
 | [Security & Observability](./kubernetes/06-security-observability.md) | RBAC, Pod Security, Prometheus, Grafana, EFK, debugging |
 
+## Distributed Tracing
+
+| Resource | Topics |
+|------|--------|
+| [Jaeger — Overview](./jaeger/index.md) | OTLP tracing backend, ports, Jaeger vs Phoenix / Langfuse / Tempo |
+| [Setup & Architecture](./jaeger/01-setup-architecture.md) | v2 on the OTel Collector, roles, Docker, config file, memory / Badger / Elasticsearch / OpenSearch / Cassandra |
+| [Sending Traces from Python](./jaeger/02-sending-traces-python.md) | OTel SDK + OTLP exporter, FastAPI and requests instrumentation, env vars, sampling |
+| [UI & Trace Analysis](./jaeger/03-ui-trace-analysis.md) | Search, timeline, span details, compare traces, dependency graph, SPM, HTTP API |
+| [Testing, CI & Troubleshooting](./jaeger/04-testing-ci-troubleshooting.md) | Tracing pytest runs, `traceparent` from API tests, span assertions, CI artifacts, pitfalls |
+
+## LLM Observability & Tracing
+
+| Resource | Topics |
+|------|--------|
+| [Arize Phoenix — Overview](./phoenix/index.md) | OpenTelemetry + OpenInference tracing, datasets, experiments, LLM-as-judge evals |
+| [Setup & Architecture](./phoenix/01-setup-architecture.md) | `phoenix serve`, Docker, Compose + Postgres, ports, projects, auth, env vars |
+| [Tracing & Instrumentation](./phoenix/02-tracing-instrumentation.md) | `register()`, OpenInference instrumentors, manual spans, sessions, users, Collector, annotations |
+| [Datasets & Experiments](./phoenix/03-datasets-experiments.md) | Datasets from DataFrame / CSV / traces, `run_experiment`, evaluators, comparisons, prompts |
+| [Evaluations](./phoenix/04-evaluations.md) | `phoenix.evals`, built-in metrics, `create_classifier`, code evals, logging results to spans, judge calibration |
+| [Testing, CI & Production](./phoenix/05-testing-ci-production.md) | pytest plugin, asserting on spans, CI regression gates, retention, sampling, PII |
+
+| Resource | Topics |
+|------|--------|
+| [Langfuse — Overview](./langfuse/index.md) | Traces, sessions, prompt management, datasets, scores and evaluations |
+| [Setup & Architecture](./langfuse/01-setup-architecture.md) | Cloud vs self-hosted, web/worker/Postgres/ClickHouse/Redis/S3, Docker Compose, env vars, projects, API keys, RBAC |
+| [Tracing with the Python SDK](./langfuse/02-tracing-sdk.md) | `get_client()`, `@observe`, context managers, `propagate_attributes`, OpenAI/LangChain/LiteLLM/OTel, flushing, sampling, masking |
+| [Prompt Management](./langfuse/03-prompt-management.md) | Versions, labels, `get_prompt`, `compile`, caching, fallback, linking prompts to generations, prompt experiments |
+| [Datasets & Evaluations](./langfuse/04-datasets-evaluations.md) | Datasets from code and traces, `run_experiment`, evaluators, scores, LLM-as-a-judge, annotation queues, user feedback |
+| [Testing, CI & Production](./langfuse/05-testing-ci-production.md) | pytest integration, experiments as CI gates, Metrics API, dashboards, retention, PII, production checklist |
+
+| Resource | Topics |
+|------|--------|
+| [MLflow — Overview](./mlflow/index.md) | Experiment tracking, GenAI tracing, `mlflow.genai.evaluate`, prompt and model registry, MLflow vs Phoenix / Langfuse / Jaeger |
+| [Setup & Architecture](./mlflow/01-setup-architecture.md) | `mlflow server`, backend and artifact stores, Docker Compose + Postgres, allowed hosts, basic auth, env vars |
+| [Experiment Tracking](./mlflow/02-experiment-tracking.md) | Experiments, runs, params, metrics, tags, artifacts, autolog, `search_runs` filters, comparing runs |
+| [GenAI Tracing](./mlflow/03-genai-tracing.md) | `mlflow.<flavor>.autolog()`, `@mlflow.trace`, span types, sessions, feedback, OTLP ingest and export |
+| [Evaluation & Prompts](./mlflow/04-evaluation-prompts.md) | Built-in judges, `@scorer`, `make_judge`, DeepEval scorers, evaluation datasets, prompt registry |
+| [Testing, CI & Model Registry](./mlflow/05-testing-ci-registry.md) | pytest + DeepEval results per CI run, trace assertions, regression gate vs `main`, GitHub Actions, aliases, pitfalls |
+
 ---
 ## See also
 - [Digital Garden: Knowledge Base](../index.md)
@@ -62,4 +101,5 @@ Hands-on command references, configuration patterns, and best practices for the 
 - [Test Automation Framework](../test-automation-framework/index.md)
 - [Code Quality & CI/CD](../python-guide/05-quality-cicd/index.md)
 - [uv — Fast Python Project Manager](../libs/uv/index.md)
-
+- [OpenTelemetry](../libs/opentelemetry/index.md)
+- [LiteLLM](../libs/litellm/index.md)

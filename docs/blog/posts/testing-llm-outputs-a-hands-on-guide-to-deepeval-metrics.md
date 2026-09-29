@@ -1,6 +1,7 @@
 ---
 date: 2026-03-25
 slug: testing-llm-outputs-a-hands-on-guide-to-deepeval-metrics
+description: "A hands-on guide to testing LLM outputs with DeepEval and pytest: about thirty metrics for RAG, safety, agents and chatbots, with passing and failing cases."
 authors:
   - username
 categories:

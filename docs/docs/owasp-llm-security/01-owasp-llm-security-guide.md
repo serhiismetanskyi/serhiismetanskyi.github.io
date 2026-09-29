@@ -16,24 +16,24 @@ LLM applications combine classic app risks with probabilistic model behavior. Re
 
 ## OWASP LLM Top 10 (2026)
 
-1. **LLM01 Prompt Injection**
-2. **LLM02 Sensitive Information Disclosure**
-3. **LLM03 Supply Chain**
-4. **LLM04 Data and Model Poisoning**
-5. **LLM05 Improper Output Handling**
-6. **LLM06 Excessive Agency**
-7. **LLM07 System Prompt Leakage**
-8. **LLM08 Vector and Embedding Weaknesses**
-9. **LLM09 Misinformation**
-10. **LLM10 Unbounded Consumption**
+1. [**LLM01** Prompt Injection](#llm01-prompt-injection)
+2. [**LLM02** Sensitive Information Disclosure](#llm02-sensitive-information-disclosure)
+3. [**LLM03** Supply Chain](#llm03-supply-chain)
+4. [**LLM04** Data and Model Poisoning](#llm04-data-and-model-poisoning)
+5. [**LLM05** Improper Output Handling](#llm05-improper-output-handling)
+6. [**LLM06** Excessive Agency](#llm06-excessive-agency)
+7. [**LLM07** System Prompt Leakage](#llm07-system-prompt-leakage)
+8. [**LLM08** Vector and Embedding Weaknesses](#llm08-vector-and-embedding-weaknesses)
+9. [**LLM09** Misinformation](#llm09-misinformation)
+10. [**LLM10** Unbounded Consumption](#llm10-unbounded-consumption)
 
 ## Priority Risks First (Implementation Order)
 
-1. `LLM01` Prompt Injection
-2. `LLM05` Improper Output Handling
-3. `LLM06` Excessive Agency
-4. `LLM02` Sensitive Information Disclosure
-5. `LLM10` Unbounded Consumption
+1. [`LLM01` Prompt Injection](#llm01-prompt-injection)
+2. [`LLM05` Improper Output Handling](#llm05-improper-output-handling)
+3. [`LLM06` Excessive Agency](#llm06-excessive-agency)
+4. [`LLM02` Sensitive Information Disclosure](#llm02-sensitive-information-disclosure)
+5. [`LLM10` Unbounded Consumption](#llm10-unbounded-consumption)
 
 This order protects the highest-impact kill chains first: manipulate model -> force bad output -> execute privileged actions.
 

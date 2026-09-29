@@ -102,4 +102,3 @@ This guide is organised into seven sections: language fundamentals, how suites s
 - [Testing Pyramid](../testing-pyramid/index.md)
 - [QA & Testing Methodology](../qa-methodology/index.md)
 - [Automation](../python-guide/04-automation/index.md)
-

@@ -93,5 +93,5 @@ benchmarks, and production evaluation patterns.
 - [Agentic AI Architecture](../agentic-ai-architecture/index.md)
 - [OWASP LLM Security](../owasp-llm-security/index.md)
 - [LangChain — LLM Application Framework](../libs/langchain/index.md)
+- [MLflow — Evaluation & Prompts](../tools/mlflow/04-evaluation-prompts.md)
 - [QA & Testing Methodology](../qa-methodology/index.md)
-

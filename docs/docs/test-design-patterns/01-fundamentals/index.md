@@ -23,4 +23,3 @@ Fundamentals covers test architecture patterns, data strategy, and execution rel
 - [Automation](../../python-guide/04-automation/index.md)
 - [Pytest — Python Testing Framework](../../libs/pytest/index.md)
 - [Test Design Patterns in Test Automation](../index.md)
-

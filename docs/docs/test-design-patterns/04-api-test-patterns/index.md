@@ -23,4 +23,3 @@ API Test Patterns covers test architecture patterns, data strategy, and executio
 - [Automation](../../python-guide/04-automation/index.md)
 - [Pytest — Python Testing Framework](../../libs/pytest/index.md)
 - [Test Design Patterns in Test Automation](../index.md)
-

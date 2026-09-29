@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Окремі сторінки: About, Contact, Tags, Archive, 404
+   Standalone pages: About, Contact, Tags, Archive, 404
    ========================================================================== */
 
-/* Вузька колонка для текстових сторінок */
+/* Narrow column for text pages */
 .md-content__inner:has(.about-actions),
 .md-content__inner:has(.contact-list) {
   max-width: 40rem;
@@ -16,7 +16,7 @@
   margin-top: 2rem;
 }
 
-/* ---------- Contact: список контактів ---------- */
+/* ---------- Contact: contact list ---------- */
 [dir] .md-typeset .contact-list ul {
   display: grid;
   gap: 0.5rem;
@@ -42,10 +42,13 @@
   border-radius: 0.8rem;
   color: var(--md-default-fg-color);
   text-decoration: none;
-  transition: border-color 150ms, background-color 150ms, transform 180ms var(--lift-ease);
+  transition:
+    border-color 150ms,
+    background-color 150ms,
+    transform 180ms var(--lift-ease);
 }
 
-/* Іконка в кольоровому кружечку */
+/* Icon in a colored circle */
 .md-typeset .contact-list .contact-icon {
   display: inline-flex;
   flex-shrink: 0;
@@ -56,7 +59,9 @@
   border-radius: 50%;
   background-color: var(--md-accent-fg-color--transparent);
   color: var(--md-primary-fg-color);
-  transition: background-color 150ms, color 150ms;
+  transition:
+    background-color 150ms,
+    color 150ms;
 }
 
 .md-typeset .contact-list .contact-icon .twemoji,
@@ -65,7 +70,7 @@
   height: 1.1rem;
 }
 
-/* Назва жирним, під нею адреса */
+/* Name in bold, address below */
 .md-typeset .contact-list .contact-text {
   display: flex;
   flex-direction: column;
@@ -83,12 +88,13 @@
   overflow-wrap: anywhere;
 }
 
-/* Стрілка праворуч — однакова для всіх контактів */
+/* Arrow on the right, the same for all contacts */
 .md-typeset .contact-list a::after {
-  content: "→";
   margin-left: auto;
   color: var(--md-default-fg-color--lighter);
-  transition: color 150ms, transform 180ms var(--lift-ease);
+  transition:
+    color 150ms,
+    transform 180ms var(--lift-ease);
 }
 
 .md-typeset .contact-list a:hover {
@@ -107,7 +113,7 @@
   transform: translateX(3px);
 }
 
-/* ---------- Services: сітка послуг, кроки, кнопки ---------- */
+/* ---------- Services: service grid, steps, buttons ---------- */
 .md-content__inner:has(.services) {
   max-width: 52rem;
 }
@@ -119,7 +125,7 @@
   margin: 2rem 0 1rem;
 }
 
-/* Групи з 4 пунктів — сіткою 2 × 2, щоб не лишався один пункт у рядку */
+/* Groups of 4 items as a 2 × 2 grid, so no item is left alone in a row */
 @media screen and (min-width: 45em) {
   .services:has(> .service:nth-child(4):last-child) {
     grid-template-columns: repeat(2, 1fr);
@@ -155,7 +161,7 @@
   border-top: 1px solid var(--md-default-fg-color--lightest);
 }
 
-/* Нумеровані кроки з кружечками */
+/* Numbered steps with circles */
 [dir] .md-typeset .steps ol {
   display: grid;
   gap: 0.8rem;
@@ -196,134 +202,174 @@
   margin-top: 2.4rem;
 }
 
-/* ---------- Files: файли для завантаження ---------- */
-.md-content__inner:has(.files-empty, .files-section) {
-  max-width: 44rem;
-}
-
-/* Навігація по розділах сторінки — ліворуч, як меню в Docs (зміст теми переносимо вліво) */
-.md-main__inner:has(.files-section) .md-sidebar--secondary {
-  order: -1;
-}
-
-.md-main__inner:has(.files-section) .md-sidebar--secondary .md-nav__title {
-  display: none;
-}
-
-.md-main__inner:has(.files-section) .md-sidebar--secondary .md-nav__link {
-  color: var(--md-default-fg-color--light);
-}
-
-.md-main__inner:has(.files-section) .md-sidebar--secondary .md-nav__link--active {
-  color: var(--md-default-fg-color);
-  font-weight: 600;
-}
-
-/* Заглушка порожнього розділу */
-.md-typeset .files-empty {
-  margin: 1rem 0 2rem;
-  padding: 1.4rem 1rem;
-  border: 1px dashed var(--md-default-fg-color--lighter);
-  border-radius: 0.8rem;
-  color: var(--md-default-fg-color--light);
-  text-align: center;
-}
-
-.md-typeset .files-empty p {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  margin: 0;
-}
-
-.md-typeset .files-empty .twemoji {
-  color: var(--md-primary-fg-color);
-}
-
-/* Рядок файлу: іконка, назва й опис, тип і розмір, кнопка завантаження */
-[dir] .md-typeset .files-section ul {
-  display: grid;
-  gap: 0.5rem;
-  margin: 1rem 0 2rem;
-  padding: 0;
-  list-style: none;
-}
-
-[dir] .md-typeset .files-section li {
-  margin: 0;
-}
-
-.md-typeset .files-section li::before {
-  content: none;
-}
-
-.md-typeset .files-section a {
+/* ---------- Page title with an action on the right (Projects: «All repositories on GitHub») ---------- */
+.md-typeset .page-head {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.6rem;
   align-items: center;
-  gap: 0.9rem;
-  padding: 0.7rem 0.9rem;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  border-radius: 0.8rem;
-  color: var(--md-default-fg-color);
-  text-decoration: none;
-  transition: border-color 150ms, background-color 150ms, transform 180ms var(--lift-ease);
+  justify-content: space-between;
+  margin: 0 0 1.2em;
 }
 
-.md-typeset .files-section .file-icon {
-  display: inline-flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  width: 2.3rem;
-  height: 2.3rem;
-  border-radius: 0.6rem;
-  background-color: var(--md-accent-fg-color--transparent);
-  color: var(--md-primary-fg-color);
+.md-typeset .page-head h1 {
+  margin: 0;
 }
 
-.md-typeset .files-section .file-text {
+.md-typeset .page-head p {
+  margin: 0;
+}
+
+/* ---------- Buttons at the end of a page: back link on the left, main action on the right ---------- */
+.md-typeset .page-actions p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: space-between;
+  margin-top: 2.4rem;
+}
+
+/* ---------- Projects: repository cards (docs/projects.md), same look as the home page's Latest cards ---------- */
+/* The Projects page; the CV keeps its own width */
+.md-content__inner:has(.projects-grid):not(:has(.cv-header)) {
+  max-width: 56rem;
+}
+
+.md-typeset .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+  margin: 2rem 0 0;
+}
+
+.md-typeset .projects-grid > p {
+  display: contents;
+}
+
+/* The whole card is the link */
+.md-typeset a.project-card {
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  gap: 0.6rem;
+  padding: 1.1rem 1.2rem 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.8rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition:
+    border-color 200ms,
+    box-shadow 300ms var(--lift-ease),
+    transform 300ms var(--lift-ease);
+}
+
+.md-typeset a.project-card:is(:hover, :focus-visible) {
+  border-color: var(--md-primary-fg-color);
+  box-shadow: 0 0.4rem 1.4rem -0.6rem var(--md-primary-fg-color--transparent, rgb(0 0 0 / 15%));
+  transform: translateY(-3px);
+}
+
+.md-typeset .project-card__kind {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Icon in a tinted circle, like the Latest cards */
+.md-typeset .project-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .project-card__icon .twemoji {
+  display: flex;
+}
+
+.md-typeset .project-card__title {
+  font-size: 0.85rem;
+  font-weight: 700;
   line-height: 1.35;
 }
 
-.md-typeset .files-section .file-name {
-  font-weight: 600;
-  overflow-wrap: anywhere;
-}
-
-.md-typeset .files-section .file-desc {
+.md-typeset .project-card__desc {
+  flex-grow: 1;
   color: var(--md-default-fg-color--light);
-  font-size: 0.85em;
+  font-size: 0.72rem;
+  line-height: 1.55;
 }
 
-.md-typeset .files-section .file-meta {
-  margin-left: auto;
-  color: var(--md-default-fg-color--light);
-  font-size: 0.7rem;
-  white-space: nowrap;
+.md-typeset .project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
 }
 
-/* Іконка завантаження праворуч */
-.md-typeset .files-section a::after {
-  content: "↓";
-  color: var(--md-default-fg-color--lighter);
-  transition: color 150ms, transform 180ms var(--lift-ease);
+.md-typeset .project-card__tags .md-tag {
+  margin: 0;
+  font-size: 0.58rem;
 }
 
-.md-typeset .files-section a:hover {
-  border-color: color-mix(in srgb, var(--md-primary-fg-color) 45%, transparent);
-  background-color: var(--md-accent-fg-color--transparent);
-  transform: translateY(-1px);
-}
-
-.md-typeset .files-section a:hover::after {
+.md-typeset .project-card__link {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
   color: var(--md-primary-fg-color);
-  transform: translateY(2px);
+  font-size: 0.7rem;
+  font-weight: 600;
 }
 
-/* ---------- Tags: списки сторінок під кожним тегом ---------- */
+.md-typeset .project-card__link::after {
+  content: "";
+  width: 1em;
+  height: 1em;
+  background-color: currentcolor;
+  mask: var(--icon-arrow) center / contain no-repeat;
+  transition: transform 180ms var(--lift-ease);
+}
+
+.md-typeset a.project-card:hover .project-card__link::after {
+  transform: translateX(3px);
+}
+
+/* Print and «Save as PDF» (CV): no hover effects, the GitHub URL instead of «Read more» */
+@media print {
+  .md-typeset .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
+
+  .md-typeset a.project-card {
+    break-inside: avoid;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .md-typeset .project-card__link {
+    display: none;
+  }
+
+  .md-typeset a.project-card::after {
+    content: attr(data-repo);
+    color: var(--md-default-fg-color--light);
+    font-size: 0.6rem;
+    word-break: break-all;
+  }
+}
+
+/* ---------- Tags: page lists under each tag ---------- */
 [dir] .md-typeset h2:has(> .md-tag) + ul {
   margin: 0 0 1.6em;
   padding: 0;
@@ -346,8 +392,45 @@
   color: var(--md-primary-fg-color);
 }
 
-/* ---------- Archive (/archive/, заповнює js/archive.js) ---------- */
-/* Використовує .archive-list з blog.css; тут — місяці, лічильник і позначка Blog / Docs */
+/* Filters on /tags/ (js/tags-filter.js) reuse the archive filter styles below; here only the tag cloud */
+.md-typeset .tags-cloud {
+  flex: 1 1 auto;
+}
+
+.md-typeset .tags-cloud .archive-chip {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  height: 1.6rem;
+  font-weight: 500;
+}
+
+.md-typeset .tags-cloud__n {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.md-typeset .tags-cloud .archive-chip[aria-pressed="true"] .tags-cloud__n {
+  color: inherit;
+  opacity: 0.8;
+}
+
+.md-typeset .tags-cloud:not(.tags-cloud--all) .tags-cloud__extra {
+  display: none;
+}
+
+.md-typeset .tags-cloud .tags-cloud__more {
+  height: 1.6rem;
+  margin-left: 0;
+}
+
+.md-content__inner:has(.tags-filters) [hidden] {
+  display: none !important;
+}
+
+/* ---------- Archive (/archive/, filled by js/archive.js) ---------- */
+/* Uses .archive-list from blog.css; here: months, counter and the Blog / Docs label */
 .md-typeset .archive-all h2 {
   margin: 1.6em 0 0.4em;
   font-variant-numeric: tabular-nums;
@@ -384,6 +467,146 @@
   color: var(--md-primary-fg-color);
 }
 
+.md-typeset .archive-kind--projects {
+  border: 1px solid var(--md-primary-fg-color);
+  background-color: transparent;
+  color: var(--md-primary-fg-color);
+}
+
+/* Filters above the archive: title search, type, month range, years */
+.md-typeset .archive-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin: 1.2rem 0 0.4rem;
+  padding: 0.9rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.8rem;
+}
+
+.md-typeset .archive-filters__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: end;
+}
+
+.md-typeset .archive-filters input,
+.md-typeset .archive-filters select {
+  height: 1.9rem;
+  padding: 0 0.6rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.5rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: 0.75rem;
+}
+
+.md-typeset .archive-filters input:focus-visible,
+.md-typeset .archive-filters select:focus-visible,
+.md-typeset .archive-filters button:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 1px;
+}
+
+.md-typeset .archive-search {
+  flex: 1 1 14rem;
+  min-width: 0;
+}
+
+.md-typeset .archive-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.md-typeset .archive-field select {
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* Segmented All / Blog / Docs */
+.md-typeset .archive-seg {
+  display: inline-flex;
+  padding: 0.15rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.5rem;
+}
+
+.md-typeset .archive-seg button,
+.md-typeset .archive-chip,
+.md-typeset .archive-reset {
+  height: 1.55rem;
+  padding: 0 0.75rem;
+  border-radius: 0.35rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 150ms,
+    color 150ms;
+}
+
+.md-typeset .archive-seg button:hover,
+.md-typeset .archive-chip:hover,
+.md-typeset .archive-reset:hover {
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .archive-seg button[aria-pressed="true"],
+.md-typeset .archive-chip[aria-pressed="true"] {
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+
+.md-typeset .archive-years {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.md-typeset .archive-chip {
+  height: 1.9rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 999px;
+}
+
+.md-typeset .archive-reset {
+  height: 1.9rem;
+  margin-left: auto;
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .archive-reset[hidden],
+.md-typeset .archive-empty[hidden] {
+  display: none;
+}
+
+.md-typeset .archive-status {
+  margin: 0.2rem 0 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+}
+
+.md-typeset .archive-empty {
+  margin: 2rem 0;
+  color: var(--md-default-fg-color--light);
+  text-align: center;
+}
+
+/* Filtered-out rows and months (list rows are display: flex in blog.css) */
+.md-typeset .archive-all [hidden] {
+  display: none !important;
+}
+
 /* ---------- 404 (overrides/404.html) ---------- */
 .not-found {
   max-width: 30rem;
@@ -415,30 +638,8 @@
   margin-top: 1.6rem;
 }
 
-/* ---------- Мобільні ---------- */
+/* ---------- Mobile ---------- */
 @media screen and (max-width: 44.9375em) {
-  /* Files: тип і розмір — під описом */
-  .md-typeset .files-section a {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    column-gap: 0.9rem;
-  }
-
-  .md-typeset .files-section .file-icon {
-    grid-row: 1 / span 2;
-  }
-
-  .md-typeset .files-section .file-meta {
-    grid-column: 2;
-    grid-row: 2;
-    margin: 0.2rem 0 0;
-  }
-
-  .md-typeset .files-section a::after {
-    grid-column: 3;
-    grid-row: 1 / span 2;
-  }
-
   .md-typeset .archive-all .archive-list li {
     display: grid;
     grid-template-columns: 1fr auto;

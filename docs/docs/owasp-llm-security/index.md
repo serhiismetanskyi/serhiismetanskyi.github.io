@@ -26,4 +26,3 @@ Explicitly covered attack vectors include jailbreaks, prompt/indirect injection,
 - [DeepEval — LLM Testing Guide](../llm-evaluation/index.md)
 - [Security Observability](../ci-cd-approaches/05-security-observability/index.md)
 - [QA & Testing Methodology](../qa-methodology/index.md)
-

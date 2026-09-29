@@ -22,4 +22,3 @@ Logic State Based covers test case design techniques and input/state coverage st
 - [Testing Pyramid](../../testing-pyramid/index.md)
 - [Testing with pytest](../../python-guide/03-testing-pytest/index.md)
 - [Test Design Techniques](../index.md)
-

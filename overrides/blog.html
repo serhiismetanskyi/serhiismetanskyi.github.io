@@ -1,9 +1,23 @@
 {% extends "main.html" %}
 
-{#- Список постів блогу. Сторінки архіву (/blog/archive/<рік>/) — компактний
-    список «дата — назва», як на сторінці тегів; решта — анонси, як у теми -#}
+{#- Blog post list with breadcrumbs (partials/blog-path.html). Archive pages (/blog/archive/<year>/) get a compact
+    «date — title» list, like the tags page; the rest get excerpts, as in the theme -#}
+{#- Only the left menu: the right sidebar (TOC of post titles) is not needed on post lists -#}
+{% block site_nav %}
+  {% if nav %}
+    <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+      <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+          {% include "partials/nav.html" %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+{% endblock site_nav %}
+
 {% block container %}
   <div class="md-content" data-md-component="content">
+    {% include "partials/blog-path.html" %}
     <div class="md-content__inner">
       <header class="md-typeset">
         {{ page.content }}
@@ -25,8 +39,8 @@
       {% if pagination %}
         {% block pagination %}
           {% include "partials/pagination.html" %}
-        {% endblock %}
+        {% endblock pagination %}
       {% endif %}
     </div>
   </div>
-{% endblock %}
+{% endblock container %}

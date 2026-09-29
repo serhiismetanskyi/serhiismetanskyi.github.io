@@ -23,4 +23,3 @@ Test Data covers automation framework architecture, reliability, and CI integrat
 - [Testing Pyramid](../../testing-pyramid/index.md)
 - [CI/CD](../../ci-cd-approaches/index.md)
 - [Test Automation Framework](../index.md)
-

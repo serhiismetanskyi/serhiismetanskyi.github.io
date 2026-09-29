@@ -24,4 +24,3 @@ Testing Risks Patterns covers client-server boundaries, traffic management, scal
 - [Performance Testing](../../performance-testing/index.md)
 - [Test Automation Framework](../../test-automation-framework/index.md)
 - [Client–Server Architecture](../index.md)
-

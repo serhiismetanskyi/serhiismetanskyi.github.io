@@ -22,4 +22,3 @@ Edge Layer covers client-server boundaries, traffic management, scalability, and
 - [Performance Testing](../../performance-testing/index.md)
 - [Test Automation Framework](../../test-automation-framework/index.md)
 - [Client–Server Architecture](../index.md)
-

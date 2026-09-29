@@ -75,4 +75,3 @@ tags:
 - [Software Design Patterns and Principles](../software-design-patterns/index.md)
 - [Performance Testing](../performance-testing/index.md)
 - [Test Automation Framework](../test-automation-framework/index.md)
-

@@ -164,4 +164,3 @@ Changelog documents what changed in each release.
     draft: false
     prerelease: ${{ contains(env.VERSION, '-') }}
 ```
-

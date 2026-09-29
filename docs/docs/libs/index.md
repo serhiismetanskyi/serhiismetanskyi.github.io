@@ -20,8 +20,13 @@ Practical guides for key Python libraries: core API, patterns, and production be
 | [Pydantic](./pydantic/index.md) | Data validation: models, fields, validators, serialization, settings, TypeAdapter |
 | [SQLAlchemy](./sqlalchemy/index.md) | ORM & SQL toolkit: models, relationships, sessions, async, Alembic, performance |
 | [FastAPI](./fastapi/index.md) | Async web framework: routing, DI, auth, DB integration, testing, production, ASGI stack |
+| [Jinja](./jinja/index.md) | Templates: syntax, filters, inheritance, macros, autoescape, StrictUndefined, sandbox/SSTI, reports, LLM prompts, testing |
 | [uv](./uv/index.md) | Python project manager: deps, scripts, tools, workspaces, Docker, build & publish |
 | [LangChain](./langchain/index.md) | LLM framework: models, LCEL chains, RAG, agents, tools, memory, LangGraph, LangSmith |
+| [LangGraph](./langgraph/index.md) | Stateful agent graphs: state and reducers, `Command`/`Send`, checkpointers, `Store`, interrupts, streaming, multi-agent, testing, LangGraph Server |
+| [Guardrails AI](./guardrails/index.md) | LLM guards: validators, on-fail actions, structured output, PII/jailbreak/toxicity checks, server, testing |
+| [LiteLLM](./litellm/index.md) | LLM gateway: one API for 100+ providers, tools, structured output, router, fallbacks, proxy, cost tracking |
+| [OpenTelemetry](./opentelemetry/index.md) | Observability: traces, metrics, logs, auto-instrumentation, Collector, testing with spans |
 | [Code Quality](./code-quality/index.md) | Linters, formatters, type checkers, pre-commit hooks, test coverage, mutation testing |
 
 ---
@@ -31,4 +36,3 @@ Practical guides for key Python libraries: core API, patterns, and production be
 - [Test Automation Framework](../test-automation-framework/index.md)
 - [CI/CD](../ci-cd-approaches/index.md)
 - [Tools — Practical Reference Guides](../tools/index.md)
-

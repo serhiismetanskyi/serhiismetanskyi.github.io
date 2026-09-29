@@ -27,4 +27,3 @@ Config CI/CD Decisions covers automation framework architecture, reliability, an
 - [Testing Pyramid](../../testing-pyramid/index.md)
 - [CI/CD](../../ci-cd-approaches/index.md)
 - [Test Automation Framework](../index.md)
-

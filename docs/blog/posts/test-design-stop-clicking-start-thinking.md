@@ -1,6 +1,7 @@
 ---
 date: 2026-03-24
 slug: test-design-stop-clicking-start-thinking
+description: "Test design techniques in real work, not just before interviews: equivalence partitioning, boundary values, decision tables and state transitions."
 authors:
   - username
 categories:

@@ -30,7 +30,7 @@ uv add langgraph-checkpoint-postgres # production persistence
 | Component | Best for |
 |-----------|----------|
 | `ChatPromptTemplate` | Structuring LLM input with variables and roles |
-| LCEL chains (`\|`) | Linear pipelines: prompt → model → parser |
+| LCEL chains (<code>&#124;</code>) | Linear pipelines: prompt → model → parser |
 | `StrOutputParser` | Extracting plain text from model responses |
 | RAG retrieval chain | Grounding answers in custom documents |
 | Agents + Tools | Dynamic multi-step reasoning, API calls |
@@ -126,4 +126,4 @@ You can start building useful internal assistants when you can:
 - [CI/CD](../../ci-cd-approaches/index.md)
 - [Tools — Practical Reference Guides](../../tools/index.md)
 - [Python Libraries](../index.md)
-
+- [LangGraph — Stateful Agent Orchestration](../langgraph/index.md)

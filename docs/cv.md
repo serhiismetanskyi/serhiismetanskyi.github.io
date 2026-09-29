@@ -56,13 +56,21 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 
 ## Experience
 
-<div class="timeline" markdown>
+<div class="cv-list" markdown>
 
-<div class="timeline-item" markdown>
+<div class="cv-entry" markdown>
 
-### Release Coordinator in ML Team — Namecheap
+<div class="cv-logo">N</div>
 
-<p class="timeline-date">Jul 2023 – Present</p>
+### Namecheap
+
+<p class="cv-meta">Apr 2023 – Present · 2 positions</p>
+
+<div class="cv-position" markdown>
+
+#### Release Coordinator in ML Team
+
+<p class="cv-date">Jul 2023 – Present</p>
 
 - Managed and coordinated software releases across multiple environments, ensuring timely and high-quality deployments.
 - Collaborated with engineering, QA, and operations teams to plan releases, track progress, and mitigate delivery risks.
@@ -72,11 +80,11 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 
 </div>
 
-<div class="timeline-item" markdown>
+<div class="cv-position" markdown>
 
-### General Backend / AI QA Engineer — Namecheap
+#### General Backend / AI QA Engineer
 
-<p class="timeline-date">Apr 2023 – Present</p>
+<p class="cv-date">Apr 2023 – Present</p>
 
 - Responsible for end-to-end quality assurance, including QA processes, test strategies, and functional and non-functional testing using manual and automated approaches.
 - Designed and executed test strategies for backend systems, covering APIs, databases, distributed services, and event-based communication.
@@ -86,11 +94,21 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 
 </div>
 
-<div class="timeline-item" markdown>
+</div>
 
-### QA Engineer — airSlate
+<div class="cv-entry" markdown>
 
-<p class="timeline-date">Jun 2022 – Apr 2023</p>
+<div class="cv-logo">aS</div>
+
+### airSlate
+
+<p class="cv-meta">Jun 2022 – Apr 2023</p>
+
+<div class="cv-position" markdown>
+
+#### QA Engineer
+
+<p class="cv-date">Jun 2022 – Apr 2023</p>
 
 - Performed end-to-end quality assurance for web and mobile applications, defining test strategies to ensure product quality.
 - Created and maintained test documentation, including test plans, test cases, and regression test suites.
@@ -100,11 +118,21 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 
 </div>
 
-<div class="timeline-item" markdown>
+</div>
 
-### Business Analyst — soft Xpansion
+<div class="cv-entry" markdown>
 
-<p class="timeline-date">Jan 2020 – Jun 2022</p>
+<div class="cv-logo">sX</div>
+
+### soft Xpansion
+
+<p class="cv-meta">Sep 2019 – Jun 2022 · 2 positions</p>
+
+<div class="cv-position" markdown>
+
+#### Business Analyst
+
+<p class="cv-date">Jan 2020 – Jun 2022</p>
 
 - Automated client business processes by implementing product-based software solutions.
 - Extended product functionality by introducing new features and improvements.
@@ -117,11 +145,11 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 
 </div>
 
-<div class="timeline-item" markdown>
+<div class="cv-position" markdown>
 
-### QA Engineer — soft Xpansion
+#### QA Engineer
 
-<p class="timeline-date">Sep 2019 – Jun 2022</p>
+<p class="cv-date">Sep 2019 – Jun 2022</p>
 
 - Performed QA for multiple web applications, executing functional testing across key product workflows.
 - Analyzed requirements, identified quality risks, and reported issues to development teams.
@@ -129,6 +157,8 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 - Created and maintained test documentation, including test strategies, test plans, and test cases.
 - Improved QA processes and supported knowledge sharing within the team.
 - Assisted customers by resolving support tickets, conducting product demos, and delivering training sessions.
+
+</div>
 
 </div>
 
@@ -184,7 +214,7 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 - Fiddler
 - Chrome DevTools
 
-**Performance Testing**
+**Load Testing**
 
 - Locust
 
@@ -233,6 +263,12 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 - Cost Explorer
 - Boto3
 
+**Observability**
+
+- Phoenix
+- Langfuse
+- MLflow
+
 **Logging & Monitoring**
 
 - AWS CloudWatch
@@ -265,15 +301,23 @@ I am detail-oriented and proactive, with strong problem-solving skills and a pas
 
 ## Education
 
-<div class="timeline" markdown>
+<div class="cv-list" markdown>
 
-<div class="timeline-item" markdown>
+<div class="cv-entry" markdown>
 
-### Master's Degree in Economic Cybernetics
+<div class="cv-logo" markdown="span">:material-school-outline:</div>
 
-<p class="timeline-date">Sep 2011 – Jan 2018</p>
+### Kyiv National University of Trade and Economics
 
-Kyiv National University of Trade and Economics
+<p class="cv-meta">Sep 2011 – Jan 2018</p>
+
+<div class="cv-position" markdown>
+
+#### Master's Degree in Economic Cybernetics
+
+<p class="cv-date">Sep 2011 – Jan 2018</p>
+
+</div>
 
 </div>
 
@@ -287,3 +331,7 @@ Kyiv National University of Trade and Economics
 - English — Upper intermediate (B2)
 
 </div>
+
+## Projects
+
+<!-- projects:list -->

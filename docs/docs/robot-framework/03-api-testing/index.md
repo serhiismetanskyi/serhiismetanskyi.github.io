@@ -39,4 +39,3 @@ Related generic material lives under **QA & Testing → Test Automation Framewor
 - [QA & Testing Methodology](../../qa-methodology/index.md)
 - [Automation](../../python-guide/04-automation/index.md)
 - [Robot Framework — Complete Guide](../index.md)
-

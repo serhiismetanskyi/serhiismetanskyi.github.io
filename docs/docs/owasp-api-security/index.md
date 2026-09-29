@@ -32,4 +32,3 @@ Practical knowledge-base section focused on **OWASP API Security Top 10 (2023)**
 - [API Testing](../test-automation-framework/04-api-testing/index.md)
 - [Automation](../python-guide/04-automation/index.md)
 - [QA & Testing Methodology](../qa-methodology/index.md)
-

@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Головна сторінка
+   Home page
    ========================================================================== */
 
-/* Вузька колонка по центру */
+/* Narrow centered column */
 .md-content__inner:has(.hero) {
   max-width: 38rem;
   margin: 0 auto 5rem;
@@ -10,19 +10,19 @@
   text-align: center;
 }
 
-/* Автоматичний заголовок «Home» ховаємо (лишається у <title> вкладки) */
+/* Hide the automatic «Home» heading (it stays in the tab <title>) */
 .md-content__inner:has(.hero) > h1 {
   display: none;
 }
 
-/* Абзац з аватаром */
+/* Paragraph with the avatar */
 .hero > p {
   color: var(--md-default-fg-color--light);
   line-height: 1.7;
   margin: 0.4em 0;
 }
 
-/* ---------- Аватар ---------- */
+/* ---------- Avatar ---------- */
 .hero .avatar {
   width: 11rem;
   height: 11rem;
@@ -32,7 +32,9 @@
   box-shadow:
     0 0 0 6px var(--md-default-bg-color),
     0 0 0 8px var(--md-primary-fg-color);
-  transition: transform 300ms var(--lift-ease), box-shadow 300ms var(--lift-ease);
+  transition:
+    transform 300ms var(--lift-ease),
+    box-shadow 300ms var(--lift-ease);
 }
 
 .hero .avatar:hover {
@@ -43,7 +45,7 @@
     0 12px 40px -8px color-mix(in srgb, var(--md-primary-fg-color) 45%, transparent);
 }
 
-/* ---------- Привітання й підзаголовок ---------- */
+/* ---------- Greeting and subtitle ---------- */
 .hero .hero-title {
   font-size: 2.1em;
   font-weight: 700;
@@ -64,7 +66,7 @@
   margin: 0.8rem 0 2rem;
 }
 
-/* ---------- Круглі іконки соцмереж ---------- */
+/* ---------- Round social icons ---------- */
 .md-typeset .hero-social p {
   display: flex;
   flex-wrap: wrap;
@@ -83,7 +85,11 @@
   border-radius: 50%;
   color: var(--md-default-fg-color--light);
   text-decoration: none;
-  transition: transform 180ms var(--lift-ease), background-color 150ms, border-color 150ms, color 150ms;
+  transition:
+    transform 180ms var(--lift-ease),
+    background-color 150ms,
+    border-color 150ms,
+    color 150ms;
 }
 
 .md-typeset .hero-social a .twemoji,
@@ -100,7 +106,7 @@
   color: var(--md-primary-bg-color);
 }
 
-/* ---------- Кнопки Blog / Docs / CV ---------- */
+/* ---------- Blog / Docs / CV buttons ---------- */
 .hero .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -113,61 +119,207 @@
   display: contents;
 }
 
-/* ---------- Останні пости (заповнює js/latest-posts.js) ---------- */
-.md-typeset .latest-posts {
-  margin-top: 3.5rem;
+/* ---------- Latest projects (partials/project-cards.html), under the Latest cards, same width ---------- */
+.md-typeset .home-projects {
+  width: min(52rem, 100vw - 2rem);
+  margin: 2.5rem 0 0 50%;
+  transform: translateX(-50%);
   text-align: left;
 }
 
-.md-typeset .latest-posts h2 {
-  margin: 0 0 0.6rem;
+.md-typeset .home-projects header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.md-typeset .home-projects h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--md-default-fg-color--light);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  text-align: center;
+}
+
+.md-typeset .home-projects h2 .headerlink {
+  display: none;
+}
+
+.md-typeset .home-projects .projects-grid {
+  margin: 0;
+}
+
+/* ---------- Latest posts & docs cards (filled by js/latest.js) ---------- */
+/* Two cards side by side, wider than the hero column */
+.md-typeset .home-latest {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  gap: 1rem;
+  width: min(52rem, 100vw - 2rem);
+  margin: 3.5rem 0 0 50%;
+  transform: translateX(-50%);
+  text-align: left;
+}
+
+.md-typeset .latest {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1rem 0.6rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.8rem;
+  background: var(--md-default-bg-color);
+}
+
+.md-typeset .latest[hidden] {
+  display: none;
+}
+
+.md-typeset .latest header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 0.5rem 0.6rem;
+}
+
+.md-typeset .latest h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--md-default-fg-color--light);
 }
 
-.md-typeset .latest-posts ul {
+/* Icon in a tinted circle */
+.md-typeset .latest__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .latest__icon svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentcolor;
+}
+
+.md-typeset .latest .headerlink {
+  display: none;
+}
+
+.md-typeset .latest header p {
+  margin: 0;
+}
+
+.md-typeset .latest__icon .twemoji {
+  display: flex;
+}
+
+.md-typeset .latest__all::after {
+  margin-left: 0.25em;
+  transition: transform 180ms var(--lift-ease);
+}
+
+.md-typeset .latest__all:hover::after {
+  transform: translateX(3px);
+}
+
+.md-typeset .latest__all {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.md-typeset .latest ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.md-typeset .latest-posts li {
-  display: flex;
-  gap: 1.2rem;
-  align-items: baseline;
+.md-typeset .latest li {
   margin: 0;
-  padding: 0.7rem 0;
   border-top: 1px solid var(--md-default-fg-color--lightest);
 }
 
-.md-typeset .latest-posts li::before {
+.md-typeset .latest li::before {
   content: none;
 }
 
-.md-typeset .latest-posts time {
-  flex-shrink: 0;
-  width: 6.5rem;
-  color: var(--md-default-fg-color--light);
-  font-size: 0.75rem;
-  font-variant-numeric: tabular-nums;
+/* Whole row is the link; the arrow slides in on hover */
+.md-typeset .latest li a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0.25rem 0;
+  padding: 0.55rem 1.8rem 0.55rem 0.5rem;
+  border-radius: 0.5rem;
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition: background-color 150ms;
 }
 
-.md-typeset .latest-posts a {
-  color: var(--md-default-fg-color);
+.md-typeset .latest li a::after {
+  position: absolute;
+  top: 50%;
+  right: 0.6rem;
+  color: var(--md-primary-fg-color);
+  opacity: 0;
+  transform: translate(-0.3rem, -50%);
+  transition:
+    opacity 150ms,
+    transform 250ms var(--lift-ease);
+}
+
+.md-typeset .latest li a:hover {
+  background: var(--md-accent-fg-color--transparent);
+}
+
+.md-typeset .latest li a:hover::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+.md-typeset .latest__title {
   font-weight: 600;
-  text-decoration: none;
+  line-height: 1.4;
   transition: color 150ms;
 }
 
-.md-typeset .latest-posts a:hover {
+.md-typeset .latest li a:hover .latest__title {
   color: var(--md-primary-fg-color);
 }
 
-/* ---------- Мобільні ---------- */
+.md-typeset .latest__meta {
+  display: flex;
+  gap: 0.4rem;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset .latest__meta > * + *::before {
+  content: "·";
+  margin-right: 0.4rem;
+}
+
+/* ---------- Mobile ---------- */
 @media screen and (max-width: 44.9375em) {
   .hero .avatar {
     width: 8.5rem;

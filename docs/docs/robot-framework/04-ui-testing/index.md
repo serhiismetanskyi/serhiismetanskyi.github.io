@@ -32,4 +32,3 @@ Practical notes for structuring UI automation with Robot Framework: page-level `
 - [QA & Testing Methodology](../../qa-methodology/index.md)
 - [Automation](../../python-guide/04-automation/index.md)
 - [Robot Framework — Complete Guide](../index.md)
-

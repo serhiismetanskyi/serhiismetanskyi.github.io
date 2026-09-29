@@ -37,4 +37,3 @@ A practical guide to writing Jenkinsfiles — from basic syntax to production-re
 - [Code Quality & CI/CD](../python-guide/05-quality-cicd/index.md)
 - [Docker & Docker Compose — Overview](../tools/docker/index.md)
 - [Git — Overview](../tools/git/index.md)
-

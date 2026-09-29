@@ -35,4 +35,3 @@ This section explains what Jenkins Pipeline is, why we use Jenkinsfiles, and the
 - [Docker & Docker Compose — Overview](../../tools/docker/index.md)
 - [Git — Overview](../../tools/git/index.md)
 - [Jenkins Pipeline Guide](../index.md)
-

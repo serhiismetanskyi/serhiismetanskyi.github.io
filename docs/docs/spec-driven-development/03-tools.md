@@ -144,10 +144,12 @@ the listed edge cases have tests, and nothing outside the task's scope changed.
 - **Specs as permanent source of truth, library specs** → Tessl
 - **Big project with many roles** → BMAD
 - **Don't want another tool** → plan mode + `SPEC.md` + `AGENTS.md`
+- **Shared domain knowledge the agent keeps re-learning** → an [OKF bundle](05-open-knowledge-format.md) next to the specs
 
 ---
 ## See also
 - [Spec-Driven Development](index.md)
 - [SDD — Concepts & Workflow](01-concepts-workflow.md)
 - [SDD — Writing Good Specs](02-writing-specs.md)
+- [SDD — Open Knowledge Format (OKF)](05-open-knowledge-format.md)
 - [AI Skills for Coding Agents](../ai-skills/index.md)

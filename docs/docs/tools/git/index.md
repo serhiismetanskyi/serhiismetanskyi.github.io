@@ -159,4 +159,3 @@ Command groups from the shared QA cheat sheet are covered across this section:
 - [Code Quality & CI/CD](../../python-guide/05-quality-cicd/index.md)
 - [uv — Fast Python Project Manager](../../libs/uv/index.md)
 - [Tools — Practical Reference Guides](../index.md)
-

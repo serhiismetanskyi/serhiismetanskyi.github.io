@@ -168,4 +168,3 @@ This guide stays at the practical SQL/operations level and intentionally skips i
 - [OOP & Error Handling](../../python-guide/02-oop-error-handling/index.md)
 - [Test Data](../../test-automation-framework/03-test-data/index.md)
 - [Databases — Types, Differences & Selection Guide](../index.md)
-

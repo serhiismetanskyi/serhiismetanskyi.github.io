@@ -83,4 +83,4 @@ flowchart TD
 - [API Architectures](../api-architectures/index.md)
 - [LangChain — LLM Application Framework](../libs/langchain/index.md)
 - [AI Skills for Coding Agents](../ai-skills/index.md)
-
+- [LangGraph — Stateful Agent Orchestration](../libs/langgraph/index.md)

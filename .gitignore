@@ -1,7 +1,18 @@
-# Зібраний сайт і кеш Zensical
+# Built site and cache
 site/
 .cache/
 
-# Python
+# Virtual environment
 .venv/
 __pycache__/
+
+# Local settings and secrets
+.env
+.env.*
+
+# Editors and OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db

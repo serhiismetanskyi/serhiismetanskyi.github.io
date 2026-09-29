@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Docs: огляд бази знань і статті
+   Docs: knowledge base overview and articles
    ========================================================================== */
 
-/* ---------- Огляд /docs/: сітка тем ---------- */
+/* ---------- The /docs/ overview: topic grid ---------- */
 .kb-sections {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
@@ -10,7 +10,106 @@
   margin-top: 1.2rem;
 }
 
-/* Групи тем (Architecture & Design, Security, …) */
+/* Search above the topics (filled by js/docs-search.js) */
+.md-typeset .kb-search {
+  margin: 1.4rem 0 0.6rem;
+}
+
+.md-typeset .kb-search__field {
+  position: relative;
+}
+
+/* Magnifier icon inside the field (Lucide "search", like the theme) */
+.md-typeset .kb-search__field::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.85rem;
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--md-default-fg-color--light);
+  transform: translateY(-50%);
+  mask:
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>')
+    center / contain no-repeat;
+  pointer-events: none;
+}
+
+.md-typeset .kb-search__input {
+  width: 100%;
+  height: 2.4rem;
+  padding: 0 1rem 0 2.5rem;
+  border: 1px solid var(--md-default-fg-color--lighter);
+  border-radius: 0.7rem;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+  font: inherit;
+  font-size: 0.8rem;
+  transition:
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.md-typeset .kb-search__input:focus {
+  border-color: var(--md-primary-fg-color);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--md-accent-fg-color--transparent);
+}
+
+.md-typeset .kb-search__status {
+  margin: 0.6rem 0 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+}
+
+/* Matching articles: title on the left, topic on the right */
+[dir] .md-typeset .kb-results {
+  margin: 0.6rem 0 0;
+  padding: 0.3rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.7rem;
+  list-style: none;
+}
+
+[dir] .md-typeset .kb-results li {
+  margin: 0;
+}
+
+.md-typeset .kb-results li::before {
+  content: none;
+}
+
+.md-typeset .kb-results a {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.45rem;
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+  transition:
+    background-color 150ms,
+    color 150ms;
+}
+
+.md-typeset .kb-results a:hover {
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset .kb-results__topic {
+  flex-shrink: 0;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+}
+
+.md-typeset .kb-search [hidden],
+.md-content__inner:has(.kb-search) [hidden] {
+  display: none !important;
+}
+
+/* Topic groups (Architecture & Design, Security, …) */
 .md-content__inner:has(.kb-sections) > h2 {
   margin-top: 2.4em;
 }
@@ -42,7 +141,7 @@
   color: var(--md-default-fg-color--light);
 }
 
-/* Список підрозділів теми з розділювачами; стрілка з'являється при наведенні */
+/* List of topic subsections with dividers; the arrow appears on hover */
 [dir] .md-typeset .kb-section ul {
   margin: 0;
   padding: 0;
@@ -66,12 +165,13 @@
 }
 
 .md-typeset .kb-section li a::after {
-  content: " →";
-  display: inline-block;
+  margin-left: 0.3em;
   color: var(--md-primary-fg-color);
   opacity: 0;
   transform: translateX(-4px);
-  transition: opacity 150ms, transform 180ms var(--lift-ease);
+  transition:
+    opacity 150ms,
+    transform 180ms var(--lift-ease);
 }
 
 .md-typeset .kb-section li a:hover {
@@ -83,13 +183,13 @@
   transform: translateX(0);
 }
 
-/* «All N sections» — акцентним кольором */
+/* «All N sections» — in the accent color */
 .md-typeset .kb-section li a.kb-more {
   color: var(--md-primary-fg-color);
 }
 
-/* ---------- Стаття: дата, оновлення й час читання над заголовком ---------- */
-/* (overrides/partials/content.html; іконки ті самі, що в постах блогу) */
+/* ---------- Article: date, update and reading time above the heading ---------- */
+/* (overrides/partials/content.html; same icons as in blog posts) */
 [dir] .md-typeset .page-meta {
   display: flex;
   flex-wrap: wrap;

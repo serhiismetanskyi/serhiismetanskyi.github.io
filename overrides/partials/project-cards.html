@@ -1,0 +1,48 @@
+{#- Project cards from `extra.projects` in zensical.toml: each card links to the project's page (docs/projects/<slug>.md).
+    `limit` shows only the first N (the list is newest first), `kind` only one category. data-repo gives print its GitHub URL -#}
+{% macro cards(config, limit=none, kind=none) %}
+  {% set items = config.extra.projects[:limit] if limit else config.extra.projects %}
+  {#- Full lists get page numbers from js/paginate.js; the home page's short list doesn't -#}
+  <div class="projects-grid"{% if not limit %} data-per-page="6"{% endif %}>
+    {% for project in items if not kind or project.kind == kind %}
+      <a class="project-card" href="{{ ('projects/' ~ project.slug ~ '/') | url }}" data-repo="https://github.com/serhiismetanskyi/{{ project.slug }}">
+        <span class="project-card__kind">
+          <span class="project-card__icon twemoji">{% include ".icons/" ~ project.icon ~ ".svg" %}</span>
+          {{ project.kind }}
+        </span>
+        <span class="project-card__title">{{ project.title }}</span>
+        <span class="project-card__desc">{{ project.description }}</span>
+        <span class="project-card__tags">
+          {#- the category is already shown above, so its tag (ai-testing, …) is skipped -#}
+          {% for tag in project.tags if tag != project.kind | lower | replace(" ", "-") %}<span class="md-tag">{{ tag }}</span>{% endfor %}
+        </span>
+        <span class="project-card__link">Read more</span>
+      </a>
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{#- Compact list for the CV: title (links to the project page), kind and description -#}
+{% macro list(config) %}
+  <ul class="cv-projects">
+    {% for project in config.extra.projects %}
+      <li>
+        <a href="{{ ('projects/' ~ project.slug ~ '/') | url }}">{{ project.title }}</a>
+        <span class="cv-projects__kind">{{ project.kind }}</span>
+        <span class="cv-projects__desc">{{ project.description }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{#- Yearly archive, like the blog's: «date — title» rows for the projects started that year -#}
+{% macro archive(config, year) %}
+  <ul class="archive-list md-typeset" data-per-page="10">
+    {% for project in config.extra.projects if project.date is startingwith(year) %}
+      <li>
+        <time datetime="{{ project.date }}">{{ project.date | date }}</time>
+        <a href="{{ ('projects/' ~ project.slug ~ '/') | url }}">{{ project.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}

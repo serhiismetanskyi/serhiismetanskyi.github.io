@@ -25,4 +25,3 @@ Data Mocking Env covers test architecture patterns, data strategy, and execution
 - [Automation](../../python-guide/04-automation/index.md)
 - [Pytest — Python Testing Framework](../../libs/pytest/index.md)
 - [Test Design Patterns in Test Automation](../index.md)
-

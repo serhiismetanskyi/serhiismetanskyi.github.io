@@ -29,4 +29,3 @@ Practical covers LLM quality, RAG, agent, and safety evaluation methods, with fo
 - [LangChain — LLM Application Framework](../../libs/langchain/index.md)
 - [QA & Testing Methodology](../../qa-methodology/index.md)
 - [DeepEval — LLM Testing Guide](../index.md)
-

@@ -68,4 +68,3 @@ Most defects cluster at edges, unexpected combinations, and state transitions â€
 - [Test Design Patterns in Test Automation](../test-design-patterns/index.md)
 - [Testing Pyramid](../testing-pyramid/index.md)
 - [Testing with pytest](../python-guide/03-testing-pytest/index.md)
-

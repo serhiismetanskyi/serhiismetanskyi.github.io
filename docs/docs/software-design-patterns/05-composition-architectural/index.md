@@ -24,4 +24,3 @@ Composition Architectural covers design principles, patterns, architecture decis
 - [OOP & Error Handling](../../python-guide/02-oop-error-handling/index.md)
 - [Client–Server Architecture](../../client-server-architecture/index.md)
 - [Software Design Patterns and Principles](../index.md)
-

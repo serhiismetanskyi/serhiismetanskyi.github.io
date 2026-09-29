@@ -1,0 +1,18 @@
+{#- Breadcrumbs for blog pages, same markup as the theme's navigation.path in Docs:
+    Home › Blog on the blog list, archive and category pages; Home › Blog › <category> on a post.
+    Blog pages are not in the nav, so the theme does not render a path for them -#}
+{% set crumbs = [("Home", nav.homepage.url if nav.homepage else ""), ("Blog", "blog/")] %}
+{% if page.categories %}
+  {% set crumbs = crumbs + [(page.categories[0].title, page.categories[0].url)] %}
+{% endif %}
+<nav class="md-path" aria-label="{{ lang.t('nav') }}">
+  <ol class="md-path__list">
+    {% for title, href in crumbs %}
+      <li class="md-path__item">
+        <a href="{{ href | url }}" class="md-path__link">
+          <span class="md-ellipsis">{{ title }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ol>
+</nav>

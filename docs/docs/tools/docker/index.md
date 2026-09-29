@@ -147,4 +147,3 @@ CLI (docker) ──REST API──► Docker Daemon (dockerd)
 - [CI/CD](../../ci-cd-approaches/index.md)
 - [Test Automation Framework](../../test-automation-framework/index.md)
 - [uv — Fast Python Project Manager](../../libs/uv/index.md)
-

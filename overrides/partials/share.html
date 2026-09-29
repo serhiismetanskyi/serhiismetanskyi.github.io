@@ -1,5 +1,5 @@
-{#- Кнопки «Share» під постом блогу: X, LinkedIn, Telegram, Facebook, копіювати посилання.
-    Адреса береться з site_url (zensical.toml) -#}
+{#- «Share» buttons below a blog post or Docs article: X, LinkedIn, Telegram, Facebook, copy link (js/share.js).
+    The URL comes from site_url (zensical.toml) -#}
 {% set url = page.canonical_url | urlencode %}
 {% set title = page.title | striptags | urlencode %}
 
@@ -17,8 +17,7 @@
   <a class="share__link" href="https://www.facebook.com/sharer/sharer.php?u={{ url }}" target="_blank" rel="noopener" title="Facebook">
     {% include ".icons/fontawesome/brands/facebook.svg" %}
   </a>
-  <button class="share__link share__copy" type="button" title="Copy link"
-          onclick="navigator.clipboard.writeText(location.href).then(() => { this.dataset.copied = ''; setTimeout(() => delete this.dataset.copied, 1500) })">
+  <button class="share__link share__copy" type="button" title="Copy link" aria-label="Copy link">
     {% include ".icons/fontawesome/solid/link.svg" %}
   </button>
 </div>

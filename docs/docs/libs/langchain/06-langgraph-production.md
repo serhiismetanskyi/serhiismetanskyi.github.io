@@ -11,6 +11,9 @@ tags:
 
 ## LangGraph Overview
 
+!!! tip "Full LangGraph guide"
+    This page covers the basics. For state design, `Command` / `Send`, `Store`, `interrupt()`, streaming, multi-agent patterns and testing, see the standalone [LangGraph guide](../langgraph/index.md).
+
 LangGraph models agent logic as a **directed graph with cycles**. Unlike linear LCEL chains, LangGraph supports loops, conditional branching, human-in-the-loop, and persistent state — essential for production agents.
 
 ```bash
@@ -344,3 +347,10 @@ Before real users, ensure all of the following:
 | Resume does not work | New `thread_id` each call | Reuse same `thread_id` for session |
 | State is lost after restart | In-memory checkpointer in prod | Use persistent backend |
 | Expensive runs | Unlimited loops/tool calls | Set limits and tighter routing logic |
+
+---
+## See also
+- [LangChain — LLM Application Framework](./index.md)
+- [LangGraph — Stateful Agent Orchestration](../langgraph/index.md)
+- [LangGraph — Testing LangGraph Apps](../langgraph/05-testing.md)
+- [LangChain — Security, Evaluation & Operations](./07-security-evaluation-operations.md)

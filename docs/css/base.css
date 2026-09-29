@@ -1,47 +1,65 @@
 /* ==========================================================================
-   Base: кольори, посилання, кнопки, навігація, спільні елементи.
-   Решта стилів — по розділах: home.css, blog.css, docs.css, pages.css, cv.css.
-   Мобільна межа всюди — 44.9375em (як у теми).
+   Base: colors, links, buttons, navigation, shared elements.
+   Other styles are split by section: home.css, blog.css, docs.css, pages.css, cv.css.
+   The mobile breakpoint everywhere is 44.9375em (same as the theme).
    ========================================================================== */
 
-/* ---------- Кольори й змінні ---------- */
+/* ---------- Colors and variables ---------- */
 :root,
 [data-md-color-scheme="default"] {
-  --md-primary-fg-color:        #0f766e;
+  --md-primary-fg-color: #0f766e;
   --md-primary-fg-color--light: #14b8a6;
-  --md-primary-fg-color--dark:  #115e59;
-  --md-accent-fg-color:         #0d9488;
+  --md-primary-fg-color--dark: #115e59;
+  --md-accent-fg-color: #0d9488;
   --md-accent-fg-color--transparent: #0d94881a;
-  --md-typeset-a-color:         #0f766e;
+  --md-typeset-a-color: #0f766e;
 }
 
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color:        #2dd4bf;
+  --md-primary-fg-color: #2dd4bf;
   --md-primary-fg-color--light: #5eead4;
-  --md-primary-fg-color--dark:  #14b8a6;
-  --md-accent-fg-color:         #5eead4;
+  --md-primary-fg-color--dark: #14b8a6;
+  --md-accent-fg-color: #5eead4;
   --md-accent-fg-color--transparent: #5eead41a;
-  --md-typeset-a-color:         #5eead4;
-  --md-primary-bg-color:        #042f2e;   /* текст на кольорових кнопках */
+  --md-typeset-a-color: #5eead4;
+  --md-primary-bg-color: #042f2e; /* text on colored buttons */
 }
 
 :root {
-  --lift-ease: cubic-bezier(0.2, 0.7, 0.3, 1);   /* плавність ефектів наведення */
+  --lift-ease: cubic-bezier(0.2, 0.7, 0.3, 1); /* easing for hover effects */
+  /* Arrow icon: the theme's Lucide arrow-right, same as in the footer «Previous / Next» */
+  --icon-arrow: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>');
 }
 
-/* ---------- Макет ---------- */
-/* Відступ перед футером на всіх сторінках */
+/* ---------- Arrow icon after links (colored by the link's `color`) ---------- */
+.md-typeset .latest li a::after,
+.md-typeset .latest__all::after,
+.md-typeset .kb-section li a::after,
+.md-typeset .md-post__action a::after,
+.md-typeset .contact-list a::after {
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  background-color: currentcolor;
+  mask: var(--icon-arrow) center / contain no-repeat;
+}
+
+/* ---------- Layout ---------- */
+/* Spacing before the footer on all pages */
 .md-content__inner {
   margin-bottom: 5rem;
 }
 
-/* Репозиторій не підключений, а тема все одно резервує під нього місце в шапці —
-   ховаємо порожній блок, щоб пошук стояв біля правого краю */
+/* No repository is configured, but the theme still reserves space for it in the header;
+   hide the empty block so search sits at the right edge */
 .md-header__source {
   display: none;
 }
 
-/* Підзаголовок праворуч від назви сайту, на головній (overrides/partials/header.html) */
+/* Subtitle to the right of the site name, on the home page (overrides/partials/header.html) */
 .md-header__topic:has(.md-header__subtitle) {
   align-items: center;
   gap: 0.7rem;
@@ -56,20 +74,22 @@
   line-height: 1.2;
 }
 
-/* На вузьких екранах місця немає — лише назва */
+/* No room on narrow screens: name only */
 @media screen and (max-width: 44.9375em) {
   .md-header__subtitle {
     display: none;
   }
 }
 
-/* ---------- Посилання: тонке підкреслення, яскравіше при наведенні ---------- */
+/* ---------- Links: thin underline, brighter on hover ---------- */
 .md-typeset a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
   text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
-  transition: text-decoration-color 125ms, color 125ms;
+  transition:
+    text-decoration-color 125ms,
+    color 125ms;
 }
 
 .md-typeset a:hover {
@@ -82,14 +102,14 @@
   text-decoration: none;
 }
 
-/* ---------- Кнопки: один стиль для всього сайту ---------- */
+/* ---------- Buttons: one style for the whole site ---------- */
 .md-typeset .md-button {
   display: inline-flex;
   align-items: center;
   gap: 0.35em;
   margin: 0;
   padding: 0.3em 0.9em;
-  border: 1px solid var(--md-default-fg-color--lighter);   /* темніша рамка, ніж --lightest */
+  border: 1px solid var(--md-default-fg-color--lighter); /* darker border than --lightest */
   border-radius: 999px;
   background: none;
   color: var(--md-default-fg-color);
@@ -99,8 +119,11 @@
   line-height: 1.6;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 180ms var(--lift-ease), border-color 150ms, color 150ms,
-              background-color 150ms;
+  transition:
+    transform 180ms var(--lift-ease),
+    border-color 150ms,
+    color 150ms,
+    background-color 150ms;
 }
 
 .md-typeset .md-button:is(:hover, :focus) {
@@ -108,10 +131,10 @@
   border-color: var(--md-primary-fg-color);
   background-color: var(--md-accent-fg-color--transparent);
   color: var(--md-primary-fg-color);
-  opacity: 1;   /* тема за замовчуванням робить основну кнопку напівпрозорою */
+  opacity: 1; /* the theme makes the primary button semi-transparent by default */
 }
 
-/* Основна кнопка — залита акцентним кольором */
+/* Primary button filled with the accent color */
 .md-typeset .md-button--primary {
   border-color: var(--md-primary-fg-color);
   background-color: var(--md-primary-fg-color);
@@ -132,7 +155,7 @@
   height: 1em;
 }
 
-/* ---------- Навігація: вкладки, бічне меню, «Назад / Вперед», соцмережі ---------- */
+/* ---------- Navigation: tabs, sidebar, «Previous / Next», social links ---------- */
 .md-tabs__link,
 .md-nav__link {
   transition: color 150ms;
@@ -156,7 +179,9 @@
 }
 
 .md-social__link {
-  transition: transform 180ms var(--lift-ease), color 150ms;
+  transition:
+    transform 180ms var(--lift-ease),
+    color 150ms;
 }
 
 .md-social__link:hover {
@@ -164,7 +189,320 @@
   color: var(--md-accent-fg-color);
 }
 
-/* ---------- Таблиці ---------- */
+/* ---------- Footer site section (overrides/partials/footer.html) ----------
+   Logo, name and subtitle on the left; the header's pages as a row of links on the right */
+.site-footer {
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.4rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 0.8rem;
+}
+
+.md-typeset .site-footer__brand {
+  display: inline-flex;
+  gap: 0.7rem;
+  align-items: center;
+  color: var(--md-default-fg-color);
+  text-decoration: none;
+}
+
+.site-footer__logo {
+  flex-shrink: 0;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 0.5rem;
+}
+
+.site-footer__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  line-height: 1.3;
+}
+
+.site-footer__name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.site-footer__subtitle {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.68rem;
+}
+
+/* Same pages as the header tabs, styled like them (theme .md-tabs__link / __item--active) */
+/* Items carry the tab padding, so the active line spans it like in the header; edges stay aligned */
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0;
+  margin: 0 -0.6rem;
+  /* the line under the tabs, like the header's .md-tabs; the active item's border sits on it */
+  box-shadow: 0 -0.05rem 0 inset var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .site-footer__nav a {
+  padding: 0 0.6rem 0.45rem;
+  border-bottom: 0.05rem solid transparent;
+  color: var(--md-default-fg-color);
+  font-size: 0.7rem;
+  text-decoration: none;
+  opacity: 0.7;
+  transition:
+    color 150ms,
+    opacity 250ms,
+    border-color 250ms;
+}
+
+.md-typeset .site-footer__nav a:is(:hover, :focus-visible) {
+  color: var(--md-accent-fg-color);
+  opacity: 1;
+}
+
+/* Current section: like the active header tab */
+.md-typeset .site-footer__nav a.site-footer__link--active {
+  border-bottom-color: var(--md-default-fg-color);
+  font-weight: 500;
+  opacity: 1;
+}
+
+/* Hamburger for the page links, mobile only (js/footer-menu.js) */
+.site-footer__menu-button {
+  display: none;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .site-footer__inner {
+    gap: 1rem 0.8rem;
+    align-items: center;
+    padding: 1.4rem 1rem;
+  }
+
+  /* Brand and hamburger share the first row; a long subtitle wraps instead of pushing the button down */
+  .md-typeset .site-footer__brand {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .site-footer__nav {
+    gap: 0.4rem 0;
+  }
+
+  .site-footer__menu-button:not([hidden]) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin: 0;
+    padding: 0;
+    border: 0.05rem solid var(--md-default-fg-color--lightest);
+    border-radius: 0.5rem;
+    background: none;
+    color: var(--md-default-fg-color);
+    cursor: pointer;
+    transition:
+      color 150ms,
+      border-color 150ms;
+  }
+
+  .site-footer__menu-button:is(:hover, :focus-visible) {
+    border-color: var(--md-accent-fg-color);
+    color: var(--md-accent-fg-color);
+  }
+
+  .site-footer__menu-button:focus-visible {
+    outline: 2px solid var(--md-accent-fg-color);
+    outline-offset: 2px;
+  }
+
+  .site-footer__menu-icon {
+    display: inline-flex;
+  }
+
+  .site-footer__menu-button[aria-expanded="true"] .site-footer__menu-icon--open,
+  .site-footer__menu-button[aria-expanded="false"] .site-footer__menu-icon--close {
+    display: none;
+  }
+
+  /* With the button shown the links fold into a vertical list under the brand row */
+  .site-footer__menu-button:not([hidden]) + .site-footer__nav {
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .site-footer__menu-button[aria-expanded="false"] + .site-footer__nav {
+    display: none;
+  }
+
+  .md-typeset .site-footer__menu-button:not([hidden]) + .site-footer__nav a {
+    padding: 0.55rem 0;
+    border-bottom: 0.05rem solid var(--md-default-fg-color--lightest);
+    font-size: 0.8rem;
+  }
+
+  .md-typeset .site-footer__menu-button:not([hidden]) + .site-footer__nav a.site-footer__link--active {
+    border-bottom-color: var(--md-default-fg-color--lightest);
+    color: var(--md-accent-fg-color);
+  }
+}
+
+/* ---------- Page numbers for long lists (js/paginate.js) ---------- */
+/* Items of other pages are hidden; their own display (flex, grid) must not bring them back */
+[data-per-page] > [hidden] {
+  display: none !important;
+}
+
+/* Page numbers: the blog's (theme partials/pagination.html) and the project lists' (js/paginate.js) */
+.md-typeset .md-pagination,
+.md-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0 0;
+  font-size: 0.75rem;
+}
+
+.md-pagination > * {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  height: 2rem;
+  margin: 0;
+  padding: 0 0.6rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.6rem;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.md-typeset .md-pagination__link,
+.md-pagination__link {
+  color: var(--md-default-fg-color--light);
+  text-decoration: none;
+  transition:
+    color 150ms,
+    border-color 150ms,
+    background-color 150ms,
+    transform 180ms var(--lift-ease);
+}
+
+.md-typeset .md-pagination__link:is(:hover, :focus-visible),
+.md-pagination__link:is(:hover, :focus-visible) {
+  border-color: var(--md-primary-fg-color);
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-primary-fg-color);
+  transform: translateY(-1px);
+}
+
+.md-pagination__current {
+  border-color: var(--md-primary-fg-color);
+  background: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+  font-weight: 600;
+}
+
+.md-pagination__dots {
+  border-color: transparent;
+  color: var(--md-default-fg-color--light);
+}
+
+.md-pagination__link svg {
+  width: 1rem;
+  height: 1rem;
+  fill: currentcolor;
+}
+
+/* Previous / next arrows of js/paginate.js: the site's arrow icon */
+.md-pagination__step::before {
+  content: "";
+  width: 0.9rem;
+  height: 0.9rem;
+  background-color: currentcolor;
+  mask: var(--icon-arrow) center / contain no-repeat;
+}
+
+.md-pagination__step--prev::before {
+  transform: rotate(180deg);
+}
+
+/* ---------- Checklists: tickable task lists (js/checklists.js) ---------- */
+.md-typeset .task-list-control {
+  cursor: pointer;
+}
+
+.md-typeset .task-list-item--done {
+  color: var(--md-default-fg-color--light);
+  text-decoration: line-through;
+  text-decoration-color: var(--md-default-fg-color--lighter);
+}
+
+/* Progress under each checklist: bar, «N / M done», Reset */
+.md-typeset .checklist-progress {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  margin: -0.4em 0 1.2em;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+}
+
+.md-typeset .checklist-progress__bar {
+  flex: 0 1 8rem;
+  height: 0.3rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .checklist-progress__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--md-primary-fg-color);
+  transition: width 200ms var(--lift-ease);
+}
+
+.md-typeset .checklist-progress__count {
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset .checklist-progress--complete .checklist-progress__count {
+  color: var(--md-primary-fg-color);
+  font-weight: 600;
+}
+
+.md-typeset .checklist-progress__reset {
+  color: var(--md-primary-fg-color);
+  font-size: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.md-typeset .checklist-progress__reset[hidden] {
+  display: none;
+}
+
+@media print {
+  .md-typeset .checklist-progress {
+    display: none;
+  }
+}
+
+/* ---------- Tables ---------- */
 .md-typeset table:not([class]) {
   font-size: 0.75rem;
 }
@@ -177,13 +515,15 @@
   background-color: var(--md-accent-fg-color--transparent);
 }
 
-/* ---------- Теги-«пігулки» під статтями ---------- */
+/* ---------- Tag «pills» below articles ---------- */
 .md-typeset .md-tag {
   border-radius: 999px;
-  transition: background-color 150ms, color 150ms;
+  transition:
+    background-color 150ms,
+    color 150ms;
 }
 
-/* ---------- Фокус для клавіатури ---------- */
+/* ---------- Keyboard focus ---------- */
 .md-typeset a:focus-visible,
 .md-typeset .md-button:focus-visible,
 .share__link:focus-visible {
@@ -192,17 +532,20 @@
   border-radius: 4px;
 }
 
-/* ---------- Без анімацій для тих, хто їх вимкнув у системі ---------- */
+/* ---------- No animations for users who disabled them in the OS ---------- */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     transition: none !important;
     transform: none !important;
   }
 }
 
-/* ---------- Друк: лише контент, без інтерфейсу ---------- */
+/* ---------- Print: content only, no UI ---------- */
 @media print {
   @page {
+    size: A4;
     margin: 1.5cm;
   }
 
@@ -210,6 +553,7 @@
   .md-tabs,
   .md-sidebar,
   .md-footer,
+  .site-footer,
   .md-top,
   .reading-progress,
   .share {

@@ -1,33 +1,37 @@
-# ==========================================================================
-#  Сайт Serhii Smetanskyi на Zensical — https://zensical.org
-#  Запуск: zensical serve · Збірка: zensical build (результат у site/)
-# ==========================================================================
-
 [project]
 site_name = "Serhii Smetanskyi"
-site_url = "https://example.com/"            # TODO: справжній домен (Share-кнопки, RSS, прев'ю в соцмережах)
-site_description = "Personal website of a software engineer"
+site_url = "https://example.com/"            # TODO: real domain (Share buttons, RSS, social previews, JSON-LD); also in docs/robots.txt
+site_description = "Serhii Smetanskyi, Software Test & Automation Engineer: a blog and knowledge base on QA, test automation, API testing and testing LLMs and AI agents."
+site_author = "Serhii Smetanskyi"
 copyright = "&copy; 2026 Serhii Smetanskyi"
 
-# Стилі по розділах сайту (docs/css/); base.css — першим
+# Styles per site section (docs/css/); base.css goes first
 extra_css = [
-  "css/base.css",    # кольори, посилання, кнопки, навігація, друк
-  "css/home.css",    # головна
-  "css/blog.css",    # блог, пост, архів за роками
-  "css/docs.css",    # база знань
+  "css/base.css",    # colors, links, buttons, navigation, print
+  "css/home.css",    # home page
+  "css/blog.css",    # blog, post, yearly archive
+  "css/docs.css",    # knowledge base
   "css/pages.css",   # About, Contact, Tags, Archive, 404
-  "css/cv.css",      # резюме й друк у PDF
+  "css/cv.css",      # CV and print to PDF
 ]
 
-# Скрипти (docs/js/); feed.js — спільний помічник, тому перед latest-posts.js і archive.js
+# Scripts (docs/js/); feed.js is a shared helper, so it comes before the page scripts below
 extra_javascript = [
-  "js/reading-progress.js",   # смужка прогресу читання в постах
-  "js/feed.js",               # завантаження JSON-стрічки сайту
-  "js/latest-posts.js",       # останні пости на головній
-  "js/archive.js",            # сторінка /archive/
+  "js/reading-progress.js",   # reading progress bar in posts
+  "js/feed.js",               # loading the site's JSON feed
+  "js/latest.js",             # latest posts and docs on the home page
+  "js/archive.js",            # the /archive/ page
+  "js/blog-tags.js",          # «Tags» section in the blog's left menu
+  "js/docs-search.js",        # search on the /docs/ overview
+  "js/tags-filter.js",        # filters on the /tags/ page
+  "js/share.js",              # «Copy link» button in the Share block
+  "js/related.js",            # «Related reading» under blog posts
+  "js/paginate.js",           # page numbers for the project lists
+  "js/checklists.js",         # tickable checklists with progress, saved in the browser
+  "js/footer-menu.js",        # hamburger for the footer's page links on mobile
 ]
 
-# Навігація: вкладки у шапці; Docs — теми бази знань з docs/docs/
+# Navigation: tabs in the header; Docs: knowledge base topics from docs/docs/
 nav = [
   { "Home" = "index.md" },
   { "About" = "about.md" },
@@ -216,6 +220,7 @@ nav = [
       { "SDD — Writing Good Specs" = "docs/spec-driven-development/02-writing-specs.md" },
       { "SDD — Tools" = "docs/spec-driven-development/03-tools.md" },
       { "SDD — QA, Testing & Best Practices" = "docs/spec-driven-development/04-qa-testing-best-practices.md" },
+      { "SDD — Open Knowledge Format (OKF)" = "docs/spec-driven-development/05-open-knowledge-format.md" },
     ] },
     { "Code Security" = [
       "docs/code-security/index.md",
@@ -663,6 +668,37 @@ nav = [
         { "Helm & Deployment Strategies" = "docs/tools/kubernetes/05-helm-deployments.md" },
         { "Security & Observability" = "docs/tools/kubernetes/06-security-observability.md" },
       ] },
+      { "Arize Phoenix" = [
+        "docs/tools/phoenix/index.md",
+        { "Phoenix — Setup & Architecture" = "docs/tools/phoenix/01-setup-architecture.md" },
+        { "Phoenix — Tracing & Instrumentation" = "docs/tools/phoenix/02-tracing-instrumentation.md" },
+        { "Phoenix — Datasets & Experiments" = "docs/tools/phoenix/03-datasets-experiments.md" },
+        { "Phoenix — Evaluations" = "docs/tools/phoenix/04-evaluations.md" },
+        { "Phoenix — Testing, CI & Production" = "docs/tools/phoenix/05-testing-ci-production.md" },
+      ] },
+      { "Langfuse" = [
+        "docs/tools/langfuse/index.md",
+        { "Langfuse — Setup & Architecture" = "docs/tools/langfuse/01-setup-architecture.md" },
+        { "Langfuse — Tracing with the Python SDK" = "docs/tools/langfuse/02-tracing-sdk.md" },
+        { "Langfuse — Prompt Management" = "docs/tools/langfuse/03-prompt-management.md" },
+        { "Langfuse — Datasets & Evaluations" = "docs/tools/langfuse/04-datasets-evaluations.md" },
+        { "Langfuse — Testing, CI & Production" = "docs/tools/langfuse/05-testing-ci-production.md" },
+      ] },
+      { "MLflow" = [
+        "docs/tools/mlflow/index.md",
+        { "MLflow — Setup & Architecture" = "docs/tools/mlflow/01-setup-architecture.md" },
+        { "MLflow — Experiment Tracking" = "docs/tools/mlflow/02-experiment-tracking.md" },
+        { "MLflow — GenAI Tracing" = "docs/tools/mlflow/03-genai-tracing.md" },
+        { "MLflow — Evaluation & Prompts" = "docs/tools/mlflow/04-evaluation-prompts.md" },
+        { "MLflow — Testing, CI & Model Registry" = "docs/tools/mlflow/05-testing-ci-registry.md" },
+      ] },
+      { "Jaeger" = [
+        "docs/tools/jaeger/index.md",
+        { "Jaeger — Setup & Architecture" = "docs/tools/jaeger/01-setup-architecture.md" },
+        { "Jaeger — Sending Traces from Python" = "docs/tools/jaeger/02-sending-traces-python.md" },
+        { "Jaeger — UI & Trace Analysis" = "docs/tools/jaeger/03-ui-trace-analysis.md" },
+        { "Jaeger — Testing, CI & Troubleshooting" = "docs/tools/jaeger/04-testing-ci-troubleshooting.md" },
+      ] },
     ] },
     { "Python Libraries" = [
       "docs/libs/index.md",
@@ -684,11 +720,28 @@ nav = [
         { "FastAPI — Production Patterns" = "docs/libs/fastapi/06-production-patterns.md" },
         { "FastAPI — ASGI, Uvicorn, Starlette" = "docs/libs/fastapi/07-asgi-uvicorn-starlette.md" },
       ] },
+      { "Guardrails AI" = [
+        "docs/libs/guardrails/index.md",
+        { "Guardrails AI — Guards & Validators" = "docs/libs/guardrails/01-guards-validators.md" },
+        { "Guardrails AI — Structured Output" = "docs/libs/guardrails/02-structured-output.md" },
+        { "Guardrails AI — Input & Output Safety" = "docs/libs/guardrails/03-input-output-safety.md" },
+        { "Guardrails AI — Custom Validators" = "docs/libs/guardrails/04-custom-validators.md" },
+        { "Guardrails AI — Server & Production" = "docs/libs/guardrails/05-server-production.md" },
+        { "Guardrails AI — Testing Guardrails" = "docs/libs/guardrails/06-testing.md" },
+      ] },
       { "HTTPX" = [
         "docs/libs/httpx/index.md",
         { "HTTPX — Fundamentals" = "docs/libs/httpx/01-fundamentals.md" },
         { "HTTPX — Async Patterns" = "docs/libs/httpx/02-async-patterns.md" },
         { "HTTPX — Advanced Configuration" = "docs/libs/httpx/03-advanced-config.md" },
+      ] },
+      { "Jinja" = [
+        "docs/libs/jinja/index.md",
+        { "Jinja — Syntax Basics" = "docs/libs/jinja/01-syntax-basics.md" },
+        { "Jinja — Environment, Loaders & Inheritance" = "docs/libs/jinja/02-environment-inheritance.md" },
+        { "Jinja — Filters, Escaping & Security" = "docs/libs/jinja/03-customization-security.md" },
+        { "Jinja — QA Recipes" = "docs/libs/jinja/04-qa-recipes.md" },
+        { "Jinja — Testing Templates" = "docs/libs/jinja/05-testing-templates.md" },
       ] },
       { "LangChain" = [
         "docs/libs/langchain/index.md",
@@ -700,6 +753,32 @@ nav = [
         { "LangChain — LangGraph & Production" = "docs/libs/langchain/06-langgraph-production.md" },
         { "LangChain — Security, Evaluation & Operations" = "docs/libs/langchain/07-security-evaluation-operations.md" },
         { "LangChain — Practical Playbooks" = "docs/libs/langchain/08-practical-playbooks.md" },
+      ] },
+      { "LangGraph" = [
+        "docs/libs/langgraph/index.md",
+        { "LangGraph — Graph Design & State" = "docs/libs/langgraph/01-graph-design-state.md" },
+        { "LangGraph — Persistence, Memory & Interrupts" = "docs/libs/langgraph/02-persistence-memory-interrupts.md" },
+        { "LangGraph — Streaming & Runtime" = "docs/libs/langgraph/03-streaming-runtime.md" },
+        { "LangGraph — Multi-Agent Patterns" = "docs/libs/langgraph/04-multi-agent-patterns.md" },
+        { "LangGraph — Testing LangGraph Apps" = "docs/libs/langgraph/05-testing.md" },
+        { "LangGraph — Observability & Deployment" = "docs/libs/langgraph/06-observability-deployment.md" },
+      ] },
+      { "LiteLLM" = [
+        "docs/libs/litellm/index.md",
+        { "LiteLLM — Completion & Providers" = "docs/libs/litellm/01-completion-providers.md" },
+        { "LiteLLM — Tools & Structured Output" = "docs/libs/litellm/02-tools-structured-output.md" },
+        { "LiteLLM — Router & Reliability" = "docs/libs/litellm/03-router-reliability.md" },
+        { "LiteLLM — Proxy (AI Gateway)" = "docs/libs/litellm/04-proxy-gateway.md" },
+        { "LiteLLM — Observability & Testing" = "docs/libs/litellm/05-observability-testing.md" },
+      ] },
+      { "OpenTelemetry" = [
+        "docs/libs/opentelemetry/index.md",
+        { "OpenTelemetry — Core Concepts" = "docs/libs/opentelemetry/01-core-concepts.md" },
+        { "OpenTelemetry — Tracing" = "docs/libs/opentelemetry/02-tracing.md" },
+        { "OpenTelemetry — Metrics & Logs" = "docs/libs/opentelemetry/03-metrics-logs.md" },
+        { "OpenTelemetry — Auto-Instrumentation" = "docs/libs/opentelemetry/04-auto-instrumentation.md" },
+        { "OpenTelemetry — Collector & Backends" = "docs/libs/opentelemetry/05-collector-backends.md" },
+        { "OpenTelemetry — Testing with OpenTelemetry" = "docs/libs/opentelemetry/06-testing.md" },
       ] },
       { "Playwright" = [
         "docs/libs/playwright/index.md",
@@ -756,35 +835,48 @@ nav = [
       ] },
     ] },
   ] },
-  { "Files" = "files.md" },
+  { "Projects" = [
+    "projects/index.md",
+    { "Archive" = [
+      "projects/archive/2026.md",
+      "projects/archive/2025.md",
+    ] },
+    { "Categories" = [
+      "projects/category/ai-testing.md",
+      "projects/category/ui-testing.md",
+      "projects/category/api-testing.md",
+      "projects/category/load-testing.md",
+      "projects/category/database-testing.md",
+    ] },
+  ] },
   { "Tags" = "tags.md" },
   { "Archive" = "archive.md" },
   { "Contact" = "contact.md" },
 ]
 
 # --------------------------------------------------------------------------
-#  Тема
+#  Theme
 # --------------------------------------------------------------------------
 [project.theme]
 variant = "modern"
-custom_dir = "overrides"      # власні шаблони: мета-теги, 404, блог, дати статей, кнопки Share
+custom_dir = "overrides"      # custom templates: meta tags, 404, blog, article dates, Share buttons
 favicon = "img/favicon.svg"
 logo = "img/favicon.svg"
 language = "en"
 features = [
-  "navigation.tabs",          # розділи сайту вкладками в шапці
-  "navigation.sections",      # теми Docs групами в лівому меню
-  "navigation.indexes",       # index.md теми — сторінка самої теми
-  "navigation.path",          # «хлібні крихти» над статтею
-  "navigation.footer",        # «Previous / Next» внизу сторінки
-  "navigation.instant",       # переходи без перезавантаження сторінки
-  "navigation.top",           # кнопка «вгору»
-  "toc.follow",               # зміст справа підсвічує поточний розділ
+  "navigation.tabs",          # site sections as tabs in the header
+  "navigation.sections",      # Docs topics as groups in the left menu
+  "navigation.indexes",       # a topic's index.md is the topic page itself
+  "navigation.path",          # breadcrumbs above the article
+  "navigation.footer",        # «Previous / Next» at the bottom of the page
+  "navigation.instant",       # page transitions without a reload
+  "navigation.top",           # «back to top» button
+  "toc.follow",               # the right-hand TOC highlights the current section
   "search.highlight",
   "content.code.copy",
 ]
 
-# Кольори "custom" задаються в docs/css/base.css (--md-primary-fg-color тощо)
+# "custom" colors are defined in docs/css/base.css (--md-primary-fg-color etc.)
 [[project.theme.palette]]
 media = "(prefers-color-scheme)"
 primary = "custom"
@@ -809,11 +901,95 @@ toggle.icon = "material/lightbulb-outline"
 toggle.name = "Switch to system preference"
 
 # --------------------------------------------------------------------------
-#  Футер
+#  Footer
 # --------------------------------------------------------------------------
 [project.extra]
-generator = false             # без «Made with Zensical»
-subtitle = "Software Test & Automation Engineer"   # під назвою сайту в шапці на головній
+generator = false             # no «Made with Zensical»
+subtitle = "Software Test & Automation Engineer"   # next to the site name in the header on the home page
+
+# Projects: cards on the home page (first 3), /projects/, category and archive pages, and the CV list
+# (partials/project-cards.html), newest first. Each one has its own page docs/projects/<slug>.md (template: project.html)
+
+[[project.extra.projects]]
+slug = "llm-output-evaluation-with-deepeval"
+date = "2026-03-17"          # repository created
+title = "LLM Output Evaluation with DeepEval"
+kind = "AI Testing"
+icon = "material/robot-outline"
+description = "Scores LLM output quality with DeepEval metrics and LLM-as-a-judge, with HTML reports."
+tags = ["ai-testing", "llm-evaluation", "deepeval", "pytest", "pydantic", "uv"]
+
+[[project.extra.projects]]
+slug = "saucedemo-ui-tests-with-playwright"
+date = "2025-12-21"          # repository created
+title = "SauceDemo UI Tests with Playwright"
+kind = "UI Testing"
+icon = "material/monitor-dashboard"
+description = "UI tests for the SauceDemo e-commerce site, headless or in a visible browser, with HTML reports."
+tags = ["ui-testing", "playwright", "pytest"]
+
+[[project.extra.projects]]
+slug = "saucedemo-ui-tests-with-selenium"
+date = "2025-12-21"          # repository created
+title = "SauceDemo UI Tests with Selenium"
+kind = "UI Testing"
+icon = "material/monitor-dashboard"
+description = "UI tests for SauceDemo with Selenium WebDriver, headless or in a visible browser, with HTML reports."
+tags = ["ui-testing", "selenium", "pytest"]
+
+[[project.extra.projects]]
+slug = "serverest-api-tests"
+date = "2025-12-21"          # repository created
+title = "ServeRest API Tests"
+kind = "API Testing"
+icon = "material/api"
+description = "API tests for ServeRest, a REST API with e-commerce scenarios."
+tags = ["api-testing", "requests", "pytest"]
+
+[[project.extra.projects]]
+slug = "restfulbooker-api-tests"
+date = "2025-12-21"          # repository created
+title = "Restful-Booker API Tests"
+kind = "API Testing"
+icon = "material/api"
+description = "API tests for Restful-Booker, a practice booking API."
+tags = ["api-testing", "requests", "pytest"]
+
+[[project.extra.projects]]
+slug = "testme-api-tests"
+date = "2025-12-21"          # repository created
+title = "TestMe API Tests"
+kind = "API Testing"
+icon = "material/api"
+description = "API tests for the TestMe API, written with Playwright and pytest."
+tags = ["api-testing", "playwright", "pytest"]
+
+[[project.extra.projects]]
+slug = "testme-load-tests"
+date = "2025-12-21"          # repository created
+title = "TestMe Load Tests"
+kind = "Load Testing"
+icon = "material/speedometer"
+description = "Load tests for TestMe, a test case management system."
+tags = ["load-testing", "locust", "requests"]
+
+[[project.extra.projects]]
+slug = "petstore-load-tests"
+date = "2025-12-21"          # repository created
+title = "PetStore Load Tests"
+kind = "Load Testing"
+icon = "material/speedometer"
+description = "Load tests for the Swagger PetStore API, with HTML and CSV reports."
+tags = ["load-testing", "locust", "requests"]
+
+[[project.extra.projects]]
+slug = "database-tests-with-sqlalchemy"
+date = "2025-12-21"          # repository created
+title = "Database Tests with SQLAlchemy"
+kind = "Database Testing"
+icon = "material/database-outline"
+description = "Spins up Postgres in Docker, runs Alembic migrations, seeds test data and runs CRUD tests with HTML reports."
+tags = ["databases", "sqlalchemy", "alembic", "docker", "pytest"]
 
 [[project.extra.social]]
 icon = "fontawesome/brands/github"
@@ -836,33 +1012,39 @@ link = "https://serhiismetanskyi.medium.com/"
 name = "Medium"
 
 [[project.extra.social]]
+icon = "fontawesome/brands/substack"
+link = "https://serhiismetanskyi.substack.com/"
+name = "Substack"
+
+[[project.extra.social]]
 icon = "fontawesome/solid/envelope"
 link = "mailto:smetanskyi@proton.me"
 name = "Email"
 
 # --------------------------------------------------------------------------
-#  Плагіни
+#  Plugins
 # --------------------------------------------------------------------------
-# Блог: пости в docs/blog/posts/, автори в docs/blog/.authors.yml
+# Blog: posts in docs/blog/posts/, authors in docs/blog/.authors.yml
 [project.plugins.blog]
 post_date_format = "long"
 post_url_format = "{date}/{slug}"
 post_readtime = true
+pagination_per_page = 5        # post list, archive and category pages: 5 posts per page
 archive_name = "Archive"
 categories_name = "Categories"
 
-# RSS і JSON-стрічка (/feed_rss_created.xml, /feed_json_created.json):
-# пости блогу й статті Docs (підпапки docs/docs/; огляд docs/docs/index.md не потрапляє).
-# З JSON-стрічки будуються «Latest posts» на головній і сторінка /archive/
+# RSS and JSON feed (/feed_rss_created.xml, /feed_json_created.json):
+# blog posts and Docs articles (subfolders of docs/docs/; the docs/docs/index.md overview is excluded).
+# The JSON feed drives «Latest posts» on the home page and the /archive/ page
 [project.plugins.rss]
 match_path = "blog/posts/.*|docs/[^/]+/.*"
-length = 1000                 # усі записи — щоб архів був повним
+length = 1000                 # all entries, so the archive is complete
 use_git = false
 date_from_meta.as_creation = "date"
 date_from_meta.as_update = "date"
 categories = ["categories", "tags"]
 
-# Теги в постах і статтях; список усіх тегів — docs/tags.md
+# Tags in posts and articles; the full tag list is docs/tags.md
 [project.plugins.tags]
 
 # --------------------------------------------------------------------------
@@ -870,21 +1052,22 @@ categories = ["categories", "tags"]
 # --------------------------------------------------------------------------
 [project.markdown_extensions]
 # Python-Markdown
-attr_list = {}                # { .md-button } та { target=_blank }
-md_in_html = {}               # markdown всередині <div markdown>
+attr_list = {}                # { .md-button } and { target=_blank }
+md_in_html = {}               # markdown inside <div markdown>
 admonition = {}               # !!! note / tip / warning
-def_list = {}                 # списки визначень
-footnotes = {}                # виноски [^1]
+def_list = {}                 # definition lists
+footnotes = {}                # footnotes [^1]
 toc.permalink = true
 # PyMdown Extensions
-pymdownx.details = {}                     # згортувані блоки ???
+pymdownx.details = {}                     # collapsible blocks ???
 pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
 pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
 pymdownx.highlight = {}
 pymdownx.inlinehilite = {}
-pymdownx.keys = {}                        # клавіші ++ctrl+k++
-pymdownx.superfences.custom_fences = [    # ```mermaid → схема Mermaid
+pymdownx.keys = {}                        # keys ++ctrl+k++
+pymdownx.superfences.custom_fences = [    # ```mermaid → Mermaid diagram
   { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
 ]
-pymdownx.tabbed.alternate_style = true    # вкладки === "..."
-pymdownx.tasklist.custom_checkbox = true  # чекбокси - [x]
+pymdownx.tabbed.alternate_style = true    # tabs === "..."
+pymdownx.tasklist.custom_checkbox = true  # checkboxes - [x]
+pymdownx.tasklist.clickable_checkbox = true  # can be ticked; state kept per page by js/checklists.js

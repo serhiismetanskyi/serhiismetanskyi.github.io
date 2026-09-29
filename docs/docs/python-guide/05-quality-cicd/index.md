@@ -37,4 +37,3 @@ This section covers tools that keep your code clean and pipelines that run your 
 - [Test Design Patterns in Test Automation](../../test-design-patterns/index.md)
 - [Pytest — Python Testing Framework](../../libs/pytest/index.md)
 - [Playwright — Python Browser & API Testing](../../libs/playwright/index.md)
-

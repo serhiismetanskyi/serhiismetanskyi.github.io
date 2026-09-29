@@ -1,0 +1,33 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.14/schema.json",
+  "files": {
+    "includes": ["docs/js/**/*.js", "docs/css/**/*.css"]
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 120
+  },
+  "javascript": {
+    "globals": ["siteFeed", "document$"],
+    "formatter": {
+      "semicolons": "asNeeded",
+      "quoteStyle": "double",
+      "arrowParentheses": "asNeeded",
+      "trailingCommas": "all"
+    }
+  },
+  "linter": {
+    "rules": {
+      "preset": "recommended",
+      "style": {
+        // Stylesheets are ordered by page section, not by selector specificity
+        "noDescendingSpecificity": "off"
+      },
+      "complexity": {
+        // Needed to override the theme's inline/high-specificity rules, print and reduced-motion styles
+        "noImportantStyles": "off"
+      }
+    }
+  }
+}

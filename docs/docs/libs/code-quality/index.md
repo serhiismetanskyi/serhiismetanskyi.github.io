@@ -58,4 +58,3 @@ uv run pytest --cov=src --cov-branch --cov-fail-under=100
 - [CI/CD](../../ci-cd-approaches/index.md)
 - [Tools — Practical Reference Guides](../../tools/index.md)
 - [Python Libraries](../index.md)
-

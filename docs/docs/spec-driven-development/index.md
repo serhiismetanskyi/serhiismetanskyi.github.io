@@ -26,6 +26,7 @@ acceptance criteria and tests that AI-assisted development has.
 | [SDD — Writing Good Specs](02-writing-specs.md) | Spec structure, user stories and priorities, Given/When/Then, EARS requirements, non-goals, clarification markers, review checklist |
 | [SDD — Tools](03-tools.md) | GitHub Spec Kit, AWS Kiro, OpenSpec, Tessl, BMAD Method, plain markdown with Claude Code / Cursor / Codex, how to choose |
 | [SDD — QA, Testing & Best Practices](04-qa-testing-best-practices.md) | Acceptance criteria → tests, traceability, verifying code against the spec, spec drift, anti-patterns, when not to use SDD |
+| [SDD — Open Knowledge Format (OKF)](05-open-knowledge-format.md) | Google's markdown format for agent knowledge: bundles, concepts, frontmatter, trust and lifecycle, attested computations, CI checks |
 
 ## The Workflow at a Glance
 

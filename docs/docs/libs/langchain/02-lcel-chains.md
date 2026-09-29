@@ -35,7 +35,7 @@ The pipe `|` creates a `RunnableSequence` — output of each step feeds as input
 
 | Runnable | Purpose | Import |
 |----------|---------|--------|
-| `RunnableSequence` | Chain steps (`a \| b \| c`) | Auto-created by `\|` |
+| `RunnableSequence` | Chain steps (<code>a &#124; b &#124; c</code>) | Auto-created by <code>&#124;</code> |
 | `RunnableParallel` | Run branches concurrently | `langchain_core.runnables` |
 | `RunnableLambda` | Wrap any function | `langchain_core.runnables` |
 | `RunnablePassthrough` | Pass input through unchanged | `langchain_core.runnables` |

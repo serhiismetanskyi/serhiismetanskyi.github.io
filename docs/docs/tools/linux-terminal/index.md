@@ -47,4 +47,3 @@ rm -i temp.txt       # delete with confirmation
 - [Code Quality & CI/CD](../../python-guide/05-quality-cicd/index.md)
 - [uv — Fast Python Project Manager](../../libs/uv/index.md)
 - [Tools — Practical Reference Guides](../index.md)
-

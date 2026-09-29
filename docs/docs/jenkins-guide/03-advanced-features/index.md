@@ -37,4 +37,3 @@ This section covers features that make pipelines flexible and powerful: paramete
 - [Docker & Docker Compose — Overview](../../tools/docker/index.md)
 - [Git — Overview](../../tools/git/index.md)
 - [Jenkins Pipeline Guide](../index.md)
-

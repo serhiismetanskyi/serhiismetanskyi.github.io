@@ -24,4 +24,3 @@ Deployment covers pipeline architecture, testing gates, deployment, and release 
 - [Config CI Decisions](../../test-automation-framework/07-config-ci-decisions/index.md)
 - [Docker & Docker Compose — Overview](../../tools/docker/index.md)
 - [Git — Overview](../../tools/git/index.md)
-

@@ -1,5 +1,5 @@
-// Смужка прогресу читання вгорі сторінки — лише на сторінках постів блогу
-(() => {
+// Reading progress bar at the top of the page, only on blog post pages
+;(() => {
   const bar = document.createElement("div")
   bar.className = "reading-progress"
   bar.hidden = true
@@ -15,10 +15,19 @@
     bar.style.transform = `scaleX(${progress})`
   }
 
-  window.addEventListener("scroll", update, { passive: true })
-  window.addEventListener("resize", update)
+  let frame = 0
+  const schedule = () => {
+    if (frame) return
+    frame = requestAnimationFrame(() => {
+      frame = 0
+      update()
+    })
+  }
 
-  // З navigation.instant сторінки змінюються без перезавантаження
+  window.addEventListener("scroll", schedule, { passive: true })
+  window.addEventListener("resize", schedule)
+
+  // With navigation.instant, pages change without a reload
   if (window.document$) document$.subscribe(update)
   else update()
 })()

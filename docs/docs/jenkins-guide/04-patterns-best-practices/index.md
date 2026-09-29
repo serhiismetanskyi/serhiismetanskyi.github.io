@@ -45,4 +45,3 @@ Real-world patterns, security guidelines, performance tips, and complete pipelin
 - [Docker & Docker Compose — Overview](../../tools/docker/index.md)
 - [Git — Overview](../../tools/git/index.md)
 - [Jenkins Pipeline Guide](../index.md)
-

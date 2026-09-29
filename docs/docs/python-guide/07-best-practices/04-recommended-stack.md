@@ -15,7 +15,7 @@ A modern Python stack for Automation QA Engineers in 2026.
 | Tool | Purpose | Install |
 |------|---------|---------|
 | **Python 3.12+** | Runtime | `uv python install 3.12` |
-| **uv** | Package manager | `curl -LsSf https://astral.sh/uv/install.sh \| sh` |
+| **uv** | Package manager | <code>curl -LsSf https://astral.sh/uv/install.sh &#124; sh</code> |
 | **pytest** | Testing framework | `uv add --dev pytest` |
 
 ---

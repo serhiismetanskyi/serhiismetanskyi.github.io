@@ -50,15 +50,49 @@ hide:
 
 </div>
 
-## Ways to Work Together
+## How We Can Work
 
-- **Quality Audit** — a short review of your product and processes → a prioritised improvement plan.
-- **Setup Project** — building the missing tests, automation or AI evaluation → handed over to your team.
-- **Ongoing Support** — a part-time quality partner for a growing product.
+<div class="services" markdown>
+
+<div class="service" markdown>
+
+### :material-magnify: Audit
+
+I review your product, tests and release process and find where the real risks are.
+
+- Top risks, ranked by impact
+- A step-by-step plan your team can follow
+
+</div>
+
+<div class="service" markdown>
+
+### :material-wrench-outline: Build
+
+I set up what's missing: test automation, CI quality gates, LLM evaluation or load tests.
+
+- Working tests in your repository
+- Docs and a handover to your team
+
+</div>
+
+<div class="service" markdown>
+
+### :material-account-clock-outline: Support
+
+A part-time QA engineer on your team while there is no full-time one.
+
+- Test planning and release checks
+- Test coverage that keeps up with new features
+
+</div>
+
+</div>
 
 <div class="services-actions" markdown>
 
 [:material-email-outline: Get in touch](contact.md){ .md-button .md-button--primary }
+[:material-folder-star-outline: Projects](projects/index.md){ .md-button }
 [:material-file-account-outline: My CV](cv.md){ .md-button }
 
 </div>

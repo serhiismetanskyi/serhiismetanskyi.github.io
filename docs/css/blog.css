@@ -1,8 +1,8 @@
 /* ==========================================================================
-   Блог: список постів, сторінка поста, архів за роками
+   Blog: post list, post page, yearly archive
    ========================================================================== */
 
-/* ---------- Список постів: мета ліворуч, прев'ю й анонс праворуч ---------- */
+/* ---------- Post list: meta on the left, preview and excerpt on the right ---------- */
 .md-post--excerpt {
   display: grid;
   grid-template-columns: 8rem 1fr;
@@ -62,10 +62,9 @@
   color: var(--md-default-fg-color--light);
 }
 
-/* «Continue reading →» — стрілка зсувається при наведенні */
+/* «Continue reading» + arrow icon (base.css); the arrow shifts on hover */
 .md-typeset .md-post__action a::after {
-  content: " →";
-  display: inline-block;
+  margin-left: 0.3em;
   transition: transform 180ms var(--lift-ease);
 }
 
@@ -73,7 +72,42 @@
   transform: translateX(4px);
 }
 
-/* ---------- Прев'ю-картинки (overrides/partials/post.html, content.html) ---------- */
+/* ---------- Breadcrumbs on a post (partials/blog-path.html) ----------
+   On posts the path sits inside the article, so undo the article's list and link styles
+   to look exactly like the theme's path above Docs pages */
+.md-typeset > .md-path {
+  margin: 0 0 1.2rem;
+  padding: 0;
+  font-size: 0.7rem;
+}
+
+[dir] .md-typeset .md-path__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[dir] .md-typeset .md-path__item {
+  margin: 0;
+  padding: 0;
+}
+
+.md-typeset .md-path__item::marker {
+  content: none;
+}
+
+.md-typeset .md-path__link {
+  color: var(--md-default-fg-color--light);
+  text-decoration: none;
+}
+
+.md-typeset .md-path__link:hover,
+.md-typeset .md-path__link:focus {
+  color: var(--md-accent-fg-color);
+}
+
+/* ---------- Preview images (overrides/partials/post.html, content.html) ---------- */
 .md-typeset .md-post__cover {
   display: block;
   margin-bottom: 1rem;
@@ -104,7 +138,7 @@
   margin: 0 0 1.6rem;
 }
 
-/* ---------- Сторінка поста: типографіка для читання ---------- */
+/* ---------- Post page: reading typography ---------- */
 .md-content--post .md-content__inner {
   max-width: 38rem;
   font-size: 0.9rem;
@@ -137,7 +171,7 @@
   border-radius: 0.5rem;
 }
 
-/* Смужка прогресу читання (js/reading-progress.js) */
+/* Reading progress bar (js/reading-progress.js) */
 .reading-progress {
   position: fixed;
   top: 0;
@@ -151,7 +185,7 @@
   pointer-events: none;
 }
 
-/* ---------- Кнопки «Share» під постом (overrides/partials/comments.html) ---------- */
+/* ---------- «Share» buttons below posts and Docs articles (overrides/partials/comments.html) ---------- */
 .share {
   display: flex;
   align-items: center;
@@ -175,7 +209,9 @@
   background: none;
   color: var(--md-default-fg-color--light);
   cursor: pointer;
-  transition: transform 180ms var(--lift-ease), color 150ms;
+  transition:
+    transform 180ms var(--lift-ease),
+    color 150ms;
 }
 
 .md-typeset .share__link:hover {
@@ -193,7 +229,52 @@
   color: var(--md-accent-fg-color);
 }
 
-/* ---------- Архів за роками (/blog/archive/<рік>/, overrides/blog.html) ---------- */
+/* ---------- «Related reading» under posts (overrides/partials/comments.html, docs/js/related.js) ---------- */
+.md-typeset .related {
+  margin: 2rem 0 1rem;
+}
+
+.md-typeset .related h2 {
+  margin: 0 0 0.6rem;
+  font-size: 1rem;
+}
+
+[dir] .md-typeset.related__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[dir] .md-typeset.related__list li {
+  display: flex;
+  gap: 1.2rem;
+  align-items: baseline;
+  margin: 0;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset.related__list time {
+  flex-shrink: 0;
+  min-width: 6.5rem;
+  white-space: nowrap;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.md-typeset.related__list a {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.md-typeset.related__list a:hover {
+  color: var(--md-primary-fg-color);
+}
+
+/* ---------- Yearly archive (/blog/archive/<year>/, overrides/blog.html) ---------- */
 [dir] .md-typeset.archive-list {
   margin: 0;
   padding: 0;
@@ -226,8 +307,29 @@
   color: var(--md-primary-fg-color);
 }
 
-/* ---------- Мобільні ---------- */
+/* ---------- Tag cloud in the blog's left menu (docs/js/blog-tags.js) ---------- */
+.blog-tags__cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0.4rem 0 0;
+  /* left edge lines up with the «Tags» heading and the other menu items */
+  padding: 0 0.6rem 0 1rem;
+}
+
+.md-typeset.blog-tags__cloud .md-tag {
+  margin: 0;
+  font-size: 0.6rem;
+}
+
+/* ---------- Mobile ---------- */
 @media screen and (max-width: 44.9375em) {
+  /* Related reading: date above the title */
+  [dir] .md-typeset.related__list li {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
   .md-post--excerpt {
     grid-template-columns: 1fr;
     padding: 1.4rem 0;

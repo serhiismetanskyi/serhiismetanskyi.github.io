@@ -10,6 +10,8 @@ This is my Digital Garden — a knowledge base for QA and Test Automation Engine
 
 Browse topics below, use the sidebar or press ++ctrl+k++ to search.
 
+<div class="kb-search" data-feed="feed_json_created.json"></div>
+
 ## Architecture & Design
 
 <div class="kb-sections" markdown>
@@ -117,6 +119,7 @@ Specs for AI coding agents: workflow, writing specs, EARS, Spec Kit, Kiro, OpenS
 - [Writing Good Specs](spec-driven-development/02-writing-specs.md)
 - [Tools](spec-driven-development/03-tools.md)
 - [QA, Testing & Best Practices](spec-driven-development/04-qa-testing-best-practices.md)
+- [Open Knowledge Format (OKF)](spec-driven-development/05-open-knowledge-format.md)
 
 </div>
 
@@ -350,12 +353,16 @@ Database types and selection guide, PostgreSQL: commands, schema, queries, perfo
 
 ### :material-tools: [Tools](tools/index.md)
 
-Docker, Git, Linux Terminal, Kubernetes — commands, best practices, troubleshooting
+Docker, Git, Linux Terminal, Kubernetes, Phoenix, Langfuse, MLflow, Jaeger — commands, best practices, LLM tracing and evaluation, distributed tracing
 
 - [Docker & Docker Compose](tools/docker/index.md)
 - [Git](tools/git/index.md)
 - [Linux Terminal](tools/linux-terminal/index.md)
 - [Kubernetes](tools/kubernetes/index.md)
+- [Arize Phoenix](tools/phoenix/index.md)
+- [Langfuse](tools/langfuse/index.md)
+- [MLflow](tools/mlflow/index.md)
+- [Jaeger](tools/jaeger/index.md)
 
 </div>
 
@@ -363,15 +370,15 @@ Docker, Git, Linux Terminal, Kubernetes — commands, best practices, troublesho
 
 ### :material-package-variant-closed: [Python Libraries](libs/index.md)
 
-Requests, HTTPX, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, uv, LangChain, …
+Requests, HTTPX, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Jinja, uv, LangChain, LangGraph, LiteLLM, Guardrails AI, OpenTelemetry, …
 
 - [Code Quality](libs/code-quality/index.md)
 - [FastAPI](libs/fastapi/index.md)
 - [HTTPX](libs/httpx/index.md)
+- [Jinja](libs/jinja/index.md)
 - [LangChain](libs/langchain/index.md)
-- [Playwright](libs/playwright/index.md)
-- [Pydantic](libs/pydantic/index.md)
-- [All 10 sections](libs/index.md){ .kb-more }
+- [LangGraph](libs/langgraph/index.md)
+- [All 15 sections](libs/index.md){ .kb-more }
 
 </div>
 

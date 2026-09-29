@@ -26,4 +26,3 @@ Practical Playbooks covers practical usage patterns for core Python libraries an
 - [CI/CD](../../../ci-cd-approaches/index.md)
 - [Tools — Practical Reference Guides](../../../tools/index.md)
 - [Python Libraries](../../index.md)
-

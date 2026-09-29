@@ -20,6 +20,7 @@ Outside of work, you'll usually find me playing tennis :tennis:, cycling long di
 <div class="about-actions" markdown>
 
 [:material-file-account-outline: My CV](cv.md){ .md-button .md-button--primary }
+[:material-folder-star-outline: Projects](projects/index.md){ .md-button }
 [:material-email-outline: Get in touch](contact.md){ .md-button }
 
 </div>

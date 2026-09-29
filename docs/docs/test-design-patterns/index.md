@@ -78,4 +78,3 @@ tags:
 - [Testing Pyramid](../testing-pyramid/index.md)
 - [Automation](../python-guide/04-automation/index.md)
 - [Pytest — Python Testing Framework](../libs/pytest/index.md)
-

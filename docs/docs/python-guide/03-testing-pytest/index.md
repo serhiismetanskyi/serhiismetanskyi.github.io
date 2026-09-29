@@ -39,4 +39,3 @@ This section covers testing fundamentals and the `pytest` framework — the stan
 - [Test Design Patterns in Test Automation](../../test-design-patterns/index.md)
 - [Pytest — Python Testing Framework](../../libs/pytest/index.md)
 - [Playwright — Python Browser & API Testing](../../libs/playwright/index.md)
-

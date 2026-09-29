@@ -1,0 +1,30 @@
+services:
+  zensical:
+    image: ghcr.io/astral-sh/uv:python3.13-bookworm-slim
+    container_name: site-zensical
+    user: "${UID:-1000}:${GID:-1000}"
+    working_dir: /docs
+    depends_on:
+      uv-init:
+        condition: service_completed_successfully
+    environment:
+      # The container's own environment, so it doesn't touch the host's .venv
+      UV_PROJECT_ENVIRONMENT: /uv/venv
+      UV_CACHE_DIR: /uv/cache
+    volumes:
+      - .:/docs
+      - uv:/uv
+    ports:
+      - "${PORT:-8000}:8000"
+    entrypoint: ["uv", "run", "--locked", "--no-dev", "zensical"]
+    command: serve --config-file zensical.toml --dev-addr=0.0.0.0:8000
+
+  # Gives the uv volume to your user once, before zensical starts
+  uv-init:
+    image: busybox:1.37
+    volumes:
+      - uv:/uv
+    command: chown -R ${UID:-1000}:${GID:-1000} /uv
+
+volumes:
+  uv:

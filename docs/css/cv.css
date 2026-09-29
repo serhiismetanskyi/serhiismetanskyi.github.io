@@ -1,8 +1,8 @@
 /* ==========================================================================
-   CV: шапка, таймлайн, навички, друк / «Save as PDF»
+   CV: header, experience and education, skills, print / «Save as PDF»
    ========================================================================== */
 
-/* ---------- Шапка: фото, ім'я, посада, контакти ---------- */
+/* ---------- Header: photo, name, position, contacts ---------- */
 .cv-header {
   display: flex;
   align-items: center;
@@ -18,7 +18,9 @@
   flex-shrink: 0;
   object-fit: cover;
   border-radius: 50%;
-  box-shadow: 0 0 0 4px var(--md-default-bg-color), 0 0 0 6px var(--md-primary-fg-color);
+  box-shadow:
+    0 0 0 4px var(--md-default-bg-color),
+    0 0 0 6px var(--md-primary-fg-color);
 }
 
 .cv-intro h1 {
@@ -31,7 +33,7 @@
   color: var(--md-default-fg-color--light);
 }
 
-/* Контакти — звичайні .md-button (base.css) в один рядок */
+/* Contacts: regular .md-button (base.css) in one row */
 .cv-contacts p {
   display: flex;
   flex-wrap: wrap;
@@ -39,72 +41,133 @@
   margin: 0;
 }
 
-/* ---------- Таймлайн досвіду й освіти ---------- */
-.timeline {
-  position: relative;
-  margin-left: 0.4rem;
-  padding-left: 1.6rem;
-  border-left: 2px solid var(--md-default-fg-color--lightest);
+/* ---------- Experience and education: LinkedIn-style entries ---------- */
+/* Entry: logo tile on the left, company (or degree) and its dates on the right;
+   positions below, joined by a thin line with a dot per position */
+.md-typeset .cv-list {
+  margin-top: 0.4rem;
 }
 
-.timeline-item {
-  position: relative;
+.md-typeset .cv-entry {
+  --logo: 2.6rem;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: var(--logo) 1fr;
   column-gap: 1rem;
-  padding-bottom: 1.2rem;
+  padding: 1.1rem 0 1.2rem;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
 }
 
-.timeline-item > * {
-  grid-column: 1 / -1;
+.md-typeset .cv-entry:first-child {
+  border-top: 0;
+  padding-top: 0.4rem;
 }
 
-/* Точка на лінії */
-.timeline-item::before {
-  content: "";
-  position: absolute;
-  top: 0.45rem;
-  left: calc(-1.6rem - 7px);
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--md-default-bg-color);
-  border: 2px solid var(--md-primary-fg-color);
-  transition: background-color 150ms, transform 180ms var(--lift-ease);
-}
-
-.timeline-item:hover::before {
-  background: var(--md-primary-fg-color);
-  transform: scale(1.2);
-}
-
-.md-typeset .timeline-item h3 {
-  grid-column: 1;
-  margin: 0;
-}
-
-/* Дати в одному рядку з посадою, праворуч */
-.md-typeset .timeline-date {
+.md-typeset .cv-entry > * {
   grid-column: 2;
-  grid-row: 1;
-  align-self: center;
-  margin: 0;
+}
+
+/* Initials or an icon in a tinted rounded square, in place of a company logo */
+.md-typeset .cv-logo {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--logo);
+  height: var(--logo);
+  border-radius: 0.6rem;
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-primary-fg-color);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.md-typeset .cv-logo svg {
+  width: 1.3rem;
+  height: 1.3rem;
+  fill: currentcolor;
+}
+
+.md-typeset .cv-logo .twemoji {
+  display: flex;
+}
+
+.md-typeset .cv-entry h3 {
+  margin: 0.1rem 0 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.md-typeset .cv-meta {
+  margin: 0.15rem 0 0;
   color: var(--md-default-fg-color--light);
   font-size: 0.75rem;
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
 }
 
-.md-typeset .timeline-item > p:not(.timeline-date) {
-  margin: 0.3em 0 0;
+.md-typeset .cv-date {
+  margin: 0.1rem 0 0;
   color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
 }
 
-.md-typeset .timeline-item ul {
-  margin-top: 0.5em;
+/* Position: spans both columns; the dot and line sit in the logo column */
+.md-typeset .cv-position {
+  position: relative;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: var(--logo) 1fr;
+  column-gap: 1rem;
+  padding-top: 1rem;
 }
 
-/* ---------- Навички й мови: чіпи ---------- */
+.md-typeset .cv-position > * {
+  grid-column: 2;
+}
+
+.md-typeset .cv-position::before {
+  content: "";
+  position: absolute;
+  top: 1.4rem;
+  left: calc(var(--logo) / 2 - 4px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--md-primary-fg-color);
+}
+
+/* Line from the dot along the position's text; between positions it reaches the next dot */
+.md-typeset .cv-position::after {
+  content: "";
+  position: absolute;
+  top: calc(1.4rem + 12px);
+  bottom: 0.2rem;
+  left: calc(var(--logo) / 2 - 1px);
+  width: 2px;
+  border-radius: 1px;
+  background: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .cv-position:not(:last-child)::after {
+  bottom: calc(-1.4rem + 4px);
+}
+
+.md-typeset .cv-position h4 {
+  margin: 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.md-typeset .cv-position ul {
+  margin: 0.5em 0 0;
+}
+
+.md-typeset .cv-position li {
+  margin-bottom: 0.3em;
+}
+
+/* ---------- Skills and languages: chips ---------- */
 .md-typeset .skills > p {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -128,7 +191,9 @@
   background-color: var(--md-accent-fg-color--transparent);
   color: var(--md-default-fg-color);
   font-size: 0.75rem;
-  transition: background-color 150ms, color 150ms;
+  transition:
+    background-color 150ms,
+    color 150ms;
 }
 
 .md-typeset .skills ul li::before {
@@ -140,7 +205,7 @@
   color: var(--md-primary-bg-color);
 }
 
-/* Згруповані навички: назва групи ліворуч, чіпи праворуч — один рядок на групу */
+/* Grouped skills: group name on the left, chips on the right, one row per group */
 .md-typeset .skills:has(> p) {
   display: grid;
   grid-template-columns: 11rem 1fr;
@@ -164,19 +229,20 @@
   font-size: 0.7rem;
 }
 
-/* ---------- Мобільні ---------- */
+/* ---------- Mobile ---------- */
 @media screen and (max-width: 44.9375em) {
   .cv-header {
     flex-direction: column;
     align-items: flex-start;
   }
 
-  .timeline-item {
-    display: block;
+  .md-typeset .cv-entry {
+    --logo: 2.2rem;
+    column-gap: 0.8rem;
   }
 
-  .md-typeset .timeline-date {
-    margin-top: 0.2em;
+  .md-typeset .cv-position {
+    column-gap: 0.8rem;
   }
 
   .md-typeset .skills:has(> p) {
@@ -189,13 +255,60 @@
   }
 }
 
-/* ---------- Друк / «Save as PDF»: 3 сторінки A4 ---------- */
+/* ---------- Projects: compact list (partials/project-cards.html, list macro) ---------- */
+[dir] .md-typeset .cv-projects {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[dir] .md-typeset .cv-projects li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.1rem 1rem;
+  margin: 0;
+  padding: 0.55em 0;
+  border-top: 1px solid var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .cv-projects li::before {
+  content: none;
+}
+
+.md-typeset .cv-projects a {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.md-typeset .cv-projects a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+.md-typeset .cv-projects__kind {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+.md-typeset .cv-projects__desc {
+  grid-column: 1 / -1;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+}
+
+/* ---------- Print / «Save as PDF»: A4 ---------- */
 @media print {
   .cv-print {
     display: none !important;
   }
 
-  /* Компактніше на папері */
+  .md-typeset .cv-projects li {
+    break-inside: avoid;
+  }
+
+  /* More compact on paper */
   .md-content__inner:has(.cv-header) {
     font-size: 0.68rem;
     margin-bottom: 0 !important;
@@ -205,7 +318,7 @@
     margin: 1.2em 0 0.5em;
   }
 
-  /* Кільце навколо фото — тінь за межами блоку; відступ, щоб край друку її не обрізав */
+  /* The ring around the photo is a shadow outside the box; padding keeps the print edge from clipping it */
   .cv-header {
     padding: 8px 0 0 8px;
   }
@@ -216,22 +329,82 @@
     print-color-adjust: exact;
   }
 
-  /* Контакти лишаються кнопками-посиланнями (у PDF клікабельні) */
+  /* Links in the colour of the photo ring, so on paper and in the PDF it's clear what can be clicked */
   .md-typeset .cv-contacts .md-button {
-    border-color: #ccc;
-    color: inherit;
+    border-color: var(--md-primary-fg-color);
+    color: var(--md-primary-fg-color);
   }
 
-  /* Таймлайн */
-  .md-content__inner:has(.cv-header) .timeline-item {
-    padding-bottom: 0.6rem;
+  .md-content__inner:has(.cv-header) a:not(.md-button, .headerlink) {
+    color: var(--md-primary-fg-color) !important;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
   }
 
-  .md-content__inner:has(.cv-header) .timeline-item li {
-    margin-bottom: 0.2em;
+  /* Experience and education */
+  /* Block layout instead of grid: Chrome splits blocks across pages much better */
+  .md-typeset .cv-entry {
+    --logo: 2rem;
+    --gap: 0.8rem;
+    position: relative;
+    display: block;
+    padding: 0.5rem 0 0.6rem calc(var(--logo) + var(--gap));
   }
 
-  /* Навички */
+  .md-typeset .cv-logo {
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+  }
+
+  .md-typeset .cv-entry h3 {
+    font-size: 0.85rem;
+  }
+
+  .md-typeset .cv-logo {
+    font-size: 0.68rem;
+  }
+
+  .md-typeset .cv-position {
+    display: block;
+    margin-left: calc(-1 * (var(--logo) + var(--gap)));
+    padding: 0.5rem 0 0 calc(var(--logo) + var(--gap));
+  }
+
+  .md-typeset .cv-position::before {
+    top: 0.75rem;
+  }
+
+  .md-typeset .cv-position::after {
+    top: calc(0.75rem + 12px);
+  }
+
+  .md-typeset .cv-position:not(:last-child)::after {
+    bottom: calc(-0.75rem + 4px);
+  }
+
+  .md-typeset .cv-position h4 {
+    font-size: 0.75rem;
+  }
+
+  .md-typeset .cv-position ul {
+    margin-top: 0.3em;
+  }
+
+  .md-typeset .cv-position li {
+    margin-bottom: 0.1em;
+    line-height: 1.5;
+  }
+
+  .md-typeset .cv-logo,
+  .md-typeset .cv-position::before,
+  .md-typeset .cv-position::after {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Skills */
   .md-typeset .skills ul {
     gap: 0.25rem;
   }
@@ -242,45 +415,63 @@
     background: none;
   }
 
+  /* Float layout instead of grid, so the skills list can continue on the next page */
   .md-typeset .skills:has(> p) {
-    grid-template-columns: 8.5rem 1fr;
-    gap: 0.2rem 0.8rem;
+    display: block;
   }
 
   .md-typeset .skills:has(> p) > p {
+    float: left;
+    clear: left;
+    width: 8.5rem;
     font-size: 0.55rem;
+  }
+
+  .md-typeset .skills:has(> p) ul {
+    margin: 0 0 0.25rem 9.3rem;
+  }
+
+  .md-typeset .skills:has(> p)::after {
+    content: "";
+    display: block;
+    clear: both;
   }
 
   .md-typeset .skills:has(> p) ul li {
     font-size: 0.6rem;
   }
 
-  /* Розриви сторінок: посада, група навичок і заголовок розділу не рвуться */
-  .md-typeset .timeline-item li,
+  /* Page breaks: a position, skill group or section heading is never split */
+  .md-typeset .cv-position li,
   .md-typeset .skills ul {
     break-inside: avoid;
   }
 
-  .md-typeset .timeline-date,
+  .md-typeset .cv-meta,
+  .md-typeset .cv-date,
   .md-typeset h2,
   .md-typeset h3,
-  .md-typeset .skills > p {
+  .md-typeset h4 {
     break-after: avoid;
   }
 
-  .md-typeset h2 + .timeline,
+  .md-typeset .skills > p {
+    break-inside: avoid;
+  }
+
+  .md-typeset h2 + .cv-list,
   .md-typeset h2 + .skills,
   .md-typeset h2 + p {
     break-before: avoid;
   }
 
-  .md-typeset h2:has(+ .timeline),
+  .md-typeset h2:has(+ .cv-list),
   .md-typeset h2:has(+ .skills) {
     break-after: avoid;
     break-inside: avoid;
   }
 
-  .timeline:has(> .timeline-item:only-child) {
+  .md-typeset .cv-entry:only-child {
     break-inside: avoid;
   }
 }
