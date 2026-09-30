@@ -1,14 +1,16 @@
-{#- «Share» buttons below a blog post or Docs article: X, LinkedIn, Telegram, Facebook, copy link (js/share.js).
-    The URL comes from site_url (zensical.toml) -#}
+{#- «Share» buttons below a blog post, Docs article or project: X, LinkedIn, Telegram, Facebook, copy link (js/share.js).
+    The URL comes from site_url (zensical.toml). X, Telegram and LinkedIn get the page title as the post text;
+    Facebook doesn't allow prefilled text and takes the title from the page's og:title preview -#}
 {% set url = page.canonical_url | urlencode %}
 {% set title = page.title | striptags | urlencode %}
+{% set title_and_url = (page.title | striptags ~ " " ~ page.canonical_url) | urlencode %}
 
 <div class="share">
   <span class="share__label">Share:</span>
   <a class="share__link" href="https://x.com/intent/post?url={{ url }}&text={{ title }}" target="_blank" rel="noopener" title="X">
     {% include ".icons/fontawesome/brands/x-twitter.svg" %}
   </a>
-  <a class="share__link" href="https://www.linkedin.com/sharing/share-offsite/?url={{ url }}" target="_blank" rel="noopener" title="LinkedIn">
+  <a class="share__link" href="https://www.linkedin.com/feed/?shareActive=true&text={{ title_and_url }}" target="_blank" rel="noopener" title="LinkedIn">
     {% include ".icons/fontawesome/brands/linkedin.svg" %}
   </a>
   <a class="share__link" href="https://t.me/share/url?url={{ url }}&text={{ title }}" target="_blank" rel="noopener" title="Telegram">
