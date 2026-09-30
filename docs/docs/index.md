@@ -370,15 +370,15 @@ Docker, Git, Linux Terminal, Kubernetes, Phoenix, Langfuse, MLflow, Jaeger — c
 
 ### :material-package-variant-closed: [Python Libraries](libs/index.md)
 
-Requests, HTTPX, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Jinja, uv, LangChain, LangGraph, LiteLLM, Guardrails AI, OpenTelemetry, …
+Requests, HTTPX, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Jinja, uv, LangChain, LangGraph, Agno, LiteLLM, Guardrails AI, OpenTelemetry, …
 
+- [Agno](libs/agno/index.md)
 - [Code Quality](libs/code-quality/index.md)
 - [FastAPI](libs/fastapi/index.md)
 - [HTTPX](libs/httpx/index.md)
 - [Jinja](libs/jinja/index.md)
 - [LangChain](libs/langchain/index.md)
-- [LangGraph](libs/langgraph/index.md)
-- [All 15 sections](libs/index.md){ .kb-more }
+- [All 16 sections](libs/index.md){ .kb-more }
 
 </div>
 

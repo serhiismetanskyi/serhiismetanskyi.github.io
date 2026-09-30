@@ -74,7 +74,7 @@ fact exists in `retrieval_context`. If the answer contains made-up facts, it fai
 
 **Required fields:** `input`, `actual_output`, `retrieval_context`
 
-> **Not the same as HallucinationMetric (Part 3).** Faithfulness uses
+> **Not the same as HallucinationMetric ([Part 3](03_llm_quality_metrics.md)).** Faithfulness uses
 > `retrieval_context` — documents your RAG system found automatically.
 > HallucinationMetric uses `context` — facts you provide manually as ground
 > truth. Faithfulness uses a min threshold (high score = good, pass ≥),
@@ -270,7 +270,7 @@ Use it instead of `assert_test` when evaluating datasets (not pytest).
 DeepEval also includes `RagasMetric` — a wrapper that averages all four
 RAG metrics from the `ragas` library. Install with `pip install ragas`.
 DeepEval's native RAG metrics above are recommended instead (debuggable,
-JSON-confineable, better ecosystem integration). See Part 18 for details.
+JSON-confineable, better ecosystem integration). See [Part 18](../03_practical/18_configs_flags_reference.md) for details.
 
 ### Sources
 

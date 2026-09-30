@@ -702,6 +702,15 @@ nav = [
     ] },
     { "Python Libraries" = [
       "docs/libs/index.md",
+      { "Agno" = [
+        "docs/libs/agno/index.md",
+        { "Agno — Agents, Tools & Structured Output" = "docs/libs/agno/01-agents-tools.md" },
+        { "Agno — Sessions, Memory & Knowledge" = "docs/libs/agno/02-sessions-memory-knowledge.md" },
+        { "Agno — Teams & Workflows" = "docs/libs/agno/03-teams-workflows.md" },
+        { "Agno — AgentOS & Observability" = "docs/libs/agno/04-agentos-observability.md" },
+        { "Agno — Testing Agno Apps" = "docs/libs/agno/05-testing.md" },
+        { "Agno — API Tests, Evals & CI" = "docs/libs/agno/06-evals-ci.md" },
+      ] },
       { "Code Quality" = [
         "docs/libs/code-quality/index.md",
         { "Ruff — Linting & Formatting" = "docs/libs/code-quality/01-ruff-linting-formatting.md" },

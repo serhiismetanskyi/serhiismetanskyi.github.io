@@ -231,7 +231,7 @@ Fix the retrieval first.
 
 This practical workflow shows how to go from **document → RAG pipeline
 → DeepEval evaluation** entirely locally with Ollama. No OpenAI API key
-needed. See Part 15 for how to iterate and diagnose retrieval failures.
+needed. See [Part 15](15_rag_diagnostic_testing.md) for how to iterate and diagnose retrieval failures.
 
 ### Sources
 

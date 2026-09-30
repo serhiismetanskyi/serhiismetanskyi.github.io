@@ -84,3 +84,4 @@ flowchart TD
 - [LangChain — LLM Application Framework](../libs/langchain/index.md)
 - [AI Skills for Coding Agents](../ai-skills/index.md)
 - [LangGraph — Stateful Agent Orchestration](../libs/langgraph/index.md)
+- [Agno — Agents, Teams & Workflows in Python](../libs/agno/index.md)

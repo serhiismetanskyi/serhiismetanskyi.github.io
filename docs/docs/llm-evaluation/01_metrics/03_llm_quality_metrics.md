@@ -30,7 +30,7 @@ threshold** (pass when score ≤ threshold). Default threshold = 0.5.
 
 **Required fields:** `input`, `actual_output`, `context`
 
-> **Not the same as FaithfulnessMetric (Part 2).** Hallucination uses
+> **Not the same as FaithfulnessMetric ([Part 2](02_rag_metrics.md)).** Hallucination uses
 > `context` — facts you provide manually as ground truth. Faithfulness uses
 > `retrieval_context` — documents your RAG system found automatically.
 > Both check for made-up facts, but Hallucination uses a max threshold
@@ -246,8 +246,8 @@ def test_geval_completeness():
 These metrics catch safety and compliance problems in production LLM systems.
 
 > **Note:** In newer DeepEval versions, these safety checks may be accessed
-> through the `RedTeamer` scanning workflow (Part 9) or the dedicated
-> `deepteam` package (Part 19) rather than as standalone metric imports.
+> through the `RedTeamer` scanning workflow ([Part 9](../02_testing/09_red_teaming.md)) or the dedicated
+> `deepteam` package ([Part 19](../03_practical/19_reference_appendix.md)) rather than as standalone metric imports.
 > Check the [DeepEval docs](https://deepeval.com/docs/metrics-introduction)
 > for your installed version.
 

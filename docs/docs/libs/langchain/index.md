@@ -100,13 +100,13 @@ print(response)
 
 If you are new to LangChain, follow this exact order:
 
-1. Read `01-models-prompts-parsers.md` and run the first chain.
-2. Read `02-lcel-chains.md` to learn composition (`|`, parallel, branch).
-3. Read `03-rag-retrieval.md` and build a small local RAG on 10-50 docs.
-4. Read `04-agents-tools.md` only after chains and RAG are clear.
-5. Read `05-memory-state.md` to add chat continuity.
-6. Read `06-langgraph-production.md` when you need loops, approvals, persistence.
-7. Read `07-security-evaluation-operations.md` before shipping to users.
+1. Read [Models, Prompts & Parsers](01-models-prompts-parsers.md) and run the first chain.
+2. Read [LCEL & Chains](02-lcel-chains.md) to learn composition (`|`, parallel, branch).
+3. Read [RAG & Retrieval](03-rag-retrieval.md) and build a small local RAG on 10-50 docs.
+4. Read [Agents & Tools](04-agents-tools.md) only after chains and RAG are clear.
+5. Read [Memory & State](05-memory-state.md) to add chat continuity.
+6. Read [LangGraph & Production](06-langgraph-production.md) when you need loops, approvals, persistence.
+7. Read [Security, Evaluation & Operations](07-security-evaluation-operations.md) before shipping to users.
 
 ## What Is "Enough" to Start Real Work
 
@@ -127,3 +127,4 @@ You can start building useful internal assistants when you can:
 - [Tools — Practical Reference Guides](../../tools/index.md)
 - [Python Libraries](../index.md)
 - [LangGraph — Stateful Agent Orchestration](../langgraph/index.md)
+- [Agno — Agents, Teams & Workflows in Python](../agno/index.md)

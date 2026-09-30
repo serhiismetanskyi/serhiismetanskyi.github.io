@@ -18,7 +18,7 @@ A benchmark consists of:
 - **Scorer** — determines if predictions are correct (usually exact match)
 - **Prompting techniques** — few-shot learning and/or Chain-of-Thought (CoT)
 
-To benchmark any LLM, wrap it in `DeepEvalBaseLLM` (see Part 10).
+To benchmark any LLM, wrap it in `DeepEvalBaseLLM` (see [Part 10](10_custom_llms.md)).
 
 ---
 
@@ -185,7 +185,7 @@ All benchmarks return: `benchmark.overall_score` (0.0–1.0),
 
 1. **Output format matters** — most benchmarks require MCQ letter answers
    (A/B/C/D). If your LLM produces full sentences, scores will be near 0.
-   Use JSON confinement (see Part 10) to ensure correct output format.
+   Use JSON confinement (see [Part 10](10_custom_llms.md)) to ensure correct output format.
 
 2. **Few-shot improves format** — always use maximum allowed `n_shots`
    for best format compliance.

@@ -170,7 +170,7 @@ test_case = LLMTestCase(
 metric.measure(test_case)
 ```
 
-**Note:** DeepEval's native RAG metrics (Part 2) are recommended over RAGAS.
+**Note:** DeepEval's native RAG metrics ([Part 2](../01_metrics/02_rag_metrics.md)) are recommended over RAGAS.
 
 ---
 

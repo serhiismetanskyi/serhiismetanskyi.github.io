@@ -146,7 +146,7 @@ dataset.add_test_cases_from_csv_file(
 
 ## Synthesizer: All 4 Generation Methods
 
-Part 12 covers `from_docs` and `from_contexts`. Two more methods:
+[Part 12](../02_testing/12_testing_workflows.md) covers `from_docs` and `from_contexts`. Two more methods:
 
 ### Generate from Scratch (no documents needed)
 

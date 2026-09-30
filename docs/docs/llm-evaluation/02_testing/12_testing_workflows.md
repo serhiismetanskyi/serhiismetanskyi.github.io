@@ -153,7 +153,7 @@ assert metric.success, f"{metric.__class__.__name__} score={metric.score}: {metr
 ```
 
 Use `measure()` when you need to: collect all failures before asserting
-(see Failure Aggregation Pattern in Part 20), log scores, or check
+(see Failure Aggregation Pattern in [Part 20](../03_practical/20_e2e_complex_tests.md)), log scores, or check
 `assert not metric.success` in negative/adversarial tests.
 
 ### Negative Tests — assert not metric.success

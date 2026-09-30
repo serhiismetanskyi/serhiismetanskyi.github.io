@@ -143,3 +143,4 @@ No LLM here on purpose: the same structure works when `classify` calls a model �
 - [Agentic AI Architecture](../../agentic-ai-architecture/index.md)
 - [DeepEval — LLM Testing Guide](../../llm-evaluation/index.md)
 - [Python Libraries](../index.md)
+- [Agno — Agents, Teams & Workflows in Python](../agno/index.md)

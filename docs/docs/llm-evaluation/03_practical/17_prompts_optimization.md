@@ -83,7 +83,7 @@ evaluate(
 ```
 
 For component-level evaluation, use `update_llm_span(prompt=prompt)`
-inside an `@observe(type="llm")` span (see Part 12).
+inside an `@observe(type="llm")` span (see [Part 12](../02_testing/12_testing_workflows.md)).
 
 ---
 

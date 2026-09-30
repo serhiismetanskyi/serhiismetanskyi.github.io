@@ -14,7 +14,7 @@ series by Jeff Nyman (TesterStories, Feb 2026).
 
 ## The Problem
 
-You built a RAG system (Part 14), ran metrics, and got low scores. Now what?
+You built a RAG system ([Part 14](14_practical_rag_testing.md)), ran metrics, and got low scores. Now what?
 This part shows a **systematic diagnostic methodology** to find the root cause.
 
 ---

@@ -14,8 +14,8 @@ Red teaming is the process of probing your LLM for security vulnerabilities.
 DeepEval provides a `RedTeamer` class that automatically generates attacks,
 sends them to your LLM, and evaluates if the LLM resisted or failed.
 
-**Key difference from safety metrics in Part 3:**
-Part 3 covers single-turn metrics (PII, Misuse, NonAdvice, RoleViolation).
+**Key difference from safety metrics in [Part 3](../01_metrics/03_llm_quality_metrics.md):**
+[Part 3](../01_metrics/03_llm_quality_metrics.md) covers single-turn metrics (PII, Misuse, NonAdvice, RoleViolation).
 Red Teaming is an automated scanning workflow that generates and executes
 hundreds of attack vectors across 40+ vulnerability types.
 
@@ -192,7 +192,7 @@ def test_jailbreak_detected():
 
 ## Red Teaming Comparison
 
-| Aspect | Safety Metrics (Part 3) | Manual Adversarial | RedTeamer Scanner |
+| Aspect | Safety Metrics ([Part 3](../01_metrics/03_llm_quality_metrics.md)) | Manual Adversarial | RedTeamer Scanner |
 |--------|------------------------|---------------------|-------------------|
 | Scope | One test case | Specific known attacks | Automated bulk scan |
 | Attacks | You write the input | You write adversarial inputs | Auto-generated attacks |

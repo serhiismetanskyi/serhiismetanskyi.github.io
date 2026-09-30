@@ -234,3 +234,4 @@ Also available: `px.traces.add_trace_annotation(...)`, `px.sessions.add_session_
 - [LiteLLM — One API for 100+ LLM Providers](../../libs/litellm/index.md)
 - [Langfuse — LLM Tracing, Prompts & Evals](../langfuse/index.md)
 - [LangGraph — Observability & Deployment](../../libs/langgraph/06-observability-deployment.md)
+- [Agno — AgentOS & Observability](../../libs/agno/04-agentos-observability.md)

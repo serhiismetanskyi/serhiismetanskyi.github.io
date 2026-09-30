@@ -126,25 +126,26 @@ def test_basic_llm_output():
 | Part | Topic |
 |------|-------|
 | 1 | Introduction (this file) |
-| 2 | RAG Metrics + RAG Triad |
-| 3 | LLM Quality + Safety Metrics |
-| 4 | AI Agent Metrics |
-| 5 | Chatbot Metrics + ConversationSimulator |
-| 6 | MCP Metrics |
-| 7 | Extra Metrics (Deterministic, DAG, Arena, Turn-Level) |
-| 8 | Multimodal (Image) Metrics |
-| 9 | Red Teaming (RedTeamer, scanning, vulnerabilities) |
-| 10 | Custom LLMs and Embedding Models |
-| 11 | Building Custom Metrics + Answer Correctness |
-| 12 | Workflows (CI/CD, Synthesizer, Datasets, Tracing, Prod Evals) |
-| 13 | LLM Benchmarks (MMLU, HellaSwag, DROP, HumanEval, etc.) |
-| 14 | Practical RAG Testing (LangChain + Ollama + DeepEval) |
-| 15 | RAG Diagnostic Testing (parameter tuning, query-type analysis) |
-| 16 | Datasets and Goldens (data models, local save/load, curation) |
-| 17 | Prompts & Prompt Optimization (GEPA, MIPROv2, COPRO) |
-| 18 | Evaluation Configs, Flags & Reference (RAGAS, env vars) |
-| 19 | Reference Appendix (DeepTeam vulns, Arena, troubleshooting) |
-| 20 | End-to-End Complex Tests (conversational + RAG + tools in one test) |
+| 2 | [RAG Metrics + RAG Triad](01_metrics/02_rag_metrics.md) |
+| 3 | [LLM Quality + Safety Metrics](01_metrics/03_llm_quality_metrics.md) |
+| 4 | [AI Agent Metrics](01_metrics/04_agent_metrics.md) |
+| 5 | [Chatbot Metrics + ConversationSimulator](01_metrics/05_chatbot_metrics.md) |
+| 6 | [MCP Metrics](01_metrics/06_mcp_metrics.md) |
+| 7 | [Extra Metrics](01_metrics/07_extra_metrics.md) (Deterministic, DAG, Arena, Turn-Level) |
+| 8 | [Multimodal (Image) Metrics](01_metrics/08_multimodal_metrics.md) |
+| 9 | [Red Teaming](02_testing/09_red_teaming.md) (RedTeamer, scanning, vulnerabilities) |
+| 10 | [Custom LLMs and Embedding Models](02_testing/10_custom_llms.md) |
+| 11 | [Building Custom Metrics + Answer Correctness](02_testing/11_custom_metrics.md) |
+| 12 | [Workflows](02_testing/12_testing_workflows.md) (CI/CD, Synthesizer, Datasets, Tracing, Prod Evals) |
+| 13 | [LLM Benchmarks](02_testing/13_benchmarks.md) (MMLU, HellaSwag, DROP, HumanEval, etc.) |
+| 14 | [Practical RAG Testing](03_practical/14_practical_rag_testing.md) (LangChain + Ollama + DeepEval) |
+| 14b | [Conversational RAG Evaluation](02_testing/14_conversational_rag_evaluation.md) |
+| 15 | [RAG Diagnostic Testing](03_practical/15_rag_diagnostic_testing.md) (parameter tuning, query-type analysis) |
+| 16 | [Datasets and Goldens](03_practical/16_datasets.md) (data models, local save/load, curation) |
+| 17 | [Prompts & Prompt Optimization](03_practical/17_prompts_optimization.md) (GEPA, MIPROv2, COPRO) |
+| 18 | [Evaluation Configs, Flags & Reference](03_practical/18_configs_flags_reference.md) (RAGAS, env vars) |
+| 19 | [Reference Appendix](03_practical/19_reference_appendix.md) (DeepTeam vulns, Arena, troubleshooting) |
+| 20 | [End-to-End Complex Tests](03_practical/20_e2e_complex_tests.md) (conversational + RAG + tools in one test) |
 
 ### Sources
 
