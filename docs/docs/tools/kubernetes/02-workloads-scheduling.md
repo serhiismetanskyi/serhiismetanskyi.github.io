@@ -188,3 +188,4 @@ Use `podAntiAffinity` with `topologyKey: kubernetes.io/hostname` to spread Pods 
 - [Kubernetes Overview](index.md)
 - [Services & Networking](03-services-networking.md)
 - [Configuration & Storage](04-config-storage.md)
+- [Apache Kafka](../kafka/index.md)

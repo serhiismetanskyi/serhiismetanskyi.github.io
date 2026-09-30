@@ -157,6 +157,14 @@ User request
 | [Queries & Performance](./postgresql/03-queries-performance.md) | EXPLAIN ANALYZE, indexing strategy, pagination, anti-patterns |
 | [Admin & Operations](./postgresql/04-admin-operations.md) | Users, backup, Docker setup, tuning, monitoring |
 | [Basic Query Commands](./postgresql/05-basic-query-commands.md) | SQL cheat sheet: CRUD, filters, joins, CTEs, window functions, transactions |
+| [Redis Overview](./redis/index.md) | What Redis is, Valkey and licensing, use cases, cheat sheet, quick rules |
+| [Setup & redis-cli](./redis/01-setup-redis-cli.md) | Docker, Compose, redis-cli, SCAN vs KEYS, INFO, SLOWLOG, key naming, databases |
+| [Data Types & Commands](./redis/02-data-types-commands.md) | Strings, hashes, lists, sets, sorted sets, streams, JSON, TTL rules |
+| [Patterns](./redis/03-patterns.md) | Cache-aside, invalidation, rate limiting, locks, Pub/Sub vs streams, MULTI/WATCH, pipelines, Lua |
+| [Python Client (redis-py)](./redis/04-python-redis-py.md) | Connections, pools, timeouts, retries, asyncio, Pub/Sub, streams |
+| [Persistence, Scaling & Security](./redis/05-operations-security.md) | RDB/AOF, eviction, replication, Sentinel, Cluster, ACL, monitoring |
+| [Testing Setup & Isolation](./redis/06-testing-setup-isolation.md) | fakeredis vs real Redis, testcontainers, fixtures, FLUSHDB vs FLUSHALL, xdist, CI |
+| [Testing Recipes](./redis/07-testing-recipes.md) | Cache, TTL, rate limiter, lock, race condition, Pub/Sub, outage tests, pitfalls |
 
 ---
 ## See also
@@ -165,3 +173,4 @@ User request
 - [FastAPI — Modern Async Web Framework](../libs/fastapi/index.md)
 - [OOP & Error Handling](../python-guide/02-oop-error-handling/index.md)
 - [Test Data](../test-automation-framework/03-test-data/index.md)
+- [Redis — Overview](./redis/index.md)

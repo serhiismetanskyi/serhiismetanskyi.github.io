@@ -258,3 +258,4 @@ Prepare before the incident: the first hour decides the impact.
 - [OWASP LLM Security](../owasp-llm-security/index.md)
 - [Edge Layer: Reverse Proxy, Forward Proxy, API Gateway, WAF](../client-server-architecture/02-edge-layer/02-reverse-proxy-api-gateway.md)
 - [Cross-Cutting: Security and Observability](../api-architectures/05-cross-cutting/01-security-observability.md)
+- [Redis — Persistence, Scaling & Security](../databases/redis/05-operations-security.md)

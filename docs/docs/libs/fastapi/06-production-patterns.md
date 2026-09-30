@@ -212,3 +212,7 @@ services:
 | `--log-level` | debug | info |
 | Reverse proxy | None | Nginx / Traefik |
 | HTTPS | Optional | Required |
+
+---
+## See also
+- [Celery](../celery/index.md)

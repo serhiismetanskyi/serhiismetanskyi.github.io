@@ -174,3 +174,4 @@ curl -s -u "$LANGFUSE_PUBLIC_KEY:$LANGFUSE_SECRET_KEY" \
 - [Docker & Docker Compose — Compose](../docker/03-docker-compose.md)
 - [OpenTelemetry — Python Observability](../../libs/opentelemetry/index.md)
 - [Arize Phoenix](../phoenix/index.md)
+- [Redis — Overview](../../databases/redis/index.md)

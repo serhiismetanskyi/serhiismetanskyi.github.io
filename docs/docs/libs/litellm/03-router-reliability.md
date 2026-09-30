@@ -182,3 +182,4 @@ The router's `rpm` / `tpm` settings steer traffic between deployments; a semapho
 - [LiteLLM — One API for 100+ LLM Providers](./index.md)
 - [LiteLLM — Proxy (AI Gateway)](./04-proxy-gateway.md)
 - [Client–Server: Reliability](../../client-server-architecture/06-reliability-security-observability/01-reliability.md)
+- [Redis — Overview](../../databases/redis/index.md)

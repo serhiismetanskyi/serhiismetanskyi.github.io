@@ -343,9 +343,10 @@ Pipeline architecture, build/artifacts, testing, deployment, security, release, 
 
 ### :material-database-outline: [Databases](databases/index.md)
 
-Database types and selection guide, PostgreSQL: commands, schema, queries, performance, …
+Database types and selection guide, PostgreSQL: commands, schema, queries, performance; Redis: data types, patterns, redis-py, testing, …
 
 - [PostgreSQL](databases/postgresql/index.md)
+- [Redis](databases/redis/index.md)
 
 </div>
 
@@ -353,12 +354,13 @@ Database types and selection guide, PostgreSQL: commands, schema, queries, perfo
 
 ### :material-tools: [Tools](tools/index.md)
 
-Docker, Git, Linux Terminal, Kubernetes, Phoenix, Langfuse, MLflow, Jaeger — commands, best practices, LLM tracing and evaluation, distributed tracing
+Docker, Git, Linux Terminal, Kubernetes, Kafka, Phoenix, Langfuse, MLflow, Jaeger — commands, best practices, event streaming, LLM tracing and evaluation, distributed tracing
 
 - [Docker & Docker Compose](tools/docker/index.md)
 - [Git](tools/git/index.md)
 - [Linux Terminal](tools/linux-terminal/index.md)
 - [Kubernetes](tools/kubernetes/index.md)
+- [Apache Kafka](tools/kafka/index.md)
 - [Arize Phoenix](tools/phoenix/index.md)
 - [Langfuse](tools/langfuse/index.md)
 - [MLflow](tools/mlflow/index.md)
@@ -370,15 +372,15 @@ Docker, Git, Linux Terminal, Kubernetes, Phoenix, Langfuse, MLflow, Jaeger — c
 
 ### :material-package-variant-closed: [Python Libraries](libs/index.md)
 
-Requests, HTTPX, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Jinja, uv, LangChain, LangGraph, Agno, LiteLLM, Guardrails AI, OpenTelemetry, …
+Requests, HTTPX, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Celery, Jinja, uv, LangChain, LangGraph, Agno, LiteLLM, Guardrails AI, OpenTelemetry, …
 
 - [Agno](libs/agno/index.md)
+- [Celery](libs/celery/index.md)
 - [Code Quality](libs/code-quality/index.md)
 - [FastAPI](libs/fastapi/index.md)
 - [HTTPX](libs/httpx/index.md)
 - [Jinja](libs/jinja/index.md)
-- [LangChain](libs/langchain/index.md)
-- [All 16 sections](libs/index.md){ .kb-more }
+- [All 17 sections](libs/index.md){ .kb-more }
 
 </div>
 

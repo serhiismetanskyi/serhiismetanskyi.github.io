@@ -20,6 +20,7 @@ Practical guides for key Python libraries: core API, patterns, and production be
 | [Pydantic](./pydantic/index.md) | Data validation: models, fields, validators, serialization, settings, TypeAdapter |
 | [SQLAlchemy](./sqlalchemy/index.md) | ORM & SQL toolkit: models, relationships, sessions, async, Alembic, performance |
 | [FastAPI](./fastapi/index.md) | Async web framework: routing, DI, auth, DB integration, testing, production, ASGI stack |
+| [Celery](./celery/index.md) | Distributed task queue: tasks, retries and backoff, acks_late, idempotency, canvas (chain/group/chord), routing and queues, pools, beat, Flower, OpenTelemetry, Docker Compose, testing with pytest and a real broker |
 | [Jinja](./jinja/index.md) | Templates: syntax, filters, inheritance, macros, autoescape, StrictUndefined, sandbox/SSTI, reports, LLM prompts, testing |
 | [uv](./uv/index.md) | Python project manager: deps, scripts, tools, workspaces, Docker, build & publish |
 | [LangChain](./langchain/index.md) | LLM framework: models, LCEL chains, RAG, agents, tools, memory, LangGraph, LangSmith |

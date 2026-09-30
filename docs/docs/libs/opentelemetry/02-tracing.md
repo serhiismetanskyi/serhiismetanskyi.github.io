@@ -218,3 +218,4 @@ Long-running servers flush on interpreter exit via `atexit`, but short scripts, 
 - [OpenTelemetry — Python Observability](./index.md)
 - [OpenTelemetry — Core Concepts](./01-core-concepts.md)
 - [OpenTelemetry — Metrics & Logs](./03-metrics-logs.md)
+- [Celery — Monitoring & Deployment](../celery/04-monitoring-deployment.md)

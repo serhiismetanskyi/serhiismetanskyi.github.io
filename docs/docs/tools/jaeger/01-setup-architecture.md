@@ -245,3 +245,4 @@ For a shared stack with an OTel Collector in front of Jaeger (tail sampling, red
 - [OpenTelemetry — Collector & Backends](../../libs/opentelemetry/05-collector-backends.md)
 - [Docker Compose](../docker/03-docker-compose.md)
 - [Kubernetes — Security & Observability](../kubernetes/06-security-observability.md)
+- [Apache Kafka](../kafka/index.md)

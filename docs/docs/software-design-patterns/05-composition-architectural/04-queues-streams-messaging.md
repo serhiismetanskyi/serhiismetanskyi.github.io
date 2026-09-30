@@ -177,3 +177,9 @@ Need replay / multiple independent consumers?
 
 Most mature systems combine both: **Kafka** as the central event bus,
 individual services fan out to **SQS/RabbitMQ** for their own task workers.
+
+---
+## See also
+- [Apache Kafka](../../tools/kafka/index.md)
+- [Redis — Patterns](../../databases/redis/03-patterns.md)
+- [Celery](../../libs/celery/index.md)

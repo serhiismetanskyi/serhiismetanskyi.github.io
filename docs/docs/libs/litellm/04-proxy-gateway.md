@@ -202,3 +202,4 @@ Guardrails run `pre_call` (input), `post_call` (output) or `during_call` (in par
 - [LiteLLM — Router & Reliability](./03-router-reliability.md)
 - [Edge Layer: Reverse Proxy, Forward Proxy, API Gateway, WAF](../../client-server-architecture/02-edge-layer/02-reverse-proxy-api-gateway.md)
 - [OWASP LLM Security](../../owasp-llm-security/index.md)
+- [Redis — Persistence, Scaling & Security](../../databases/redis/05-operations-security.md)

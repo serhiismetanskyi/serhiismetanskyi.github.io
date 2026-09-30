@@ -55,6 +55,18 @@ Hands-on command references, configuration patterns, and best practices for the 
 | [Helm & Deployment Strategies](./kubernetes/05-helm-deployments.md) | Helm charts, Kustomize, rolling update, canary, blue-green |
 | [Security & Observability](./kubernetes/06-security-observability.md) | RBAC, Pod Security, Prometheus, Grafana, EFK, debugging |
 
+## Apache Kafka
+
+| Resource | Topics |
+|------|--------|
+| [Overview](./kafka/index.md) | Event log model, where Kafka fits, Kafka vs RabbitMQ vs Redis Streams, quick commands |
+| [Core Concepts](./kafka/01-core-concepts.md) | Topics, partitions, offsets, KRaft, replication and ISR, retention, compaction, keys and ordering, consumer and share groups |
+| [Local Setup & CLI](./kafka/02-local-setup-cli.md) | `apache/kafka` image, KRaft env vars, listeners, Docker Compose, `kafka-topics`, console producer/consumer, `kafka-consumer-groups` |
+| [Producers & Consumers in Python](./kafka/03-producers-consumers-python.md) | `confluent-kafka`, acks, idempotence, delivery reports, commit strategies, rebalancing, KIP-848, transactions, asyncio |
+| [Schemas & Observability](./kafka/04-schemas-observability.md) | JSON vs Avro/Protobuf, Schema Registry, compatibility, consumer lag, key metrics, OpenTelemetry |
+| [Testing Kafka-Based Systems](./kafka/05-testing-kafka-systems.md) | Unit tests without Kafka, contract tests, Testcontainers fixture, unique topics and groups, assertions with deadlines |
+| [Testing Scenarios, Load & CI](./kafka/06-testing-scenarios-ci.md) | Ordering, duplicates, DLQ, consumer lag in load tests, flakiness pitfalls, GitHub Actions |
+
 ## Distributed Tracing
 
 | Resource | Topics |

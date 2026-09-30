@@ -630,6 +630,16 @@ nav = [
         { "PostgreSQL — Admin & Operations" = "docs/databases/postgresql/04-admin-operations.md" },
         { "PostgreSQL — Basic Query Commands" = "docs/databases/postgresql/05-basic-query-commands.md" },
       ] },
+      { "Redis" = [
+        "docs/databases/redis/index.md",
+        { "Redis — Setup & redis-cli" = "docs/databases/redis/01-setup-redis-cli.md" },
+        { "Redis — Data Types & Commands" = "docs/databases/redis/02-data-types-commands.md" },
+        { "Redis — Patterns" = "docs/databases/redis/03-patterns.md" },
+        { "Redis — Python Client (redis-py)" = "docs/databases/redis/04-python-redis-py.md" },
+        { "Redis — Persistence, Scaling & Security" = "docs/databases/redis/05-operations-security.md" },
+        { "Redis — Testing Setup & Isolation" = "docs/databases/redis/06-testing-setup-isolation.md" },
+        { "Redis — Testing Recipes" = "docs/databases/redis/07-testing-recipes.md" },
+      ] },
     ] },
     { "Tools" = [
       "docs/tools/index.md",
@@ -667,6 +677,15 @@ nav = [
         { "Configuration & Storage" = "docs/tools/kubernetes/04-config-storage.md" },
         { "Helm & Deployment Strategies" = "docs/tools/kubernetes/05-helm-deployments.md" },
         { "Security & Observability" = "docs/tools/kubernetes/06-security-observability.md" },
+      ] },
+      { "Apache Kafka" = [
+        "docs/tools/kafka/index.md",
+        { "Kafka — Core Concepts" = "docs/tools/kafka/01-core-concepts.md" },
+        { "Kafka — Local Setup & CLI" = "docs/tools/kafka/02-local-setup-cli.md" },
+        { "Kafka — Producers & Consumers in Python" = "docs/tools/kafka/03-producers-consumers-python.md" },
+        { "Kafka — Schemas & Observability" = "docs/tools/kafka/04-schemas-observability.md" },
+        { "Kafka — Testing Kafka-Based Systems" = "docs/tools/kafka/05-testing-kafka-systems.md" },
+        { "Kafka — Testing Scenarios, Load & CI" = "docs/tools/kafka/06-testing-scenarios-ci.md" },
       ] },
       { "Arize Phoenix" = [
         "docs/tools/phoenix/index.md",
@@ -710,6 +729,15 @@ nav = [
         { "Agno — AgentOS & Observability" = "docs/libs/agno/04-agentos-observability.md" },
         { "Agno — Testing Agno Apps" = "docs/libs/agno/05-testing.md" },
         { "Agno — API Tests, Evals & CI" = "docs/libs/agno/06-evals-ci.md" },
+      ] },
+      { "Celery" = [
+        "docs/libs/celery/index.md",
+        { "Celery — Tasks & Calling" = "docs/libs/celery/01-tasks-calling.md" },
+        { "Celery — Canvas Workflows" = "docs/libs/celery/02-canvas-workflows.md" },
+        { "Celery — Configuration, Workers & Beat" = "docs/libs/celery/03-config-workers-beat.md" },
+        { "Celery — Monitoring & Deployment" = "docs/libs/celery/04-monitoring-deployment.md" },
+        { "Celery — Testing Celery Code" = "docs/libs/celery/05-testing.md" },
+        { "Celery — Integration Tests & Flakiness" = "docs/libs/celery/06-integration-testing.md" },
       ] },
       { "Code Quality" = [
         "docs/libs/code-quality/index.md",

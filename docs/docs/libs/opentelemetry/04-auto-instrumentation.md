@@ -171,3 +171,6 @@ Enable SDK debug logs: `OTEL_LOG_LEVEL=debug` (or `logging.getLogger("openteleme
 - [FastAPI — Production Patterns](../fastapi/06-production-patterns.md)
 - [HTTPX](../httpx/index.md)
 - [SQLAlchemy](../sqlalchemy/index.md)
+- [Redis — Python Client (redis-py)](../../databases/redis/04-python-redis-py.md)
+- [Kafka — Schemas & Observability](../../tools/kafka/04-schemas-observability.md)
+- [Celery — Monitoring & Deployment](../celery/04-monitoring-deployment.md)

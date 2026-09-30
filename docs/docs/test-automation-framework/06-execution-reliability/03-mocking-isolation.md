@@ -177,3 +177,8 @@ def db_url(postgres_container) -> str:
 
 Testcontainers start a real Postgres in Docker, run tests against it, stop it.
 No mocking. No shared state with other developers. Fully isolated.
+
+---
+## See also
+- [Kafka — Testing Kafka-Based Systems](../../tools/kafka/05-testing-kafka-systems.md)
+- [Redis — Testing Setup & Isolation](../../databases/redis/06-testing-setup-isolation.md)
