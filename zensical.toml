@@ -914,7 +914,7 @@ toggle.name = "Switch to system preference"
 # --------------------------------------------------------------------------
 [project.extra]
 generator = false             # no «Made with Zensical»
-subtitle = "Software Test & Automation Engineer"   # next to the site name in the header on the home page
+subtitle = "Software Test & Automation Engineer"   # next to the site name in the header, and in the footer
 
 # Projects: cards on the home page (first 3), /projects/, category and archive pages, and the CV list
 # (partials/project-cards.html), newest first. Each one has its own page docs/projects/<slug>.md (template: project.html)

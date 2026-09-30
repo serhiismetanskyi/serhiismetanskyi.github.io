@@ -59,7 +59,7 @@
   display: none;
 }
 
-/* Subtitle to the right of the site name, on the home page (overrides/partials/header.html) */
+/* Subtitle to the right of the site name, on every page (overrides/partials/header.html) */
 .md-header__topic:has(.md-header__subtitle) {
   align-items: center;
   gap: 0.7rem;

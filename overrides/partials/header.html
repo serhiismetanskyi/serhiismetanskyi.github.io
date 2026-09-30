@@ -1,4 +1,5 @@
-{#- Same as the theme, plus a subtitle next to the site name on the home page (extra.subtitle in zensical.toml) -#}
+{#- Same as the theme, plus a subtitle next to the site name (extra.subtitle in zensical.toml) on every page:
+    navigation.instant keeps the header between pages, so a home-page-only subtitle would stick or vanish -#}
 {% set class = "md-header" %}
 {% if "navigation.tabs.sticky" in features %}
   {% set class = class ~ " md-header--shadow md-header--lifted" %}
@@ -20,7 +21,7 @@
           <span class="md-ellipsis">
             {{ config.site_name }}
           </span>
-          {% if config.extra.subtitle and page and page.url in ("", "./", "index.html") %}
+          {% if config.extra.subtitle %}
             <span class="md-header__subtitle md-ellipsis">{{ config.extra.subtitle }}</span>
           {% endif %}
         </div>
