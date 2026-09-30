@@ -138,6 +138,19 @@
   margin: 0 0 1.6rem;
 }
 
+/* ---------- Post-style sidebar below the article (blog posts, project pages) ----------
+   Under 76.23em the theme puts the sidebar (author, metadata) under the article (column-reverse), so the
+   spacing before the footer moves from the article to the sidebar */
+@media screen and (max-width: 76.234375em) {
+  .md-content--post > .md-content__inner {
+    margin-bottom: 2rem;
+  }
+
+  .md-content--post > .md-sidebar--post {
+    padding-bottom: 4rem;
+  }
+}
+
 /* ---------- Post page: reading typography ---------- */
 .md-content--post .md-content__inner {
   max-width: 38rem;
