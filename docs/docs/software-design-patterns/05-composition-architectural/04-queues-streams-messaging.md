@@ -183,3 +183,4 @@ individual services fan out to **SQS/RabbitMQ** for their own task workers.
 - [Apache Kafka](../../tools/kafka/index.md)
 - [Redis — Patterns](../../databases/redis/03-patterns.md)
 - [Celery](../../libs/celery/index.md)
+- [RabbitMQ](../../tools/rabbitmq/index.md)

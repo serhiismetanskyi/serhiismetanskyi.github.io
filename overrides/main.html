@@ -71,8 +71,8 @@
     {% set modified = (page.config.date.updated or page.config.date.created) | string | replace(" ", "T") %}
     {% set section = page.categories[0].title if page.categories else "Blog" %}
   {% elif is_article %}
-    {% set published = meta.date | string %}
-    {% set modified = meta.updated | d(meta.date, true) | string %}
+    {% set published = meta.date | string | replace(" ", "T") %}
+    {% set modified = meta.updated | d(meta.date, true) | string | replace(" ", "T") %}
     {% set section = "Docs" %}
   {% endif %}
   {% set tags = meta.tags | d([], true) %}

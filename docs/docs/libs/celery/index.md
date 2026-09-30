@@ -1,5 +1,5 @@
 ---
-date: 2026-09-30
+date: 2026-09-30 18:10:00
 tags:
   - python
   - libraries
@@ -137,3 +137,4 @@ uv run celery -A proj.celery_app worker --loglevel=INFO
 - [Pytest](../pytest/index.md)
 - [Redis](../../databases/redis/index.md)
 - [Docker & Docker Compose](../../tools/docker/index.md)
+- [RabbitMQ — Message Broker, Routing & Queues](../../tools/rabbitmq/index.md)

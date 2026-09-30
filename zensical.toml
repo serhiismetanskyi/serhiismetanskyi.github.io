@@ -687,6 +687,13 @@ nav = [
         { "Kafka — Testing Kafka-Based Systems" = "docs/tools/kafka/05-testing-kafka-systems.md" },
         { "Kafka — Testing Scenarios, Load & CI" = "docs/tools/kafka/06-testing-scenarios-ci.md" },
       ] },
+      { "RabbitMQ" = [
+        "docs/tools/rabbitmq/index.md",
+        { "RabbitMQ — Core Concepts" = "docs/tools/rabbitmq/01-core-concepts.md" },
+        { "RabbitMQ — Local Setup & CLI" = "docs/tools/rabbitmq/02-local-setup-cli.md" },
+        { "RabbitMQ — Python Clients" = "docs/tools/rabbitmq/03-python-clients.md" },
+        { "RabbitMQ — Testing RabbitMQ-Based Systems" = "docs/tools/rabbitmq/04-testing.md" },
+      ] },
       { "Arize Phoenix" = [
         "docs/tools/phoenix/index.md",
         { "Phoenix — Setup & Architecture" = "docs/tools/phoenix/01-setup-architecture.md" },

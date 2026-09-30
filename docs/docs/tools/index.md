@@ -67,6 +67,16 @@ Hands-on command references, configuration patterns, and best practices for the 
 | [Testing Kafka-Based Systems](./kafka/05-testing-kafka-systems.md) | Unit tests without Kafka, contract tests, Testcontainers fixture, unique topics and groups, assertions with deadlines |
 | [Testing Scenarios, Load & CI](./kafka/06-testing-scenarios-ci.md) | Ordering, duplicates, DLQ, consumer lag in load tests, flakiness pitfalls, GitHub Actions |
 
+## RabbitMQ
+
+| Resource | Topics |
+|------|--------|
+| [Overview](./rabbitmq/index.md) | Exchanges, queues and bindings, where RabbitMQ fits, RabbitMQ vs Kafka vs Redis Streams, quick commands, ports |
+| [Core Concepts](./rabbitmq/01-core-concepts.md) | Exchange types, routing keys, queue types (quorum, classic, streams), acks and redelivery, prefetch, durability, confirms, TTL, dead lettering |
+| [Local Setup & CLI](./rabbitmq/02-local-setup-cli.md) | `rabbitmq:4-management` image, Docker Compose with a healthcheck, `rabbitmqctl`, `rabbitmq-diagnostics`, management HTTP API, definitions, policies |
+| [Python Clients](./rabbitmq/03-python-clients.md) | `pika` and `aio-pika`, topology, publishing with confirms, manual acks, delayed retries through a DLX, idempotent consumers, common mistakes |
+| [Testing RabbitMQ-Based Systems](./rabbitmq/04-testing.md) | Pure handlers, Testcontainers fixture, isolated names per test, assertions with deadlines, DLQ and redelivery tests, queue depth, CI, flakiness |
+
 ## Distributed Tracing
 
 | Resource | Topics |

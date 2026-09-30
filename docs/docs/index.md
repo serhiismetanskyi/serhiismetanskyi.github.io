@@ -354,13 +354,14 @@ Database types and selection guide, PostgreSQL: commands, schema, queries, perfo
 
 ### :material-tools: [Tools](tools/index.md)
 
-Docker, Git, Linux Terminal, Kubernetes, Kafka, Phoenix, Langfuse, MLflow, Jaeger — commands, best practices, event streaming, LLM tracing and evaluation, distributed tracing
+Docker, Git, Linux Terminal, Kubernetes, Kafka, RabbitMQ, Phoenix, Langfuse, MLflow, Jaeger — commands, best practices, event streaming, LLM tracing and evaluation, distributed tracing
 
 - [Docker & Docker Compose](tools/docker/index.md)
 - [Git](tools/git/index.md)
 - [Linux Terminal](tools/linux-terminal/index.md)
 - [Kubernetes](tools/kubernetes/index.md)
 - [Apache Kafka](tools/kafka/index.md)
+- [RabbitMQ](tools/rabbitmq/index.md)
 - [Arize Phoenix](tools/phoenix/index.md)
 - [Langfuse](tools/langfuse/index.md)
 - [MLflow](tools/mlflow/index.md)

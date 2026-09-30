@@ -1,5 +1,5 @@
 ---
-date: 2026-09-30
+date: 2026-09-30 18:20:00
 tags:
   - tools
   - kafka
@@ -7,7 +7,7 @@ tags:
   - testing
 ---
 
-# Apache Kafka — Event Streaming for Python and QA
+# Apache Kafka — Event Streaming, Producers & Consumers
 
 Open-source (Apache 2.0) distributed event log. Producers append records to topics, the brokers keep them for a configured time, and any number of consumer groups read them at their own pace. Since Kafka 4.0 a cluster runs in KRaft mode only — ZooKeeper is gone.
 
@@ -130,3 +130,4 @@ Rule of thumb: pick Kafka when events must be **kept and re-read** by several in
 - [Docker & Docker Compose](../docker/index.md)
 - [OpenTelemetry — Python Observability](../../libs/opentelemetry/index.md)
 - [Pytest — Python Testing Framework](../../libs/pytest/index.md)
+- [RabbitMQ — Message Broker, Routing & Queues](../rabbitmq/index.md)

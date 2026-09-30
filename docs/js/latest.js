@@ -11,7 +11,7 @@ siteFeed.onPage(async () => {
     return // without the feed the cards just stay hidden
   }
 
-  const format = new Intl.DateTimeFormat("en", { year: "numeric", month: "short", day: "numeric" })
+  const format = new Intl.DateTimeFormat("en", { year: "numeric", month: "short", day: "numeric", timeZone: "UTC" })
   for (const box of boxes) {
     const limit = Number(box.dataset.limit) || 3
     const entries = box.dataset.kind === "docs" ? docGuides(items) : blogPosts(items)

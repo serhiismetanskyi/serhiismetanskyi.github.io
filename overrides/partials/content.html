@@ -13,12 +13,12 @@
   <ul class="page-meta">
     <li>
       {% include ".icons/" ~ icons.date ~ ".svg" %}
-      <time datetime="{{ page.meta.date }}">{{ page.meta.date | date }}</time>
+      <time datetime="{{ page.meta.date | string | replace(' ', 'T') }}">{{ page.meta.date | date }}</time>
     </li>
     {% if page.meta.updated %}
       <li>
         {% include ".icons/" ~ icons.date_updated ~ ".svg" %}
-        <span>Updated <time datetime="{{ page.meta.updated }}">{{ page.meta.updated | date }}</time></span>
+        <span>Updated <time datetime="{{ page.meta.updated | string | replace(' ', 'T') }}">{{ page.meta.updated | date }}</time></span>
       </li>
     {% endif %}
     <li>
