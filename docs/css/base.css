@@ -81,6 +81,27 @@
   }
 }
 
+/* ---------- Menu groups without their own page (Archive, Categories, Tags) in the mobile menu ----------
+   The theme makes the whole row the toggle, so after a tap the full row stays tinted. Docs topics have a page,
+   so only a 32x32 chevron button next to the link tints. Same look here: the row stays clear, the chevron gets
+   the button (18px icon + 7px around it, like the theme's toggle) */
+@media screen and (max-width: 76.234375em) {
+  /* as specific as the theme's .md-nav--primary .md-nav__link[for]:focus:not(.md-nav__link--active) */
+  .md-nav--primary label.md-nav__link[for]:has(> .md-ellipsis):is(:hover, :focus):not(.md-nav__link--active) {
+    background-color: transparent;
+  }
+
+  .md-nav--primary label.md-nav__link:has(> .md-ellipsis) > .md-nav__icon {
+    border-radius: 1px;
+    transition: box-shadow 125ms;
+  }
+
+  .md-nav--primary label.md-nav__link:has(> .md-ellipsis):is(:hover, :focus) > .md-nav__icon {
+    background-color: var(--md-default-fg-color--lightest);
+    box-shadow: 0 0 0 7px var(--md-default-fg-color--lightest);
+  }
+}
+
 /* ---------- Links: thin underline, brighter on hover ---------- */
 .md-typeset a {
   text-decoration: underline;
