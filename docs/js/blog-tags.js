@@ -2,10 +2,26 @@
 // filtered to that tag and section (?tag=pytest&type=blog). Two places:
 // - blog: every tag used in blog posts (from the JSON feed);
 // - projects: every project tag (from #project-tags, written by main.html from zensical.toml).
-const tagCloud = (counts, type, noun) => {
-  const section = siteFeed.el("li", "md-nav__item md-nav__item--section blog-tags")
-  const title = siteFeed.el("span", "md-nav__link blog-tags__title")
-  title.append(siteFeed.el("span", "md-ellipsis", "Tags"))
+// The section is a copy of the theme's «Categories» item, so it looks and behaves the same: an expanded group
+// on desktop, a row with a chevron that opens its own panel in the mobile menu, like every other menu group
+const tagCloud = (categories, counts, type, noun) => {
+  const section = categories.cloneNode(true)
+  section.classList.add("blog-tags")
+  section.classList.remove("md-nav__item--active")
+  const toggle = section.querySelector(":scope > input.md-toggle")
+  const label = section.querySelector(":scope > label.md-nav__link")
+  const nav = section.querySelector(":scope > nav.md-nav")
+  const id = `${toggle.id}_tags`
+  toggle.id = id
+  toggle.checked = false
+  label.htmlFor = id
+  label.id = `${id}_label`
+  label.querySelector(".md-ellipsis").textContent = "Tags"
+  nav.setAttribute("aria-labelledby", label.id)
+  nav.setAttribute("aria-expanded", "false")
+  const title = nav.querySelector(":scope > label.md-nav__title")
+  title.htmlFor = id
+  title.lastChild.textContent = " Tags "
 
   const cloud = siteFeed.el("nav", "md-tags md-typeset blog-tags__cloud")
   cloud.setAttribute("aria-label", `${type === "blog" ? "Blog" : "Project"} tags`)
@@ -16,7 +32,9 @@ const tagCloud = (counts, type, noun) => {
     a.title = `${count} ${noun}${count === 1 ? "" : "s"}`
     cloud.append(a)
   }
-  section.append(title, cloud)
+  const item = siteFeed.el("li", "md-nav__item blog-tags__item")
+  item.append(cloud)
+  nav.querySelector(":scope > ul").replaceChildren(item)
   return section
 }
 
@@ -45,7 +63,7 @@ siteFeed.onPage(async () => {
     } catch {
       return
     }
-    if (tags.length) categories.after(tagCloud(countTags(tags), "projects", "project"))
+    if (tags.length) categories.after(tagCloud(categories, countTags(tags), "projects", "project"))
     return
   }
 
@@ -66,5 +84,5 @@ siteFeed.onPage(async () => {
       .filter(tag => !names.has(tag)),
   )
   if (!counts.size || categories.parentElement.querySelector(".blog-tags")) return
-  categories.after(tagCloud(counts, "blog", "post"))
+  categories.after(tagCloud(categories, counts, "blog", "post"))
 })
