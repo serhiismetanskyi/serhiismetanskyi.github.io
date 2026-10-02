@@ -40,11 +40,11 @@ flowchart LR
 
 | Area | Entities | Used for in QA |
 |------|----------|----------------|
-| Experiment tracking | Experiment → Run → params, metrics, tags, artifacts | One run per CI job or eval, compared over time |
-| Tracing | Trace → spans, tags, metadata, assessments | Debugging LLM calls, asserting on tool calls |
-| Evaluation | Dataset, scorer, evaluation run | Quality scores on a golden dataset per build |
-| Prompt registry | Prompt → versions → aliases | Testing a prompt version before promoting it |
-| Model registry | Registered model → versions → aliases, tags | Gating which model / app version goes to production |
+| [Experiment tracking](02-experiment-tracking.md) | Experiment → Run → params, metrics, tags, artifacts | One run per CI job or eval, compared over time |
+| [Tracing](03-genai-tracing.md) | Trace → spans, tags, metadata, assessments | Debugging LLM calls, asserting on tool calls |
+| [Evaluation](04-evaluation-prompts.md) | Dataset, scorer, evaluation run | Quality scores on a golden dataset per build |
+| [Prompt registry](04-evaluation-prompts.md) | Prompt → versions → aliases | Testing a prompt version before promoting it |
+| [Model registry](05-testing-ci-registry.md) | Registered model → versions → aliases, tags | Gating which model / app version goes to production |
 
 ## Section Map
 

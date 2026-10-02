@@ -17,7 +17,7 @@ This section covers practical test automation — API testing, UI automation, an
 |------|-------------------|
 | [**API Testing**](01-api-testing.md) | HTTP basics, `requests` library, response validation |
 | [**UI Automation**](02-ui-automation.md) | Selenium, Playwright, locators, wait strategies |
-| **Test Patterns** | Page Object Model, factory, API client abstraction |
+| [**Test Patterns**](03-test-patterns.md) | Page Object Model, factory, API client abstraction |
 
 ---
 

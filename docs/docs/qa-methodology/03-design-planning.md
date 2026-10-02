@@ -35,7 +35,7 @@ Test using knowledge of code structure.
 
 | Technique | Description |
 |---|---|
-| **Exploratory testing** | Simultaneous learning, design, and execution; use charters |
+| [**Exploratory testing**](10-exploratory-session-based-testing.md) | Simultaneous learning, design, and execution; use charters |
 | **Error guessing** | Based on past bugs, common pitfalls, domain knowledge |
 | **Checklist-based** | Reusable quality checklists for features or regression |
 

@@ -14,12 +14,12 @@ Practical guide to the modern Python quality stack: what to use, how to configur
 
 | Layer | Tool | Role |
 |-------|------|------|
-| Linter + Formatter | **Ruff** | Replaces Flake8, Black, isort, bandit, pyupgrade (900+ rules, Rust speed) |
-| Type checker | **mypy** | Static type analysis (strict mode in CI) |
-| Type checker (IDE) | **Pyright / Pylance** | Real-time feedback in VS Code |
+| Linter + Formatter | [**Ruff**](01-ruff-linting-formatting.md) | Replaces Flake8, Black, isort, bandit, pyupgrade (900+ rules, Rust speed) |
+| Type checker | [**mypy**](02-type-checkers.md) | Static type analysis (strict mode in CI) |
+| Type checker (IDE) | [**Pyright / Pylance**](02-type-checkers.md) | Real-time feedback in VS Code |
 | Strict style | **wemake-python-styleguide** | Flake8 plugin, complements Ruff (WPS rules) |
-| Pre-commit | **pre-commit** | Run all checks on `git commit` |
-| Test coverage | **pytest-cov** + **coverage.py** | Line + branch coverage measurement |
+| Pre-commit | [**pre-commit**](03-pre-commit-hooks.md) | Run all checks on `git commit` |
+| Test coverage | [**pytest-cov** + **coverage.py**](04-test-coverage.md) | Line + branch coverage measurement |
 | Mutation testing | **pytest-gremlins** / **cosmic-ray** | Verify test assertions actually catch bugs |
 
 ## Section Map

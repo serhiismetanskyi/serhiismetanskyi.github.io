@@ -210,13 +210,13 @@ aqa-project/
 
 This guide covered:
 
-- **Python fundamentals** — types, control flow, data structures, functions
-- **OOP** — classes, inheritance, composition, dunder methods
-- **Error handling** — exceptions, logging, file operations
-- **Testing** — pytest, fixtures, parametrize, test architecture
-- **Automation** — API testing, UI automation, design patterns
-- **Code quality** — ruff, mypy, coverage, CI/CD
-- **Advanced topics** — decorators, generators, async, performance
-- **Best practices** — security, pitfalls, interview prep
+- [**Python fundamentals**](../01-setup-fundamentals/index.md) — types, control flow, data structures, functions
+- [**OOP**](../02-oop-error-handling/index.md) — classes, inheritance, composition, dunder methods
+- [**Error handling**](../02-oop-error-handling/03-exceptions-logging.md) — exceptions, logging, file operations
+- [**Testing**](../03-testing-pytest/index.md) — pytest, fixtures, parametrize, test architecture
+- [**Automation**](../04-automation/index.md) — API testing, UI automation, design patterns
+- [**Code quality**](../05-quality-cicd/index.md) — ruff, mypy, coverage, CI/CD
+- [**Advanced topics**](../06-advanced-topics/index.md) — decorators, generators, async, performance
+- [**Best practices**](index.md) — security, pitfalls, interview prep
 
 Use this guide as a **reference** and come back to any section when you need it.

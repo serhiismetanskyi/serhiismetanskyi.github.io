@@ -29,13 +29,13 @@ uv add langgraph-checkpoint-postgres # production persistence
 
 | Component | Best for |
 |-----------|----------|
-| `ChatPromptTemplate` | Structuring LLM input with variables and roles |
-| LCEL chains (<code>&#124;</code>) | Linear pipelines: prompt → model → parser |
-| `StrOutputParser` | Extracting plain text from model responses |
-| RAG retrieval chain | Grounding answers in custom documents |
-| Agents + Tools | Dynamic multi-step reasoning, API calls |
-| `ConversationBufferMemory` | Short conversation history |
-| LangGraph `StateGraph` | Complex agents with loops, branching, human-in-the-loop |
+| [`ChatPromptTemplate`](01-models-prompts-parsers.md) | Structuring LLM input with variables and roles |
+| [LCEL chains](02-lcel-chains.md) (<code>&#124;</code>) | Linear pipelines: prompt → model → parser |
+| [`StrOutputParser`](01-models-prompts-parsers.md) | Extracting plain text from model responses |
+| [RAG retrieval chain](03-rag-retrieval.md) | Grounding answers in custom documents |
+| [Agents + Tools](04-agents-tools.md) | Dynamic multi-step reasoning, API calls |
+| [`ConversationBufferMemory`](05-memory-state.md) | Short conversation history |
+| [LangGraph `StateGraph`](../langgraph/index.md) | Complex agents with loops, branching, human-in-the-loop |
 
 ## Section Map
 

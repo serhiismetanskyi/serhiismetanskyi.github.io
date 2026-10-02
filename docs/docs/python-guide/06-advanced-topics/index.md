@@ -16,16 +16,16 @@ This section covers powerful Python features that make your code more elegant an
 |------|-------------------|
 | [**Decorators & Generators**](01-decorators-generators.md) | Function decorators, `yield`, lazy evaluation |
 | [**Context Managers & Async**](02-context-managers-async.md) | Custom context managers, `async/await` |
-| **Performance** | Profiling, optimization, efficient data structures |
+| [**Performance**](03-performance.md) | Profiling, optimization, efficient data structures |
 
 ---
 
 ## Key Points
 
-- **Decorators** add behavior to functions without changing them
-- **Generators** save memory by producing values one at a time
-- **Context managers** ensure proper cleanup (files, connections)
-- **Async** speeds up I/O-heavy tasks (API calls, file reads)
+- [**Decorators**](01-decorators-generators.md) add behavior to functions without changing them
+- [**Generators**](01-decorators-generators.md) save memory by producing values one at a time
+- [**Context managers**](02-context-managers-async.md) ensure proper cleanup (files, connections)
+- [**Async**](02-context-managers-async.md) speeds up I/O-heavy tasks (API calls, file reads)
 
 ## Sections
 

@@ -181,7 +181,7 @@ expect(locator).to_be_checked()
 2. **Never use `time.sleep`** — Playwright auto-waits for elements.
 3. **Use `expect()` assertions** — auto-retry until condition met.
 4. **One behavior per test** — isolated, independent tests.
-5. **Page Object Model** for real projects — maintainable locators.
+5. [**Page Object Model**](03-page-objects.md) for real projects — maintainable locators.
 6. **Mock external APIs** — `page.route()` for stability and speed.
 7. **Trace on failure** — `--tracing retain-on-failure` for debugging.
 

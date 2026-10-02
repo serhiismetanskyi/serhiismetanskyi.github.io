@@ -12,8 +12,8 @@ tags:
 A **harness** is everything around the model that turns it into a working system.
 The word is used for two different things, and both matter to QA engineers:
 
-- **Agent harness** — the runtime that lets a model act as an agent: the loop, tools, context, memory, permissions, sandbox.
-- **Evaluation harness** — the infrastructure that runs evals end to end: tasks, trials, graders, metrics, reports.
+- [**Agent harness**](01-agent-harness-concepts.md) — the runtime that lets a model act as an agent: the loop, tools, context, memory, permissions, sandbox.
+- [**Evaluation harness**](03-eval-harness-concepts.md) — the infrastructure that runs evals end to end: tasks, trials, graders, metrics, reports.
 
 > "Agent = model + harness." — LangChain
 

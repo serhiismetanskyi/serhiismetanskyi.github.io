@@ -23,11 +23,11 @@ This section covers features that make pipelines flexible and powerful: paramete
 
 ## When to Use Advanced Features
 
-- **Parameters** — when users need to customize builds (e.g. target environment)
-- **Credentials** — when pipeline needs secrets (API keys, passwords)
-- **When conditions** — when stages should run only in specific cases
-- **Parallel** — when independent stages can run at the same time
-- **Shared Libraries** — when 3+ pipelines share common logic
+- [**Parameters**](01-parameters-environment.md) — when users need to customize builds (e.g. target environment)
+- [**Credentials**](01-parameters-environment.md#credentials) — when pipeline needs secrets (API keys, passwords)
+- [**When conditions**](02-when-parallel.md) — when stages should run only in specific cases
+- [**Parallel**](02-when-parallel.md) — when independent stages can run at the same time
+- [**Shared Libraries**](03-shared-libraries.md) — when 3+ pipelines share common logic
 
 ---
 ## See also

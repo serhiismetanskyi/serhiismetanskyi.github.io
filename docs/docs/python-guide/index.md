@@ -31,12 +31,12 @@ This guide covers Python from environment setup to advanced topics. Every sectio
 | Area | Tool |
 |------|------|
 | Runtime | Python 3.12+ |
-| Package Manager | `uv` |
-| Testing | `pytest` |
-| API Testing | `requests`, `httpx`, `pydantic` |
-| UI Testing | `playwright` (preferred), `selenium` (legacy) |
-| Linting | `ruff`, `mypy` |
-| CI/CD | GitHub Actions, GitLab CI |
+| Package Manager | [`uv`](../libs/uv/index.md) |
+| Testing | [`pytest`](../libs/pytest/index.md) |
+| API Testing | [`requests`](../libs/requests-http/index.md), [`httpx`](../libs/httpx/index.md), [`pydantic`](../libs/pydantic/index.md) |
+| UI Testing | [`playwright`](../libs/playwright/index.md) (preferred), `selenium` (legacy) |
+| Linting | [`ruff`, `mypy`](../libs/code-quality/index.md) |
+| CI/CD | GitHub Actions, GitLab CI — see [CI/CD Approaches](../ci-cd-approaches/index.md) |
 
 ---
 
