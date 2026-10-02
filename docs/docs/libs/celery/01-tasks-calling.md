@@ -325,3 +325,4 @@ The caller still sends a **dict** (`model.model_dump()`); passing the model obje
 - [Celery — Testing Celery Code](./05-testing.md)
 - [Pydantic](../pydantic/index.md)
 - [FastAPI — Production Patterns](../fastapi/06-production-patterns.md)
+- [Resilience — Retries, Fallbacks, Semaphores & Race Conditions](../resilience/index.md)

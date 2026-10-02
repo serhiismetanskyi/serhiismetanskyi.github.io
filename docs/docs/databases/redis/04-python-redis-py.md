@@ -276,3 +276,4 @@ Tracing: `opentelemetry-instrumentation-redis` creates a client span per command
 - [Redis — Testing Setup & Isolation](./06-testing-setup-isolation.md)
 - [FastAPI — Modern Async Web Framework](../../libs/fastapi/index.md)
 - [SQLAlchemy — Python ORM & SQL Toolkit](../../libs/sqlalchemy/index.md)
+- [Resilience — Retries, Fallbacks, Semaphores & Race Conditions](../../libs/resilience/index.md)

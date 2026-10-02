@@ -29,6 +29,7 @@ Practical guides for key Python libraries: core API, patterns, and production be
 | [Guardrails AI](./guardrails/index.md) | LLM guards: validators, on-fail actions, structured output, PII/jailbreak/toxicity checks, server, testing |
 | [LiteLLM](./litellm/index.md) | LLM gateway: one API for 100+ providers, tools, structured output, router, fallbacks, proxy, cost tracking |
 | [OpenTelemetry](./opentelemetry/index.md) | Observability: traces, metrics, logs, auto-instrumentation, Collector, testing with spans |
+| [Resilience](./resilience/index.md) | Retries and backoff with jitter, tenacity / stamina / backoff, timeouts and deadlines, fallbacks, circuit breakers, bulkheads, semaphores and rate limits, race conditions (threads, asyncio, free-threaded Python, SQL), testing with pytest |
 | [Code Quality](./code-quality/index.md) | Linters, formatters, type checkers, pre-commit hooks, test coverage, mutation testing |
 
 ---

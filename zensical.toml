@@ -860,6 +860,15 @@ nav = [
         { "Requests — Fundamentals & Methods" = "docs/libs/requests-http/01-fundamentals-methods.md" },
         { "Requests — Advanced Patterns & Best Practices" = "docs/libs/requests-http/02-advanced-patterns.md" },
       ] },
+      { "Resilience" = [
+        "docs/libs/resilience/index.md",
+        { "Resilience — Retries & Backoff" = "docs/libs/resilience/01-retries-backoff.md" },
+        { "Resilience — Retry Libraries" = "docs/libs/resilience/02-retry-libraries.md" },
+        { "Resilience — Timeouts, Fallbacks & Circuit Breakers" = "docs/libs/resilience/03-timeouts-fallbacks-breakers.md" },
+        { "Resilience — Semaphores & Rate Limits" = "docs/libs/resilience/04-semaphores-rate-limits.md" },
+        { "Resilience — Race Conditions" = "docs/libs/resilience/05-race-conditions.md" },
+        { "Resilience — Testing Resilience Code" = "docs/libs/resilience/06-testing.md" },
+      ] },
       { "SQLAlchemy" = [
         "docs/libs/sqlalchemy/index.md",
         { "SQLAlchemy — Engine & Models" = "docs/libs/sqlalchemy/01-engine-models.md" },

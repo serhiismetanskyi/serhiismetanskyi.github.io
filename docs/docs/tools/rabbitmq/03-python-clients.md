@@ -238,3 +238,4 @@ def on_message(ch, method, properties, body):
 - [RabbitMQ — Testing RabbitMQ-Based Systems](./04-testing.md)
 - [Celery — Distributed Task Queue for Python](../../libs/celery/index.md)
 - [Queues vs Streams: Message Delivery, Ordering & Reliability](../../software-design-patterns/05-composition-architectural/04-queues-streams-messaging.md)
+- [Resilience — Retries, Fallbacks, Semaphores & Race Conditions](../../libs/resilience/index.md)

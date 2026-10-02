@@ -342,3 +342,4 @@ except GraphRecursionError as exc:
 - [LangGraph — Multi-Agent Patterns](./04-multi-agent-patterns.md)
 - [LangChain — Models, Prompts & Parsers](../langchain/01-models-prompts-parsers.md)
 - [HTTPX](../httpx/index.md)
+- [Resilience — Retries, Fallbacks, Semaphores & Race Conditions](../resilience/index.md)
