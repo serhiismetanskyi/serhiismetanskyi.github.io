@@ -960,6 +960,11 @@ toggle.name = "Switch to system preference"
 generator = false             # no «Made with Zensical»
 subtitle = "Software Test & Automation Engineer"   # next to the site name in the header, and in the footer
 
+# Google Analytics (gtag.js) on every page; with navigation.instant it also counts page changes without a reload
+[project.extra.analytics]
+provider = "google"
+property = "G-0BTQB6Y7H3"
+
 # Projects: cards on the home page (first 3), /projects/, category and archive pages, and the CV list
 # (partials/project-cards.html), newest first. Each one has its own page docs/projects/<slug>.md (template: project.html)
 
