@@ -16,3 +16,6 @@ __pycache__/
 *.swp
 .DS_Store
 Thumbs.db
+
+# Search Console exports
+*.xlsx

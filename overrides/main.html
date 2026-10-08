@@ -42,6 +42,11 @@
 {#- Link previews (Open Graph / X), article dates and tags, and JSON-LD for search engines.
     Post image: `image:` in front matter -#}
 {% block extrahead %}
+  {#- Fallback for visitors and bots that reach the site over plain http: the server (Cloudflare) should redirect to https,
+      this only covers the production host and leaves local `zensical serve` alone -#}
+  <script>
+    if (location.protocol === "http:" && location.hostname === "serhiismetanskyi.com") location.replace("https:" + location.href.substring(location.protocol.length))
+  </script>
   {% import "partials/seo.html" as seo %}
   {#- Project pages: every project's tags, for the «Tags» cloud in the left menu (js/blog-tags.js) -#}
   {% if page and page.url is startingwith("projects/") and config.extra.projects %}
