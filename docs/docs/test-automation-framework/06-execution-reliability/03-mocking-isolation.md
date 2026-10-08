@@ -183,3 +183,4 @@ No mocking. No shared state with other developers. Fully isolated.
 - [Kafka — Testing Kafka-Based Systems](../../tools/kafka/05-testing-kafka-systems.md)
 - [Redis — Testing Setup & Isolation](../../databases/redis/06-testing-setup-isolation.md)
 - [RabbitMQ — Testing RabbitMQ-Based Systems](../../tools/rabbitmq/04-testing.md)
+- [Modular Integration vs Unit — What Each Test Catches](../../testing-pyramid/05-modular-integration-vs-unit/03-what-each-test-catches.md)

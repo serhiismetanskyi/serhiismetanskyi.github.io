@@ -17,6 +17,5 @@ Feel free to reach out about QA, test automation, AI testing, or anything from t
 - [<span class="contact-icon">:fontawesome-brands-telegram:</span><span class="contact-text"><span class="contact-label">Telegram</span><span class="contact-value">@serhiismetanskyi</span></span>](https://t.me/serhiismetanskyi){ target=_blank }
 - [<span class="contact-icon">:fontawesome-brands-github:</span><span class="contact-text"><span class="contact-label">GitHub</span><span class="contact-value">github.com/serhiismetanskyi</span></span>](https://github.com/serhiismetanskyi){ target=_blank }
 - [<span class="contact-icon">:fontawesome-brands-medium:</span><span class="contact-text"><span class="contact-label">Medium</span><span class="contact-value">serhiismetanskyi.medium.com</span></span>](https://serhiismetanskyi.medium.com/){ target=_blank }
-- [<span class="contact-icon">:fontawesome-brands-substack:</span><span class="contact-text"><span class="contact-label">Substack</span><span class="contact-value">serhiismetanskyi.substack.com</span></span>](https://serhiismetanskyi.substack.com/){ target=_blank }
 
 </div>

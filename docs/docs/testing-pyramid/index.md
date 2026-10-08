@@ -64,6 +64,16 @@ Based on: [The Testing Pyramid: Everybody Knows It, Nobody Follows It](https://m
 |------|--------|
 | [Shape, Anti-Patterns & Alternatives](./04-pyramid-strategy/01-shape-antipatterns-alternatives.md) | Ice cream cone, Testing Trophy, microservice contracts, CI timing |
 
+### 5. [Modular Integration vs Unit](05-modular-integration-vs-unit/index.md)
+
+| File | Topics |
+|------|--------|
+| [Concepts & Boundaries](./05-modular-integration-vs-unit/01-concepts-boundaries.md) | Module, solitary vs sociable unit tests, narrow vs broad integration, where test doubles go |
+| [One Feature, Both Ways](./05-modular-integration-vs-unit/02-one-feature-both-ways.md) | Orders module tested with unit tests, mocks, and through its Python API and HTTP |
+| [What Each Test Catches](./05-modular-integration-vs-unit/03-what-each-test-catches.md) | Six changes run against both suites, contract tests for fakes, speed |
+| [Database, Isolation & CI](./05-modular-integration-vs-unit/04-database-isolation-ci.md) | Testcontainers, database per xdist worker, TRUNCATE vs rollback, GitHub Actions |
+| [Strategy & Mistakes](./05-modular-integration-vs-unit/05-strategy-mistakes.md) | Which test for which code, the mix per module, mistakes, checklist |
+
 ---
 
 ## Quick Decision Guide
@@ -76,6 +86,7 @@ Based on: [The Testing Pyramid: Everybody Knows It, Nobody Follows It](https://m
 | User completes a full workflow in browser | E2E |
 | Field-level form validation in the UI | Unit (not E2E) |
 | Auth contract between two services | Integration (contract) |
+| One module end to end, real DB, fake neighbours | [Modular integration](05-modular-integration-vs-unit/index.md) |
 
 ---
 

@@ -26,7 +26,6 @@ Software Test & Automation Engineer focused on testing AI systems and building A
 [:fontawesome-brands-linkedin:](https://www.linkedin.com/in/serhiismetanskyi){ title="LinkedIn" aria-label="LinkedIn" target=_blank }
 [:fontawesome-brands-telegram:](https://t.me/serhiismetanskyi){ title="Telegram" aria-label="Telegram" target=_blank }
 [:fontawesome-brands-medium:](https://serhiismetanskyi.medium.com/){ title="Medium" aria-label="Medium" target=_blank }
-[:fontawesome-brands-substack:](https://serhiismetanskyi.substack.com/){ title="Substack" aria-label="Substack" target=_blank }
 [:material-email-outline:](mailto:smetanskyi@proton.me){ title="Email" aria-label="Email" }
 
 </div>

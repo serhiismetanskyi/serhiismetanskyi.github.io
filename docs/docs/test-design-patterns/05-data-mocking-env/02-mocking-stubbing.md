@@ -149,3 +149,7 @@ def test_retries_on_503(order_service):
 | Replace DB for full suite | Fake |
 | Simulate network failure | Stub / HTTPXMock |
 | Test real DB queries | Testcontainers (real DB) |
+
+---
+## See also
+- [Modular Integration vs Unit — Concepts & Boundaries](../../testing-pyramid/05-modular-integration-vs-unit/01-concepts-boundaries.md)

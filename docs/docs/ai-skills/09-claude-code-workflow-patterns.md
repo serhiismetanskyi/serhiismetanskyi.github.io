@@ -189,3 +189,4 @@ Parallel agents run with independent context and dependencies (exact concurrency
 - [Claude Code Hooks & Agents](08-claude-code-hooks-agents.md)
 - [Model Context Protocol (MCP)](11-mcp-protocol.md)
 - [AI Skills for Coding Agents](index.md)
+- [Claude Code — What's New in 2026](21-claude-code-whats-new-2026.md)

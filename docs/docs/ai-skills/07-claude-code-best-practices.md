@@ -1,5 +1,6 @@
 ---
 date: 2026-06-25
+updated: 2026-10-07
 tags:
   - ai-agents
   - coding-agents
@@ -105,11 +106,13 @@ Emphasis keywords (use sparingly — if everything is critical, nothing stands o
 
 ### Priority Order (highest → lowest)
 
-1. Command line arguments
-2. `.claude/settings.local.json` (personal, git-ignored)
-3. `.claude/settings.json` (team-shared, committed)
-4. `~/.claude/settings.local.json` (personal global)
-5. `~/.claude/settings.json` (global default)
+1. Managed settings (`managed-settings.json`, MDM policy, or server-managed) — cannot be overridden
+2. Command line: `claude --settings <file-or-json>` for one session
+3. `.claude/settings.local.json` (personal, git-ignored)
+4. `.claude/settings.json` (team-shared, committed)
+5. `~/.claude/settings.json` (personal, every project)
+
+There is no `~/.claude/settings.local.json`. List keys such as `permissions.allow` merge across files instead of overriding. Every key, its scope and default: [Claude Code — Settings Reference](20-claude-code-settings-reference.md).
 
 ### Permissions
 
@@ -132,20 +135,20 @@ Emphasis keywords (use sparingly — if everything is critical, nothing stands o
 }
 ```
 
-Evaluation order: **deny → ask → allow**. First matching rule wins.
+Evaluation order: **deny → ask → allow**. A deny rule from any file wins, and deny rules apply in every mode, including `bypassPermissions`.
 
 ### Permission Modes
 
 | Mode | Behavior |
 |---|---|
-| `default` | Prompts on first use of each tool |
-| `acceptEdits` | Auto-accepts file edits; still asks for bash commands |
-| `plan` | Read-only analysis, no modifications |
-| `auto` | Background classifier auto-approves safe actions (Team+ plan) |
-| `dontAsk` | Only pre-approved tools run; everything else denied (CI/CD) |
-| `bypassPermissions` | All checks disabled (isolated containers only) |
+| `default` (shown as **Manual**) | Only reads run without asking; everything else prompts |
+| `acceptEdits` | Reads, file edits and common filesystem commands (`mkdir`, `mv`, `cp`); other commands still prompt |
+| `plan` | Read-only analysis and a plan; no edits until you approve it |
+| `auto` | Everything runs, checked by a background safety classifier. The default starting mode from v2.1.283 (earlier: Pro, Max and Team plans) |
+| `dontAsk` | Only pre-approved tools run; anything that would prompt is denied (CI/CD) |
+| `bypassPermissions` | All checks disabled except deny rules (isolated containers and VMs only) |
 
-Switch during session: press **Shift+Tab** in CLI.
+Switch during a session: press **Shift+Tab** in the CLI. Start in a mode: `claude --permission-mode plan`. Make it the default: `"permissions": {"defaultMode": "plan"}`.
 
 ---
 
@@ -192,3 +195,4 @@ Modular instructions: `code-style.md`, `testing.md`, `api-conventions.md`, `secu
 - [Claude Code Hooks & Agents](08-claude-code-hooks-agents.md)
 - [Model Context Protocol (MCP)](11-mcp-protocol.md)
 - [Cross-Agent Compatibility](06-cross-agent-compatibility.md)
+- [Claude Code Settings Reference](20-claude-code-settings-reference.md)

@@ -1,0 +1,13 @@
+{#- Social icons under the author's name in the left sidebar of blog posts (blog-post.html) and project pages
+    (project.html). The links come from `extra.social` in zensical.toml, the same list as the footer -#}
+{% if config.extra.social %}
+  <span class="author-social">
+    {% for social in config.extra.social %}
+      {% set external = social.link is startingwith("http") %}
+      <a href="{{ social.link }}" title="{{ social.name }}" aria-label="{{ social.name }}"
+        {%- if external %} target="_blank" rel="noopener"{% endif %}>
+        {% include ".icons/" ~ social.icon ~ ".svg" %}
+      </a>
+    {% endfor %}
+  </span>
+{% endif %}

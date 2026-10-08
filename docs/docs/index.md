@@ -91,7 +91,7 @@ SKILL.md standard, universal standard (2026), practical playbook, …
 - [Orchestration & Workflows](ai-skills/04-orchestration-workflows.md)
 - [Evaluation & Security](ai-skills/05-evaluation-security.md)
 - [Cross-Agent Compatibility](ai-skills/06-cross-agent-compatibility.md)
-- [All 19 sections](ai-skills/index.md){ .kb-more }
+- [All 21 sections](ai-skills/index.md){ .kb-more }
 
 </div>
 
@@ -221,12 +221,13 @@ POM, Screenplay, Data Builder, API test patterns, mocking, execution, reliabilit
 
 ### :material-triangle-outline: [Testing Pyramid](testing-pyramid/index.md)
 
-Unit / Integration / E2E strategy, common mistakes per level, anti-patterns
+Unit / Integration / E2E strategy, common mistakes per level, anti-patterns, modular integration vs unit tests
 
 - [Unit Tests](testing-pyramid/01-unit-tests/index.md)
 - [Integration Tests](testing-pyramid/02-integration-tests/index.md)
 - [E2E Tests](testing-pyramid/03-e2e-tests/index.md)
 - [Pyramid Strategy](testing-pyramid/04-pyramid-strategy/index.md)
+- [Modular Integration vs Unit](testing-pyramid/05-modular-integration-vs-unit/index.md)
 
 </div>
 

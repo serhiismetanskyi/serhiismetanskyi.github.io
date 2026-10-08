@@ -1,5 +1,6 @@
 ---
 date: 2026-06-28
+updated: 2026-10-07
 tags:
   - ai-agents
   - coding-agents
@@ -106,10 +107,13 @@ Commands you run **before** entering interactive mode:
 | `claude -c` | Continue most recent conversation. | `claude -c` |
 | `claude -r "name"` | Resume session by ID or name. | `claude -r auth-refactor` |
 | `claude --model name` | Start with specific model. | `claude --model opus` |
-| `claude --enable-auto-mode` | Enable auto-approve mode (no confirmations). | For trusted automation |
+| `claude --permission-mode auto` | Start in auto mode (classifier approves safe actions). `--enable-auto-mode` was removed in v2.1.111. | `claude --permission-mode plan` |
+| `claude --settings file-or-json` | Extra settings for this session only. | `claude --settings '{"model":"sonnet"}'` |
+| `claude -p "query"` | Run once without a session (scripts, CI). | `claude -p "list endpoints" --output-format json` |
+| `claude update` | Update to the latest version. | `claude update` |
 | `claude auth login` | Authenticate from terminal. | `claude auth login` |
 | `claude mcp` | Configure MCP servers. | `claude mcp add github` |
-| `claude agents` | List configured subagents. | `claude agents` |
+| `claude agents` | Open agent view: monitor and dispatch parallel background sessions. | `claude agents --json` |
 
 ---
 
@@ -158,3 +162,5 @@ Commands you run **before** entering interactive mode:
 - [Claude Code Advanced Config](10-claude-code-advanced-config.md)
 - [Claude Code Hooks & Agents](08-claude-code-hooks-agents.md)
 - [Claude Code cheatsheet (official)](https://support.claude.com/en/articles/14553413-claude-code-cheatsheet)
+- [Claude Code Settings Reference](20-claude-code-settings-reference.md)
+- [Claude Code — What's New in 2026](21-claude-code-whats-new-2026.md)

@@ -205,6 +205,8 @@ nav = [
       { "Building Skills for Claude: Practical Playbook" = "docs/ai-skills/17-building-skills-for-claude-playbook.md" },
       { "Skills Troubleshooting & Checklists" = "docs/ai-skills/18-skills-troubleshooting-checklists.md" },
       { "Claude Code Commands Reference" = "docs/ai-skills/19-claude-code-commands-reference.md" },
+      { "Claude Code Settings Reference" = "docs/ai-skills/20-claude-code-settings-reference.md" },
+      { "Claude Code — What's New in 2026" = "docs/ai-skills/21-claude-code-whats-new-2026.md" },
     ] },
     { "AI Harness" = [
       "docs/ai-harness/index.md",
@@ -344,6 +346,14 @@ nav = [
       { "Pyramid Strategy" = [
         "docs/testing-pyramid/04-pyramid-strategy/index.md",
         { "Pyramid Shape, Anti-Patterns & Alternatives" = "docs/testing-pyramid/04-pyramid-strategy/01-shape-antipatterns-alternatives.md" },
+      ] },
+      { "Modular Integration vs Unit" = [
+        "docs/testing-pyramid/05-modular-integration-vs-unit/index.md",
+        { "Modular Integration vs Unit — Concepts & Boundaries" = "docs/testing-pyramid/05-modular-integration-vs-unit/01-concepts-boundaries.md" },
+        { "Modular Integration vs Unit — One Feature, Both Ways" = "docs/testing-pyramid/05-modular-integration-vs-unit/02-one-feature-both-ways.md" },
+        { "Modular Integration vs Unit — What Each Test Catches" = "docs/testing-pyramid/05-modular-integration-vs-unit/03-what-each-test-catches.md" },
+        { "Modular Integration vs Unit — Database, Isolation & CI" = "docs/testing-pyramid/05-modular-integration-vs-unit/04-database-isolation-ci.md" },
+        { "Modular Integration vs Unit — Strategy & Mistakes" = "docs/testing-pyramid/05-modular-integration-vs-unit/05-strategy-mistakes.md" },
       ] },
     ] },
     { "Test Automation Framework" = [
@@ -1068,11 +1078,6 @@ name = "Telegram"
 icon = "fontawesome/brands/medium"
 link = "https://serhiismetanskyi.medium.com/"
 name = "Medium"
-
-[[project.extra.social]]
-icon = "fontawesome/brands/substack"
-link = "https://serhiismetanskyi.substack.com/"
-name = "Substack"
 
 [[project.extra.social]]
 icon = "fontawesome/solid/envelope"
