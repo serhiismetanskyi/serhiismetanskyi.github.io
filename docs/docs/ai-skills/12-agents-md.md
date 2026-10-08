@@ -1,5 +1,6 @@
 ---
 date: 2026-06-27
+updated: 2026-10-09
 tags:
   - ai-agents
   - coding-agents
@@ -145,7 +146,7 @@ Fix: replace prose with commands, number priorities explicitly.
 | **Amp** | `AGENTS.md` | Yes (co-created the standard) |
 | **Gemini CLI** | `GEMINI.md` | Configurable via settings.json |
 | **Zed** | `.rules` | Yes (priority 7 of 9) |
-| **Claude Code** | `CLAUDE.md` | No (use symlink: `ln -s AGENTS.md CLAUDE.md`) |
+| **Claude Code** | `CLAUDE.md`; reads `AGENTS.md` when no `CLAUDE.md` exists (v2.1.277+) | Yes, with one caveat: if a `CLAUDE.md` or `CLAUDE.local.md` is present, only the `CLAUDE.md` files load. Import it (`@AGENTS.md`) or set **Project instructions** in `/config` to `claude-md-and-agents-md` |
 | **Aider** | `CONVENTIONS.md` | Manual (`--read AGENTS.md`) |
 
 **Strategy**: write `AGENTS.md` as the canonical source. Mirror to tool-specific files; never maintain parallel copies that drift.

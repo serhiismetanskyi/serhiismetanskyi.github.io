@@ -39,7 +39,9 @@ Skills work as an **open standard** across Claude Code, GitHub Copilot, Cursor, 
 | [Skills Troubleshooting & Checklists](18-skills-troubleshooting-checklists.md) | Pre-build and rollout checklists, failure diagnosis, trigger tuning, MCP debugging, proven workflow patterns |
 | [Claude Code Commands Reference](19-claude-code-commands-reference.md) | All built-in slash commands, keyboard shortcuts, CLI flags, common workflows |
 | [Claude Code Settings Reference](20-claude-code-settings-reference.md) | Every `settings.json` key (243) with scope, type and default; files, precedence, recipes |
-| [Claude Code — What's New in 2026](21-claude-code-whats-new-2026.md) | v2.1.117 → v2.1.293: agent map, agent view, agent teams, workflows, projects, auto mode by default, new models, mods, breaking changes |
+| [Claude Code — Parallel Agents](21-claude-code-parallel-agents.md) | Subagents, agent view, agent map, agent teams, dynamic workflows, projects, worktrees |
+| [Building Subagents in Claude Code](23-building-subagents-in-claude-code.md) | Designing custom agents: description, prompt, tools, models, skills, MCP, hooks, memory, invoking, testing, best practices |
+| [Claude Code — Mods, Artifacts, Channels & Remote Sessions](22-claude-code-mods-artifacts-remote.md) | Mods, artifacts, channels, Remote Control, scheduling, deep links, self-hosted runner, Chrome |
 
 ---
 

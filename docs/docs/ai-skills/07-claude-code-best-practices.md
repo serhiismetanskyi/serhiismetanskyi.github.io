@@ -54,6 +54,8 @@ Claude reads `CLAUDE.md` at the start of every session. It is the single highest
 | `./src/CLAUDE.md` | Directory-specific (monorepos) | committed to git |
 | `CLAUDE.local.md` | Project (personal overrides) | git-ignored |
 
+**`AGENTS.md`**: with no `CLAUDE.md` or `CLAUDE.local.md` in the working directory or above, Claude Code reads `AGENTS.md` (and `.claude/AGENTS.md`) as the project instructions (v2.1.277+). With both present it reads only the `CLAUDE.md` files — import `AGENTS.md` from `CLAUDE.md` with `@AGENTS.md`, or change **Project instructions** in `/config`. `/doctor prompt-audit` checks CLAUDE.md, AGENTS.md, skills and agents for instructions written for older models.
+
 ### Structure: Five Sections
 
 ```markdown

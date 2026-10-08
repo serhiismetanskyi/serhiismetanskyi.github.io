@@ -78,6 +78,10 @@ Three levels of nesting: **event** → **matcher group** → **handlers**:
 - **`async: true`** — run a command hook in the background without blocking the turn.
 - There is no `$FILE` variable: read the tool input from stdin (`jq -r '.tool_input.file_path'`). `$CLAUDE_PROJECT_DIR` points to the project root.
 - `/hooks` shows every configured hook and where it came from; `"disableAllHooks": true` turns off non-managed hooks.
+- **Hyphenated matchers match exactly**: `code-reviewer` or `mcp__brave-search` match only that name. To match a whole MCP server write a regular expression, `mcp__brave-search__.*`.
+- A hook handler can call an MCP tool with `"type": "mcp_tool"`; `PostToolUse` can replace a tool's output with `hookSpecificOutput.updatedToolOutput`; `PreModelSwitch` / `PostModelSwitch` fire around a model change.
+- `{…}` on stdout that is not valid JSON is reported as a hook error, and `<system-reminder>` tags in hook output are escaped before they reach Claude.
+- **Trust**: frontmatter hooks in an agent file need the folder's workspace trust, and `allowedHttpHookUrls` / `httpHookAllowedEnvVars` limit where HTTP hooks may send data.
 
 ### Exit Codes
 
@@ -152,14 +156,18 @@ Blocks any bash command that might expose secrets.
 
 ## Agent Personas (`.claude/agents/`)
 
-Isolated reviewers with specific perspectives. Each `.md` file defines a persona:
+Isolated reviewers with specific perspectives. Each `.md` file defines a persona. The file **must** start with YAML frontmatter containing `name` and `description` — a file without them is skipped silently. The three below are minimal read-only personas; how to design, scope and test agents is in [Building Subagents in Claude Code](23-building-subagents-in-claude-code.md).
 
 ### Code Reviewer
 
 ```markdown
-# Code Reviewer
+---
+name: code-reviewer
+description: Senior-level code review for correctness, security, testability, readability and performance. Use proactively after writing or modifying code.
+tools: Read, Grep, Glob, Bash
+---
 
-You are a Senior Staff Engineer performing code review.
+You are a Senior Staff Engineer performing code review. Run `git diff` first and review only what changed.
 
 ## Review Axes
 1. Correctness — does the code do what it claims?
@@ -175,9 +183,13 @@ For each finding: severity (Nit/Optional/Must-Fix), file:line, description.
 ### Security Auditor
 
 ```markdown
-# Security Auditor
+---
+name: security-auditor
+description: Audits code for injection, auth, secrets and dependency issues. Use before merging changes that touch handlers, auth or configuration.
+tools: Read, Grep, Glob
+---
 
-You are a Security Engineer auditing code for vulnerabilities.
+You are a Security Engineer auditing code for vulnerabilities. Never modify files.
 
 ## Focus Areas
 - Input validation and sanitization
@@ -193,7 +205,11 @@ You are a Security Engineer auditing code for vulnerabilities.
 ### Test Engineer
 
 ```markdown
-# Test Engineer
+---
+name: test-engineer
+description: Reviews test strategy, coverage gaps and flaky patterns. Use when adding or changing tests.
+tools: Read, Grep, Glob, Bash
+---
 
 You are a QA Specialist reviewing test strategy.
 
@@ -205,22 +221,26 @@ You are a QA Specialist reviewing test strategy.
 - Test isolation issues
 ```
 
-Personas run as **subagents** — isolated context, focused perspective, parallel execution.
+Personas run as **subagents** — isolated context, focused perspective, parallel execution. Because the reviewers above list only `Read`, `Grep`, `Glob` (and `Bash` for `git diff`), they cannot edit your code.
 
 ---
 
 ## Subagents — Parallel Specialist Tasks
 
-Claude Code can spawn subagents for specialized parallel work:
+Claude delegates side tasks to subagents, each with its own context window, so search results and logs do not pollute the main session.
 
-| Subagent Type | Purpose |
+| Subagent | Purpose |
 |---|---|
-| `explore` | Fast, read-only codebase exploration (quick/medium/thorough) |
-| `generalPurpose` | Multi-step research and implementation |
-| `shell` | Command execution specialist |
-| `browser-use` | Web automation and testing |
+| **Explore** (built-in) | Fast, read-only codebase search; Claude picks quick / medium / very thorough |
+| **Plan** (built-in) | Research while you are in plan mode |
+| **General-purpose** (built-in) | Multi-step research and implementation |
+| **Your own** (`.claude/agents/*.md`) | The personas above: reviewer, auditor, test engineer |
 
-Subagents get their own context window, preventing context pollution in the main session.
+Frontmatter fields worth knowing: `name`, `description` (when Claude should delegate), `tools` (allowlist; leave out `Agent` to stop nesting), `model`, `omitClaudeMd` (skip CLAUDE.md files for a cheap read-only agent), `hooks` (scoped to this agent while it runs), `mcpServers`, and `experimental.cacheTtl`. Agent names cannot contain `:` — it is reserved for plugin namespacing.
+
+Hooks from settings, managed policy and plugins also run **inside** subagents: `PreToolUse` and `PostToolUse` fire for a subagent's tool calls with `agent_id` and `agent_type` in the input. `SubagentStart` and `SubagentStop` mark its lifetime, and a `SubagentStop` hook can return `hookSpecificOutput.additionalContext` to continue.
+
+Background and foreground runs, nesting depth, forks, agent view, agent teams and workflows are covered in [Claude Code — Parallel Agents](21-claude-code-parallel-agents.md).
 
 ---
 
@@ -244,3 +264,5 @@ Use hooks for anything that **must** happen every time. Use CLAUDE.md for guidan
 - [Model Context Protocol (MCP)](11-mcp-protocol.md)
 - [Evaluation & Security](05-evaluation-security.md)
 - [Claude Code Settings Reference](20-claude-code-settings-reference.md)
+- [Claude Code — Parallel Agents](21-claude-code-parallel-agents.md)
+- [Building Subagents in Claude Code](23-building-subagents-in-claude-code.md)

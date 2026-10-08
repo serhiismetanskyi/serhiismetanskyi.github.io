@@ -1,5 +1,6 @@
 ---
 date: 2026-06-26
+updated: 2026-10-09
 tags:
   - ai-agents
   - coding-agents
@@ -68,8 +69,8 @@ claude mcp add --transport http github --scope project https://api.githubcopilot
 
 | Scope | Flag | Location | Shared? |
 |---|---|---|---|
-| Local (default) | `--scope local` | `.mcp.json` (project root) | git-ignored |
-| Project | `--scope project` | `.mcp.json` (committed) | team |
+| Local (default) | `--scope local` | `~/.claude.json`, under this project's path | private to you, this project only |
+| Project | `--scope project` | `.mcp.json` (committed) | team (each user approves it once) |
 | User | `--scope user` | `~/.claude.json` | all your projects |
 
 ```json
@@ -87,7 +88,25 @@ claude mcp add --transport http github --scope project https://api.githubcopilot
 
 Environment variables: `${VAR}` or `${VAR:-default}`. Never store secrets directly.
 
-MCP tools appear in hook matchers as `mcp__<server>__<tool>` (e.g. `mcp__github__search_repositories`).
+MCP tools appear in hook matchers as `mcp__<server>__<tool>` (e.g. `mcp__github__search_repositories`). A matcher with hyphens such as `mcp__brave-search` matches that exact name; use a regular expression (`mcp__brave-search__.*`) for the whole server.
+
+### Day-to-day commands
+
+| Command | Use |
+|---|---|
+| `claude mcp list` / `get <name>` | Show servers; unapproved `.mcp.json` servers appear as `⏸ Pending approval`, disabled ones as `⊘ Disabled` |
+| `claude mcp login <name>` / `logout <name>` | Run or clear a server's OAuth flow from the shell (`--no-browser` over SSH) |
+| `/mcp` | Panel with tool counts and authentication; `/mcp reconnect all` retries every failed server |
+| `--mcp-config` / `--strict-mcp-config` | Load servers from JSON for one session / use only those |
+
+### Behaviour worth knowing
+
+- **Tool search**: tools from many servers are deferred and found on demand to save context. `"alwaysLoad": true` in a server's config keeps its tools loaded; `false` defers all of them.
+- **Elicitation**: a server can ask you for structured input mid-task; an `Elicitation` hook can answer automatically, and `{"decision":"block"}` declines it.
+- **Long calls**: an MCP tool call running over two minutes moves to the background (`CLAUDE_CODE_MCP_AUTO_BACKGROUND_MS`); a remote call that sits idle for five minutes is aborted (`CLAUDE_CODE_MCP_TOOL_IDLE_TIMEOUT`).
+- **Limits**: server instructions and tool descriptions are capped at 2,048 characters (`CLAUDE_CODE_MAX_MCP_DESCRIPTION_LENGTH`); tools with names over 128 characters are left out.
+- **Trust**: a project `.mcp.json` must be approved by each user, and `headersHelper` and inline agent MCP servers need folder trust.
+- **Organizations**: `allowedMcpServers` / `deniedMcpServers` filter user-added servers, `managedMcpServers` provides HTTP/SSE servers to everyone, `allowManagedMcpServersOnly` and `managed-mcp.json` take exclusive control, and `disableClaudeAiConnectors` / `allowAllClaudeAiMcps` govern claude.ai connectors.
 
 ---
 
@@ -189,3 +208,4 @@ A skill can **reference MCP tools** in its workflow — e.g. a "deploy" skill in
 - [Cross-Agent Compatibility](06-cross-agent-compatibility.md)
 - [Skill Packaging](03-skill-packaging.md)
 - [Agentic AI Architecture: Tool Integration](../agentic-ai-architecture/04-tool-integration-prompting.md)
+- [Claude Code — Mods, Artifacts, Channels & Remote Sessions](22-claude-code-mods-artifacts-remote.md)

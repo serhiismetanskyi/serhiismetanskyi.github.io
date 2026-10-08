@@ -98,3 +98,4 @@ claude_code_project/
 - [Claude Code Hooks & Agents](08-claude-code-hooks-agents.md)
 - [Claude Code Workflow Patterns](09-claude-code-workflow-patterns.md)
 - [AGENTS.md Standard](12-agents-md.md)
+- [Building Subagents in Claude Code](23-building-subagents-in-claude-code.md)

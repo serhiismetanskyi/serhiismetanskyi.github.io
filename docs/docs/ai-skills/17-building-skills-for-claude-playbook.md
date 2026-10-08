@@ -179,3 +179,4 @@ Positioning best practice:
 - [How Agents Load Skills](02-how-agents-load-skills.md)
 - [Skill Packaging](03-skill-packaging.md)
 - [Skills Troubleshooting & Checklists](18-skills-troubleshooting-checklists.md)
+- [Building Subagents in Claude Code](23-building-subagents-in-claude-code.md)

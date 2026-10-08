@@ -91,7 +91,7 @@ SKILL.md standard, universal standard (2026), practical playbook, …
 - [Orchestration & Workflows](ai-skills/04-orchestration-workflows.md)
 - [Evaluation & Security](ai-skills/05-evaluation-security.md)
 - [Cross-Agent Compatibility](ai-skills/06-cross-agent-compatibility.md)
-- [All 21 sections](ai-skills/index.md){ .kb-more }
+- [All 23 sections](ai-skills/index.md){ .kb-more }
 
 </div>
 

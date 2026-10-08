@@ -206,7 +206,9 @@ nav = [
       { "Skills Troubleshooting & Checklists" = "docs/ai-skills/18-skills-troubleshooting-checklists.md" },
       { "Claude Code Commands Reference" = "docs/ai-skills/19-claude-code-commands-reference.md" },
       { "Claude Code Settings Reference" = "docs/ai-skills/20-claude-code-settings-reference.md" },
-      { "Claude Code — What's New in 2026" = "docs/ai-skills/21-claude-code-whats-new-2026.md" },
+      { "Claude Code — Parallel Agents" = "docs/ai-skills/21-claude-code-parallel-agents.md" },
+      { "Claude Code — Mods, Artifacts, Channels & Remote Sessions" = "docs/ai-skills/22-claude-code-mods-artifacts-remote.md" },
+      { "Building Subagents in Claude Code" = "docs/ai-skills/23-building-subagents-in-claude-code.md" },
     ] },
     { "AI Harness" = [
       "docs/ai-harness/index.md",

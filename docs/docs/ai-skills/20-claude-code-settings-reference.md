@@ -527,4 +527,5 @@ More events, handler types and exit-code rules: [Claude Code Hooks & Agent Perso
 - [Claude Code Advanced Configuration](10-claude-code-advanced-config.md)
 - [Claude Code — Commands Reference](19-claude-code-commands-reference.md)
 - [Official settings reference](https://code.claude.com/docs/en/settings-reference)
-- [Claude Code — What's New in 2026](21-claude-code-whats-new-2026.md)
+- [Claude Code — Parallel Agents](21-claude-code-parallel-agents.md)
+- [Claude Code — Mods, Artifacts, Channels & Remote Sessions](22-claude-code-mods-artifacts-remote.md)
