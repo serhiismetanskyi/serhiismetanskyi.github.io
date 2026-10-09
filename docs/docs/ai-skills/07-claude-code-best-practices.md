@@ -192,7 +192,7 @@ Modular instructions: `code-style.md`, `testing.md`, `api-conventions.md`, `secu
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [AGENTS.md Standard](12-agents-md.md)
 - [Claude Code Hooks & Agents](08-claude-code-hooks-agents.md)
 - [Model Context Protocol (MCP)](11-mcp-protocol.md)

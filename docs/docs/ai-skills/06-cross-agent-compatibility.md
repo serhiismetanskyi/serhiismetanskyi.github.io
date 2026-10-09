@@ -203,7 +203,7 @@ The `core/` layer works everywhere. The `adapters/` layer handles platform diffe
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [AGENTS.md Standard](12-agents-md.md)
 - [Model Context Protocol (MCP)](11-mcp-protocol.md)
 - [Evaluation & Security](05-evaluation-security.md)

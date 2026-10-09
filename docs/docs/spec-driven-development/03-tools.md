@@ -152,4 +152,4 @@ the listed edge cases have tests, and nothing outside the task's scope changed.
 - [SDD — Concepts & Workflow](01-concepts-workflow.md)
 - [SDD — Writing Good Specs](02-writing-specs.md)
 - [SDD — Open Knowledge Format (OKF)](05-open-knowledge-format.md)
-- [AI Skills for Coding Agents](../ai-skills/index.md)
+- [AI Coding Agents: Skills & Claude Code](../ai-skills/index.md)

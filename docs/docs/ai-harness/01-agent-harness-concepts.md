@@ -159,4 +159,4 @@ Every line here is a place where the system can fail — and a place you can tes
 - [AI Harness](index.md)
 - [Agent Harness — Patterns & Anti-Patterns](02-agent-harness-patterns.md)
 - [Agentic AI — Fundamentals & Core Components](../agentic-ai-architecture/01-fundamentals-components.md)
-- [AI Skills for Coding Agents](../ai-skills/index.md)
+- [AI Coding Agents: Skills & Claude Code](../ai-skills/index.md)

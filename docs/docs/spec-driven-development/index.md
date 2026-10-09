@@ -66,7 +66,7 @@ flowchart TD
 ---
 ## See also
 - [Digital Garden: Knowledge Base](../index.md)
-- [AI Skills for Coding Agents](../ai-skills/index.md)
+- [AI Coding Agents: Skills & Claude Code](../ai-skills/index.md)
 - [AI Harness](../ai-harness/index.md)
 - [QA & Testing Methodology](../qa-methodology/index.md)
 - [Test Design Techniques](../test-design-techniques/index.md)

@@ -144,4 +144,4 @@ When a change is archived, its delta specs are merged into `openspec/specs/` —
 - [Spec-Driven Development](index.md)
 - [SDD — Writing Good Specs](02-writing-specs.md)
 - [SDD — Tools](03-tools.md)
-- [AI Skills for Coding Agents](../ai-skills/index.md)
+- [AI Coding Agents: Skills & Claude Code](../ai-skills/index.md)

@@ -93,7 +93,7 @@ claude_code_project/
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [Claude Code Best Practices](07-claude-code-best-practices.md)
 - [Claude Code Hooks & Agents](08-claude-code-hooks-agents.md)
 - [Claude Code Workflow Patterns](09-claude-code-workflow-patterns.md)

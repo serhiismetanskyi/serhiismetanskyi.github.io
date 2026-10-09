@@ -166,7 +166,7 @@ They are complementary, not interchangeable.
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [What Is a Skill](01-what-is-a-skill.md)
 - [How Agents Load Skills](02-how-agents-load-skills.md)
 - [Cross-Agent Compatibility](06-cross-agent-compatibility.md)

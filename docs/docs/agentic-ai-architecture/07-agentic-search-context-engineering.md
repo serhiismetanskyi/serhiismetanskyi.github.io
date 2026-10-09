@@ -180,7 +180,7 @@ Mandatory controls for agentic retrieval:
 ---
 
 ## See also
-- [AI Skills for Coding Agents](../ai-skills/index.md)
+- [AI Coding Agents: Skills & Claude Code](../ai-skills/index.md)
 - [Tool Integration & Prompt Engineering](04-tool-integration-prompting.md)
 - [Memory, RAG & Knowledge](03-memory-rag.md)
 - [Testing, Evaluation & Observability](06-testing-observability.md)

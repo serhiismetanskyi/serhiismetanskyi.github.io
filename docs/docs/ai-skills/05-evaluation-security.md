@@ -100,7 +100,7 @@ No owner → no production deployment.
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [AGENTS.md Standard](12-agents-md.md)
 - [Orchestration & Workflows](04-orchestration-workflows.md)
 - [Cross-Agent Compatibility](06-cross-agent-compatibility.md)

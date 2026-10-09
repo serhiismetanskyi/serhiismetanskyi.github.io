@@ -184,7 +184,7 @@ nav = [
       { "Agentic Search & Context Engineering (2025+)" = "docs/agentic-ai-architecture/07-agentic-search-context-engineering.md" },
       { "Vectorless RAG" = "docs/agentic-ai-architecture/08-vectorless-rag.md" },
     ] },
-    { "AI Skills for Coding Agents" = [
+    { "AI Coding Agents: Skills & Claude Code" = [
       "docs/ai-skills/index.md",
       { "What Is a Skill" = "docs/ai-skills/01-what-is-a-skill.md" },
       { "How Agents Load Skills" = "docs/ai-skills/02-how-agents-load-skills.md" },

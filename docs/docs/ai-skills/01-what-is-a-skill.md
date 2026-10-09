@@ -164,6 +164,6 @@ Keep patterns inline when under ~50 lines.
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [How Agents Load Skills](02-how-agents-load-skills.md)
 - [Skill Packaging](03-skill-packaging.md)

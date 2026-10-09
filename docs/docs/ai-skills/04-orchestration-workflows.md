@@ -155,6 +155,6 @@ Return a summary table so users can audit:
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [Skill Packaging](03-skill-packaging.md)
 - [Evaluation & Security](05-evaluation-security.md)

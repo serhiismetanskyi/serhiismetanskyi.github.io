@@ -5,13 +5,16 @@ tags:
   - coding-agents
 ---
 
-# AI Skills for Coding Agents
+# AI Coding Agents: Skills & Claude Code
 
-AI Skills are modular, reusable capabilities that turn general-purpose AI agents into domain specialists.
+How to build and run AI coding agents: **skills** that turn a general-purpose agent into a domain specialist, **Claude Code** in depth (project setup, hooks, subagents, parallel agents, MCP, settings, commands), and the instruction files that make agents portable across tools.
 
-A skill is **not** a prompt. It is a structured package: instructions + optional scripts + reference material + output templates. The agent discovers skills automatically, loads them on demand, and follows their workflows.
+Two layers run through the whole section:
 
-Skills work as an **open standard** across Claude Code, GitHub Copilot, Cursor, Devin Desktop (formerly Windsurf), Codex CLI, and other agents that accept `SKILL.md` files.
+- **Skills** — modular, reusable capabilities. A skill is **not** a prompt: it is a structured package of instructions, optional scripts, reference material and output templates. The agent discovers skills automatically, loads them on demand and follows their workflows. `SKILL.md` is an **open standard** shared by Claude Code, GitHub Copilot, Cursor, Devin Desktop (formerly Windsurf), Codex CLI and other agents.
+- **Agents** — the tools that use them. For Claude Code that means custom subagents, agent view and teams, workflows, hooks, MCP servers, plugins, settings and `AGENTS.md` / `CLAUDE.md`.
+
+Start with [What Is a Skill](01-what-is-a-skill.md) for skills, [Claude Code Best Practices](07-claude-code-best-practices.md) for Claude Code, or [Building Subagents in Claude Code](23-building-subagents-in-claude-code.md) to build your own agents.
 
 ---
 

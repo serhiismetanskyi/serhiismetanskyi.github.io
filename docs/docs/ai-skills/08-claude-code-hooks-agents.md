@@ -259,7 +259,7 @@ Use hooks for anything that **must** happen every time. Use CLAUDE.md for guidan
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [Claude Code Best Practices](07-claude-code-best-practices.md)
 - [Model Context Protocol (MCP)](11-mcp-protocol.md)
 - [Evaluation & Security](05-evaluation-security.md)

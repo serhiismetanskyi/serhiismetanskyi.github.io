@@ -81,9 +81,9 @@ Agent fundamentals, multi-agent patterns, memory/RAG, vectorless RAG, tool integ
 
 <div class="kb-section" markdown>
 
-### :material-brain: [AI Skills for Coding Agents](ai-skills/index.md)
+### :material-brain: [AI Coding Agents: Skills & Claude Code](ai-skills/index.md)
 
-SKILL.md standard, universal standard (2026), practical playbook, …
+Skills (SKILL.md standard, playbook) and Claude Code: subagents, parallel agents, hooks, MCP, settings, commands
 
 - [What Is a Skill](ai-skills/01-what-is-a-skill.md)
 - [How Agents Load Skills](ai-skills/02-how-agents-load-skills.md)

@@ -195,7 +195,7 @@ If the agent can't reproduce your build commands verbatim — the file is too ve
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [Cross-Agent Compatibility](06-cross-agent-compatibility.md)
 - [Claude Code Best Practices](07-claude-code-best-practices.md)
 - [Evaluation & Security](05-evaluation-security.md)

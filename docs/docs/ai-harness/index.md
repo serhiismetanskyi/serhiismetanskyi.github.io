@@ -72,6 +72,6 @@ flowchart TD
 ## See also
 - [Digital Garden: Knowledge Base](../index.md)
 - [Agentic AI Architecture](../agentic-ai-architecture/index.md)
-- [AI Skills for Coding Agents](../ai-skills/index.md)
+- [AI Coding Agents: Skills & Claude Code](../ai-skills/index.md)
 - [DeepEval — LLM Testing Guide](../llm-evaluation/index.md)
 - [OWASP LLM Security](../owasp-llm-security/index.md)

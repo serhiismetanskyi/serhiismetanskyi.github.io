@@ -288,4 +288,4 @@ advisory. Make them errors only for the concepts your specs actually depend on.
 - [Spec-Driven Development](index.md)
 - [SDD — Concepts & Workflow](01-concepts-workflow.md)
 - [SDD — Tools](03-tools.md)
-- [AI Skills for Coding Agents](../ai-skills/index.md)
+- [AI Coding Agents: Skills & Claude Code](../ai-skills/index.md)

@@ -175,7 +175,7 @@ Positioning best practice:
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [How Agents Load Skills](02-how-agents-load-skills.md)
 - [Skill Packaging](03-skill-packaging.md)
 - [Skills Troubleshooting & Checklists](18-skills-troubleshooting-checklists.md)

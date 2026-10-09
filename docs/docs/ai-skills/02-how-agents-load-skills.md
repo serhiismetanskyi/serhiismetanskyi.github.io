@@ -185,6 +185,6 @@ PATTERN TO FOLLOW:
 ---
 
 ## See also
-- [AI Skills for Coding Agents](index.md)
+- [AI Coding Agents: Skills & Claude Code](index.md)
 - [What Is a Skill](01-what-is-a-skill.md)
 - [Cross-Agent Compatibility](06-cross-agent-compatibility.md)

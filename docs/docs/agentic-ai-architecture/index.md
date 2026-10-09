@@ -82,6 +82,6 @@ flowchart TD
 - [DeepEval — LLM Testing Guide](../llm-evaluation/index.md)
 - [API Architectures](../api-architectures/index.md)
 - [LangChain — LLM Application Framework](../libs/langchain/index.md)
-- [AI Skills for Coding Agents](../ai-skills/index.md)
+- [AI Coding Agents: Skills & Claude Code](../ai-skills/index.md)
 - [LangGraph — Stateful Agent Orchestration](../libs/langgraph/index.md)
 - [Agno — Agents, Teams & Workflows in Python](../libs/agno/index.md)
