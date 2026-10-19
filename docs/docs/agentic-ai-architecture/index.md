@@ -85,3 +85,4 @@ flowchart TD
 - [AI Coding Agents: Skills & Claude Code](../ai-skills/index.md)
 - [LangGraph — Stateful Agent Orchestration](../libs/langgraph/index.md)
 - [Agno — Agents, Teams & Workflows in Python](../libs/agno/index.md)
+- [Pydantic AI — Type-Safe Agents in Python](../libs/pydantic-ai/index.md)

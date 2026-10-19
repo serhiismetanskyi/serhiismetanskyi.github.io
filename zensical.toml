@@ -852,6 +852,13 @@ nav = [
         { "Pydantic — Advanced Patterns" = "docs/libs/pydantic/03-advanced-patterns.md" },
         { "Pydantic — Config & Performance" = "docs/libs/pydantic/04-config-performance.md" },
       ] },
+      { "Pydantic AI" = [
+        "docs/libs/pydantic-ai/index.md",
+        { "Pydantic AI — Agents, Tools & Structured Output" = "docs/libs/pydantic-ai/01-agents-tools-output.md" },
+        { "Pydantic AI — Runs, History, Approval & Capabilities" = "docs/libs/pydantic-ai/02-runs-history-capabilities.md" },
+        { "Pydantic AI — Multi-Agent & Graphs" = "docs/libs/pydantic-ai/03-multi-agent-graphs.md" },
+        { "Pydantic AI — Testing, Evals & Observability" = "docs/libs/pydantic-ai/04-testing-evals.md" },
+      ] },
       { "Pytest" = [
         "docs/libs/pytest/index.md",
         { "Core Guides" = [

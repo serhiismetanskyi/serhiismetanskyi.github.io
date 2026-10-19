@@ -26,6 +26,7 @@ Practical guides for key Python libraries: core API, patterns, and production be
 | [LangChain](./langchain/index.md) | LLM framework: models, LCEL chains, RAG, agents, tools, memory, LangGraph, LangSmith |
 | [LangGraph](./langgraph/index.md) | Stateful agent graphs: state and reducers, `Command`/`Send`, checkpointers, `Store`, interrupts, streaming, multi-agent, testing, LangGraph Server |
 | [Agno](./agno/index.md) | Agents, teams and workflows: tools, `output_schema`, human approval, sessions and memory in a `db`, knowledge/RAG, AgentOS, tracing, testing with a scripted model, evals |
+| [Pydantic AI](./pydantic-ai/index.md) | Type-safe agents: `deps` and `RunContext`, tools, `output_type` with validation retries, message history, human approval, MCP, hooks, multi-agent, `pydantic_graph`, testing with `TestModel` / `FunctionModel`, `pydantic-evals`, OpenTelemetry |
 | [Guardrails AI](./guardrails/index.md) | LLM guards: validators, on-fail actions, structured output, PII/jailbreak/toxicity checks, server, testing |
 | [LiteLLM](./litellm/index.md) | LLM gateway: one API for 100+ providers, tools, structured output, router, fallbacks, proxy, cost tracking |
 | [OpenTelemetry](./opentelemetry/index.md) | Observability: traces, metrics, logs, auto-instrumentation, Collector, testing with spans |
