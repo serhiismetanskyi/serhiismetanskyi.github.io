@@ -17,6 +17,7 @@ Practical guides for key Python libraries: core API, patterns, and production be
 | [Pytest](./pytest/index.md) | Testing: fixtures, parametrize, markers, mocking, coverage, plugins, CI patterns |
 | [Playwright](./playwright/index.md) | Browser & API testing: locators, POM, assertions, network mocking, CI |
 | [HTTPX](./httpx/index.md) | Async HTTP client: sync/async, HTTP/2, streaming, concurrency, FastAPI testing |
+| [aiohttp](./aiohttp/index.md) | Async HTTP client and server: `ClientSession`, timeouts, streaming, connector limits, retries, `aiohttp.web`, middleware, WebSockets, testing with `pytest-aiohttp` |
 | [Pydantic](./pydantic/index.md) | Data validation: models, fields, validators, serialization, settings, TypeAdapter |
 | [SQLAlchemy](./sqlalchemy/index.md) | ORM & SQL toolkit: models, relationships, sessions, async, Alembic, performance |
 | [FastAPI](./fastapi/index.md) | Async web framework: routing, DI, auth, DB integration, testing, production, ASGI stack |

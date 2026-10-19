@@ -374,7 +374,7 @@ Docker, Git, Linux Terminal, Kubernetes, Kafka, RabbitMQ, Phoenix, Langfuse, MLf
 
 ### :material-package-variant-closed: [Python Libraries](libs/index.md)
 
-Requests, HTTPX, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Celery, Jinja, uv, LangChain, LangGraph, Agno, Pydantic AI, LiteLLM, Guardrails AI, OpenTelemetry, Resilience, …
+Requests, HTTPX, aiohttp, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Celery, Jinja, uv, LangChain, LangGraph, Agno, Pydantic AI, LiteLLM, Guardrails AI, OpenTelemetry, Resilience, …
 
 - [Agno](libs/agno/index.md)
 - [Celery](libs/celery/index.md)
@@ -382,7 +382,7 @@ Requests, HTTPX, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Celery, Jinj
 - [FastAPI](libs/fastapi/index.md)
 - [HTTPX](libs/httpx/index.md)
 - [Jinja](libs/jinja/index.md)
-- [All 19 sections](libs/index.md){ .kb-more }
+- [All 20 sections](libs/index.md){ .kb-more }
 
 </div>
 

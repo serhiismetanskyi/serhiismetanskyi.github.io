@@ -749,6 +749,12 @@ nav = [
         { "Agno — Testing Agno Apps" = "docs/libs/agno/05-testing.md" },
         { "Agno — API Tests, Evals & CI" = "docs/libs/agno/06-evals-ci.md" },
       ] },
+      { "aiohttp" = [
+        "docs/libs/aiohttp/index.md",
+        { "aiohttp — Client" = "docs/libs/aiohttp/01-client.md" },
+        { "aiohttp — Server & WebSockets" = "docs/libs/aiohttp/02-server-websockets.md" },
+        { "aiohttp — Testing" = "docs/libs/aiohttp/03-testing.md" },
+      ] },
       { "Celery" = [
         "docs/libs/celery/index.md",
         { "Celery — Tasks & Calling" = "docs/libs/celery/01-tasks-calling.md" },

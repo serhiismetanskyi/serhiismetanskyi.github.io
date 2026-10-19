@@ -24,7 +24,7 @@ uv add httpx[http2]   # enable HTTP/2 support
 |---------|----------|
 | `requests` | Scripts, CLI tools, simple sync calls |
 | `httpx` | FastAPI test clients, async apps, HTTP/2, high-concurrency |
-| `aiohttp` | WebSocket clients, custom event loops, async-first legacy |
+| [`aiohttp`](../aiohttp/index.md) | WebSocket clients, async HTTP servers, fine control of the connection pool |
 
 ## Section Map
 
