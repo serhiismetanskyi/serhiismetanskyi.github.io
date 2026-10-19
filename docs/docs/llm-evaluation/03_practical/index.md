@@ -20,6 +20,8 @@ Practical covers LLM quality, RAG, agent, and safety evaluation methods, with fo
 - [Configs Flags Reference](18_configs_flags_reference.md)
 - [Reference Appendix](19_reference_appendix.md)
 - [E2E Complex Tests](20_e2e_complex_tests.md)
+- [What's New in DeepEval 4.x](21_whats_new_4x.md)
+- [Classifiers & Expectations](22_classifiers_expectations.md)
 
 ---
 ## See also

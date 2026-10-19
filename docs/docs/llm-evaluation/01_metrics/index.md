@@ -20,6 +20,7 @@ Metrics covers LLM quality, RAG, agent, and safety evaluation methods, with focu
 - [MCP Metrics](06_mcp_metrics.md)
 - [Extra Metrics](07_extra_metrics.md)
 - [Multimodal Metrics](08_multimodal_metrics.md)
+- [Voice Evaluation](08b_voice_metrics.md)
 
 ---
 ## See also

@@ -319,6 +319,8 @@ evaluate(
 )
 ```
 
+> **Voice agents:** the same `ConversationSimulator` can place simulated phone calls and score the audio, see [Part 8b](08b_voice_metrics.md).
+
 ### Sources
 
 - [Chatbot Evaluation](https://www.confident-ai.com/blog/llm-chatbot-evaluation-explained-top-chatbot-evaluation-metrics-and-testing-techniques)

@@ -324,26 +324,53 @@ for golden in dataset.goldens:
 
 ---
 
-## assert_test with Golden + observed_callback
+## assert_test with Golden + `@observe` (replaces `observed_callback`)
 
-Combine golden input → LLM call → evaluation in one step for CI/CD:
+> **Changed in 3.9.8.** The `observed_callback=` argument of `assert_test()`
+> was removed (`assert_test` now takes `test_case`, `metrics`, `golden`,
+> `run_async` and `classifiers`). The app runs **inside the test body**, is
+> traced by `@observe`, and `assert_test(golden=..., metrics=[...])` evaluates
+> the active trace. Verified on `deepeval==4.3.1`.
 
 ```python
-"""test_agent.py"""
+"""test_agent.py  —  run with: deepeval test run test_agent.py"""
 import pytest
 from deepeval import assert_test
-from deepeval.dataset import EvaluationDataset
+from deepeval.dataset import EvaluationDataset, Golden
+from deepeval.metrics import AgentLoopDetectionMetric
+from deepeval.tracing import observe, update_current_trace
 
-dataset = EvaluationDataset()
-dataset.pull(alias="RAG QA Dataset")
+
+@observe(type="tool")
+def search(q: str) -> str:
+    return "no results"
+
+
+@observe()
+def agent(q: str, repeat: int) -> str:
+    for _ in range(repeat):
+        search(q)
+    update_current_trace(input=q, output="done")
+    return "done"
+
+
+dataset = EvaluationDataset(goldens=[Golden(input="clean"), Golden(input="loopy")])
+
 
 @pytest.mark.parametrize("golden", dataset.goldens)
 def test_agent(golden):
-    assert_test(golden=golden, observed_callback=my_agent.answer)
+    agent(golden.input, 1 if golden.input == "clean" else 5)      # traced by @observe
+    assert_test(golden=golden, metrics=[AgentLoopDetectionMetric(threshold=0.9)])
 ```
 
-`observed_callback` receives `golden.input`, calls your LLM,
-and evaluates the output with metrics from `@observe` decorators.
+Result: `1 failed, 1 passed` — the looping case fails with
+`Agent Loop Detection (score: 0.8, threshold: 0.9, ...) Tool 'search' called 5 times with identical arguments.`
+
+Two rules: call `assert_test(golden=...)` with `deepeval test run` (plain
+`pytest` raises `DeepEvalError: No active trace found for this test`), and
+make sure the test body invokes at least one `@observe`-decorated function.
+For a real app, `agent()` is your LLM entry point; load the dataset with
+`dataset.pull(alias=...)` as before.
 
 ---
 
@@ -390,7 +417,7 @@ Optional cloud platform for centralizing evaluation results:
 deepeval login --save=dotenv:.env
 ```
 
-This adds `CONFIDENT_API_KEY` and `API_KEY` to `.env`. DeepEval auto-reads
+This adds `CONFIDENT_API_KEY` to `.env` (the legacy `API_KEY` alias was removed in 3.9.9). DeepEval auto-reads
 `.env` — no code changes needed. Results appear in the Confident AI dashboard
 (test runs, per-case drilldowns, issue highlighting).
 

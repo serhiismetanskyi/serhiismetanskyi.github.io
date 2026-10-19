@@ -462,6 +462,7 @@ nav = [
         { "DeepEval Guide — Part 6: MCP (Model Context Protocol) Metrics" = "docs/llm-evaluation/01_metrics/06_mcp_metrics.md" },
         { "DeepEval Guide — Part 7: Extra Metrics and Advanced Patterns" = "docs/llm-evaluation/01_metrics/07_extra_metrics.md" },
         { "DeepEval Guide — Part 8: Multimodal (Image) Metrics" = "docs/llm-evaluation/01_metrics/08_multimodal_metrics.md" },
+        { "DeepEval Guide — Part 8b: Voice Evaluation" = "docs/llm-evaluation/01_metrics/08b_voice_metrics.md" },
       ] },
       { "Testing" = [
         "docs/llm-evaluation/02_testing/index.md",
@@ -481,6 +482,8 @@ nav = [
         { "DeepEval Guide — Part 18: Evaluation Configs, Flags & Reference" = "docs/llm-evaluation/03_practical/18_configs_flags_reference.md" },
         { "DeepEval Guide — Part 19: Reference Appendix" = "docs/llm-evaluation/03_practical/19_reference_appendix.md" },
         { "DeepEval Guide — Part 20: End-to-End Complex Tests" = "docs/llm-evaluation/03_practical/20_e2e_complex_tests.md" },
+        { "DeepEval Guide — Part 21: What's New in DeepEval 4.x" = "docs/llm-evaluation/03_practical/21_whats_new_4x.md" },
+        { "DeepEval Guide — Part 22: Classifiers & Expectations" = "docs/llm-evaluation/03_practical/22_classifiers_expectations.md" },
       ] },
     ] },
     { "Performance Testing" = [

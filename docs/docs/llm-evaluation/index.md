@@ -8,7 +8,9 @@ tags:
 
 # DeepEval — LLM Testing Guide
 
-A complete reference for testing LLM systems with DeepEval (v3.8+).
+A complete reference for testing LLM systems with DeepEval. Written for v3.8 and
+updated for **v4.3.1**: voice evaluation, classifiers, expectations, new
+deterministic metrics and the 4.x breaking changes ([Part 21](03_practical/21_whats_new_4x.md)).
 Covers all metric categories, custom models and metrics, automated workflows,
 benchmarks, and production evaluation patterns.
 
@@ -31,6 +33,7 @@ benchmarks, and production evaluation patterns.
 | [MCP Metrics](01_metrics/06_mcp_metrics.md) | 6 | MCPUse, MCPTaskCompletion, MultiTurnMCPUse, MCP test case fields |
 | [Extra Metrics](01_metrics/07_extra_metrics.md) | 7 | ExactMatch, JsonCorrectness, PatternMatch, PromptAlignment, ConversationalGEval, ArenaGEval, DAGMetric, Turn-Level RAG |
 | [Multimodal Metrics](01_metrics/08_multimodal_metrics.md) | 8 | ImageCoherence, ImageEditing, ImageHelpfulness, ImageReference, TextToImage, MLLMImage |
+| [Voice Evaluation](01_metrics/08b_voice_metrics.md) | 8b | Simulated calls, connectors, VoiceNaturalness, AudioIntegrity, AudioGlitch, VoiceReliability, TurnTaking, TranscriptionAccuracy |
 
 ### Testing & Customisation
 
@@ -54,6 +57,8 @@ benchmarks, and production evaluation patterns.
 | [Configs, Flags & Reference](03_practical/18_configs_flags_reference.md) | 18 | AsyncConfig, DisplayConfig, ErrorConfig, CacheConfig, CLI flags, env vars, RAGAS |
 | [Reference Appendix](03_practical/19_reference_appendix.md) | 19 | DeepTeam migration, vulnerability classes, Arena test cases, troubleshooting |
 | [E2E Complex Tests](03_practical/20_e2e_complex_tests.md) | 20 | ConversationalTestCase with RAG + tools + multiple metrics, scenario checklist |
+| [What's New in DeepEval 4.x](03_practical/21_whats_new_4x.md) | 21 | Timeline, breaking changes (higher-is-better scores), ToolPermission, AgentLoopDetection, eval modes and Jev, CLI, upgrade checklist |
+| [Classifiers & Expectations](03_practical/22_classifiers_expectations.md) | 22 | Label-based judges, `expected_labels`, built-in classifier labels, `must` / `must_not` expectations |
 
 ---
 
@@ -71,6 +76,9 @@ benchmarks, and production evaluation patterns.
 | Benchmark an LLM | [Part 13](02_testing/13_benchmarks.md) |
 | Fix low RAG scores | [Part 15](03_practical/15_rag_diagnostic_testing.md) |
 | Evaluate multi-turn RAG | [Part 5](01_metrics/05_chatbot_metrics.md) → [Part 14b](02_testing/14_conversational_rag_evaluation.md) |
+| Test a voice agent | [Part 8b](01_metrics/08b_voice_metrics.md) |
+| Assert an exact outcome (refused / escalated / leaked) | [Part 22](03_practical/22_classifiers_expectations.md) |
+| Upgrade from 3.x to 4.x | [Part 21](03_practical/21_whats_new_4x.md) |
 
 ---
 

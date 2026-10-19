@@ -77,8 +77,9 @@ fact exists in `retrieval_context`. If the answer contains made-up facts, it fai
 > **Not the same as HallucinationMetric ([Part 3](03_llm_quality_metrics.md)).** Faithfulness uses
 > `retrieval_context` — documents your RAG system found automatically.
 > HallucinationMetric uses `context` — facts you provide manually as ground
-> truth. Faithfulness uses a min threshold (high score = good, pass ≥),
-> Hallucination uses a max threshold (low score = good, pass ≤).
+> truth. Faithfulness uses a min threshold (high score = good, pass ≥).
+> Hallucination used a max threshold on 3.x (low score = good, pass ≤); since
+> 4.2.0 it is also high = good, pass ≥ ([Part 21](../03_practical/21_whats_new_4x.md)).
 
 ```python
 from deepeval import assert_test

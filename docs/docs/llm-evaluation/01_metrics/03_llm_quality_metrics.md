@@ -21,21 +21,26 @@ They do not need a RAG system. They work with any LLM response.
 **How it works:** You give the LLM a `context` (list of true facts). The judge
 checks if `actual_output` contains information that contradicts or goes
 beyond that context.
-Formula: `score = contradicted_contexts / total_contexts`.
-Score 0.0 = no hallucination (good), 1.0 = full hallucination (bad).
+Formula in 3.x: `score = contradicted_contexts / total_contexts`
+(0.0 = no hallucination, 1.0 = full hallucination).
 
-**Important:** Low score = good. Unlike most metrics where threshold is a
-minimum (pass when score ≥ threshold), Hallucination uses a **maximum
-threshold** (pass when score ≤ threshold). Default threshold = 0.5.
+> **Version change (4.2.0+).** `HallucinationMetric`, `ToxicityMetric`,
+> `BiasMetric` and `MisuseMetric` now score **higher = better**: the score is
+> the share of *good* verdicts and the test passes when `score >= threshold`,
+> like every other metric (verified on `deepeval==4.3.1`). In 3.x these
+> metrics used a **maximum threshold** (pass when `score <= threshold`).
+> The text and the summary table below describe 3.x; on 4.2+ flip the
+> thresholds (old `0.3` becomes `0.7`). See
+> [Part 21](../03_practical/21_whats_new_4x.md) for the migration.
 
 **Required fields:** `input`, `actual_output`, `context`
 
 > **Not the same as FaithfulnessMetric ([Part 2](02_rag_metrics.md)).** Hallucination uses
 > `context` — facts you provide manually as ground truth. Faithfulness uses
 > `retrieval_context` — documents your RAG system found automatically.
-> Both check for made-up facts, but Hallucination uses a max threshold
-> (low score = good), while Faithfulness uses a min threshold
-> (high score = good).
+> Both check for made-up facts. On 3.x Hallucination used a max threshold
+> (low score = good) while Faithfulness used a min threshold (high score =
+> good); on 4.2+ both use a min threshold.
 
 ```python
 from deepeval import assert_test
@@ -62,8 +67,9 @@ def test_no_hallucination():
 
 **What it checks:** Does the output contain toxic, offensive, or harmful content?
 
-**Important:** Like Hallucination, Toxicity uses a **maximum threshold**
-(pass when score ≤ threshold). Low score = not toxic (good).
+**Important:** on 3.x, like Hallucination, Toxicity used a **maximum threshold**
+(pass when score ≤ threshold, low score = not toxic). On 4.2+ the score is
+inverted (high = not toxic) and the test passes when `score >= threshold`.
 
 **Required fields:** `input`, `actual_output`
 
@@ -89,8 +95,9 @@ def test_safe_response():
 
 **What it checks:** Does the output show unfair bias (gender, race, religion)?
 
-**Important:** Like Hallucination, Bias uses a **maximum threshold**
-(pass when score ≤ threshold). Low score = not biased (good).
+**Important:** on 3.x, like Hallucination, Bias used a **maximum threshold**
+(pass when score ≤ threshold, low score = not biased). On 4.2+ the score is
+inverted (high = not biased) and the test passes when `score >= threshold`.
 
 **Required fields:** `input`, `actual_output`
 
@@ -357,15 +364,15 @@ def test_no_role_violation():
 
 ## LLM Quality Metrics Summary
 
-| Metric | What It Checks | Good Score | Threshold Type |
+| Metric | What It Checks | Good Score (3.x → 4.2+) | Threshold Type (3.x → 4.2+) |
 |--------|---------------|------------|----------------|
-| Hallucination | Facts not in context | Low = good | Max (pass ≤) |
-| Toxicity | Harmful content | Low = good | Max (pass ≤) |
-| Bias | Unfair prejudice | Low = good | Max (pass ≤) |
+| Hallucination | Facts not in context | Low → **High** = good | Max (pass ≤) → **Min (pass ≥)** |
+| Toxicity | Harmful content | Low → **High** = good | Max (pass ≤) → **Min (pass ≥)** |
+| Bias | Unfair prejudice | Low → **High** = good | Max (pass ≤) → **Min (pass ≥)** |
 | Summarization | Summary completeness | High = good | Min (pass ≥) |
 | GEval | Your custom criteria | High = good | Min (pass ≥) |
 | PII Leakage | Personal data exposed | High = good | Min (pass ≥) |
-| Misuse | Harmful use of system | High = good | Min (pass ≥) |
+| Misuse | Harmful use of system | High = good (inverted from Low in 3.x) | Min (pass ≥) |
 | Non-Advice | Forbidden advice given | High = good | Min (pass ≥) |
 | Role Violation | Role broken (single turn) | High = good | Min (pass ≥) |
 

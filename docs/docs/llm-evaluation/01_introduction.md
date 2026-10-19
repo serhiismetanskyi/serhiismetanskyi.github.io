@@ -16,7 +16,10 @@ DeepEval is a Python testing framework for LLM (Large Language Model) systems.
 It works like pytest but for AI. You write test cases, pick metrics, and
 DeepEval checks if your LLM output is good enough.
 
-**Version used in this guide:** `deepeval==3.8.4`
+**Version used in this guide:** written against `deepeval==3.8.4`; the new pages
+([Part 8b](01_metrics/08b_voice_metrics.md), [21](03_practical/21_whats_new_4x.md),
+[22](03_practical/22_classifiers_expectations.md)) and the version notes were verified on
+`deepeval==4.3.1`. Scores of Bias, Hallucination, Misuse and Toxicity were inverted in 4.2.0.
 
 ### How Does LLM Testing Work?
 
@@ -103,7 +106,7 @@ def test_basic_llm_output():
 3. If score >= 0.5 (threshold), test passes
 4. If score < 0.5, test fails with a reason
 
-### All 47 Metrics by Category (as of v3.8)
+### All 47 Metrics by Category (as of v3.8; 4.x additions below)
 
 > **Note:** DeepEval continues to add metrics. The official docs list
 > "50+ metrics" — the count below reflects the metrics covered in this guide.
@@ -120,6 +123,10 @@ def test_basic_llm_output():
 | Advanced (5) | PromptAlignment, ConversationalGEval, ArenaGEval, DAGMetric, ConversationalDAGMetric |
 | Multimodal (5) | ImageCoherence, ImageEditing, ImageHelpfulness, ImageReference, TextToImage |
 | Turn-Level (5) | TurnRelevancy, TurnFaithfulness, TurnContextualPrecision, TurnContextualRecall, TurnContextualRelevancy |
+| **Voice (9, 4.2+)** | VoiceNaturalness, SpeechIntelligibility, VoiceConsistency, AudioIntegrity, AudioGlitch, AgentResponsiveness, TurnTakingNaturalness, VoiceReliability, TranscriptionAccuracy |
+| **Guardrails (2, 4.0.8+)** | ToolPermission, AgentLoopDetection (both deterministic) |
+
+Besides metrics, 4.x adds **classifiers** (one label from a closed set) and **expectations** (`must` / `must_not` sentences), see [Part 22](03_practical/22_classifiers_expectations.md).
 
 ### Guide Structure
 
@@ -133,6 +140,7 @@ def test_basic_llm_output():
 | 6 | [MCP Metrics](01_metrics/06_mcp_metrics.md) |
 | 7 | [Extra Metrics](01_metrics/07_extra_metrics.md) (Deterministic, DAG, Arena, Turn-Level) |
 | 8 | [Multimodal (Image) Metrics](01_metrics/08_multimodal_metrics.md) |
+| 8b | [Voice Evaluation](01_metrics/08b_voice_metrics.md) (DeepEval 4.2+) |
 | 9 | [Red Teaming](02_testing/09_red_teaming.md) (RedTeamer, scanning, vulnerabilities) |
 | 10 | [Custom LLMs and Embedding Models](02_testing/10_custom_llms.md) |
 | 11 | [Building Custom Metrics + Answer Correctness](02_testing/11_custom_metrics.md) |
@@ -146,6 +154,8 @@ def test_basic_llm_output():
 | 18 | [Evaluation Configs, Flags & Reference](03_practical/18_configs_flags_reference.md) (RAGAS, env vars) |
 | 19 | [Reference Appendix](03_practical/19_reference_appendix.md) (DeepTeam vulns, Arena, troubleshooting) |
 | 20 | [End-to-End Complex Tests](03_practical/20_e2e_complex_tests.md) (conversational + RAG + tools in one test) |
+| 21 | [What's New in DeepEval 4.x](03_practical/21_whats_new_4x.md) (breaking changes, new metrics, CLI, migration) |
+| 22 | [Classifiers & Expectations](03_practical/22_classifiers_expectations.md) (label-based and `must` / `must_not` evals) |
 
 ### Sources
 
