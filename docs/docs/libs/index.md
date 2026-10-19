@@ -26,6 +26,7 @@ Practical guides for key Python libraries: core API, patterns, and production be
 | [uv](./uv/index.md) | Python project manager: deps, scripts, tools, workspaces, Docker, build & publish |
 | [LangChain](./langchain/index.md) | LLM framework: models, LCEL chains, RAG, agents, tools, memory, LangGraph, LangSmith |
 | [LangGraph](./langgraph/index.md) | Stateful agent graphs: state and reducers, `Command`/`Send`, checkpointers, `Store`, interrupts, streaming, multi-agent, testing, LangGraph Server |
+| [Pipecat](./pipecat/index.md) | Open-source voice-agent framework: pipelines, frames and processors, STT/LLM/TTS cascade, VAD and turn detection, interruptions, function calling, transports, dev runner, observers and latency, `run_test`, Pipecat Evals |
 | [Agno](./agno/index.md) | Agents, teams and workflows: tools, `output_schema`, human approval, sessions and memory in a `db`, knowledge/RAG, AgentOS, tracing, testing with a scripted model, evals |
 | [Pydantic AI](./pydantic-ai/index.md) | Type-safe agents: `deps` and `RunContext`, tools, `output_type` with validation retries, message history, human approval, MCP, hooks, multi-agent, `pydantic_graph`, testing with `TestModel` / `FunctionModel`, `pydantic-evals`, OpenTelemetry |
 | [Guardrails AI](./guardrails/index.md) | LLM guards: validators, on-fail actions, structured output, PII/jailbreak/toxicity checks, server, testing |

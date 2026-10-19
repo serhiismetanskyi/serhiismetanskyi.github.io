@@ -102,7 +102,7 @@ evaluate(
 |-----------|---------|
 | `ElevenLabsConnector(agent_id=..., api_key=...)` | An ElevenLabs conversational agent |
 | `LiveKitConnector` | An agent in a LiveKit room (URL, API key and secret) |
-| `VapiConnector`, `PipecatConnector` | Vapi and Pipecat agents |
+| `VapiConnector`, `PipecatConnector` | Vapi and Pipecat agents (for the open-source framework see the [Pipecat guide](../../libs/pipecat/index.md)) |
 | `WebSocketConnector` / `WebRTCConnector` | Any agent behind a raw-audio WebSocket or WebRTC endpoint (you describe the message schema) |
 | `CallbackVoiceConnector(agent=fn)` | An agent in the same Python process: `fn(audio: Audio)` returns an `Audio` (or a `ConnectorTurn`) |
 

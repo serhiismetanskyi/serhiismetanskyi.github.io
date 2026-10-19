@@ -868,6 +868,13 @@ nav = [
         { "Pydantic AI — Multi-Agent & Graphs" = "docs/libs/pydantic-ai/03-multi-agent-graphs.md" },
         { "Pydantic AI — Testing, Evals & Observability" = "docs/libs/pydantic-ai/04-testing-evals.md" },
       ] },
+      { "Pipecat" = [
+        "docs/libs/pipecat/index.md",
+        { "Pipecat — Pipelines, Frames & Processors" = "docs/libs/pipecat/01-pipelines-frames-processors.md" },
+        { "Pipecat — Conversation: Turns, Context & Tools" = "docs/libs/pipecat/02-conversation-turns-tools.md" },
+        { "Pipecat — Transports, Runner & Production" = "docs/libs/pipecat/03-transports-runner-production.md" },
+        { "Pipecat — Testing & Evals" = "docs/libs/pipecat/04-testing-evals.md" },
+      ] },
       { "Pytest" = [
         "docs/libs/pytest/index.md",
         { "Core Guides" = [
