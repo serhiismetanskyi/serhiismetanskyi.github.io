@@ -91,7 +91,7 @@ Skills (SKILL.md standard, playbook) and Claude Code: subagents, parallel agents
 - [Orchestration & Workflows](ai-skills/04-orchestration-workflows.md)
 - [Evaluation & Security](ai-skills/05-evaluation-security.md)
 - [Cross-Agent Compatibility](ai-skills/06-cross-agent-compatibility.md)
-- [All 23 sections](ai-skills/index.md){ .kb-more }
+- [All 25 sections](ai-skills/index.md){ .kb-more }
 
 </div>
 
@@ -353,9 +353,25 @@ Database types and selection guide, PostgreSQL: commands, schema, queries, perfo
 
 <div class="kb-section" markdown>
 
+### :material-cloud-outline: [AWS](aws/index.md)
+
+boto3 foundations, EC2, ECS, CloudWatch, Bedrock, SNS and SQS: calling the services from Python, compute, messaging and monitoring patterns, and testing with Stubber and moto
+
+- [Foundations](aws/foundations/index.md)
+- [Amazon EC2](aws/ec2/index.md)
+- [Amazon ECS](aws/ecs/index.md)
+- [Amazon CloudWatch](aws/cloudwatch/index.md)
+- [Amazon Bedrock](aws/bedrock/index.md)
+- [Amazon SNS](aws/sns/index.md)
+- [Amazon SQS](aws/sqs/index.md)
+
+</div>
+
+<div class="kb-section" markdown>
+
 ### :material-tools: [Tools](tools/index.md)
 
-Docker, Git, Linux Terminal, Kubernetes, Kafka, RabbitMQ, Phoenix, Langfuse, MLflow, Jaeger — commands, best practices, event streaming, LLM tracing and evaluation, distributed tracing
+Docker, Git, Linux Terminal, Kubernetes, Kafka, RabbitMQ, Ollama, Phoenix, Langfuse, LangSmith, promptfoo, MLflow, Jaeger — commands, best practices, event streaming, local LLMs, LLM tracing and evaluation, distributed tracing
 
 - [Docker & Docker Compose](tools/docker/index.md)
 - [Git](tools/git/index.md)
@@ -363,8 +379,11 @@ Docker, Git, Linux Terminal, Kubernetes, Kafka, RabbitMQ, Phoenix, Langfuse, MLf
 - [Kubernetes](tools/kubernetes/index.md)
 - [Apache Kafka](tools/kafka/index.md)
 - [RabbitMQ](tools/rabbitmq/index.md)
+- [Ollama](tools/ollama/index.md)
 - [Arize Phoenix](tools/phoenix/index.md)
 - [Langfuse](tools/langfuse/index.md)
+- [LangSmith](tools/langsmith/index.md)
+- [promptfoo](tools/promptfoo/index.md)
 - [MLflow](tools/mlflow/index.md)
 - [Jaeger](tools/jaeger/index.md)
 
@@ -374,7 +393,7 @@ Docker, Git, Linux Terminal, Kubernetes, Kafka, RabbitMQ, Phoenix, Langfuse, MLf
 
 ### :material-package-variant-closed: [Python Libraries](libs/index.md)
 
-Requests, HTTPX, aiohttp, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Celery, Jinja, uv, LangChain, LangGraph, Agno, Pydantic AI, Pipecat, LiteLLM, Guardrails AI, OpenTelemetry, Resilience, …
+Requests, HTTPX, aiohttp, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Celery, Jinja, uv, LangChain, LangGraph, LlamaIndex, Agno, Pydantic AI, Ragas, Pipecat, LiveKit, PyJWT, LiteLLM, Guardrails AI, OpenTelemetry, Resilience, …
 
 - [Agno](libs/agno/index.md)
 - [Celery](libs/celery/index.md)
@@ -382,7 +401,7 @@ Requests, HTTPX, aiohttp, Pytest, Playwright, Pydantic, SQLAlchemy, FastAPI, Cel
 - [FastAPI](libs/fastapi/index.md)
 - [HTTPX](libs/httpx/index.md)
 - [Jinja](libs/jinja/index.md)
-- [All 21 sections](libs/index.md){ .kb-more }
+- [All 23 sections](libs/index.md){ .kb-more }
 
 </div>
 

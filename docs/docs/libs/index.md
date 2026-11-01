@@ -26,9 +26,13 @@ Practical guides for key Python libraries: core API, patterns, and production be
 | [uv](./uv/index.md) | Python project manager: deps, scripts, tools, workspaces, Docker, build & publish |
 | [LangChain](./langchain/index.md) | LLM framework: models, LCEL chains, RAG, agents, tools, memory, LangGraph, LangSmith |
 | [LangGraph](./langgraph/index.md) | Stateful agent graphs: state and reducers, `Command`/`Send`, checkpointers, `Store`, interrupts, streaming, multi-agent, testing, LangGraph Server |
+| [LlamaIndex](./llamaindex/index.md) | RAG and agents over your data: documents, nodes and ingestion pipelines, vector indexes, retrievers and query engines, chat engines, `FunctionAgent`, `AgentWorkflow` and Workflows, evaluators, observability, `MockLLM` tests |
 | [Pipecat](./pipecat/index.md) | Open-source voice-agent framework: pipelines, frames and processors, STT/LLM/TTS cascade, VAD and turn detection, interruptions, function calling, transports, dev runner, observers and latency, `run_test`, Pipecat Evals |
+| [LiveKit](./livekit/index.md) | Open-source WebRTC server and Agents framework: rooms, participants and tokens, `AgentSession` voice pipeline, tools and handoffs, SIP, egress and ingress, self-hosting, agent tests and evals |
+| [PyJWT](./pyjwt/index.md) | JSON Web Tokens: `encode` / `decode`, claim validation, HS/RS/ES/EdDSA keys, JWKS and `PyJWKClient`, algorithm confusion and `alg: none`, FastAPI bearer auth, token-factory negative tests, JWKS rotation tests |
 | [Agno](./agno/index.md) | Agents, teams and workflows: tools, `output_schema`, human approval, sessions and memory in a `db`, knowledge/RAG, AgentOS, tracing, testing with a scripted model, evals |
 | [Pydantic AI](./pydantic-ai/index.md) | Type-safe agents: `deps` and `RunContext`, tools, `output_type` with validation retries, message history, human approval, MCP, hooks, multi-agent, `pydantic_graph`, testing with `TestModel` / `FunctionModel`, `pydantic-evals`, OpenTelemetry |
+| [Ragas](./ragas/index.md) | Evaluation of LLM, RAG and agent apps: samples and datasets, faithfulness and context metrics, agent and custom metrics, test set generation, experiments, pytest gates |
 | [Guardrails AI](./guardrails/index.md) | LLM guards: validators, on-fail actions, structured output, PII/jailbreak/toxicity checks, server, testing |
 | [LiteLLM](./litellm/index.md) | LLM gateway: one API for 100+ providers, tools, structured output, router, fallbacks, proxy, cost tracking |
 | [OpenTelemetry](./opentelemetry/index.md) | Observability: traces, metrics, logs, auto-instrumentation, Collector, testing with spans |

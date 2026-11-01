@@ -109,12 +109,36 @@ Hands-on command references, configuration patterns, and best practices for the 
 
 | Resource | Topics |
 |------|--------|
+| [LangSmith — Overview](./langsmith/index.md) | Traces and threads, prompts, datasets, experiments and evaluators, online evaluation, pytest integration |
+| [Setup & Architecture](./langsmith/01-setup-architecture.md) | Cloud, hybrid and self-hosted, workspaces and projects, API keys, env vars, retention |
+| [Tracing with the Python SDK](./langsmith/02-tracing-sdk.md) | `@traceable`, `trace`, `wrap_openai`, LangChain/LangGraph, threads, feedback, OpenTelemetry, sampling, masking |
+| [Prompt Management](./langsmith/03-prompt-management.md) | Prompt hub, commits and tags, `pull_prompt` / `push_prompt`, environments |
+| [Datasets & Evaluations](./langsmith/04-datasets-evaluations.md) | Datasets, `evaluate`, custom and LLM-as-judge evaluators, pairwise, online evaluators, annotation queues |
+| [Testing, CI & Production](./langsmith/05-testing-ci-production.md) | pytest integration, CI gates, dashboards and automations, tool comparison |
+
+| Resource | Topics |
+|------|--------|
+| [promptfoo — Overview](./promptfoo/index.md) | Config-driven LLM evals and red teaming: prompts × providers × tests, assertions, CI gates |
+| [Setup & Config](./promptfoo/01-setup-config.md) | `promptfooconfig.yaml`, prompt templating, env vars, caching, `eval` and `view` |
+| [Providers](./promptfoo/02-providers.md) | OpenAI, Anthropic, Bedrock, Ollama, OpenAI-compatible, HTTP and custom providers, concurrency |
+| [Test Cases & Assertions](./promptfoo/03-test-cases-assertions.md) | `vars`, CSV/JSON tests, deterministic and model-graded assertions, `javascript` / `python` graders, thresholds |
+| [RAG, Agents & Multi-turn](./promptfoo/04-rag-agents-multiturn.md) | Context assertions, conversations, tool calls, structured output, regression sets |
+| [Red Teaming, Testing & CI](./promptfoo/05-redteam-ci.md) | `redteam` plugins and strategies, OWASP LLM presets, GitHub Action, exit codes, tool comparison |
+
+| Resource | Topics |
+|------|--------|
 | [MLflow — Overview](./mlflow/index.md) | Experiment tracking, GenAI tracing, `mlflow.genai.evaluate`, prompt and model registry, MLflow vs Phoenix / Langfuse / Jaeger |
 | [Setup & Architecture](./mlflow/01-setup-architecture.md) | `mlflow server`, backend and artifact stores, Docker Compose + Postgres, allowed hosts, basic auth, env vars |
 | [Experiment Tracking](./mlflow/02-experiment-tracking.md) | Experiments, runs, params, metrics, tags, artifacts, autolog, `search_runs` filters, comparing runs |
 | [GenAI Tracing](./mlflow/03-genai-tracing.md) | `mlflow.<flavor>.autolog()`, `@mlflow.trace`, span types, sessions, feedback, OTLP ingest and export |
 | [Evaluation & Prompts](./mlflow/04-evaluation-prompts.md) | Built-in judges, `@scorer`, `make_judge`, DeepEval scorers, evaluation datasets, prompt registry |
 | [Testing, CI & Model Registry](./mlflow/05-testing-ci-registry.md) | pytest + DeepEval results per CI run, trace assertions, regression gate vs `main`, GitHub Actions, aliases, pitfalls |
+
+## Local LLMs
+
+| Resource | Topics |
+|------|--------|
+| [Ollama](./ollama/index.md) | Local LLM runtime: install, GPU backends, server configuration, context and KV cache, REST and OpenAI-compatible API, tools, structured output, Modelfile, security, Clef decision model |
 
 ---
 ## See also

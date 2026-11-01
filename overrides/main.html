@@ -47,6 +47,16 @@
   <script>
     if (location.protocol === "http:" && location.hostname === "serhiismetanskyi.com") location.replace("https:" + location.href.substring(location.protocol.length))
   </script>
+  {#- The theme draws each Mermaid diagram into a closed shadow root. Open it for `.mermaid` hosts so js/mermaid-zoom.js
+      can read the rendered <svg>; this must run before the theme script creates the roots -#}
+  <script>
+    (() => {
+      const attachShadow = Element.prototype.attachShadow
+      Element.prototype.attachShadow = function (init) {
+        return attachShadow.call(this, this.classList.contains("mermaid") ? { ...init, mode: "open" } : init)
+      }
+    })()
+  </script>
   {% import "partials/seo.html" as seo %}
   {#- Project pages: every project's tags, for the «Tags» cloud in the left menu (js/blog-tags.js) -#}
   {% if page and page.url is startingwith("projects/") and config.extra.projects %}

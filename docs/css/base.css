@@ -563,6 +563,169 @@
   }
 }
 
+/* ---------- Mermaid diagrams: click to zoom (js/mermaid-zoom.js) ---------- */
+.md-typeset div.mermaid[data-zoom] {
+  position: relative;
+  cursor: zoom-in;
+  border-radius: 0.3rem;
+}
+
+.md-typeset div.mermaid[data-zoom]:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 2px;
+}
+
+/* Magnifier in the corner, shown on hover and focus (Lucide "zoom-in") */
+.md-typeset div.mermaid[data-zoom]::after {
+  content: "";
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 0.3rem;
+  background-color: var(--md-default-fg-color--light);
+  opacity: 0;
+  transition: opacity 150ms;
+  mask:
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3M11 8v6M8 11h6"/></svg>')
+    center / 80% no-repeat;
+  pointer-events: none;
+}
+
+.md-typeset div.mermaid[data-zoom]:hover::after,
+.md-typeset div.mermaid[data-zoom]:focus-visible::after {
+  opacity: 0.8;
+}
+
+.mermaid-viewer {
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: var(--md-default-bg-color);
+  color: var(--md-default-fg-color);
+}
+
+.mermaid-viewer::backdrop {
+  background: rgb(0 0 0 / 0.6);
+}
+
+.mermaid-viewer__view {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.mermaid-viewer__view.is-dragging {
+  cursor: grabbing;
+}
+
+.mermaid-viewer__stage {
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+.mermaid-viewer__stage svg {
+  display: block;
+  max-width: none;
+}
+
+.mermaid-viewer__toolbar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.25rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.7rem;
+  background: var(--md-default-bg-color);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.14);
+}
+
+.mermaid-viewer__toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 0.55rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--md-default-fg-color--light);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 125ms,
+    color 125ms;
+}
+
+.mermaid-viewer__toolbar button svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.mermaid-viewer__toolbar button:hover,
+.mermaid-viewer__toolbar button:focus-visible {
+  background: var(--md-accent-fg-color--transparent);
+  color: var(--md-accent-fg-color);
+}
+
+/* The close button sits apart from the zoom controls */
+.mermaid-viewer__toolbar button[data-action="close"] {
+  margin-left: 0.3rem;
+  border-left: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.mermaid-viewer__percent {
+  min-width: 3.2rem;
+  color: var(--md-default-fg-color);
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.mermaid-viewer__hint {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  margin: 0;
+  padding: 0.35rem 0.8rem;
+  border-radius: 2rem;
+  background: var(--md-default-fg-color--lightest);
+  color: var(--md-default-fg-color--light);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+@media (max-width: 44.9375em) {
+  .mermaid-viewer__hint {
+    display: none;
+  }
+}
+
 /* ---------- Print: content only, no UI ---------- */
 @media print {
   @page {
@@ -577,7 +740,8 @@
   .site-footer,
   .md-top,
   .reading-progress,
-  .share {
+  .share,
+  .md-typeset div.mermaid[data-zoom]::after {
     display: none !important;
   }
 

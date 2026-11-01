@@ -29,6 +29,7 @@ extra_javascript = [
   "js/paginate.js",           # page numbers for the project lists
   "js/checklists.js",         # tickable checklists with progress, saved in the browser
   "js/footer-menu.js",        # hamburger for the footer's page links on mobile
+  "js/mermaid-zoom.js",       # click a Mermaid diagram to zoom and pan it full screen
 ]
 
 # Navigation: tabs in the header; Docs: knowledge base topics from docs/docs/
@@ -656,6 +657,66 @@ nav = [
         { "Redis — Testing Recipes" = "docs/databases/redis/07-testing-recipes.md" },
       ] },
     ] },
+    { "AWS" = [
+      "docs/aws/index.md",
+      { "Foundations" = [
+        "docs/aws/foundations/index.md",
+        { "AWS Foundations — Clients, Config, Retries & Errors" = "docs/aws/foundations/01-clients-config-errors.md" },
+        { "AWS Foundations — Credentials, IAM & Local Testing" = "docs/aws/foundations/02-credentials-iam-local-testing.md" },
+      ] },
+      { "Amazon EC2" = [
+        "docs/aws/ec2/index.md",
+        { "EC2 — Core Concepts" = "docs/aws/ec2/01-core-concepts.md" },
+        { "EC2 — Networking, Security & IAM" = "docs/aws/ec2/02-networking-security-iam.md" },
+        { "EC2 — boto3 in Python" = "docs/aws/ec2/03-boto3-python.md" },
+        { "EC2 — Scaling, Load Balancing & Operations" = "docs/aws/ec2/04-scaling-load-balancing-operations.md" },
+        { "EC2 — Testing EC2-Based Systems" = "docs/aws/ec2/05-testing.md" },
+        { "EC2 — Compliance, Credential-Path & Scaling Tests" = "docs/aws/ec2/06-compliance-imds-scaling-tests.md" },
+        { "EC2 — moto Gaps, Smoke Tests & CI" = "docs/aws/ec2/07-moto-gaps-smoke-ci.md" },
+      ] },
+      { "Amazon ECS" = [
+        "docs/aws/ecs/index.md",
+        { "ECS — Core Concepts" = "docs/aws/ecs/01-core-concepts.md" },
+        { "ECS — Services, Deployments & Networking" = "docs/aws/ecs/02-services-deployments-networking.md" },
+        { "ECS — boto3 in Python" = "docs/aws/ecs/03-boto3-python.md" },
+        { "ECS — Patterns for Python Workloads" = "docs/aws/ecs/04-python-workload-patterns.md" },
+        { "ECS — Testing ECS-Based Systems" = "docs/aws/ecs/05-testing.md" },
+        { "ECS — moto Gaps, Smoke Tests & CI" = "docs/aws/ecs/06-moto-gaps-smoke-ci.md" },
+      ] },
+      { "Amazon CloudWatch" = [
+        "docs/aws/cloudwatch/index.md",
+        { "CloudWatch — Metrics: Core Concepts" = "docs/aws/cloudwatch/01-metrics-core-concepts.md" },
+        { "CloudWatch — Metrics with boto3 & EMF" = "docs/aws/cloudwatch/02-boto3-python.md" },
+        { "CloudWatch — Alarms & Dashboards" = "docs/aws/cloudwatch/03-alarms-dashboards.md" },
+        { "CloudWatch — Logs, Logs Insights & Metric Filters" = "docs/aws/cloudwatch/04-logs.md" },
+        { "CloudWatch — Testing CloudWatch-Based Systems" = "docs/aws/cloudwatch/05-testing.md" },
+        { "CloudWatch — moto Gaps, Smoke Tests & CI" = "docs/aws/cloudwatch/06-moto-gaps-smoke-ci.md" },
+      ] },
+      { "Amazon Bedrock" = [
+        "docs/aws/bedrock/index.md",
+        { "Bedrock — Models, Access, Regions & Converse" = "docs/aws/bedrock/01-models-access-converse.md" },
+        { "Bedrock — Streaming, Tools, Structured Output & Caching" = "docs/aws/bedrock/02-streaming-tools-structured-output.md" },
+        { "Bedrock — Guardrails, Knowledge Bases, Agents & Batch" = "docs/aws/bedrock/03-guardrails-knowledge-bases-agents-batch.md" },
+        { "Bedrock — Testing & Production" = "docs/aws/bedrock/04-testing-production.md" },
+      ] },
+      { "Amazon SNS" = [
+        "docs/aws/sns/index.md",
+        { "SNS — Core Concepts" = "docs/aws/sns/01-core-concepts.md" },
+        { "SNS — boto3 in Python" = "docs/aws/sns/02-boto3-python.md" },
+        { "SNS — Filtering & Fan-out Patterns" = "docs/aws/sns/03-filtering-fanout.md" },
+        { "SNS — Testing SNS-Based Systems" = "docs/aws/sns/04-testing.md" },
+        { "SNS — moto Limits, Pitfalls & CI" = "docs/aws/sns/05-moto-gaps-ci.md" },
+      ] },
+      { "Amazon SQS" = [
+        "docs/aws/sqs/index.md",
+        { "SQS — Core Concepts" = "docs/aws/sqs/01-core-concepts.md" },
+        { "SQS — boto3 in Python" = "docs/aws/sqs/02-boto3-python.md" },
+        { "SQS — Consumer Patterns" = "docs/aws/sqs/03-consumer-patterns.md" },
+        { "SQS — Lambda, Scaling & Integrations" = "docs/aws/sqs/04-lambda-scaling-integrations.md" },
+        { "SQS — Testing SQS-Based Systems" = "docs/aws/sqs/05-testing.md" },
+        { "SQS — moto Gaps, Smoke Tests, Load & CI" = "docs/aws/sqs/06-moto-gaps-smoke-load-ci.md" },
+      ] },
+    ] },
     { "Tools" = [
       "docs/tools/index.md",
       { "Docker & Docker Compose" = [
@@ -725,6 +786,22 @@ nav = [
         { "Langfuse — Datasets & Evaluations" = "docs/tools/langfuse/04-datasets-evaluations.md" },
         { "Langfuse — Testing, CI & Production" = "docs/tools/langfuse/05-testing-ci-production.md" },
       ] },
+      { "LangSmith" = [
+        "docs/tools/langsmith/index.md",
+        { "LangSmith — Setup & Architecture" = "docs/tools/langsmith/01-setup-architecture.md" },
+        { "LangSmith — Tracing with the Python SDK" = "docs/tools/langsmith/02-tracing-sdk.md" },
+        { "LangSmith — Prompt Management" = "docs/tools/langsmith/03-prompt-management.md" },
+        { "LangSmith — Datasets & Evaluations" = "docs/tools/langsmith/04-datasets-evaluations.md" },
+        { "LangSmith — Testing, CI & Production" = "docs/tools/langsmith/05-testing-ci-production.md" },
+      ] },
+      { "promptfoo" = [
+        "docs/tools/promptfoo/index.md",
+        { "promptfoo — Setup & Config" = "docs/tools/promptfoo/01-setup-config.md" },
+        { "promptfoo — Providers" = "docs/tools/promptfoo/02-providers.md" },
+        { "promptfoo — Test Cases & Assertions" = "docs/tools/promptfoo/03-test-cases-assertions.md" },
+        { "promptfoo — RAG, Agents & Multi-turn" = "docs/tools/promptfoo/04-rag-agents-multiturn.md" },
+        { "promptfoo — Red Teaming, Testing & CI" = "docs/tools/promptfoo/05-redteam-ci.md" },
+      ] },
       { "MLflow" = [
         "docs/tools/mlflow/index.md",
         { "MLflow — Setup & Architecture" = "docs/tools/mlflow/01-setup-architecture.md" },
@@ -733,6 +810,7 @@ nav = [
         { "MLflow — Evaluation & Prompts" = "docs/tools/mlflow/04-evaluation-prompts.md" },
         { "MLflow — Testing, CI & Model Registry" = "docs/tools/mlflow/05-testing-ci-registry.md" },
       ] },
+      { "Ollama" = "docs/tools/ollama/index.md" },
       { "Jaeger" = [
         "docs/tools/jaeger/index.md",
         { "Jaeger — Setup & Architecture" = "docs/tools/jaeger/01-setup-architecture.md" },
@@ -868,12 +946,45 @@ nav = [
         { "Pydantic AI — Multi-Agent & Graphs" = "docs/libs/pydantic-ai/03-multi-agent-graphs.md" },
         { "Pydantic AI — Testing, Evals & Observability" = "docs/libs/pydantic-ai/04-testing-evals.md" },
       ] },
+      { "LlamaIndex" = [
+        "docs/libs/llamaindex/index.md",
+        { "LlamaIndex — Data, Nodes & Indexing" = "docs/libs/llamaindex/01-data-nodes-indexing.md" },
+        { "LlamaIndex — Retrieval & Query Engines" = "docs/libs/llamaindex/02-retrieval-query-engines.md" },
+        { "LlamaIndex — Agents, Tools & Workflows" = "docs/libs/llamaindex/03-agents-tools-workflows.md" },
+        { "LlamaIndex — Evaluation & Observability" = "docs/libs/llamaindex/04-evaluation-observability.md" },
+        { "LlamaIndex — Testing & Production" = "docs/libs/llamaindex/05-testing-production.md" },
+      ] },
+      { "Ragas" = [
+        "docs/libs/ragas/index.md",
+        { "Ragas — Datasets, Samples & Setup" = "docs/libs/ragas/01-datasets-samples-setup.md" },
+        { "Ragas — RAG Metrics" = "docs/libs/ragas/02-rag-metrics.md" },
+        { "Ragas — Other Metrics, Agents & Custom" = "docs/libs/ragas/03-other-metrics-agents-custom.md" },
+        { "Ragas — Test Sets & Experiments" = "docs/libs/ragas/04-testsets-experiments.md" },
+        { "Ragas — Testing & CI" = "docs/libs/ragas/05-testing-ci.md" },
+      ] },
       { "Pipecat" = [
         "docs/libs/pipecat/index.md",
         { "Pipecat — Pipelines, Frames & Processors" = "docs/libs/pipecat/01-pipelines-frames-processors.md" },
         { "Pipecat — Conversation: Turns, Context & Tools" = "docs/libs/pipecat/02-conversation-turns-tools.md" },
         { "Pipecat — Transports, Runner & Production" = "docs/libs/pipecat/03-transports-runner-production.md" },
         { "Pipecat — Testing & Evals" = "docs/libs/pipecat/04-testing-evals.md" },
+      ] },
+      { "LiveKit" = [
+        "docs/libs/livekit/index.md",
+        { "LiveKit — Server, Rooms & Tokens" = "docs/libs/livekit/01-server-rooms-tokens.md" },
+        { "LiveKit — Agents Framework" = "docs/libs/livekit/02-agents-framework.md" },
+        { "LiveKit — Tools, Handoffs & Workflows" = "docs/libs/livekit/03-tools-handoffs-workflows.md" },
+        { "LiveKit — Telephony, Egress, Ingress & Production" = "docs/libs/livekit/04-telephony-egress-production.md" },
+        { "LiveKit — Testing & Evals" = "docs/libs/livekit/05-testing-evals.md" },
+      ] },
+      { "PyJWT" = [
+        "docs/libs/pyjwt/index.md",
+        { "PyJWT — Encode, Decode & Claims" = "docs/libs/pyjwt/01-encode-decode-claims.md" },
+        { "PyJWT — Algorithms, Keys & JWKS" = "docs/libs/pyjwt/02-algorithms-keys-jwks.md" },
+        { "PyJWT — Security Pitfalls & Hardening" = "docs/libs/pyjwt/03-security-pitfalls-hardening.md" },
+        { "PyJWT — FastAPI Integration & Token Service" = "docs/libs/pyjwt/04-integration-fastapi.md" },
+        { "PyJWT — Testing: Token Factory & Negative Matrix" = "docs/libs/pyjwt/05-testing-token-factory.md" },
+        { "PyJWT — Testing: JWKS Rotation, Smoke Tests & CI" = "docs/libs/pyjwt/06-testing-jwks-ci.md" },
       ] },
       { "Pytest" = [
         "docs/libs/pytest/index.md",
