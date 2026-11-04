@@ -155,6 +155,11 @@
   margin: 0;
 }
 
+/* Thicker outline, like the Latest cards above */
+.md-typeset .home-projects a.project-card {
+  border-width: 2px;
+}
+
 /* ---------- Latest posts & docs cards (filled by js/latest.js) ---------- */
 /* Two cards side by side, wider than the hero column */
 .md-typeset .home-latest {
@@ -171,7 +176,7 @@
   display: flex;
   flex-direction: column;
   padding: 1rem 1rem 0.6rem;
-  border: 1px solid var(--md-default-fg-color--lightest);
+  border: 2px solid var(--md-default-fg-color--lightest);
   border-radius: 0.8rem;
   background: var(--md-default-bg-color);
 }
