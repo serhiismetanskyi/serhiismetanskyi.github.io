@@ -22,9 +22,8 @@ Clef-flash is not a regular LLM. In Jev terms it is a "System One" model: it doe
 
 ```mermaid
 flowchart LR
-    A["user_input + llm_output (mock) + context"] --> B["clef-flash"]
-    B --> C["probability"]
-    C --> D{"value >= threshold?"}
+    A["Case<br/>mocked LLM output"] --> B["clef-flash"]
+    B -- probability --> D{"value ≥<br/>threshold?"}
     D -- yes --> E["PASS"]
     D -- no --> F["FAIL"]
 ```

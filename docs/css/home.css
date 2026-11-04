@@ -81,7 +81,7 @@
   justify-content: center;
   width: 2.4rem;
   height: 2.4rem;
-  border: 1px solid var(--md-default-fg-color--lightest);
+  border: 2px solid var(--md-default-fg-color--lightest);
   border-radius: 50%;
   color: var(--md-default-fg-color--light);
   text-decoration: none;
@@ -153,11 +153,6 @@
 
 .md-typeset .home-projects .projects-grid {
   margin: 0;
-}
-
-/* Thicker outline, like the Latest cards above */
-.md-typeset .home-projects a.project-card {
-  border-width: 2px;
 }
 
 /* ---------- Latest posts & docs cards (filled by js/latest.js) ---------- */
