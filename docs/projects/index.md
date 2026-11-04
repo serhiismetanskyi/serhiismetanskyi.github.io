@@ -1,6 +1,6 @@
 ---
 title: Projects
-description: Open-source test automation projects by Serhii Smetanskyi — LLM evaluation with DeepEval, UI, API, load and database tests in Python.
+description: Open-source test automation projects by Serhii Smetanskyi — LLM evaluation with DeepEval and Clef, UI, API, load and database tests in Python.
 hide:
   - toc
 ---
