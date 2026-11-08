@@ -1,4 +1,5 @@
 ---
+description: "Testing Kafka-based systems: thin consumer loops, unit tests without Kafka, contract and schema tests, and integration tests with a real broker."
 date: 2026-09-30 18:20:00
 tags:
   - tools

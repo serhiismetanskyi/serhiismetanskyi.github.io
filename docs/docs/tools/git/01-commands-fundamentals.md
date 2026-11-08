@@ -1,4 +1,5 @@
 ---
+description: "Git commands cheat sheet: repository setup, staging and committing, history, diff and blame, branches, remotes, tags and cleanup."
 date: 2026-09-05
 tags:
   - tools

@@ -7,6 +7,9 @@ description: UI test suite for the SauceDemo e-commerce site built with Playwrig
 tags:
   - ui-testing
   - playwright
+  - docker
+  - uv
+  - python
   - pytest
 ---
 

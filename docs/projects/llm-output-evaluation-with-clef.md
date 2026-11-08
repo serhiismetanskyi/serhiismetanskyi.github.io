@@ -9,9 +9,12 @@ tags:
   - llm-evaluation
   - clef
   - ollama
-  - pytest
+  - httpx
   - pydantic
+  - docker
   - uv
+  - python
+  - pytest
 ---
 
 # LLM Output Evaluation with Clef

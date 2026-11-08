@@ -1,4 +1,5 @@
 ---
+description: "uv projects and dependencies: uv init, pyproject.toml, adding and removing packages, lock and sync, tree and export, version constraints, private indexes."
 date: 2026-09-24
 tags:
   - python

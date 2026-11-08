@@ -1,4 +1,5 @@
 ---
+description: "Software design patterns and principles: OOP, SOLID, clean code, creational, structural and behavioral patterns with Python examples and trade-offs."
 date: 2026-06-15
 tags:
   - design-patterns

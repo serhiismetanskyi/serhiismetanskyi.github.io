@@ -8,6 +8,9 @@ tags:
   - load-testing
   - locust
   - requests
+  - docker
+  - uv
+  - python
 ---
 
 # TestMe Load Tests

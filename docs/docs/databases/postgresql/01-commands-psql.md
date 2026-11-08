@@ -1,4 +1,5 @@
 ---
+description: "PostgreSQL psql cheat sheet: connecting, .pgpass, navigation and output, database and schema operations, import and export, transactions and handy tricks."
 date: 2026-09-02
 tags:
   - databases

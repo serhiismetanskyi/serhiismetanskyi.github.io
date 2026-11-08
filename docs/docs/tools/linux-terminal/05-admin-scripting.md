@@ -1,4 +1,5 @@
 ---
+description: "Linux administration and scripting basics: Debian/Ubuntu package management, users and groups, .bashrc, Bash scripting essentials and handy utilities."
 date: 2026-09-08
 tags:
   - tools

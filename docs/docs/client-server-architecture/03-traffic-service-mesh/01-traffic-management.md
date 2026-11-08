@@ -1,4 +1,5 @@
 ---
+description: "Traffic management: path and host routing, rate limiting and throttling, canary releases, blue-green deployment and active-passive or active-active failover."
 date: 2026-06-11
 tags:
   - architecture

@@ -1,4 +1,5 @@
 ---
+description: "Performance testing and observability in tests: metrics, load simulation, latency assertions in pytest, stress tests, logging and trace correlation."
 date: 2026-07-14
 tags:
   - test-automation

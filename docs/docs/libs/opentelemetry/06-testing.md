@@ -1,4 +1,5 @@
 ---
+description: "Testing with OpenTelemetry: assert spans, span trees and metrics with in-memory exporters in pytest, test auto-instrumented FastAPI, trace-based testing."
 date: 2026-09-27
 tags:
   - python

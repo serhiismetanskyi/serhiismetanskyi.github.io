@@ -1,4 +1,5 @@
 ---
+description: "Test automation in the SDLC: when to automate and when not to, automation ROI, testing in Waterfall, Agile and DevOps, QA in Scrum and risk-based testing."
 date: 2026-07-03
 tags:
   - qa

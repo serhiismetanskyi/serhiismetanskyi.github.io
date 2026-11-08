@@ -1,4 +1,5 @@
 ---
+description: "Test design patterns in test automation: test pyramid, Page Object, Screenplay, data builders, API test patterns, mocking, test data and reliable execution."
 date: 2026-07-09
 tags:
   - test-automation

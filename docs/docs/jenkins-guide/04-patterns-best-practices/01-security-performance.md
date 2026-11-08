@@ -1,4 +1,5 @@
 ---
+description: "Keeping Jenkins pipelines secure and fast: credentials, sandbox security, manual approval, dependency caching, parallel stages, resource limits and stash."
 date: 2026-08-25
 tags:
   - jenkins

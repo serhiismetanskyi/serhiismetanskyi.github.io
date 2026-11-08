@@ -1,6 +1,9 @@
 DOCKER_COMPOSE = docker compose
 SERVICE = zensical
 ZENSICAL = $(DOCKER_COMPOSE) run --rm $(SERVICE)
+# After every build: adds blog posts and project pages (not in nav) and <lastmod> to site/sitemap.xml
+SITEMAP_DOCKER = $(DOCKER_COMPOSE) run --rm --entrypoint python $(SERVICE) scripts/sitemap.py
+SITEMAP = uv run --locked python scripts/sitemap.py
 
 # Linters: versions come from uv.lock (djLint, Node); Biome is pinned here and fetched by npx
 # (keep it in sync with the biome hook in .pre-commit-config.yaml).
@@ -50,10 +53,12 @@ logs:
 ## build: Build the static site
 build:
 	$(ZENSICAL) build --clean --config-file zensical.toml
+	$(SITEMAP_DOCKER)
 
 ## test: Strict build, warnings are errors
 test:
 	$(ZENSICAL) build --clean --strict --config-file zensical.toml
+	$(SITEMAP_DOCKER)
 
 ## validate: Alias for test
 validate: test
@@ -71,6 +76,7 @@ fix:
 ## check: Linters + strict build with uv, as in CI
 check: lint
 	uv run --locked zensical build --strict --config-file zensical.toml
+	$(SITEMAP)
 
 ## install: .venv with Zensical and the linters, exactly as in uv.lock
 install:

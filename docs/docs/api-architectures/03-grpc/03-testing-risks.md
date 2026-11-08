@@ -1,4 +1,5 @@
 ---
+description: "gRPC test plan and risks: contract and serialization tests, RPC behavior, errors, performance, connections, security, backpressure and observability."
 date: 2026-06-05
 tags:
   - api

@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /feed_rss_created.xml
 
 Sitemap: https://serhiismetanskyi.com/sitemap.xml

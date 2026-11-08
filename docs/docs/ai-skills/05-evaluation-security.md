@@ -1,4 +1,5 @@
 ---
+description: "Evaluating and securing AI agent skills: contract, behavior and policy tests, eval specs, key metrics, security controls, threat model and governance."
 date: 2026-06-25
 tags:
   - ai-agents

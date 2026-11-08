@@ -6,7 +6,7 @@
   {% import "partials/seo.html" as seo %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="{{ seo.description(page, config) }}">
+  <meta name="description" content="{{ seo.description(page, config) | e }}">
   {% if config.site_author %}
     <meta name="author" content="{{ config.site_author }}">
   {% endif %}
@@ -26,16 +26,16 @@
   <meta name="theme-color" content="#0f766e">
 {% endblock site_meta %}
 
-{#- Home page: «Name — subtitle» instead of «Home - Name»; other pages as in the theme -#}
+{#- Home page: «Name — subtitle» instead of «Home - Name»; other pages: the unique title from partials/seo.html
+    plus « - Name», which is dropped when the whole title would be longer than 70 characters (search results cut it) -#}
 {% block htmltitle %}
+  {% import "partials/seo.html" as seo %}
   {% if page and nav.homepage and page.url == nav.homepage.url %}
-    <title>{{ config.site_name }}{% if config.extra.subtitle %} — {{ config.extra.subtitle }}{% endif %}</title>
-  {% elif page and page.meta and page.meta.title %}
-    <title>{{ page.meta.title }} - {{ config.site_name }}</title>
-  {% elif page and page.title %}
-    <title>{{ page.title | striptags }} - {{ config.site_name }}</title>
+    <title>{{ (config.site_name ~ (" — " ~ config.extra.subtitle if config.extra.subtitle else "")) | e }}</title>
   {% else %}
-    <title>{{ config.site_name }}</title>
+    {% set title = seo.title(page, config) %}
+    {% set full = title ~ " - " ~ config.site_name %}
+    <title>{{ (full if full | length <= 70 else title) | e }}</title>
   {% endif %}
 {% endblock htmltitle %}
 
@@ -72,7 +72,7 @@
   {% endif %}
   {% set meta = page.meta | d({}, true) if page else {} %}
   {% set is_home = page and nav.homepage and page.url == nav.homepage.url %}
-  {% set title = meta.title | d(page.title if page else "", true) | d(config.site_name, true) | striptags %}
+  {% set title = seo.title(page, config) %}
   {% if is_home %}
     {% set title = config.site_name ~ (" — " ~ config.extra.subtitle if config.extra.subtitle else "") %}
   {% endif %}
@@ -96,34 +96,55 @@
   {% set image = seo.absolute(own_image or ("img/post-placeholder.png" if is_post else "img/og-default.png"), config) %}
   {% set author = {"@type": "Person", "name": config.site_author | d(config.site_name, true), "url": config.site_url ~ "about/"} %}
 
-  <meta property="og:site_name" content="{{ config.site_name }}">
+  {#- The author as a full Person: the home page, About and project pages -#}
+  {% set person = {
+    "@type": "Person",
+    "name": author.name,
+    "url": author.url,
+    "image": config.site_url ~ "img/serhii-smetanskyi.jpg",
+    "jobTitle": config.extra.subtitle | d("", true),
+    "sameAs": config.extra.social | d([], true) | map(attribute="link") | select("startingwith", "http") | list
+  } %}
+
+  <meta property="og:site_name" content="{{ config.site_name | e }}">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ description }}">
+  <meta property="og:title" content="{{ title | e }}">
+  <meta property="og:description" content="{{ description | e }}">
   <meta property="og:url" content="{{ url }}">
   <meta property="og:image" content="{{ image }}">
   {% if not own_image %}
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
   {% endif %}
-  <meta property="og:image:alt" content="{{ title }}">
+  <meta property="og:image:alt" content="{{ title | e }}">
   <meta property="og:type" content="{{ 'article' if is_article else 'website' }}">
   {% if is_article %}
     <meta property="article:published_time" content="{{ published }}">
     <meta property="article:modified_time" content="{{ modified }}">
     <meta property="article:author" content="{{ author.url }}">
-    <meta property="article:section" content="{{ section }}">
+    <meta property="article:section" content="{{ section | e }}">
     {% for tag in tags %}
-      <meta property="article:tag" content="{{ tag }}">
+      <meta property="article:tag" content="{{ tag | e }}">
     {% endfor %}
   {% endif %}
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ title }}">
-  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:title" content="{{ title | e }}">
+  <meta name="twitter:description" content="{{ description | e }}">
   <meta name="twitter:image" content="{{ image }}">
-  <meta name="twitter:image:alt" content="{{ title }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ config.site_name }} — RSS" href="{{ config.site_url }}feed_rss_created.xml">
-  <link rel="alternate" type="application/feed+json" title="{{ config.site_name }} — JSON Feed" href="{{ config.site_url }}feed_json_created.json">
+  <meta name="twitter:image:alt" content="{{ title | e }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ config.site_name | e }} — RSS" href="{{ config.site_url }}feed_rss_created.xml">
+  <link rel="alternate" type="application/feed+json" title="{{ config.site_name | e }} — JSON Feed" href="{{ config.site_url }}feed_json_created.json">
+
+  {#- Project pages: the project's entry in `extra.projects` (as in project.html) -#}
+  {% set found = namespace(project=none) %}
+  {% if page and page.url is startingwith("projects/") %}
+    {% for item in config.extra.projects | d([], true) %}
+      {% if ("projects/" ~ item.slug ~ "/") == page.url %}
+        {% set found.project = item %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  {% set project = found.project %}
 
   {% if is_article %}
     {% set data = {
@@ -151,13 +172,65 @@
       "url": config.site_url,
       "description": description,
       "inLanguage": "en",
-      "author": {
-        "@type": "Person",
-        "name": author.name,
-        "url": author.url,
-        "sameAs": config.extra.social | d([], true) | map(attribute="link") | select("startingwith", "http") | list
-      }
+      "author": person
     } %}
     <script type="application/ld+json">{{ data | tojson }}</script>
+  {% elif project %}
+    {% set data = {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "name": project.title,
+      "description": description,
+      "url": url,
+      "image": image,
+      "codeRepository": "https://github.com/serhiismetanskyi/" ~ project.slug,
+      "programmingLanguage": "Python",
+      "dateCreated": project.date,
+      "keywords": project.tags | join(", "),
+      "author": person,
+      "inLanguage": "en"
+    } %}
+    <script type="application/ld+json">{{ data | tojson }}</script>
+  {% elif page and page.url == "about/" %}
+    {% set data = {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "name": title,
+      "description": description,
+      "url": url,
+      "inLanguage": "en",
+      "mainEntity": person
+    } %}
+    <script type="application/ld+json">{{ data | tojson }}</script>
+  {% endif %}
+
+  {#- Breadcrumbs for search results, the same path the page shows: Home › Blog › <category> › post,
+      Home › Projects › <category> › project, Home › Docs › <guide> › … › page (nav sections with an index page) -#}
+  {% if page and page.url and not is_home and page.content %}
+    {% set crumbs = namespace(items=[{"name": "Home", "url": config.site_url}]) %}
+    {% if page.url is startingwith("blog/") and page.url != "blog/" %}
+      {% set crumbs.items = crumbs.items + [{"name": "Blog", "url": config.site_url ~ "blog/"}] %}
+      {% if is_post and page.categories %}
+        {% set crumbs.items = crumbs.items + [{"name": page.categories[0].title, "url": config.site_url ~ page.categories[0].url}] %}
+      {% endif %}
+    {% elif page.url is startingwith("projects/") and page.url != "projects/" %}
+      {% set crumbs.items = crumbs.items + [{"name": "Projects", "url": config.site_url ~ "projects/"}] %}
+      {% if project %}
+        {% set crumbs.items = crumbs.items + [{"name": project.kind, "url": config.site_url ~ "projects/category/" ~ project.kind | lower | replace(" ", "-") ~ "/"}] %}
+      {% endif %}
+    {% else %}
+      {% for section in page.ancestors | d([], true) | list | reverse %}
+        {% set href = seo.section_url(section) %}
+        {% if href and href != page.url %}
+          {% set crumbs.items = crumbs.items + [{"name": section.title | striptags, "url": config.site_url ~ href}] %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+    {% set crumbs.items = crumbs.items + [{"name": (meta.title | d(page.title, true) | striptags | trim), "url": url}] %}
+    {% set list = namespace(items=[]) %}
+    {% for crumb in crumbs.items %}
+      {% set list.items = list.items + [{"@type": "ListItem", "position": loop.index, "name": crumb.name, "item": crumb.url}] %}
+    {% endfor %}
+    <script type="application/ld+json">{{ {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": list.items} | tojson }}</script>
   {% endif %}
 {% endblock extrahead %}

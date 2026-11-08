@@ -1,10 +1,55 @@
-{#- SEO helpers for main.html: page description, absolute URLs and the author, shared by the meta tags and JSON-LD -#}
+{#- SEO helpers for main.html: page title and description, absolute URLs and breadcrumbs, shared by the <title>,
+    the meta tags and JSON-LD. The macros return plain text: escape it (| e) inside HTML attributes, JSON-LD uses | tojson -#}
 
-{#- `description:` from front matter; otherwise the page's first paragraph, cut to ~160 characters at a word boundary;
-    otherwise the site description -#}
+{#- Page number of a paginated blog list (blog/page/2/, blog/archive/2026/page/2/), empty on the first page -#}
+{% macro page_number(page) -%}
+  {%- set parts = (page.url | split("/page/") | list) if page and page.url else [] -%}
+  {%- if parts | length > 1 -%}{{ parts[1] | replace("/", "") }}{%- endif -%}
+{%- endmacro %}
+
+{#- Top-level Docs guide of a page (Python Guide, Robot Framework…): the nav section right under Docs, or none -#}
+{% macro docs_guide(page) -%}
+  {%- set ancestors = page.ancestors | list if page and page.ancestors else [] -%}
+  {%- if ancestors | length > 1 -%}{{ ancestors[-2].title | striptags }}{%- endif -%}
+{%- endmacro %}
+
+{#- Title without the site name. Short Docs titles get their guide («CI/CD Integration — Python Guide»), blog and project
+    lists say what they list («AI Testing — Blog», «2026 — Projects Archive»), later pages of a list get «Page N»,
+    so that no two pages share a title -#}
+{% macro title(page, config) -%}
+  {%- set base = ((page.meta.title if page and page.meta and page.meta.title else (page.title if page else "")) | d(config.site_name, true) | striptags | trim) -%}
+  {%- set url = page.url if page and page.url else "" -%}
+  {%- set number = page_number(page) -%}
+  {%- if url is startingwith("blog/category/") -%}
+    {%- set base = base ~ " — Blog" -%}
+  {%- elif url is startingwith("blog/archive/") -%}
+    {%- set base = base ~ " — Blog Archive" -%}
+  {%- elif url is startingwith("projects/category/") -%}
+    {%- set base = base ~ " — Projects" -%}
+  {%- elif url is startingwith("projects/archive/") -%}
+    {%- set base = base ~ " — Projects Archive" -%}
+  {%- elif url is startingwith("docs/") -%}
+    {%- set guide = docs_guide(page) -%}
+    {%- if guide and base | length <= 32 and guide not in base -%}
+      {%- set base = base ~ " — " ~ guide -%}
+    {%- endif -%}
+  {%- endif -%}
+  {{- base ~ (" — Page " ~ number if number else "") -}}
+{%- endmacro %}
+
+{#- `description:` from front matter; blog lists get one from their category or year; otherwise the page's first
+    paragraph, cut to ~160 characters at a word boundary; otherwise the site description. Later pages of a list
+    add «Page N» -#}
 {% macro description(page, config) -%}
+  {%- set url = page.url if page and page.url else "" -%}
+  {%- set name = (page.title | striptags | trim) if page and page.title else "" -%}
+  {%- set number = page_number(page) -%}
   {%- if page and page.meta and page.meta.description -%}
     {{- page.meta.description -}}
+  {%- elif url is startingwith("blog/category/") -%}
+    {{- "Posts in the " ~ name ~ " category of Serhii Smetanskyi's blog: hands-on guides on QA, test automation and testing LLMs and AI agents." -}}
+  {%- elif url is startingwith("blog/archive/") -%}
+    {{- "Blog posts by Serhii Smetanskyi published in " ~ name ~ ": QA, test automation and testing LLMs and AI agents." -}}
   {%- else -%}
     {%- set parts = ((page.content | string) | split("<p>") | list) if page and page.content else [] -%}
     {%- set text = ((parts[1] | split("</p>") | first | striptags | trim) if parts | length > 1 else "") -%}
@@ -16,9 +61,19 @@
       {{- config.site_description -}}
     {%- endif -%}
   {%- endif -%}
+  {%- if number %} Page {{ number }}.{% endif -%}
 {%- endmacro %}
 
 {#- Site-relative path (img/…) or full URL → full URL -#}
 {% macro absolute(path, config) -%}
   {{- path if "://" in path else config.site_url ~ path -}}
+{%- endmacro %}
+
+{#- URL of a nav section: its index page, or none (a section without one is left out of the breadcrumbs) -#}
+{% macro section_url(section) -%}
+  {%- set ns = namespace(url="") -%}
+  {%- for child in section.children or [] -%}
+    {%- if child.is_index and not ns.url -%}{%- set ns.url = child.url -%}{%- endif -%}
+  {%- endfor -%}
+  {{- ns.url -}}
 {%- endmacro %}

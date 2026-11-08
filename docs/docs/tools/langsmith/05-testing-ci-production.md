@@ -1,4 +1,5 @@
 ---
+description: "LangSmith for testing and production: the pytest plugin, regression gates in CI, asserting on traces, monitoring, alerts, cost tracking and PII retention."
 date: 2026-10-22 12:00:00
 tags:
   - tools

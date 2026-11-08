@@ -7,6 +7,9 @@ description: API test suite for the ServeRest e-commerce REST API built with pyt
 tags:
   - api-testing
   - requests
+  - docker
+  - uv
+  - python
   - pytest
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Docker commands cheat sheet: images, container lifecycle, exec, logs and copy, inspect and stats, cleanup, registries and multi-platform builds."
 date: 2026-09-03
 tags:
   - tools

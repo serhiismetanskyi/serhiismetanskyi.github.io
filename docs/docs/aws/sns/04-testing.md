@@ -1,4 +1,5 @@
 ---
+description: "Testing Amazon SNS systems: what to test at unit, contract, Stubber, moto and real AWS levels — fan-out, filter policies, FIFO, retries and DLQ."
 date: 2026-10-21 12:00:00
 tags:
   - aws

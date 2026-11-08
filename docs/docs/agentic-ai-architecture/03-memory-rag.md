@@ -1,4 +1,5 @@
 ---
+description: "Memory and RAG for AI agents: short- and long-term memory, the RAG pipeline, retrieval methods, chunking, vector databases and intent-routed RAG in chatbots."
 date: 2026-06-22
 tags:
   - ai-agents

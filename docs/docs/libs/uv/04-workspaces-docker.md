@@ -1,4 +1,5 @@
 ---
+description: "uv workspaces, Docker and CI: monorepo members, Dockerfiles for development and production, GitHub Actions, caching and environment variables."
 date: 2026-09-25
 tags:
   - python

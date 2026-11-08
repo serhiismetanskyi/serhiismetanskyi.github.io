@@ -8,7 +8,11 @@ tags:
   - databases
   - sqlalchemy
   - alembic
+  - postgresql
+  - pydantic
   - docker
+  - uv
+  - python
   - pytest
 ---
 

@@ -1,4 +1,5 @@
 ---
+description: "Client–server architecture: protocols, CDN and load balancers, API gateways, service mesh, connections and backpressure, scaling, reliability and testing."
 date: 2026-06-09
 tags:
   - architecture

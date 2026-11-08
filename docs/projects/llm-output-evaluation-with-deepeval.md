@@ -8,9 +8,11 @@ tags:
   - ai-testing
   - llm-evaluation
   - deepeval
-  - pytest
   - pydantic
+  - docker
   - uv
+  - python
+  - pytest
 ---
 
 # LLM Output Evaluation with DeepEval

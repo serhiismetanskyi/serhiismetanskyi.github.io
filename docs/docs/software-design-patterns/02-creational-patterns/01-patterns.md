@@ -1,4 +1,5 @@
 ---
+title: "Creational Patterns: Singleton, Factory, Builder, Prototype"
 date: 2026-06-17
 tags:
   - design-patterns

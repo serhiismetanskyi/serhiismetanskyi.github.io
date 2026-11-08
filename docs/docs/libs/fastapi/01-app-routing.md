@@ -1,4 +1,5 @@
 ---
+description: "FastAPI app and routing: app configuration, path and query parameters, request bodies and response models, status codes, APIRouter, headers, forms and files."
 date: 2026-09-12
 tags:
   - python

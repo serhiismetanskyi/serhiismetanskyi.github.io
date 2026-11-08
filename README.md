@@ -35,8 +35,10 @@ make hooks     # install pre-commit hooks
 
 ```
 docs/          pages: blog/, docs/, projects/, css/, js/, img/
-overrides/     theme templates
+overrides/     theme templates (meta tags, JSON-LD and titles: main.html, partials/seo.html)
+scripts/       sitemap.py: completes site/sitemap.xml after the build; indexnow.py: pings IndexNow after a deploy
 zensical.toml  site config, navigation and the project list
 ```
 
-Every push to `main` is built and deployed by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
+Every push to `main` is built and deployed by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml);
+new and updated pages are then sent to IndexNow (Bing, Yandex).

@@ -7,6 +7,9 @@ description: API test suite for Restful-Booker built with pytest and requests â€
 tags:
   - api-testing
   - requests
+  - docker
+  - uv
+  - python
   - pytest
 ---
 

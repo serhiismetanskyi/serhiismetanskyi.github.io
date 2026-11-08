@@ -1,4 +1,5 @@
 ---
+description: "Building and publishing Python packages with uv: build backends, uv build, versioning, uv publish, trusted publishing from CI, audit and a release checklist."
 date: 2026-09-25
 tags:
   - python

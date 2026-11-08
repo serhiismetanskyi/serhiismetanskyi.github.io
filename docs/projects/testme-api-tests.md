@@ -7,6 +7,10 @@ description: API test suite for the TestMe test case management app built with P
 tags:
   - api-testing
   - playwright
+  - pydantic
+  - docker
+  - uv
+  - python
   - pytest
 ---
 

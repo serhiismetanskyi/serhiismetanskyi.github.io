@@ -1,4 +1,5 @@
 ---
+description: "Linux terminal search and text processing: finding files, searching inside files, pipes and redirects, command chaining, sorting, deduplicating and counting."
 date: 2026-09-07
 tags:
   - tools

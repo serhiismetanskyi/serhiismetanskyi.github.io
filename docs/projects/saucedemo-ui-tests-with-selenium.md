@@ -7,6 +7,9 @@ description: UI test suite for the SauceDemo e-commerce site built with Selenium
 tags:
   - ui-testing
   - selenium
+  - docker
+  - uv
+  - python
   - pytest
 ---
 

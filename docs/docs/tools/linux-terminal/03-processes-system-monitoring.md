@@ -1,4 +1,5 @@
 ---
+description: "Linux processes and system monitoring: listing and watching processes, killing them, background jobs, systemd services, logs, memory and disk."
 date: 2026-09-07
 tags:
   - tools

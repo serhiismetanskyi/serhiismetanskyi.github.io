@@ -1121,7 +1121,7 @@ title = "LLM Output Evaluation with Clef"
 kind = "AI Testing"
 icon = "material/robot-outline"
 description = "Scores mocked LLM outputs with Cloudflare clef-flash, a local decision model in Ollama, with HTML reports."
-tags = ["ai-testing", "llm-evaluation", "clef", "ollama", "pytest", "pydantic", "uv"]
+tags = ["ai-testing", "llm-evaluation", "clef", "ollama", "httpx", "pydantic", "docker", "uv", "python", "pytest"]
 
 [[project.extra.projects]]
 slug = "llm-output-evaluation-with-deepeval"
@@ -1130,7 +1130,7 @@ title = "LLM Output Evaluation with DeepEval"
 kind = "AI Testing"
 icon = "material/robot-outline"
 description = "Scores LLM output quality with DeepEval metrics and LLM-as-a-judge, with HTML reports."
-tags = ["ai-testing", "llm-evaluation", "deepeval", "pytest", "pydantic", "uv"]
+tags = ["ai-testing", "llm-evaluation", "deepeval", "pydantic", "docker", "uv", "python", "pytest"]
 
 [[project.extra.projects]]
 slug = "saucedemo-ui-tests-with-playwright"
@@ -1139,7 +1139,7 @@ title = "SauceDemo UI Tests with Playwright"
 kind = "UI Testing"
 icon = "material/monitor-dashboard"
 description = "UI tests for the SauceDemo e-commerce site, headless or in a visible browser, with HTML reports."
-tags = ["ui-testing", "playwright", "pytest"]
+tags = ["ui-testing", "playwright", "docker", "uv", "python", "pytest"]
 
 [[project.extra.projects]]
 slug = "saucedemo-ui-tests-with-selenium"
@@ -1148,7 +1148,7 @@ title = "SauceDemo UI Tests with Selenium"
 kind = "UI Testing"
 icon = "material/monitor-dashboard"
 description = "UI tests for SauceDemo with Selenium WebDriver, headless or in a visible browser, with HTML reports."
-tags = ["ui-testing", "selenium", "pytest"]
+tags = ["ui-testing", "selenium", "docker", "uv", "python", "pytest"]
 
 [[project.extra.projects]]
 slug = "serverest-api-tests"
@@ -1157,7 +1157,7 @@ title = "ServeRest API Tests"
 kind = "API Testing"
 icon = "material/api"
 description = "API tests for ServeRest, a REST API with e-commerce scenarios."
-tags = ["api-testing", "requests", "pytest"]
+tags = ["api-testing", "requests", "docker", "uv", "python", "pytest"]
 
 [[project.extra.projects]]
 slug = "restfulbooker-api-tests"
@@ -1166,7 +1166,7 @@ title = "Restful-Booker API Tests"
 kind = "API Testing"
 icon = "material/api"
 description = "API tests for Restful-Booker, a practice booking API."
-tags = ["api-testing", "requests", "pytest"]
+tags = ["api-testing", "requests", "docker", "uv", "python", "pytest"]
 
 [[project.extra.projects]]
 slug = "testme-api-tests"
@@ -1175,7 +1175,7 @@ title = "TestMe API Tests"
 kind = "API Testing"
 icon = "material/api"
 description = "API tests for the TestMe API, written with Playwright and pytest."
-tags = ["api-testing", "playwright", "pytest"]
+tags = ["api-testing", "playwright", "pydantic", "docker", "uv", "python", "pytest"]
 
 [[project.extra.projects]]
 slug = "testme-load-tests"
@@ -1184,7 +1184,7 @@ title = "TestMe Load Tests"
 kind = "Load Testing"
 icon = "material/speedometer"
 description = "Load tests for TestMe, a test case management system."
-tags = ["load-testing", "locust", "requests"]
+tags = ["load-testing", "locust", "requests", "docker", "uv", "python"]
 
 [[project.extra.projects]]
 slug = "petstore-load-tests"
@@ -1193,7 +1193,7 @@ title = "PetStore Load Tests"
 kind = "Load Testing"
 icon = "material/speedometer"
 description = "Load tests for the Swagger PetStore API, with HTML and CSV reports."
-tags = ["load-testing", "locust", "requests"]
+tags = ["load-testing", "locust", "requests", "docker", "uv", "python"]
 
 [[project.extra.projects]]
 slug = "database-tests-with-sqlalchemy"
@@ -1202,7 +1202,7 @@ title = "Database Tests with SQLAlchemy"
 kind = "Database Testing"
 icon = "material/database-outline"
 description = "Spins up Postgres in Docker, runs Alembic migrations, seeds test data and runs CRUD tests with HTML reports."
-tags = ["databases", "sqlalchemy", "alembic", "docker", "pytest"]
+tags = ["databases", "sqlalchemy", "alembic", "postgresql", "pydantic", "docker", "uv", "python", "pytest"]
 
 [[project.extra.social]]
 icon = "fontawesome/brands/github"

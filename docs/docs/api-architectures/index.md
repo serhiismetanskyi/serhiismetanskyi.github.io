@@ -1,4 +1,5 @@
 ---
+description: "API architectures for testers and engineers: REST, GraphQL, gRPC and WebSocket — design, data contracts, caching, errors, security and test plans with code."
 date: 2026-06-01
 tags:
   - api

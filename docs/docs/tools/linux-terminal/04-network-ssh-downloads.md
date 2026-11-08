@@ -1,4 +1,5 @@
 ---
+description: "Linux network basics: local network info, legacy commands, connectivity and DNS checks, downloading files, SSH and copying files over SSH."
 date: 2026-09-07
 tags:
   - tools
