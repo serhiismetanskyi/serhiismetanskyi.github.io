@@ -31,6 +31,71 @@
   --icon-arrow: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>');
 }
 
+/* ---------- Lines: one width and colour for the whole site ----------
+   Borders of cards, buttons, inputs and icons, separators, hr, tables and the theme's own lines all use these,
+   the same as the home page buttons. Defined on [data-md-color-scheme] too, so the colour follows dark mode.
+   Accent lines (hover/active colour, focus outlines, the active tab underline) stay as they are */
+:root,
+[data-md-color-scheme] {
+  --line-color: var(--md-default-fg-color--lighter);
+  --line: 1px solid var(--line-color);
+  --md-typeset-table-color: var(--line-color);
+}
+
+.md-typeset hr,
+.md-nav .md-nav__title[for="__drawer"],
+.md-post__back,
+.md-sidebar.md-sidebar--post .md-post__authors,
+.md-typeset .pyodide-editor-bar,
+.highlight span.filename {
+  border-bottom: var(--line);
+}
+
+.md-typeset .md-input {
+  border-bottom-width: 1px;
+  border-bottom-color: var(--line-color);
+}
+
+.md-footer,
+.md-sidebar.md-sidebar--post .md-post__meta + .md-post__meta {
+  border-top: var(--line);
+}
+
+.md-typeset table:not([class]),
+.md-nav__source,
+.doc-label code,
+.md-typeset .grid.cards > ol > li,
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid > .card {
+  border: var(--line);
+}
+
+.md-typeset table:not([class]) td {
+  border-top: var(--line);
+}
+
+[dir="ltr"] .md-nav--integrated > .md-nav__list > .md-nav__item--active .md-nav--secondary {
+  border-left: var(--line);
+}
+
+[dir="rtl"] .md-nav--integrated > .md-nav__list > .md-nav__item--active .md-nav--secondary {
+  border-right: var(--line);
+}
+
+.md-header--shadow {
+  box-shadow: 0 1px 0 var(--line-color);
+}
+
+.md-tabs,
+.md-typeset .tabbed-labels {
+  box-shadow: 0 -1px 0 inset var(--line-color);
+}
+
+.highlight [data-linenos]::before,
+.highlighttable .linenodiv {
+  box-shadow: -1px 0 var(--line-color) inset;
+}
+
 /* ---------- Arrow icon after links (colored by the link's `color`) ---------- */
 .md-typeset .latest li a::after,
 .md-typeset .latest__all::after,
@@ -67,7 +132,7 @@
 
 .md-header__subtitle {
   padding-left: 0.7rem;
-  border-left: 1px solid var(--md-default-fg-color--lighter);
+  border-left: var(--line);
   color: var(--md-default-fg-color--light);
   font-size: 0.7rem;
   font-weight: 400;
@@ -130,7 +195,7 @@
   gap: 0.35em;
   margin: 0;
   padding: 0.3em 0.9em;
-  border: 2px solid var(--md-default-fg-color--lighter); /* darker border than --lightest */
+  border: var(--line);
   border-radius: 999px;
   background: none;
   color: var(--md-default-fg-color);
@@ -213,7 +278,7 @@
 /* ---------- Footer site section (overrides/partials/footer.html) ----------
    Logo, name and subtitle on the left; the header's pages as a row of links on the right */
 .site-footer {
-  border-top: 1px solid var(--md-default-fg-color--lightest);
+  border-top: var(--line);
 }
 
 .site-footer__inner {
@@ -266,7 +331,7 @@
   gap: 0.2rem 0;
   margin: 0 -0.6rem;
   /* the line under the tabs, like the header's .md-tabs; the active item's border sits on it */
-  box-shadow: 0 -0.05rem 0 inset var(--md-default-fg-color--lightest);
+  box-shadow: 0 -1px 0 inset var(--line-color);
 }
 
 .md-typeset .site-footer__nav a {
@@ -324,7 +389,7 @@
     height: 2.2rem;
     margin: 0;
     padding: 0;
-    border: 2px solid var(--md-default-fg-color--lightest);
+    border: var(--line);
     border-radius: 0.5rem;
     background: none;
     color: var(--md-default-fg-color);
@@ -368,12 +433,12 @@
 
   .md-typeset .site-footer__menu-button:not([hidden]) + .site-footer__nav a {
     padding: 0.55rem 0;
-    border-bottom: 0.05rem solid var(--md-default-fg-color--lightest);
+    border-bottom: var(--line);
     font-size: 0.8rem;
   }
 
   .md-typeset .site-footer__menu-button:not([hidden]) + .site-footer__nav a.site-footer__link--active {
-    border-bottom-color: var(--md-default-fg-color--lightest);
+    border-bottom-color: var(--line-color);
     color: var(--md-accent-fg-color);
   }
 }
@@ -404,7 +469,7 @@
   height: 2rem;
   margin: 0;
   padding: 0 0.6rem;
-  border: 2px solid var(--md-default-fg-color--lightest);
+  border: var(--line);
   border-radius: 0.6rem;
   font-variant-numeric: tabular-nums;
   line-height: 1;
@@ -645,7 +710,7 @@
   align-items: center;
   gap: 0.15rem;
   padding: 0.25rem;
-  border: 2px solid var(--md-default-fg-color--lightest);
+  border: var(--line);
   border-radius: 0.7rem;
   background: var(--md-default-bg-color);
   box-shadow: 0 4px 16px rgb(0 0 0 / 0.14);
@@ -693,7 +758,7 @@
 /* The close button sits apart from the zoom controls */
 .mermaid-viewer__toolbar button[data-action="close"] {
   margin-left: 0.3rem;
-  border-left: 1px solid var(--md-default-fg-color--lightest);
+  border-left: var(--line);
   border-radius: 0 0.5rem 0.5rem 0;
 }
 
