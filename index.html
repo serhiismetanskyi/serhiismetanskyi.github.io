@@ -460,55 +460,56 @@
     @media print {
       :root { --bg: #fff; --fg: #111; --fg-light: #555; --primary: #0f766e; --accent-tint: #0d94881a; --line-color: #ccc; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      html { font-size: 95%; }
       html, body { background: #fff !important; }
-      body { font-size: .62rem; line-height: 1.5; background-image: none; orphans: 3; widows: 3; }
+      body { font-size: .7rem; line-height: 1.65; background-image: none; orphans: 3; widows: 3; }
       main { max-width: none; padding: 0; }
       .skip-link, .site-header, .site-footer, .cv-typed, .to-top, .progress, .btn--primary { display: none !important; }
       h2::before { content: none; }
       .js .reveal { opacity: 1 !important; transform: none !important; }
       a { color: var(--primary); text-decoration: none; }
-      .btn { padding: .2em .8em; border-color: var(--primary); color: var(--primary); font-size: .6rem; }
+      .btn { padding: .2em .8em; border-color: var(--primary); color: var(--primary); font-size: .66rem; }
       .btn svg { width: .95em; height: .95em; }
 
       /* Header: photo, name, role and contact buttons */
       .cv-header { margin: 0 0 .6rem; padding: 6px 0 0 8px; gap: 1.1rem; }
       .cv-photo { width: 5rem; min-width: 5rem; height: 5rem; }
-      .cv-intro h1 { font-size: 1.5rem; }
-      .cv-role { margin: .1em 0 .5em; font-size: .75rem; }
+      .cv-intro h1 { font-size: 1.65rem; }
+      .cv-role { margin: .1em 0 .55em; font-size: .82rem; }
 
-      h2 { margin: 1.1em 0 .45em; font-size: .95rem; break-after: avoid; }
-      p { margin: 0 0 .6em; }
+      h2 { margin: 1.2em 0 .55em; font-size: 1.05rem; break-after: avoid; }
+      p { margin: 0 0 .75em; }
       section { break-inside: auto; }
 
       /* Experience / education */
       .cv-list { margin-top: 0; }
-      .cv-entry { --logo: 1.8rem; --gap: .8rem; position: relative; display: block; padding: .4rem 0 .45rem calc(var(--logo) + var(--gap)); break-inside: auto; }
+      .cv-entry { --logo: 1.8rem; --gap: .8rem; position: relative; display: block; padding: .5rem 0 .55rem calc(var(--logo) + var(--gap)); break-inside: auto; }
       .cv-entry:first-child { padding-top: .2rem; }
-      .cv-logo { position: absolute; top: .4rem; left: 0; font-size: .62rem; border-radius: .45rem; }
+      .cv-logo { position: absolute; top: .5rem; left: 0; font-size: .68rem; border-radius: .45rem; }
       .cv-logo svg { width: 1.1rem; height: 1.1rem; }
-      .cv-entry h3 { font-size: .78rem; break-after: avoid; }
-      .cv-meta, .cv-date { break-after: avoid; font-size: .56rem; }
-      .cv-position { display: block; margin-left: calc(-1 * (var(--logo) + var(--gap))); padding: .4rem 0 0 calc(var(--logo) + var(--gap)); break-inside: avoid; }
-      .cv-position::before { top: .62rem; left: calc(var(--logo) / 2 - 4px); }
-      .cv-position h4 { font-size: .68rem; break-after: avoid; }
-      .cv-position ul { margin: .25em 0 0; padding-left: .9rem; }
-      .cv-position li { margin-bottom: .1em; font-size: .6rem; line-height: 1.5; break-inside: avoid; }
+      .cv-entry h3 { font-size: .86rem; break-after: avoid; }
+      .cv-meta, .cv-date { break-after: avoid; font-size: .62rem; }
+      .cv-position { display: block; margin-left: calc(-1 * (var(--logo) + var(--gap))); padding: .55rem 0 0 calc(var(--logo) + var(--gap)); break-inside: auto; }
+      .cv-position::before { top: .8rem; left: calc(var(--logo) / 2 - 4px); }
+      .cv-position h4 { font-size: .76rem; break-after: avoid; }
+      .cv-position ul { margin: .35em 0 0; padding-left: 1rem; }
+      .cv-position li { margin-bottom: .2em; font-size: .68rem; line-height: 1.65; break-inside: avoid; }
 
       /* Skills */
-      .skills ul { gap: .2rem; break-inside: avoid; }
-      .skills li { padding: .05em .55em; border: 1px solid #ccc; background: none; font-size: .53rem; line-height: 1.55; }
+      .skills ul { gap: .25rem; break-inside: avoid; }
+      .skills li { padding: .05em .6em; border: 1px solid #ccc; background: none; font-size: .6rem; line-height: 1.6; }
       .skills--grouped { display: block; }
-      .skills--grouped > p { float: left; clear: left; width: 8.4rem; margin: 0; padding-top: .15em; font-size: .52rem; break-inside: avoid; }
-      .skills--grouped ul { margin: 0 0 .22rem 9.2rem; }
+      .skills--grouped > p { float: left; clear: left; width: 9.2rem; margin: 0; padding-top: .2em; font-size: .56rem; break-inside: avoid; }
+      .skills--grouped ul { margin: 0 0 .3rem 10rem; }
       .skills--grouped::after { content: ""; display: block; clear: both; }
 
       /* Projects and articles */
-      .cv-projects li { padding: .3em 0; gap: 0 .8rem; break-inside: avoid; }
-      .cv-projects a { color: #111; font-size: .64rem; }
-      .cv-projects__desc { font-size: .55rem; line-height: 1.4; }
-      .cv-projects__kind { font-size: .55rem; }
-      .cv-projects__kind[data-kind] { padding: 0 .55em; border: 1px solid #ccc; background: none !important; color: #111 !important; font-size: .53rem; }
-      .articles-more { margin: .45rem 0 0; font-size: .6rem; }
+      .cv-projects li { padding: .4em 0; gap: 0 .8rem; break-inside: avoid; }
+      .cv-projects a { color: #111; font-size: .72rem; }
+      .cv-projects__desc { font-size: .62rem; line-height: 1.5; }
+      .cv-projects__kind { font-size: .62rem; }
+      .cv-projects__kind[data-kind] { padding: 0 .55em; border: 1px solid #ccc; background: none !important; color: #111 !important; font-size: .6rem; }
+      .articles-more { margin: .55rem 0 0; font-size: .68rem; }
     }
   </style>
 </head>
