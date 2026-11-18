@@ -463,12 +463,11 @@
     @media print {
       :root { --bg: #fff; --fg: #111; --fg-light: #555; --primary: #0f766e; --accent-tint: #0d94881a; --line-color: #ccc; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      html { font-size: 95%; }
+      html { font-size: 92%; }
       html, body { background: #fff !important; }
       body { font-size: .7rem; line-height: 1.65; background-image: none; orphans: 3; widows: 3; }
       main { max-width: none; padding: 0; }
       .skip-link, .site-header, .site-footer, .cv-typed, .to-top, .progress, .btn--primary { display: none !important; }
-      h2::before { content: none; }
       .js .reveal { opacity: 1 !important; transform: none !important; }
       a { color: var(--primary); text-decoration: none; }
       .btn { padding: .2em .8em; border-color: var(--primary); color: var(--primary); font-size: .66rem; }
@@ -486,9 +485,10 @@
 
       /* Experience / education */
       .cv-list { margin-top: 0; }
-      .cv-entry { --logo: 1.8rem; --gap: .8rem; position: relative; display: block; padding: .5rem 0 .55rem calc(var(--logo) + var(--gap)); break-inside: auto; }
-      .cv-entry + .cv-entry { border-top: 0; padding-top: .5rem; }
+      .cv-entry { --logo: 1.8rem; --gap: .8rem; position: relative; display: block; padding: .5rem 0 .7rem calc(var(--logo) + var(--gap)); break-inside: auto; }
+      .cv-entry + .cv-entry { border-top: var(--line); padding-top: .8rem; }
       .cv-entry:first-child { padding-top: .2rem; }
+      .cv-entry + .cv-entry .cv-logo { top: .8rem; }
       .cv-logo { position: absolute; top: .5rem; left: 0; font-size: .68rem; border-radius: .45rem; }
       .cv-logo svg { width: 1.1rem; height: 1.1rem; }
       .cv-entry h3 { font-size: .86rem; break-after: avoid; }
@@ -500,20 +500,21 @@
       .cv-position li { margin-bottom: .2em; font-size: .68rem; line-height: 1.65; break-inside: avoid; }
 
       /* Skills */
-      .skills ul { gap: .25rem; break-inside: avoid; }
-      .skills li { padding: .05em .6em; border: 1px solid #ccc; background: none; font-size: .6rem; line-height: 1.6; }
-      .skills--grouped { display: block; }
-      .skills--grouped > p, .skills--grouped > ul { border-top: 0; padding: 0; }
-      .skills--grouped > p { float: left; clear: left; width: 9.2rem; margin: 0; padding-top: .2em; font-size: .56rem; break-inside: avoid; }
-      .skills--grouped ul { margin: 0 0 .3rem 10rem; }
-      .skills--grouped::after { content: ""; display: block; clear: both; }
+      .skills li { padding: .08em .65em; border: 0; background: var(--accent-tint); font-size: .6rem; line-height: 1.6; }
+      .skills ul { gap: .3rem .25rem; break-inside: avoid; }
+      .skills--grouped { display: grid; grid-template-columns: 9.6rem 1fr; gap: 0; align-items: start; }
+      .skills--grouped > p { margin: 0; padding: .6rem .4rem .45rem 0; border-top: var(--line); font-size: .56rem; break-inside: avoid; }
+      .skills--grouped > ul { margin: 0; padding: .45rem 0; border-top: var(--line); break-inside: avoid; }
+      .skills--grouped > :nth-child(-n+2) { border-top: 0; }
+      .skills--grouped > ul:nth-child(2) { padding-top: 0; }
+      .skills--grouped > p:first-child { padding-top: .15rem; }
 
       /* Projects and articles */
       .cv-projects li { padding: .4em 0; gap: 0 .8rem; break-inside: avoid; }
       .cv-projects a { color: #111; font-size: .72rem; }
       .cv-projects__desc { font-size: .62rem; line-height: 1.5; }
       .cv-projects__kind { font-size: .62rem; }
-      .cv-projects__kind[data-kind] { padding: 0 .55em; border: 1px solid #ccc; background: none !important; color: #111 !important; font-size: .6rem; }
+      .cv-projects__kind[data-kind] { padding: 0 .6em; border: 0; background: var(--accent-tint) !important; color: #111 !important; font-size: .6rem; }
       .articles-more { margin: .55rem 0 0; font-size: .68rem; }
     }
   </style>
