@@ -461,7 +461,11 @@
     /* ---------- Print / Save as PDF ---------- */
     @page { size: A4; margin: 12mm 14mm 13mm; }
     @media print {
-      :root { --bg: #fff; --fg: #111; --fg-light: #555; --primary: #0f766e; --accent-tint: #0d94881a; --line-color: #ccc; }
+      /* Always print in the light palette, whatever theme is active on screen */
+      :root:root:root {
+        --bg: #fff; --fg: #111; --fg-light: #555; --primary: #0f766e; --primary-dark: #115e59; --accent-tint: #0d94881a; --on-primary: #fff;
+        --line-color: #ccc; color-scheme: light;
+      }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       html { font-size: 92%; }
       html, body { background: #fff !important; }
